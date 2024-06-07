@@ -4,10 +4,15 @@
     home.homeDirectory = "/home/manuel";
     home.packages = with pkgs; [
         firefox
+        thunderbird
         tree
         zed-editor
-        nil
+        nil # Nix language server
     ];
+    home.sessionVariables = {
+      # Flatpak XDG_DATA_DIRS
+      XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    };
 
     xdg = {
       enable = true;
@@ -21,11 +26,14 @@
         pictures = "/home/manuel/Pictures";
         videos = "/home/manuel/Videos";
       };
-    };
 
-    # DO NOT CHANGE:
-    # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-    home.stateVersion = "24.05"; # Did you read the comment?
+      configFile = {
+        "sway" = {
+            source = "../dotfiles/sway";
+            recursive = true;
+        };
+      };
+    };
 
     fonts.fontconfig = {
       enable = true;
@@ -35,4 +43,24 @@
         ];
       };
     };
+
+    programs.zsh = {
+      enable = true;
+      dotDir = ".config/zsh";
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      shellAliases = {
+        ls = "ls --group-directories-first --color=auto";
+        ll = "ls -l";
+        la = "ls -a";
+        lla = "ls -la";
+        gst = "git status";
+      };
+      initExtra = (builtins.readFile ../dotfiles/zshrc);
+    };
+
+    # DO NOT CHANGE:
+    # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
+    home.stateVersion = "24.05"; # Did you read the comment?
 }

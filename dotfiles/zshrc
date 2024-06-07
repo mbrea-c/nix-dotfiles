@@ -1,0 +1,38 @@
+#            _
+#    _______| |__  _ __ ___
+#   |_  / __| '_ \| '__/ __|
+#  _ / /\__ \ | | | | | (__
+# (_)___|___/_| |_|_|  \___|
+#
+
+# Aliases
+alias rm='echo "\e[41;1mCAREFUL THERE:\e[0;31m YOU PROBABLY WANT A DIFFERENT COMMAND\nTry\e[0;32m trash-put \e[0;31minstead\e[0m\n"' # Prevents you from deleting your user directory (yes, really)
+
+# Use vim as default texinfo reader
+# viminfo () {
+#     nvim -R -M -c "Info $1 $2" +only
+# }
+# alias info=viminfo
+
+# Options
+# setopt nobeep
+
+autoload -Uz compinit
+
+fpath+=~/.config/zsh/zfunc
+
+compinit
+# End of lines added by compinstall
+
+# Lines configured by zsh-newuser-install
+bindkey -v
+# End of lines configured by zsh-newuser-install
+
+# Functions
+parse_git_branch() {
+	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+setopt promptsubst
+PROMPT='%F{8}[%(?.%F{2}.%F{1})%1~%F{8}]%(#.#.$)%F{2}%B$(parse_git_branch)%f%b '
+#RPROMPT='%F{8}]'

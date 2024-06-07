@@ -17,6 +17,10 @@
   # Flakes and nix-command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  services.flatpak.enable = true;
+  services.fwupd.enable = true;
+  services.power-profiles-daemon.enable = true;
+
   # Kernel package version
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -24,7 +28,7 @@
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
-  time.timeZone = "Europe/Amsterdam";
+  time.timeZone = "Europe/London";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -61,7 +65,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manuel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "video" "input" "audio" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
   };
@@ -72,6 +76,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
+    gnome.gnome-system-monitor # should this go in home config?
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
