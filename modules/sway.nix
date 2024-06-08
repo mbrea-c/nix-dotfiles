@@ -5,6 +5,8 @@
         mako
         alacritty
         wofi
+        wdisplays
+        rofi-wayland
     ];
 
     programs.sway = {

@@ -2,12 +2,13 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
-
+{ config, lib, pkgs, inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       ../hardware/nixframe.nix
+      ../modules/sway.nix
+      inputs.nixos-cosmic.nixosModules.default
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -30,10 +31,6 @@
   # Set your time zone.
   time.timeZone = "Europe/London";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   # i18n.defaultLocale = "en_US.UTF-8";
   # console = {
@@ -45,10 +42,6 @@
   # Cosmic greeter and DE
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
-
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -66,9 +59,11 @@
   users.users.manuel = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "video" "input" "audio" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
     ];
   };
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -79,6 +74,7 @@
     gnome.gnome-system-monitor # should this go in home config?
   ];
 
+  programs.zsh.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

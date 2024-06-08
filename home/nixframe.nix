@@ -8,6 +8,8 @@
         tree
         zed-editor
         nil # Nix language server
+        pavucontrol
+        amdgpu_top
     ];
     home.sessionVariables = {
       # Flatpak XDG_DATA_DIRS
@@ -29,7 +31,7 @@
 
       configFile = {
         "sway" = {
-            source = "../dotfiles/sway";
+            source = ../dotfiles/sway;
             recursive = true;
         };
       };
