@@ -10,6 +10,8 @@
         nil # Nix language server
         pavucontrol
         amdgpu_top
+	xorg.xrandr
+	fastfetch
     ];
     home.sessionVariables = {
       # Flatpak XDG_DATA_DIRS

@@ -15,6 +15,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Issues with dynamically linked libraries
+  programs.nix-ld.enable = true;
+
   # Flakes and nix-command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

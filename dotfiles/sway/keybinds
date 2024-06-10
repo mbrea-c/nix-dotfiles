@@ -16,7 +16,8 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show run
+set $menu rofi -dmenu -matching fuzzy
+set $menu_launcher rofi -show drun -matching fuzzy -show-icons
 
 ### Key bindings
 #
@@ -32,7 +33,7 @@ set $menu wofi --show run
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $menu_launcher
 
     # bindsym $mod+Shift+d exec dmenu-colored -g
     # bindsym $mod+e exec dmenu-colored -b
