@@ -5,6 +5,7 @@
     home.packages = with pkgs; [
         firefox
         thunderbird
+        alacritty
         tree
         zed-editor
         nil # Nix language server
@@ -36,14 +37,32 @@
             source = ../dotfiles/sway;
             recursive = true;
         };
+        "waybar" = {
+            source = ../dotfiles/waybar;
+            recursive = true;
+        };
       };
     };
 
+    # Fontconfig font fallbacks
     fonts.fontconfig = {
       enable = true;
       defaultFonts = {
         sansSerif = [
           "Ubuntu"
+          "Font Awesome 7 Free"
+          "Noto Color Emoji"
+        ];
+        monospace = [
+          "Cascadia Mono PL"
+          "Font Awesome 7 Free"
+          "Noto Color Emoji"
+          "FiraCode Nerd Font"
+        ];
+        serif = [
+          "NotoSerif Nerd Font"
+          "Font Awesome 7 Free"
+          "Noto Color Emoji"
         ];
       };
     };

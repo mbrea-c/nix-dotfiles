@@ -3,10 +3,10 @@
     environment.systemPackages = with pkgs; [
         wl-clipboard
         mako
-        alacritty
         wofi
         wdisplays
         rofi-wayland
+        swaybg
     ];
 
     programs.sway = {
@@ -16,4 +16,6 @@
             gtk = true;
         };
     };
+
+    programs.waybar.enable = true;
 }

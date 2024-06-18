@@ -8,7 +8,7 @@
     [ # Include the results of the hardware scan.
       ../hardware/nixframe.nix
       ../modules/sway.nix
-      inputs.nixos-cosmic.nixosModules.default
+      ../modules/cosmic.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -26,7 +26,7 @@
   services.power-profiles-daemon.enable = true;
 
   # Kernel package version
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_8;
 
   networking.hostName = "nixframe"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -75,7 +75,12 @@
     wget
     git
     gnome.gnome-system-monitor # should this go in home config?
+    gnome.seahorse
   ];
+
+  # environment.variables = {
+  #   XDG_RUNTIME_DIR = "/run/user/$UID";
+  # };
 
   programs.zsh.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
@@ -86,7 +91,10 @@
   #   enableSSHSupport = true;
   # };
   fonts.packages = with pkgs; [
+    font-awesome
     ubuntu_font_family
+    cascadia-code
+    nerdfonts
   ];
 
   # DO NOT CHANGE:
