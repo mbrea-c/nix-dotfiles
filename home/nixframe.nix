@@ -1,5 +1,13 @@
-{ pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: let
+    zed-fhs = pkgs.buildFHSUserEnv {
+      name = "zed";
+      targetPkgs = pkgs:
+        with pkgs; [
+          zed-editor
+        ];
+      runScript = "zed";
+    };
+in {
     imports = [
         inputs.nix-colors.homeManagerModules.default
         ../modules/sway-home.nix
@@ -14,7 +22,7 @@
         thunderbird
         alacritty
         tree
-        zed-editor
+        zed-fhs
         nil # Nix language server
         pavucontrol
         amdgpu_top
