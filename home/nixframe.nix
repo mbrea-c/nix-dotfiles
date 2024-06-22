@@ -28,6 +28,7 @@ in {
         amdgpu_top
         gnome.gnome-system-monitor
         gnome.seahorse
+        gcc
         rustup
         xorg.xrandr
         fastfetch
@@ -38,7 +39,7 @@ in {
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     };
 
-    home.sessionPath = home.sessionPath ++ [
+    home.sessionPath = [
         "$HOME/.cargo/bin"
     ];
 
