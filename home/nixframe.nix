@@ -96,7 +96,6 @@ in {
         la = "ls -a";
         lla = "ls -la";
         gst = "git status";
-        zeddit = "exec zeddit";
       };
       initExtra = (builtins.readFile ../dotfiles/zshrc);
     };
