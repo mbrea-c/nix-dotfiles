@@ -1,5 +1,5 @@
 { pkgs, ... }:
-mkShell rec {
+pkgs.mkShell rec {
     nativeBuildInputs = with pkgs; [
         pkg-config
     ];
