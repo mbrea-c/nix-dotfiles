@@ -7,6 +7,7 @@
         ];
       runScript = "zed";
     };
+    zeddit = pkgs.writeShellScriptBin "zeddit" (builtins.readFile ../scripts/zeddit);
 in {
     imports = [
         inputs.nix-colors.homeManagerModules.default
@@ -34,6 +35,7 @@ in {
         rustup
         xorg.xrandr
         fastfetch
+        zeddit
     ];
 
     home.sessionVariables = {
@@ -43,6 +45,7 @@ in {
 
     home.sessionPath = [
         "$HOME/.cargo/bin"
+        "$HOME/scripts"
     ];
 
     xdg = {

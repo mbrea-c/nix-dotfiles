@@ -1,0 +1,2 @@
+shell_name="$1"
+nix develop --impure "${HOME}/src/nix-dotfiles#${shell_name}"
