@@ -33,6 +33,8 @@
         }
       ];
     };
-    devShells."x86_64-linux".rust-bevy = (import ./devenv/rust-bevy.nix) { pkgs = nixpkgs; };
+    devShells."x86_64-linux".rust-bevy = (import ./devenv/rust-bevy.nix) {
+        pkgs = import nixpkgs { system = "x86_64-linux"; };
+    };
   };
 }
