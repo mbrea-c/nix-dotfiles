@@ -28,7 +28,7 @@ in {
         amdgpu_top
         gnome.gnome-system-monitor
         gnome.seahorse
-        alsa # build dependency
+        alsa-lib # build dependency for my rust stuff
         pkg-config
         gcc
         rustup
