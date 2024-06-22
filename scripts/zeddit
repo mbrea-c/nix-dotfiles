@@ -1,2 +1,6 @@
+DOTFILES_PATH="${HOME}/src/nix-dotfiles"
+
 shell_name="$1"
-nix develop --impure "${HOME}/src/nix-dotfiles#${shell_name}"
+dir="$2"
+
+(nix develop --impure "${DOTFILE_PATH}#${shell_name}" --command zed "${dir}" &)
