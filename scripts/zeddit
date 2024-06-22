@@ -6,3 +6,5 @@ dir="$2"
 echo "Getting shell at URL ${DOTFILES_PATH}#${shell_name}"
 
 (nix develop --impure "${DOTFILES_PATH}#${shell_name}" --command zed "${dir}" &)
+
+exit 0
