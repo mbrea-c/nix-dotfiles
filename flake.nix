@@ -3,7 +3,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
-    devenv.url = "github:cachix/devenv";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +33,6 @@
         }
       ];
     };
-    devShells."x86_64-linux".rust-bevy = (import ./devenv/rust-bevy.nix) { inherit inputs; pkgs = nixpkgs; };
+    devShells."x86_64-linux".rust-bevy = (import ./devenv/rust-bevy.nix) { pkgs = nixpkgs; };
   };
 }

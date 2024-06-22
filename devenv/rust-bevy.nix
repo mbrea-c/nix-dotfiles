@@ -1,25 +1,20 @@
-{ inputs, pkgs, ... }:
-inputs.devenv.lib.mkShell {
-    inherit inputs pkgs;
-    modules = [
-        ({ pkgs, config, ...}: {
-            packages = with pkgs; [
-                nil
-                udev
-                alsa-lib
-                vulkan-loader
-                xorg.libX11
-                xorg.libXrandr
-                xorg.libXcursor
-                xorg.libXi
-                xorg.libXtst
-                libxkbcommon
-                wayland
-                openssl
-            ];
-            enterShell = ''
-                echo "Hello, and good luck!"
-            '';
-        })
+{ pkgs, ... }:
+mkShell rec {
+    nativeBuildInputs = with pkgs; [
+        pkg-config
     ];
+    buildInputs = with pkgs; [
+        udev
+        alsa-lib
+        vulkan-loader
+        xorg.libX11
+        xorg.libXrandr
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXtst
+        libxkbcommon
+        wayland
+        openssl
+    ];
+    LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
 }
