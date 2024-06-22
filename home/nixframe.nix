@@ -28,6 +28,7 @@ in {
         amdgpu_top
         gnome.gnome-system-monitor
         gnome.seahorse
+        alsa # build dependency
         pkg-config
         gcc
         rustup
