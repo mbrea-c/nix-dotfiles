@@ -1,5 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
+    imports = [
+        inputs.nix-colors.homeManagerModules.default
+        ../modules/sway-home.nix
+    ];
+
+    colorScheme = inputs.nix-colors.colorSchemes.dracula;
+
     home.username = "manuel";
     home.homeDirectory = "/home/manuel";
     home.packages = with pkgs; [
@@ -11,9 +18,12 @@
         nil # Nix language server
         pavucontrol
         amdgpu_top
+        gnome.gnome-system-monitor
+        gnome.seahorse
 	xorg.xrandr
 	fastfetch
     ];
+
     home.sessionVariables = {
       # Flatpak XDG_DATA_DIRS
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
@@ -23,24 +33,12 @@
       enable = true;
       userDirs = {
         createDirectories = true;
-
         desktop = "/home/manuel/Desktop";
         documents = "/home/manuel/Documents";
         download = "/home/manuel/Downloads";
         music = "/home/manuel/Music";
         pictures = "/home/manuel/Pictures";
         videos = "/home/manuel/Videos";
-      };
-
-      configFile = {
-        "sway" = {
-            source = ../dotfiles/sway;
-            recursive = true;
-        };
-        "waybar" = {
-            source = ../dotfiles/waybar;
-            recursive = true;
-        };
       };
     };
 

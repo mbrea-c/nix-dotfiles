@@ -11,10 +11,10 @@ exec dbus-update-activation-environment --all
 ### Output configuration
 #
 # Default wallpaper handled by bgmanager
-exec_always bgmanager set_background
-# output * {
-#    bg /home/manuel/Pictures/wallpapers/montana.jpg fill
-# }
+# exec_always bgmanager set_background
+output * {
+   bg /home/manuel/Downloads/cool-wallpapers-of-the-week-hope-you-enjoy-it-v0-sd1ag474o15b1.png fill
+}
 #
 # Example configuration:
 #

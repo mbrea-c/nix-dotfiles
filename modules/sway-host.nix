@@ -7,6 +7,10 @@
         wdisplays
         rofi-wayland
         swaybg
+        waybar
+        gammastep
+        geoclue2
+        networkmanagerapplet
     ];
 
     programs.sway = {
@@ -16,6 +20,4 @@
             gtk = true;
         };
     };
-
-    programs.waybar.enable = true;
 }

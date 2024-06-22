@@ -7,7 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ../hardware/nixframe.nix
-      ../modules/sway.nix
+      ../modules/sway-host.nix
       ../modules/cosmic.nix
     ];
 
@@ -74,8 +74,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    gnome.gnome-system-monitor # should this go in home config?
-    gnome.seahorse
+    nix-index
   ];
 
   # environment.variables = {
