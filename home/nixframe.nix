@@ -29,8 +29,8 @@ in {
         gnome.gnome-system-monitor
         gnome.seahorse
         rustup
-	xorg.xrandr
-	fastfetch
+        xorg.xrandr
+        fastfetch
     ];
 
     home.sessionVariables = {
