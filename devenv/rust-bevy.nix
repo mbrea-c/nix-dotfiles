@@ -1,6 +1,7 @@
 { pkgs, ... }:
-pkgs.mkShell rec {
-    nativeBuildInputs = with pkgs; [
+(pkgs.buildFHSUserEnv {
+    name = "rust-bevy-fhs";
+    targetPkgs = pkgs: with pkgs; [
         pkg-config
         udev
         alsa-lib
@@ -14,7 +15,5 @@ pkgs.mkShell rec {
         wayland
         openssl
     ];
-    buildInputs = with pkgs; [
-    ];
-    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
-}
+    # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
+}).env
