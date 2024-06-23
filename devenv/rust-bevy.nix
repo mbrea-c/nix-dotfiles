@@ -14,7 +14,7 @@
         libxkbcommon
         wayland
         openssl
-        systemd
+        systemd.dev
     ];
     # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
 }).env
