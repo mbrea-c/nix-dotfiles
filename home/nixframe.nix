@@ -42,6 +42,7 @@ in {
     home.sessionVariables = {
       # Flatpak XDG_DATA_DIRS
       XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+      EDITOR = "nvim";
     };
 
     home.sessionPath = [
@@ -97,6 +98,7 @@ in {
         la = "ls -a";
         lla = "ls -la";
         gst = "git status";
+        vim = "nvim";
       };
       initExtra = (builtins.readFile ../dotfiles/zshrc);
     };
