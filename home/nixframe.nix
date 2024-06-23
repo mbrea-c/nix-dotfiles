@@ -23,7 +23,8 @@ in {
         thunderbird
         alacritty
         tree
-        zed-fhs
+        zed-editor
+        # zed-fhs
         nil # Nix language server
         pavucontrol
         amdgpu_top
