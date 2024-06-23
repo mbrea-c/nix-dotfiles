@@ -2,8 +2,6 @@
 pkgs.mkShell rec {
     nativeBuildInputs = with pkgs; [
         pkg-config
-    ];
-    buildInputs = with pkgs; [
         udev
         alsa-lib
         vulkan-loader
@@ -16,5 +14,7 @@ pkgs.mkShell rec {
         wayland
         openssl
     ];
-    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath buildInputs;
+    buildInputs = with pkgs; [
+    ];
+    LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
 }
