@@ -6,11 +6,11 @@
         udev.dev
         alsa-lib.dev
         vulkan-loader.dev
-        xorg.libX11.dev
-        xorg.libXrandr.dev
-        xorg.libXcursor.dev
-        xorg.libXi.dev
-        xorg.libXtst.dev
+        xorg.libX11
+        xorg.libXrandr
+        xorg.libXcursor
+        xorg.libXi
+        xorg.libXtst
         libxkbcommon.dev
         wayland.dev
         openssl.dev
