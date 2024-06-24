@@ -11,7 +11,7 @@
     plugins.cmp = {
         enable = true;
         autoEnableSources = true;
-        sources = [
+        settings.sources = [
             { name = "nvim_lsp"; }
             { name = "path"; }
             { name = "buffer"; }
