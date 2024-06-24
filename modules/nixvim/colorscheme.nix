@@ -1,11 +1,11 @@
 { lib, colorscheme, ... }:
 let
   u = (import ./colorschemeUtils.nix) { };
-  colors = colorscheme;
+  palette = colorscheme.palette;
 in {
   "@note" = {
-    fg = u.background colors;
-    bg = colors.base05;
+    fg = u.background colorscheme;
+    bg = palette.base05;
   };
-  "@comment" = { fg = colors.base08; };
+  "@comment" = { fg = palette.base08; };
 }
