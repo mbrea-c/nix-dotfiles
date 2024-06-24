@@ -1,7 +1,7 @@
 { lib, ... }: {
-  setTabstopForFiletypes = ftypes:
+  setTabstopForFiletypes = { filetypes, augroup ? "TabstopForFiletypes" }:
     lib.attrsets.mapAttrsToList (lang: tabstop: {
-      group = "TabstopForFiletypes";
+      group = augroup;
       event = "Filetype";
       callback = ''
         function() 
@@ -9,5 +9,5 @@
         end
       '';
       pattern = [ lang ];
-    }) ftypes;
+    }) filetypes;
 }

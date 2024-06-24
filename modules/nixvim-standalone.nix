@@ -1,5 +1,7 @@
 { config, lib, pkgs, inputs, ... }:
-let utils = (import ./nixvim/utils.nix) { inherit lib; };
+let
+  utils = (import ./nixvim/utils.nix) { inherit lib; };
+  tabstopsAugroup = "TabstopForFiletypes";
 in {
   keymaps = [
     {
@@ -60,21 +62,24 @@ in {
   };
 
   autoCmd = utils.setTabstopForFiletypes {
-    java = 4;
-    solidity = 4;
-    html = 2;
-    javascript = 2;
-    javascriptreact = 2;
-    typescript = 2;
-    json = 2;
-    python = 2;
-    lua = 2;
-    agda = 2;
-    markdown = 2;
-    latex = 2;
-    c = 4;
-    cpp = 4;
-    nix = 2;
+    filetypes = {
+      java = 4;
+      solidity = 4;
+      html = 2;
+      javascript = 2;
+      javascriptreact = 2;
+      typescript = 2;
+      json = 2;
+      python = 2;
+      lua = 2;
+      agda = 2;
+      markdown = 2;
+      latex = 2;
+      c = 4;
+      cpp = 4;
+      nix = 2;
+    };
+    augroup = tabstopsAugroup;
   };
 
   plugins = {
