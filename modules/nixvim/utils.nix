@@ -5,7 +5,7 @@
       event = "Filetype";
       callback = ''
         function() 
-          vim.opt_local.tabstop = ${tabstop} 
+          vim.opt_local.tabstop = ${toString tabstop} 
         end
       '';
       pattern = [ lang ];
