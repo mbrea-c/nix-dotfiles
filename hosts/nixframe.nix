@@ -6,7 +6,10 @@
 let
   nixvim = inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
     inherit pkgs;
-    extraSpecialArgs = { inherit inputs; };
+    extraSpecialArgs = {
+      inherit inputs;
+      colorscheme = inputs.nix-colors.colorSchemes.paraiso;
+    };
     module = import ../modules/nixvim-standalone.nix;
   };
 in {

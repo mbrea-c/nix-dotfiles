@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, colorscheme, ... }:
 let
   utils = (import ./nixvim/utils.nix) { inherit lib; };
   tabstopsAugroup = "TabstopForFiletypes";
