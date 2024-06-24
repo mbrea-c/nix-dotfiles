@@ -49,7 +49,7 @@
       ];
     };
     devShells."${system}".rust-bevy-fhs = (import ./devenv/rust-bevy.nix) {
-        inherit pkgs;
+	inherit pkgs;
     };
   };
 }
