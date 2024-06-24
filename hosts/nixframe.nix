@@ -6,7 +6,7 @@
 let
     nixvim = inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
         inherit pkgs;
-        extraSpecialArgs = { inherit inputs };
+        extraSpecialArgs = { inherit inputs; };
         module = import ../modules/nixvim-standalone.nix;
     }
 in
