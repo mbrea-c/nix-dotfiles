@@ -4,7 +4,7 @@
         {
             key = "<C-n>";
             action = ":Neotree<CR>";
-        },
+        }
     ];
 
     plugins.lsp = {
