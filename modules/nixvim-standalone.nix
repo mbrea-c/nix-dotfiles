@@ -6,7 +6,7 @@
     }
     {
       key = ";f";
-      action = ":lua vim.lsp.buf.format()";
+      action = ":lua vim.lsp.buf.format()<CR>";
     }
   ];
 
