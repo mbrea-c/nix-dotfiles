@@ -26,4 +26,6 @@
             };
         };
     };
+
+    plugins.treesitter.enable = true;
 }
