@@ -10,23 +10,72 @@
     }
   ];
 
-  plugins.lsp = {
-    enable = true;
-    servers = {
-      nil-ls.enable = true;
-      rust-analyzer.enable = true;
+  globals = {
+    mapleader = ";";
+    tex_flavor = "latex";
+  };
+
+  opts = {
+    hidden = true;
+    autoindent = true;
+
+    # tabs
+    tabstop = 4;
+    shiftwidth = 0;
+    softtabstop = 0;
+    expandtab = true;
+
+    # update time, used for CursorHold events
+    updatetime = 250;
+
+    # Spell checking
+    spell = false; # disable by default
+    spelllang = "en_us";
+
+    number = true;
+    display = "truncate";
+    scrolloff = 5;
+    sidescrolloff = 5;
+    wrap = false;
+    list = true;
+    listchars = {
+    	tab = "  ";
+	precedes = "⋯";
+	extends = "⋯";
     };
+    mouse = "a";
+    mousemodel = "extend";
+    textwidth = 80;
+    #formatoptions = # somehow remove "t"?
+    signcolumn = "yes:1";
+    cursorline = true;
+    #undofile = true;
+    #TODO: undodir, etc
+    ignorecase = true;
+    smartcase = true;
+    timeoutlen = 500;
+    guifont = "monospace:h11";
   };
-  plugins.cmp = {
-    enable = true;
-    autoEnableSources = true;
-    settings.sources =
-      [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+
+  plugins = {
+    lsp = {
+      enable = true;
+      servers = {
+        nil-ls.enable = true;
+        rust-analyzer.enable = true;
+      };
+    };
+    cmp = {
+      enable = true;
+      autoEnableSources = true;
+      settings.sources =
+        [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+    };
+    none-ls = {
+      enable = true;
+      sources = { formatting = { nixfmt.enable = true; }; };
+    };
+    treesitter.enable = true;
+    neo-tree.enable = true;
   };
-  plugins.none-ls = {
-    enable = true;
-    sources = { formatting = { nixfmt.enable = true; }; };
-  };
-  plugins.treesitter.enable = true;
-  plugins.neo-tree.enable = true;
 }
