@@ -8,7 +8,7 @@
         };
     };
 
-    plugins.nvim-cmp = {
+    plugins.cmp = {
         enable = true;
         autoEnableSources = true;
         sources = [
