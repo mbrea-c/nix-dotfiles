@@ -4,6 +4,7 @@ let
   tabstopsAugroup = "TabstopForFiletypes";
   formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
+  highlights = (import ./nixvim/colorscheme.nix) { inherit lib colorscheme; };
 in {
   keymaps = [
     {
@@ -19,6 +20,8 @@ in {
       action = "<cmd>Inspect<CR>";
     }
   ];
+
+  highlightOverride = highlights;
 
   globals = {
     mapleader = ";";
