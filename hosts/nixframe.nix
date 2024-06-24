@@ -8,7 +8,7 @@ let
         inherit pkgs;
         extraSpecialArgs = { inherit inputs; };
         module = import ../modules/nixvim-standalone.nix;
-    }
+    };
 in
 {
   imports =
