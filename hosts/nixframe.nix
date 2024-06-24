@@ -86,7 +86,7 @@ in
 
   environment.sessionVariables = {
     EDITOR = "${nixvim}/bin/nvim";
-  }
+  };
 
   # environment.variables = {
   #   XDG_RUNTIME_DIR = "/run/user/$UID";
