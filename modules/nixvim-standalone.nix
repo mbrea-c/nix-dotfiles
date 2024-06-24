@@ -1,36 +1,32 @@
-{ config, lib, pkgs, inputs, ... }:
-{
-    keymaps = [
-        {
-            key = "<C-n>";
-            action = ":Neotree<CR>";
-        }
-    ];
+{ config, lib, pkgs, inputs, ... }: {
+  keymaps = [
+    {
+      key = "<C-n>";
+      action = ":Neotree toggle<CR>";
+    }
+    {
+      key = ";f";
+      action = ":lua vim.lsp.buf.format()";
+    }
+  ];
 
-    plugins.lsp = {
-        enable = true;
-        servers = {
-            nil-ls.enable = true;
-            rust-analyzer.enable = true;
-        };
+  plugins.lsp = {
+    enable = true;
+    servers = {
+      nil-ls.enable = true;
+      rust-analyzer.enable = true;
     };
-    plugins.cmp = {
-        enable = true;
-        autoEnableSources = true;
-        settings.sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-        ];
-    };
-    plugins.none-ls = {
-        enable = true;
-        sources = {
-            formatting = {
-                nixfmt.enable = true;
-            };
-        };
-    };
-    plugins.treesitter.enable = true;
-    plugins.neo-tree.enable = true;
+  };
+  plugins.cmp = {
+    enable = true;
+    autoEnableSources = true;
+    settings.sources =
+      [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+  };
+  plugins.none-ls = {
+    enable = true;
+    sources = { formatting = { nixfmt.enable = true; }; };
+  };
+  plugins.treesitter.enable = true;
+  plugins.neo-tree.enable = true;
 }
