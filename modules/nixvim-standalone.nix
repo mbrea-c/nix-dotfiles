@@ -88,7 +88,11 @@ in {
     augroupFormatter = formattingFormatterAugroup;
   };
 
-  autoGroups = { "${tabstopsAugroup}" = { clear = true; }; };
+  autoGroups = {
+    "${tabstopsAugroup}" = { clear = true; };
+    "${formattingEnablerAugroup}" = { clear = true; };
+    "${formattingFormatterAugroup}" = { clear = true; };
+  };
 
   plugins = {
     lsp = {
