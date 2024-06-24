@@ -1,5 +1,5 @@
 { config, lib, pkgs, inputs, ... }:
-let utils = (import ./nixvim/utils.nix) lib;
+let utils = (import ./nixvim/utils.nix) { inherit lib; };
 in {
   keymaps = [
     {
