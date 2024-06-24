@@ -9,5 +9,5 @@
         end
       '';
       pattern = [ lang ];
-    });
+    }) ftypes;
 }
