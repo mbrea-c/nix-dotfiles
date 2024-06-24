@@ -1,5 +1,12 @@
 { config, lib, pkgs, inputs, ... }:
 {
+    keymaps = [
+        {
+            key = "<C-n>";
+            action = ":Neotree<CR>";
+        },
+    ];
+
     plugins.lsp = {
         enable = true;
         servers = {
@@ -7,7 +14,6 @@
             rust-analyzer.enable = true;
         };
     };
-
     plugins.cmp = {
         enable = true;
         autoEnableSources = true;
@@ -17,7 +23,6 @@
             { name = "buffer"; }
         ];
     };
-
     plugins.none-ls = {
         enable = true;
         sources = {
@@ -26,7 +31,6 @@
             };
         };
     };
-
     plugins.treesitter.enable = true;
     plugins.neo-tree.enable = true;
 }
