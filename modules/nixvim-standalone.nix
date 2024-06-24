@@ -82,6 +82,8 @@ in {
     augroup = tabstopsAugroup;
   };
 
+  autoGroups = { "${tabstopsAugroup}" = { clear = true; }; };
+
   plugins = {
     lsp = {
       enable = true;
