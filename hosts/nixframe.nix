@@ -4,19 +4,17 @@
 
 { config, lib, pkgs, inputs, ... }:
 let
-    nixvim = inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
-        module = import ../modules/nixvim-standalone.nix;
-    };
-in
-{
-  imports =
-    [ # Include the results of the hardware scan.
-      ../hardware/nixframe.nix
-      ../modules/sway-host.nix
-      ../modules/cosmic.nix
-    ];
+  nixvim = inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
+    inherit pkgs;
+    extraSpecialArgs = { inherit inputs; };
+    module = import ../modules/nixvim-standalone.nix;
+  };
+in {
+  imports = [ # Include the results of the hardware scan.
+    ../hardware/nixframe.nix
+    ../modules/sway-host.nix
+    ../modules/cosmic.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -36,7 +34,8 @@ in
   boot.kernelPackages = pkgs.linuxPackages_6_8;
 
   networking.hostName = "nixframe"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -68,25 +67,22 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manuel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "input" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "video"
+      "input"
+      "audio"
+    ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
-    packages = with pkgs; [
-    ];
+    packages = with pkgs; [ ];
   };
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    nixvim
-    wget
-    git
-    nix-index
-  ];
+  environment.systemPackages = with pkgs; [ nixvim wget git nix-index ];
 
-  environment.sessionVariables = {
-    EDITOR = "${nixvim}/bin/nvim";
-  };
+  environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
 
   # environment.variables = {
   #   XDG_RUNTIME_DIR = "/run/user/$UID";
