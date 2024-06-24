@@ -2,6 +2,8 @@
 let
   utils = (import ./nixvim/utils.nix) { inherit lib; };
   tabstopsAugroup = "TabstopForFiletypes";
+  formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
+  formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
 in {
   keymaps = [
     {
@@ -61,7 +63,7 @@ in {
     guifont = "monospace:h11";
   };
 
-  autoCmd = utils.setTabstopForFiletypes {
+  autoCmd = (utils.setTabstopForFiletypes {
     filetypes = {
       java = 4;
       solidity = 4;
@@ -80,6 +82,10 @@ in {
       nix = 2;
     };
     augroup = tabstopsAugroup;
+  }) ++ utils.setFormatOnSaveForFiletypes {
+    filetypes = { nix = true; };
+    augroupEnabler = formattingEnablerAugroup;
+    augroupFormatter = formattingFormatterAugroup;
   };
 
   autoGroups = { "${tabstopsAugroup}" = { clear = true; }; };
