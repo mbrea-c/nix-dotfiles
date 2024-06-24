@@ -3,6 +3,13 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { config, lib, pkgs, inputs, ... }:
+let
+    nixvim = inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs };
+        module = import ../modules/nixvim-standalone.nix;
+    }
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -71,11 +78,15 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    nixvim
     wget
     git
     nix-index
   ];
+
+  environment.sessionVariables = {
+    EDITOR = "${nixvim}/bin/nvim";
+  }
 
   # environment.variables = {
   #   XDG_RUNTIME_DIR = "/run/user/$UID";
