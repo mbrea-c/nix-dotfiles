@@ -1,4 +1,6 @@
-{ config, lib, pkgs, inputs, ... }: {
+{ config, lib, pkgs, inputs, ... }:
+let utils = (import ./nixvim/utils.nix) lib;
+in {
   keymaps = [
     {
       key = "<C-n>";
@@ -39,9 +41,9 @@
     wrap = false;
     list = true;
     listchars = {
-    	tab = "  ";
-	precedes = "⋯";
-	extends = "⋯";
+      tab = "  ";
+      precedes = "⋯";
+      extends = "⋯";
     };
     mouse = "a";
     mousemodel = "extend";
@@ -55,6 +57,24 @@
     smartcase = true;
     timeoutlen = 500;
     guifont = "monospace:h11";
+  };
+
+  autoCmd = utils.setTabstopForFiletypes {
+    java = 4;
+    solidity = 4;
+    html = 2;
+    javascript = 2;
+    javascriptreact = 2;
+    typescript = 2;
+    json = 2;
+    python = 2;
+    lua = 2;
+    agda = 2;
+    markdown = 2;
+    latex = 2;
+    c = 4;
+    cpp = 4;
+    nix = 2;
   };
 
   plugins = {
