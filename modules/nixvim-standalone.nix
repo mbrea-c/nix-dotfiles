@@ -14,6 +14,10 @@ in {
       key = ";f";
       action = ":lua vim.lsp.buf.format()<CR>";
     }
+    {
+      key = "<C-h>";
+      action = "<cmd>Inspect<CR>";
+    }
   ];
 
   globals = {
@@ -63,7 +67,7 @@ in {
     guifont = "monospace:h11";
   };
 
-  autoCmd = (utils.setTabstopForFiletypes {
+  autoCmd = utils.setTabstopForFiletypes {
     filetypes = {
       java = 4;
       solidity = 4;
@@ -82,8 +86,11 @@ in {
       nix = 2;
     };
     augroup = tabstopsAugroup;
-  }) ++ utils.setFormatOnSaveForFiletypes {
-    filetypes = { nix = true; };
+  } ++ utils.setFormatOnSaveForFiletypes {
+    filetypes = {
+      nix = true;
+      rust = true;
+    };
     augroupEnabler = formattingEnablerAugroup;
     augroupFormatter = formattingFormatterAugroup;
   };
