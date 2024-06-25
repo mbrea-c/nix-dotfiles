@@ -1,4 +1,5 @@
-{ lib, inputs, ... }: rec {
+{ lib, inputs, ... }: 
+let
   background = { palette, ... }: palette.base00;
 
   listMax = list:
@@ -73,45 +74,47 @@
       b = builtins.floor(rgb.b * 255 + 0.5);
     };
 
-    decToHex = dec:
-      let
-        dHigh = dec / 16;
-        dLow = lib.mod dec 16;
-        intToHex = [
-          "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
-          "a" "b" "c" "d" "e" "f"
-        ];
-        hHigh = builtins.elemAt intToHex dHigh;
-        hLow = builtins.elemAt intToHex dLow;
-      in
-        "${hHigh}${hLow}";
+  decToHex = dec:
+    let
+      dHigh = dec / 16;
+      dLow = lib.mod dec 16;
+      intToHex = [
+        "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
+        "a" "b" "c" "d" "e" "f"
+      ];
+      hHigh = builtins.elemAt intToHex dHigh;
+      hLow = builtins.elemAt intToHex dLow;
+    in
+      "${hHigh}${hLow}";
 
-    fromRGB = rgb:
-      let
-        r = decToHex rgb.r;
-        g = decToHex rgb.g;
-        b = decToHex rgb.b;
-      in "${r}${g}${b}";
+  fromRGB = rgb:
+    let
+      r = decToHex rgb.r;
+      g = decToHex rgb.g;
+      b = decToHex rgb.b;
+    in "${r}${g}${b}";
 
-    fromHSV = hsv: fromRGB (HSVToRGB hsv);
+  fromHSV = hsv: fromRGB (HSVToRGB hsv);
 
-    darken = color: ratio:
-      let
-        hsv = toHSV color;
-        ratio = 1. - ratio;
-      in fromHSV {
-        h = hsv.h;
-        s = hsv.s;
-        v = hsv.v * ratio;
-      };
+  darken = color: ratio:
+    let
+      hsv = toHSV color;
+      ratio = 1. - ratio;
+    in fromHSV {
+      h = hsv.h;
+      s = hsv.s;
+      v = hsv.v * ratio;
+    };
 
-    lighten = color: ratio:
-      let
-        hsv = toHSV color;
-        ratio = 1. - ratio;
-      in fromHSV {
-        h = hsv.h;
-        s = hsv.s;
-        v = 1. - ratio * (1. - hsv.v);
-      };
+  lighten = color: ratio:
+    let
+      hsv = toHSV color;
+      ratio = 1. - ratio;
+    in fromHSV {
+      h = hsv.h;
+      s = hsv.s;
+      v = 1. - ratio * (1. - hsv.v);
+    };
+in {
+ inherit background mapColors darken lighten;
 }
