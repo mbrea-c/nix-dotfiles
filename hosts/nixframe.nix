@@ -8,7 +8,7 @@ let
     inherit pkgs;
     extraSpecialArgs = {
       inherit inputs;
-      colorscheme = inputs.nix-colors.colorSchemes.paraiso;
+      colorscheme = inputs.nix-colors.colorSchemes.apprentice;
     };
     module = import ../modules/nixvim-standalone.nix;
   };
