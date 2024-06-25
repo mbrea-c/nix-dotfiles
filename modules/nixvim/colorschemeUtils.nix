@@ -2,10 +2,10 @@
   background = { palette, ... }: palette.base00;
 
   listMax = list:
-    builtins.foldl (a: b: if a > b then a else b) (builtins.elemAt 0 list)
+    lib.foldl (a: b: if a > b then a else b) (builtins.elemAt list 0)
     list;
   listMin = list:
-    builtins.foldl (a: b: if a < b then a else b) (builtins.elemAt 0 list)
+    lib.foldl (a: b: if a < b then a else b) (builtins.elemAt list 0)
     list;
 
   mapColors = lib.attrsets.mapAttrs (_: hl:
