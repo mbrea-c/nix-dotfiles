@@ -115,5 +115,5 @@ let
         v = 1. - ratio' * (1. - hsv.v);
     };
 in {
- inherit background mapColors darken lighten fromHSV toHSV;
+ inherit foreground background mapColors darken lighten fromHSV toHSV;
 }
