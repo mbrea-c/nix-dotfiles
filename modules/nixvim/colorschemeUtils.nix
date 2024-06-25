@@ -82,10 +82,8 @@ let
         "0" "1" "2" "3" "4" "5" "6" "7" "8" "9"
         "a" "b" "c" "d" "e" "f"
       ];
-      hHigh = builtins.elemAt intToHex dHigh;
-      hLow = builtins.elemAt intToHex dLow;
     in
-      "${hHigh}${hLow}";
+      "${builtins.elemAt intToHex dHigh}${builtins.elemAt intToHex dLow}";
 
   fromRGB = rgb:
     let
@@ -99,22 +97,22 @@ let
   darken = ratio: color:
     let
       hsv = toHSV color;
-      ratio = 1. - ratio;
+      ratio' = 1. - ratio;
     in fromHSV {
       h = hsv.h;
       s = hsv.s;
-      v = hsv.v * ratio;
+      v = hsv.v * ratio';
     };
 
-  lighten = ratio: color:
+  lighten = ratio: color: 
     let
       hsv = toHSV color;
-      ratio = 1. - ratio;
+      ratio' = 1. - ratio;
     in fromHSV {
-      h = hsv.h;
-      s = hsv.s;
-      v = 1. - ratio * (1. - hsv.v);
+        h = hsv.h;
+        s = hsv.s;
+        v = 1. - ratio' * (1. - hsv.v);
     };
 in {
- inherit background mapColors darken lighten;
+ inherit background mapColors darken lighten fromHSV toHSV;
 }

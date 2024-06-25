@@ -8,10 +8,10 @@ in {
     bg = palette.base05;
   };
   "@comment" = { fg = palette.base08; };
-  # "@comment.documentation" = {
-  #   fg = u.lighten palette.base08 0.2;
-  #   italic = true;
-  # };
+  "@comment.documentation" = {
+    fg = u.lighten 0.2 palette.base08;
+    italic = true;
+  };
   "@warning" = {
     fg = u.background colorscheme;
     bg = palette.base05;
