@@ -1,6 +1,6 @@
-{ lib, colorscheme, ... }:
+{ lib, inputs, colorscheme, ... }:
 let
-  u = (import ./colorschemeUtils.nix) { inherit lib; };
+  u = (import ./colorschemeUtils.nix) { inherit lib inputs; };
   palette = colorscheme.palette;
 in {
   "@note" = {
