@@ -2,6 +2,8 @@
 let
   u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
   palette = colorscheme.palette;
+  background = u.background colorscheme;
+  foreground = u.foreground colorscheme;
 in {
   "@note" = {
     fg = u.background colorscheme;
@@ -32,4 +34,19 @@ in {
     fg = palette.base02;
     bold = true;
   };
+  "@keyword.function" = {
+    fg = u.darken 0.2 palette.base02;
+    bold = true;
+  };
+  "@label" = { fg = palette.base07; };
+  "@method" = {
+    fg = palette.base06;
+    bold = true;
+  };
+  "@namespace" = {
+    fg = palette.base06;
+    bold = true;
+  };
+  "@number" = { fg = u.lighten 0.1 palette.base01; };
+  "@float" = { };
 }

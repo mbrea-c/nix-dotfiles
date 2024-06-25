@@ -33,4 +33,34 @@ in {
     fg = foreground;
     bg = background;
   };
+
+  # Highlight references of symbol under cursor
+  "LspReferenceText" = { bg = u.lighten 0.2 background; };
+  "LspReferenceRead" = {
+    bg = u.lighten 0.2 background;
+    italic = true;
+  };
+  "LspReferenceWrite" = {
+    bg = u.lighten 0.2 background;
+    bold = true;
+  };
+
+  # Spelling
+  "SpellBad" = {
+    fg = palette.base01;
+    undercurl = true;
+  };
+  "SpellCap" = {
+    fg = palette.base05;
+    undercurl = true;
+  };
+  "SpellLocal" = {
+    fg = palette.base03;
+    undercurl = true;
+  };
+  "SpellRare" = {
+    fg = palette.base06;
+    undercurl = true;
+  };
+
 }
