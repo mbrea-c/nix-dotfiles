@@ -1,10 +1,10 @@
 { lib, inputs, ... }: rec {
   background = { palette, ... }: palette.base00;
 
-  max = list:
+  listMax = list:
     builtins.foldl' (a: b: if a > b then a else b) (builtins.elemAt 0 list)
     list;
-  min = list:
+  listMin = list:
     builtins.foldl' (a: b: if a < b then a else b) (builtins.elemAt 0 list)
     list;
 
@@ -29,8 +29,8 @@
       r = c.r / 255.;
       g = c.g / 255.;
       b = c.b / 255.;
-      max = max [ r g b ];
-      min = max [ r g b ];
+      max = listMax [ r g b ];
+      min = listMin [ r g b ];
       d = max - min;
       v = max;
       s = if max > 0 then d / max else 0;
