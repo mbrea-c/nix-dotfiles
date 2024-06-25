@@ -53,7 +53,7 @@
       p = hsv.v * (1 - hsv.s);
       q = hsv.v * (1 - f * hsv.s);
       t = hsv.v * (1 - (1 - f) * hsv.s);
-      i' = builtins.mod i 6; # Since we don't have a modulo operator
+      i' = lib.mod i 6; # Since we don't have a modulo operator
 
       rgb = if i' == 0 then
           { r = hsv.v; g = t; b = p; }
@@ -84,7 +84,7 @@
           if q > 0
           then (toHex'
             (q / 16)
-            ((builtins.elemAt intToHex (builtins.mod q 16)) + a))
+            ((builtins.elemAt intToHex (lib.mod q 16)) + a))
           else a;
       in
         v: toHex' v "";
