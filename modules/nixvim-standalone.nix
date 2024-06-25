@@ -4,7 +4,8 @@ let
   tabstopsAugroup = "TabstopForFiletypes";
   formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
-  highlights = (import ./nixvim/colorscheme.nix) { inherit lib colorscheme; };
+  highlights =
+    (import ./nixvim/colorscheme.nix) { inherit lib colorscheme inputs; };
 in {
   keymaps = [
     {
