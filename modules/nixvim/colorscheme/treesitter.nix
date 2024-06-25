@@ -12,18 +12,18 @@ in {
   #   fg = u.lighten palette.base08 0.2;
   #   italic = true;
   # };
-  # "@warning" = {
-  #   fg = u.background colorscheme;
-  #   bg = palette.base05;
-  # };
-  # "@danger" = {
-  #   fg = u.background colorscheme;
-  #   bg = palette.base03;
-  # };
-  # "@constructor" = { fg = palette.base06; };
-  # "@conditional" = { fg = palette.base02; };
-  # "@constant" = {
-  #   fg = u.darken palette.base06 0.1;
-  #   bold = true;
-  # };
+  "@warning" = {
+    fg = u.background colorscheme;
+    bg = palette.base05;
+  };
+  "@danger" = {
+    fg = u.background colorscheme;
+    bg = palette.base03;
+  };
+  "@constructor" = { fg = palette.base06; };
+  "@conditional" = { fg = palette.base02; };
+  "@constant" = {
+    fg = u.darken 0.1 palette.base06;
+    bold = true;
+  };
 }

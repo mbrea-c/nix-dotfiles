@@ -96,7 +96,7 @@ let
 
   fromHSV = hsv: fromRGB (HSVToRGB hsv);
 
-  darken = color: ratio:
+  darken = ratio: color:
     let
       hsv = toHSV color;
       ratio = 1. - ratio;
@@ -106,7 +106,7 @@ let
       v = hsv.v * ratio;
     };
 
-  lighten = color: ratio:
+  lighten = ratio: color:
     let
       hsv = toHSV color;
       ratio = 1. - ratio;
