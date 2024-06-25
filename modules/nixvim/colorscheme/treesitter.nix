@@ -26,4 +26,10 @@ in {
     fg = u.darken 0.1 palette.base06;
     bold = true;
   };
+  "@field" = { fg = u.darken 0.1 palette.base06; };
+  "@function" = { fg = u.darken 0.2 palette.base02; };
+  "@keyword" = {
+    fg = palette.base02;
+    bold = true;
+  };
 }
