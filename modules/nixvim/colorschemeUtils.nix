@@ -1,6 +1,7 @@
 { lib, inputs, ... }: 
 let
   background = { palette, ... }: palette.base00;
+  foreground = { palette, ... }: palette.base07;
 
   listMax = list:
     lib.foldl (a: b: if a > b then a else b) (builtins.elemAt list 0)
