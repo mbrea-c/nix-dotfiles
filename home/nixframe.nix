@@ -73,6 +73,13 @@ in {
     };
   };
 
+  gtk = {
+    theme = {
+      name = "Materia-dark";
+      package = pkgs.materia-theme;
+    };
+  };
+
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
