@@ -79,7 +79,7 @@ in {
   "@variable" = {
     fg = desaturate 0.1 (mixHSV 0.5 palette.base04 palette.base06);
   };
-  "@variable.builtin" = { fg = palette.base11; };
+  "@variable.builtin" = { fg = palette.base0B; };
   "@text" = { fg = darken 0.1 foreground; };
   "@text.emphasis" = { italic = true; };
 }
