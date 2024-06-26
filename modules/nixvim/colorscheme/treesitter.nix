@@ -57,4 +57,5 @@ in {
     bold = true;
   };
   "@parameter" = { fg = palette.base04; };
+  "@property" = { fg = u.darken 0.1 palette.base06; };
 }
