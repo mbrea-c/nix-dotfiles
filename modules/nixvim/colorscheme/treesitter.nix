@@ -51,11 +51,15 @@ in {
     fg = palette.base06;
     bold = true;
   };
+
+  # Primitives
   "@number" = { fg = lighten 0.1 palette.base01; };
   "@float" = { fg = mixHSV 0.5 palette.base01 palette.base06; };
   "@string" = { fg = palette.base01; };
   "@string.regex" = { fg = palette.base07; };
   "@string.escape" = { fg = palette.base06; };
+  "@boolean" = { fg = mixHSV 0.4 palette.base01 palette.base04; };
+
   "@operator" = {
     fg = palette.base03;
     bold = true;
@@ -75,4 +79,7 @@ in {
   "@variable" = {
     fg = desaturate 0.1 (mixHSV 0.5 palette.base04 palette.base06);
   };
+  "@variable.builtin" = { fg = palette.base11; };
+  "@text" = { fg = darken 0.1 foreground; };
+  "@text.emphasis" = { italic = true; };
 }
