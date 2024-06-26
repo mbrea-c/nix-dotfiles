@@ -66,4 +66,13 @@ in {
   "@punctuation.bracket" = {
     fg = highlight colorscheme 0.2 (desaturate 0.2 palette.base03);
   };
+  "@punctuation.special" = { fg = palette.base03; };
+  "@repeat" = { fg = palette.base02; };
+  "@symbol" = { fg = darken 0.2 foreground; };
+  "@type" = { fg = palette.base02; };
+  "@type.qualifier" = { fg = lighten 0.1 palette.base02; };
+  "@type.builtin" = { fg = darken 0.1 palette.base02; };
+  "@variable" = {
+    fg = desaturate 0.1 (mixHSV 0.5 palette.base04 palette.base06);
+  };
 }
