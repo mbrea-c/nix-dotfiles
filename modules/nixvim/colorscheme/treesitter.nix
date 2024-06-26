@@ -58,7 +58,7 @@ in {
   "@string" = { fg = palette.base01; };
   "@string.regex" = { fg = palette.base07; };
   "@string.escape" = { fg = palette.base06; };
-  "@boolean" = { fg = mixHSV 0.4 palette.base01 palette.base04; };
+  "@boolean" = { fg = saturate 0.1 (darken 0.1 palette.base01); };
 
   "@operator" = {
     fg = palette.base03;

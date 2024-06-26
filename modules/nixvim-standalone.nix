@@ -20,6 +20,10 @@ in {
       key = "<C-h>";
       action = "<cmd>Inspect<CR>";
     }
+    {
+      key = "<C-t>";
+      action = "<cmd>ToggleTerm<CR>";
+    }
   ];
 
   highlightOverride = highlights;
@@ -125,5 +129,6 @@ in {
     };
     treesitter.enable = true;
     neo-tree.enable = true;
+    toggleterm = { enable = true; };
   };
 }

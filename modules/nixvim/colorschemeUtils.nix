@@ -143,6 +143,7 @@ let
     else
       darken ratio color;
   
+  # TODO: Fix when mixing around the boundary
   mixHSV = ratio: left: right:
     let
       leftHsv = toHSV left;
