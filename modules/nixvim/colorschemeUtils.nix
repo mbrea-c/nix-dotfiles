@@ -113,6 +113,32 @@ let
         s = hsv.s;
         v = 1. - ratio' * (1. - hsv.v);
     };
+
+  desaturate = ratio: color:
+    let
+      hsv = toHSV color;
+      ratio' = 1. - ratio;
+    in fromHSV {
+      h = hsv.h;
+      s = hsv.s * ratio';
+      v = hsv.v;
+    };
+
+  saturate = ratio: color:
+    let
+      hsv = toHSV color;
+      ratio' = 1. - ratio;
+    in fromHSV {
+      h = hsv.h;
+      s = 1. - ratio' * (1. - hsv.s);
+      v = hsv.v;
+    };
+
+  highlight = { variant, ... }: ratio: color:
+    if variant == "dark" then
+      lighten ratio color
+    else
+      darken ratio color;
   
   mixHSV = ratio: left: right:
     let
@@ -133,5 +159,6 @@ let
       v = leftHsv.v * (1. - ratio) + rightHsv.v * ratio;
     };
 in {
- inherit foreground background mapColors darken lighten fromHSV toHSV mixHSV;
+ inherit foreground background mapColors darken lighten 
+  desaturate saturate highlight fromHSV toHSV mixHSV;
 }

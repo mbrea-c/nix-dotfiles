@@ -4,6 +4,7 @@ let
   palette = colorscheme.palette;
   foreground = u.foreground colorscheme;
   background = u.background colorscheme;
+  inherit (u) lighten darken;
 in {
   "Normal" = {
     fg = foreground;
@@ -18,7 +19,7 @@ in {
     bg = foreground;
   };
   "SignColumn" = {
-    bg = u.darken 0.1 background;
+    bg = darken 0.1 background;
     fg = background;
   };
   "MsgArea" = {
@@ -35,13 +36,13 @@ in {
   };
 
   # Highlight references of symbol under cursor
-  "LspReferenceText" = { bg = u.lighten 0.2 background; };
+  "LspReferenceText" = { bg = lighten 0.2 background; };
   "LspReferenceRead" = {
-    bg = u.lighten 0.2 background;
+    bg = lighten 0.2 background;
     italic = true;
   };
   "LspReferenceWrite" = {
-    bg = u.lighten 0.2 background;
+    bg = lighten 0.2 background;
     bold = true;
   };
 
@@ -62,5 +63,4 @@ in {
     fg = palette.base06;
     undercurl = true;
   };
-
 }

@@ -4,38 +4,42 @@ let
   palette = colorscheme.palette;
   background = u.background colorscheme;
   foreground = u.foreground colorscheme;
+  inherit (u) lighten darken mixHSV desaturate saturate highlight;
 in {
   "@note" = {
-    fg = u.background colorscheme;
+    fg = background;
     bg = palette.base05;
   };
   "@comment" = { fg = palette.base08; };
   "@comment.documentation" = {
-    fg = u.lighten 0.2 palette.base08;
+    fg = lighten 0.2 palette.base08;
     italic = true;
   };
   "@warning" = {
-    fg = u.background colorscheme;
+    fg = background;
     bg = palette.base05;
   };
   "@danger" = {
-    fg = u.background colorscheme;
+    fg = background;
     bg = palette.base03;
   };
   "@constructor" = { fg = palette.base06; };
   "@conditional" = { fg = palette.base02; };
   "@constant" = {
-    fg = u.darken 0.1 palette.base06;
+    fg = darken 0.1 palette.base06;
     bold = true;
   };
-  "@field" = { fg = u.darken 0.1 palette.base06; };
-  "@function" = { fg = u.darken 0.2 palette.base02; };
+  "@field" = { fg = darken 0.1 palette.base06; };
+  "@function" = {
+    fg = darken 0.2 palette.base02;
+    bold = true;
+  };
   "@keyword" = {
     fg = palette.base02;
     bold = true;
   };
   "@keyword.function" = {
-    fg = u.darken 0.2 palette.base02;
+    fg = darken 0.2 palette.base02;
     bold = true;
   };
   "@label" = { fg = palette.base07; };
@@ -47,8 +51,8 @@ in {
     fg = palette.base06;
     bold = true;
   };
-  "@number" = { fg = u.lighten 0.1 palette.base01; };
-  "@float" = { fg = u.mixHSV 0.5 palette.base01 palette.base06; };
+  "@number" = { fg = lighten 0.1 palette.base01; };
+  "@float" = { fg = mixHSV 0.5 palette.base01 palette.base06; };
   "@string" = { fg = palette.base01; };
   "@string.regex" = { fg = palette.base07; };
   "@string.escape" = { fg = palette.base06; };
@@ -57,6 +61,9 @@ in {
     bold = true;
   };
   "@parameter" = { fg = palette.base04; };
-  "@property" = { fg = u.darken 0.1 palette.base06; };
-  "@punctuation.delimiter" = { fg = u.darken 0.3 palette.base03; };
+  "@property" = { fg = darken 0.1 palette.base06; };
+  "@punctuation.delimiter" = { fg = darken 0.2 palette.base03; };
+  "@punctuation.bracket" = {
+    fg = highlight colorscheme 0.2 (desaturate 0.2 palette.base03);
+  };
 }
