@@ -26,6 +26,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
+      colorscheme = inputs.nix-colors.colorSchemes.apprentice;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
@@ -42,7 +43,7 @@
           inputs.home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = { inherit inputs colorscheme; };
             home-manager.useUserPackages = true;
             home-manager.users.manuel = { imports = [ ./home/nixframe.nix ]; };
           }

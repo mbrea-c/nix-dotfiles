@@ -2,14 +2,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, colorscheme, ... }:
 let
   nixvim = inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
     inherit pkgs;
-    extraSpecialArgs = {
-      inherit inputs;
-      colorscheme = inputs.nix-colors.colorSchemes.apprentice;
-    };
+    extraSpecialArgs = { inherit inputs; };
     module = import ../modules/nixvim-standalone.nix;
   };
 in {

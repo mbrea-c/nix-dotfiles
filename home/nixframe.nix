@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, colorscheme, ... }:
 let
   zed-fhs = pkgs.buildFHSUserEnv {
     name = "zed";
@@ -7,6 +7,7 @@ let
   };
   zeddit =
     pkgs.writeShellScriptBin "zeddit" (builtins.readFile ../scripts/zeddit);
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 in {
   imports =
     [ inputs.nix-colors.homeManagerModules.default ../modules/sway-home.nix ];
@@ -76,8 +77,8 @@ in {
   gtk = {
     enable = true;
     theme = {
-      name = "Materia-dark";
-      package = pkgs.materia-theme;
+      name = "${colorscheme.slug}";
+      package = gtkThemeFromScheme { scheme = colorscheme; };
     };
   };
 
