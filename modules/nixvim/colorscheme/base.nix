@@ -11,11 +11,11 @@ in {
   };
   "StatusLineNC" = {
     fg = background;
-    bg = foreground;
+    bg = palette.base08;
   };
   "StatusLine" = {
     fg = background;
-    bg = palette.base08;
+    bg = foreground;
   };
   "SignColumn" = {
     bg = u.darken 0.1 background;
