@@ -22,7 +22,7 @@ in {
     }
   ];
 
-  highlight = highlights;
+  highlightOverride = highlights;
 
   globals = {
     mapleader = ";";
