@@ -49,4 +49,12 @@ in {
   };
   "@number" = { fg = u.lighten 0.1 palette.base01; };
   "@float" = { fg = u.mixHSV 0.5 palette.base01 palette.base06; };
+  "@string" = { fg = palette.base01; };
+  "@string.regex" = { fg = palette.base07; };
+  "@string.escape" = { fg = palette.base06; };
+  "@operator" = {
+    fg = palette.base03;
+    bold = true;
+  };
+  "@parameter" = { fg = palette.base04; };
 }
