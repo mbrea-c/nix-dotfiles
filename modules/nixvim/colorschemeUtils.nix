@@ -114,6 +114,25 @@ let
         s = hsv.s;
         v = 1. - ratio' * (1. - hsv.v);
     };
+  
+  mixHSV = ratio: left: right:
+    let
+      leftHsv = toHSV left;
+      rightHsv = toHSV right;
+      maxHue = listMax [leftHsv.h rightHsv.h];
+      minHue = listMin [leftHsv.h rightHsv.h];
+      newHue = leftHsv.h * (1. - ratio) + rightHsv.h * ratio;
+      newHue' = if 360. + minHue - maxHue < maxHue - minHue then
+        if leftHsv.h == minHue then
+          (360. + leftHsv.h) * (1. - ratio) + rightHsv.h * ratio
+        else 
+          leftHsv.h * (1. - ratio) + (360. + rightHsv.h) * ratio
+        else newHue;
+    in fromHSV {
+      h = newHue';
+      s = leftHsv.s * (1. - ratio) + rightHsv.s * ratio;
+      v = leftHsv.v * (1. - ratio) + rightHsv.v * ratio;
+    };
 in {
- inherit foreground background mapColors darken lighten fromHSV toHSV;
+ inherit foreground background mapColors darken lighten fromHSV toHSV mixHSV;
 }
