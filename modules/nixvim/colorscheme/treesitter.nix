@@ -48,5 +48,5 @@ in {
     bold = true;
   };
   "@number" = { fg = u.lighten 0.1 palette.base01; };
-  "@float" = { fg = u.mixHSV 0.5 palette.base01 palette.base6; };
+  "@float" = { fg = u.mixHSV 0.5 palette.base01 palette.base06; };
 }
