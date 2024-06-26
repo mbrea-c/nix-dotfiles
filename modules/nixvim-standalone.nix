@@ -23,6 +23,7 @@ in {
     {
       key = "<C-t>";
       action = "<cmd>ToggleTerm<CR>";
+      mode = [ "n" "t" ];
     }
   ];
 
@@ -129,6 +130,9 @@ in {
     };
     treesitter.enable = true;
     neo-tree.enable = true;
-    toggleterm = { enable = true; };
+    toggleterm = {
+      enable = true;
+      shade_terminals = false;
+    };
   };
 }
