@@ -132,7 +132,7 @@ in {
     neo-tree.enable = true;
     toggleterm = {
       enable = true;
-      shade_terminals = false;
+      settings = { shade_terminals = false; };
     };
   };
 }
