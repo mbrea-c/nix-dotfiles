@@ -135,7 +135,7 @@ let
     };
 
   isDark = { palette, ... }:
-    (toHSV palette.base00) < 0.5;
+    (toHSV palette.base00).v < 0.5;
 
   highlight = colorscheme: ratio: color:
     if isDark colorscheme then
