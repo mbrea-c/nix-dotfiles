@@ -134,8 +134,11 @@ let
       v = hsv.v;
     };
 
-  highlight = { variant, ... }: ratio: color:
-    if variant == "dark" then
+  isDark = { palette, ... }:
+    (toHSV palette.base00) < 0.5;
+
+  highlight = colorscheme: ratio: color:
+    if isDark colorscheme then
       lighten ratio color
     else
       darken ratio color;
