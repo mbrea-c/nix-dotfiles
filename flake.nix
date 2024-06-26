@@ -29,7 +29,7 @@
       colorscheme = inputs.nix-colors.colorSchemes.apprentice;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs colorscheme; };
         modules = [
           {
             nix.settings = {
