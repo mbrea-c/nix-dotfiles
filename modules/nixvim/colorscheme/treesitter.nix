@@ -58,4 +58,5 @@ in {
   };
   "@parameter" = { fg = palette.base04; };
   "@property" = { fg = u.darken 0.1 palette.base06; };
+  "@punctuation.delimiter" = { fg = u.darken 0.3 palette.base03; };
 }

@@ -24,7 +24,6 @@ let
       b = builtins.elemAt rgb 2;
     in { inherit r g b; };
 
-  # test
   toHSV = color:
     let
       c = toRGB color;
