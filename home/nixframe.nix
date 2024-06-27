@@ -35,6 +35,7 @@ in {
     xorg.xrandr
     fastfetch
     zeddit
+    lf
   ];
 
   home.sessionVariables = {
