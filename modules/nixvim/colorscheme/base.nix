@@ -91,6 +91,10 @@ in {
     fg = colors.color8;
     bg = darken 0.1 colors.background;
   };
-  "CursorLineNr" = { fg = colors.red; };
+  "CursorLineNr" = {
+    fg = lighten 0.3 colors.color8;
+    bold = true;
+  };
   "FloatBorder" = { fg = darken 0.3 colors.foreground; };
+  "NormalFloat" = { bg = darken 0.15 colors.background; };
 }
