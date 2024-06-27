@@ -76,14 +76,14 @@ in {
 
   gtk = {
     enable = true;
-    theme = {
-      name = "Materia-dark";
-      package = pkgs.materia-theme;
-    };
     # theme = {
-    #   name = "${colorscheme.slug}";
-    #   package = gtkThemeFromScheme { scheme = colorscheme; };
+    #   name = "Materia-dark";
+    #   package = pkgs.materia-theme;
     # };
+    theme = {
+      name = "${colorscheme.slug}";
+      package = gtkThemeFromScheme { scheme = colorscheme; };
+    };
   };
 
   programs.zsh = {
