@@ -19,7 +19,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-color-utils = {
-      url = ./../nix-color-utils;
+      url = "./../nix-color-utils";
       inputs.nix-colors.follows = "nix-colors";
     };
   };
