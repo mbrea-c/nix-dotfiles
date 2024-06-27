@@ -29,24 +29,24 @@ in {
   };
   "@field" = { fg = darken 0.1 colors.color6; };
   "@function" = {
-    fg = darken 0.2 colors.color2;
+    fg = darken 0.2 colors.blue;
     bold = true;
   };
   "@keyword" = {
-    fg = colors.color2;
+    fg = colors.green;
     bold = true;
   };
   "@keyword.function" = {
-    fg = darken 0.2 colors.color2;
+    fg = darken 0.2 colors.green;
     bold = true;
   };
   "@label" = { fg = colors.color7; };
   "@method" = {
-    fg = colors.color6;
+    fg = colors.cyan;
     bold = true;
   };
   "@namespace" = {
-    fg = colors.color6;
+    fg = colors.cyan;
     bold = true;
   };
 
