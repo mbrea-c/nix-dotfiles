@@ -63,7 +63,7 @@ in {
   };
 
   "NormalNC" = {
-    fg = colors.foregrond;
+    fg = colors.foreground;
     bg = colors.background;
   };
   "Pmenu" = {
