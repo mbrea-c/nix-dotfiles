@@ -1,66 +1,64 @@
 { lib, inputs, colorscheme, ... }:
 let
   u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
-  palette = colorscheme.palette;
-  foreground = u.foreground colorscheme;
-  background = u.background colorscheme;
+  colors = u.fromBase16 colorscheme;
   inherit (u) lighten darken;
 in {
   "Normal" = {
-    fg = foreground;
-    bg = background;
+    fg = colors.foreground;
+    bg = colors.background;
   };
   "StatusLineNC" = {
-    fg = background;
-    bg = palette.base08;
+    fg = colors.background;
+    bg = colors.color8;
   };
   "StatusLine" = {
-    fg = background;
-    bg = foreground;
+    fg = colors.background;
+    bg = colors.foreground;
   };
   "SignColumn" = {
-    bg = darken 0.1 background;
-    fg = background;
+    bg = darken 0.1 colors.background;
+    fg = colors.background;
   };
   "MsgArea" = {
-    fg = foreground;
-    bg = background;
+    fg = colors.foreground;
+    bg = colors.background;
   };
   "ModeMsg" = {
-    fg = foreground;
-    bg = background;
+    fg = colors.foreground;
+    bg = colors.background;
   };
   "MsgSeparator" = {
-    fg = foreground;
-    bg = background;
+    fg = colors.foreground;
+    bg = colors.background;
   };
 
   # Highlight references of symbol under cursor
-  "LspReferenceText" = { bg = lighten 0.2 background; };
+  "LspReferenceText" = { bg = lighten 0.2 colors.background; };
   "LspReferenceRead" = {
-    bg = lighten 0.2 background;
+    bg = lighten 0.2 colors.background;
     italic = true;
   };
   "LspReferenceWrite" = {
-    bg = lighten 0.2 background;
+    bg = lighten 0.2 colors.background;
     bold = true;
   };
 
   # Spelling
   "SpellBad" = {
-    fg = palette.base01;
+    fg = colors.color1;
     undercurl = true;
   };
   "SpellCap" = {
-    fg = palette.base05;
+    fg = colors.color5;
     undercurl = true;
   };
   "SpellLocal" = {
-    fg = palette.base03;
+    fg = colors.color3;
     undercurl = true;
   };
   "SpellRare" = {
-    fg = palette.base06;
+    fg = colors.color6;
     undercurl = true;
   };
 }

@@ -1,85 +1,83 @@
 { lib, inputs, colorscheme, ... }:
 let
   u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
-  palette = colorscheme.palette;
-  background = u.background colorscheme;
-  foreground = u.foreground colorscheme;
+  colors = u.fromBase16 colorscheme;
   inherit (u) lighten darken mixHSV desaturate saturate highlight;
 in {
   "@note" = {
-    fg = background;
-    bg = palette.base05;
+    fg = colors.background;
+    bg = colors.color5;
   };
-  "@comment" = { fg = palette.base08; };
+  "@comment" = { fg = colors.color8; };
   "@comment.documentation" = {
-    fg = lighten 0.2 palette.base08;
+    fg = lighten 0.2 colors.color8;
     italic = true;
   };
   "@warning" = {
-    fg = background;
-    bg = palette.base05;
+    fg = colors.background;
+    bg = colors.color5;
   };
   "@danger" = {
-    fg = background;
-    bg = palette.base03;
+    fg = colors.background;
+    bg = colors.color3;
   };
-  "@constructor" = { fg = palette.base06; };
-  "@conditional" = { fg = palette.base02; };
+  "@constructor" = { fg = colors.color6; };
+  "@conditional" = { fg = colors.color2; };
   "@constant" = {
-    fg = darken 0.1 palette.base06;
+    fg = darken 0.1 colors.color6;
     bold = true;
   };
-  "@field" = { fg = darken 0.1 palette.base06; };
+  "@field" = { fg = darken 0.1 colors.color6; };
   "@function" = {
-    fg = darken 0.2 palette.base02;
+    fg = darken 0.2 colors.color2;
     bold = true;
   };
   "@keyword" = {
-    fg = palette.base02;
+    fg = colors.color2;
     bold = true;
   };
   "@keyword.function" = {
-    fg = darken 0.2 palette.base02;
+    fg = darken 0.2 colors.color2;
     bold = true;
   };
-  "@label" = { fg = palette.base07; };
+  "@label" = { fg = colors.color7; };
   "@method" = {
-    fg = palette.base06;
+    fg = colors.color6;
     bold = true;
   };
   "@namespace" = {
-    fg = palette.base06;
+    fg = colors.color6;
     bold = true;
   };
 
   # Primitives
-  "@number" = { fg = lighten 0.1 palette.base01; };
-  "@float" = { fg = mixHSV 0.5 palette.base01 palette.base06; };
-  "@string" = { fg = palette.base01; };
-  "@string.regex" = { fg = palette.base07; };
-  "@string.escape" = { fg = palette.base06; };
-  "@boolean" = { fg = saturate 0.1 (darken 0.1 palette.base01); };
+  "@number" = { fg = lighten 0.1 colors.color1; };
+  "@float" = { fg = mixHSV 0.5 colors.color1 colors.color6; };
+  "@string" = { fg = colors.color1; };
+  "@string.regex" = { fg = colors.color7; };
+  "@string.escape" = { fg = colors.color6; };
+  "@boolean" = { fg = saturate 0.1 (darken 0.1 colors.color1); };
 
   "@operator" = {
-    fg = palette.base03;
+    fg = colors.color3;
     bold = true;
   };
-  "@parameter" = { fg = palette.base04; };
-  "@property" = { fg = darken 0.1 palette.base06; };
-  "@punctuation.delimiter" = { fg = darken 0.2 palette.base03; };
+  "@parameter" = { fg = colors.color4; };
+  "@property" = { fg = darken 0.1 colors.color6; };
+  "@punctuation.delimiter" = { fg = darken 0.2 colors.color3; };
   "@punctuation.bracket" = {
-    fg = highlight colorscheme 0.2 (desaturate 0.2 palette.base03);
+    fg = highlight colorscheme 0.2 (desaturate 0.2 colors.color3);
   };
-  "@punctuation.special" = { fg = palette.base03; };
-  "@repeat" = { fg = palette.base02; };
-  "@symbol" = { fg = darken 0.2 foreground; };
-  "@type" = { fg = palette.base02; };
-  "@type.qualifier" = { fg = lighten 0.1 palette.base02; };
-  "@type.builtin" = { fg = darken 0.1 palette.base02; };
+  "@punctuation.special" = { fg = colors.color3; };
+  "@repeat" = { fg = colors.color2; };
+  "@symbol" = { fg = darken 0.2 colors.foreground; };
+  "@type" = { fg = colors.color2; };
+  "@type.qualifier" = { fg = lighten 0.1 colors.color2; };
+  "@type.builtin" = { fg = darken 0.1 colors.color2; };
   "@variable" = {
-    fg = desaturate 0.1 (mixHSV 0.5 palette.base04 palette.base06);
+    fg = desaturate 0.1 (mixHSV 0.5 colors.color4 colors.color6);
   };
-  "@variable.builtin" = { fg = palette.base0B; };
-  "@text" = { fg = darken 0.1 foreground; };
+  "@variable.builtin" = { fg = colors.color11; };
+  "@text" = { fg = darken 0.1 colors.foreground; };
   "@text.emphasis" = { italic = true; };
 }
