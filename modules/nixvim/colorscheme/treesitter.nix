@@ -83,7 +83,7 @@ in {
   "@text.emphasis" = { italic = true; };
   "@text.strong" = { bold = true; };
   "@text.underline" = { underline = true; };
-  "@text.strike" = { strike = true; };
+  "@text.strike" = { strikethrough = true; };
   "@text.title" = {
     bold = true;
     underline = true;
