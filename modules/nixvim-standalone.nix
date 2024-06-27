@@ -114,7 +114,7 @@ in {
     lsp = {
       enable = true;
       servers = {
-        nil-ls.enable = true;
+        nixd.enable = true;
         rust-analyzer.enable = true;
       };
     };
