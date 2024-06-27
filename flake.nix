@@ -30,7 +30,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      colorscheme = inputs.nix-colors.colorSchemes.spacemacs;
+      colorscheme = inputs.nix-colors.colorSchemes.standardized-dark;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs colorscheme; };
