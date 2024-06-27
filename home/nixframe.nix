@@ -36,6 +36,7 @@ in {
     fastfetch
     zeddit
     lf
+    trash-cli
   ];
 
   home.sessionVariables = {
