@@ -107,4 +107,8 @@ in {
   };
 
   "Visual" = { bg = colors.color8; };
+  "VisualNOS" = {
+    bg = colors.color8;
+    fg = colors.red;
+  };
 }
