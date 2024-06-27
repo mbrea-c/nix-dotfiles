@@ -95,6 +95,14 @@ in {
     fg = lighten 0.3 colors.color8;
     bold = true;
   };
+  "CursorLine" = { bg = lighten 0.1 colors.background; };
+  "CursorColumn" = { bg = colors.background; };
+  #"ColorColumn" = { bg = colors.background; }; what is this?
   "FloatBorder" = { fg = darken 0.3 colors.foreground; };
   "NormalFloat" = { bg = darken 0.15 colors.background; };
+
+  "WinSeparator" = {
+    fg = colors.background;
+    bg = colors.color8;
+  };
 }
