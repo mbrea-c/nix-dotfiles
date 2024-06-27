@@ -1,7 +1,6 @@
-{ lib, inputs, colorscheme, ... }:
+{ inputs, colorscheme, ... }:
 let
-  u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
-  inherit (u) mixRGB;
+  u = inputs.nix-color-utils.lib;
   colors = u.fromBase16 colorscheme;
 in {
   "@lsp.type.namespace" = { link = "@namespace"; };
@@ -31,7 +30,7 @@ in {
   "@lsp.mod.deprecated" = { strikethrough = true; };
   "@lsp.mod.declaration" = { underdashed = true; };
   "@lsp.mod.readonly" = { italic = true; };
-  "@lsp.mod.global" = { fg = mixRGB 0.4 colors.red colors.yellow; };
+  "@lsp.mod.global" = { fg = u.hsv.mix 0.4 colors.red colors.yellow; };
 
   # Type/modifier combinations
   "@lsp.typemod.function.defaultLibrary" = { link = "@function.builtin"; };

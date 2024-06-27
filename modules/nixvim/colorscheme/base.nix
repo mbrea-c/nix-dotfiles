@@ -1,8 +1,8 @@
-{ lib, inputs, colorscheme, ... }:
+{ inputs, colorscheme, ... }:
 let
-  u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
+  u = inputs.nix-color-utils.lib;
   colors = u.fromBase16 colorscheme;
-  inherit (u) lighten darken;
+  inherit (u.hsv) lighten darken;
 in {
   "Normal" = {
     fg = colors.foreground;

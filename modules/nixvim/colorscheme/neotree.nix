@@ -1,6 +1,6 @@
-{ lib, inputs, colorscheme, ... }:
+{ inputs, colorscheme, ... }:
 let
-  u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
+  u = inputs.nix-color-utils.lib;
   colors = u.fromBase16 colorscheme;
 in {
   "NeoTreeDirectoryIcon" = { fg = colors.blue; };

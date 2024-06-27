@@ -1,8 +1,8 @@
-{ lib, inputs, colorscheme, ... }:
+{ inputs, colorscheme, ... }:
 let
-  u = (import ../colorschemeUtils.nix) { inherit lib inputs; };
+  u = inputs.nix-color-utils.lib;
   colors = u.fromBase16 colorscheme;
-  inherit (u) lighten darken mixHSV desaturate saturate highlight;
+  inherit (u.hsv) lighten darken desaturate saturate highlight;
 in {
   "@note" = {
     fg = colors.background;
@@ -52,7 +52,7 @@ in {
 
   # Primitives
   "@number" = { fg = lighten 0.1 colors.color1; };
-  "@float" = { fg = mixHSV 0.5 colors.color1 colors.color6; };
+  "@float" = { fg = u.rgb.mix 0.5 colors.color1 colors.color6; };
   "@string" = { fg = colors.color1; };
   "@string.regex" = { fg = colors.color7; };
   "@string.escape" = { fg = colors.color6; };
@@ -76,7 +76,7 @@ in {
   "@type.qualifier" = { fg = lighten 0.1 colors.color2; };
   "@type.builtin" = { fg = darken 0.1 colors.color2; };
   "@variable" = {
-    fg = desaturate 0.1 (mixHSV 0.5 colors.color4 colors.color6);
+    fg = desaturate 0.1 (u.hsv.mix 0.5 colors.color4 colors.color6);
   };
   "@variable.builtin" = { fg = colors.color11; };
   "@text" = { fg = darken 0.1 colors.foreground; };
