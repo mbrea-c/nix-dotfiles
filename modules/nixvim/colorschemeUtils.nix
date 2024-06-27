@@ -196,9 +196,9 @@ let
       leftRgb = toRGB left;
       rightRgb = toRGB right;
     in fromRGB {
-      r = (1. - ratio) * leftRgb.r + ratio * rightRgb.r;
-      g = (1. - ratio) * leftRgb.g + ratio * rightRgb.g;
-      b = (1. - ratio) * leftRgb.b + ratio * rightRgb.b;
+      r = builtins.floor ((1. - ratio) * leftRgb.r + ratio * rightRgb.r);
+      g = builtins.floor ((1. - ratio) * leftRgb.g + ratio * rightRgb.g);
+      b = builtins.floor ((1. - ratio) * leftRgb.b + ratio * rightRgb.b);
     };
 in {
  inherit foreground background mapColors darken lighten 
