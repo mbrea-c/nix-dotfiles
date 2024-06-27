@@ -191,7 +191,17 @@ let
       s = leftHsv.s * (1. - ratio) + rightHsv.s * ratio;
       v = leftHsv.v * (1. - ratio) + rightHsv.v * ratio;
     };
+  mixRGB = ratio: left: right:
+    let
+      leftRgb = toRGB left;
+      rightRgb = toRGB right;
+    in fromRGB {
+      r = (1. - ratio) * leftRgb.r + ratio * rightRgb.r;
+      g = (1. - ratio) * leftRgb.g + ratio * rightRgb.g;
+      b = (1. - ratio) * leftRgb.b + ratio * rightRgb.b;
+    };
 in {
  inherit foreground background mapColors darken lighten 
-  desaturate saturate highlight fromHSV toHSV mixHSV fromBase16;
+  desaturate saturate highlight fromHSV toHSV mixHSV mixRGB
+  fromBase16;
 }

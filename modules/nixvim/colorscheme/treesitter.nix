@@ -81,4 +81,23 @@ in {
   "@variable.builtin" = { fg = colors.color11; };
   "@text" = { fg = darken 0.1 colors.foreground; };
   "@text.emphasis" = { italic = true; };
+  "@text.strong" = { bold = true; };
+  "@text.underline" = { underline = true; };
+  "@text.strike" = { strike = true; };
+  "@text.title" = {
+    bold = true;
+    underline = true;
+  };
+  "@text.literal" = { };
+  "@text.uri" = {
+    fg = darken 0.3 colors.color4;
+    underline = true;
+  };
+  "@text.math" = { fg = colors.red; };
+  "@text.reference" = { fg = colors.color8; };
+  "@text.environment" = { fg = colors.color6; };
+  "@text.environment.name" = { fg = colors.color6; };
+  "@text.note" = { };
+  "@text.warning" = { };
+  "@text.danger" = { };
 }
