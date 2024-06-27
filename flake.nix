@@ -26,7 +26,7 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      colorscheme = inputs.nix-colors.colorSchemes.gruvbox;
+      colorscheme = inputs.nix-colors.colorSchemes.onedark;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs colorscheme; };
