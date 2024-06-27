@@ -89,7 +89,7 @@ in {
   };
   "LineNr" = {
     fg = colors.color8;
-    bg = darken colors.background;
+    bg = darken 0.1 colors.background;
   };
   "CursorLineNr" = { fg = colors.red; };
   "FloatBorder" = { fg = darken 0.3 colors.foreground; };
