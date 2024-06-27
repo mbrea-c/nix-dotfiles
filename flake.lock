@@ -221,11 +221,11 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1719524081,
-        "narHash": "sha256-mJ6o3mWu5zmCRqz/z04eSDEj4YcyVbPn1bTShqlo1VM=",
+        "lastModified": 1719524872,
+        "narHash": "sha256-PhHLJelOTAM0bNUo6rTrBYjRhzf4gcGDXJgtKnHfEGo=",
         "owner": "mbrea-c",
         "repo": "nix-color-utils",
-        "rev": "19ff9f1e14d89d24472921664c14918a3c8848fc",
+        "rev": "ea0dd631839039d5ca9ad7f71d091eef94466ada",
         "type": "github"
       },
       "original": {
