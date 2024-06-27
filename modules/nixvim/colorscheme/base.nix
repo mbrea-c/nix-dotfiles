@@ -61,4 +61,22 @@ in {
     fg = colors.color6;
     undercurl = true;
   };
+
+  "NormalNC" = {
+    fg = colors.foregrond;
+    bg = colors.background;
+  };
+  "Pmenu" = {
+    fg = colors.foregrond;
+    bg = colors.background;
+  };
+  "PmenuSel" = {
+    fg = colors.background;
+    bg = colors.blue;
+  };
+  "WildMenu" = {
+    fg = colors.color7;
+    bg = colors.blue;
+  };
+  "CursorLineNr" = { fg = colors.red; };
 }
