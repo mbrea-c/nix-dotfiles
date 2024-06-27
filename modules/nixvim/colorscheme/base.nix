@@ -78,5 +78,19 @@ in {
     fg = colors.color7;
     bg = colors.blue;
   };
+  "Comment" = { fg = colors.color8; };
+  "Folded" = {
+    fg = colors.blue;
+    bg = colors.background;
+  };
+  "FoldColumn" = {
+    fg = colors.blue;
+    bg = colors.background;
+  };
+  "LineNr" = {
+    fg = colors.color8;
+    bg = darken colors.background;
+  };
   "CursorLineNr" = { fg = colors.red; };
+  "FloatBorder" = { fg = darken 0.3 colors.foreground; };
 }

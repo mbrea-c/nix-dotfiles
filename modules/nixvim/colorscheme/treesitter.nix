@@ -52,7 +52,7 @@ in {
 
   # Primitives
   "@number" = { fg = lighten 0.1 colors.color1; };
-  "@float" = { fg = u.rgb.mix 0.5 colors.color1 colors.color6; };
+  "@number.float" = { fg = u.rgb.mix 0.5 colors.color1 colors.color6; };
   "@string" = { fg = colors.color1; };
   "@string.regex" = { fg = colors.color7; };
   "@string.escape" = { fg = colors.color6; };
