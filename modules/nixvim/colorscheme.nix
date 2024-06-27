@@ -5,4 +5,5 @@ let
 in u.mapColors ((import ./colorscheme/base.nix args)
   // (import ./colorscheme/treesitter.nix args)
   // (import ./colorscheme/lsp-semantic-highlight.nix args)
-  // (import ./colorscheme/diagnostic.nix args))
+  // (import ./colorscheme/diagnostic.nix args)
+  // (import ./colorscheme/neotree.nix args))
