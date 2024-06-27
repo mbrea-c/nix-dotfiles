@@ -67,7 +67,7 @@ in {
     bg = colors.background;
   };
   "Pmenu" = {
-    fg = colors.foregrond;
+    fg = colors.foreground;
     bg = colors.background;
   };
   "PmenuSel" = {
