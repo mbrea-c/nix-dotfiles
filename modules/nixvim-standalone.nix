@@ -141,6 +141,7 @@ in {
     };
     treesitter.enable = true;
     neo-tree.enable = true;
+    dressing.enable = true;
     toggleterm = {
       enable = true;
       settings = { shade_terminals = false; };
