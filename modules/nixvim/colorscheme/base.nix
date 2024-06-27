@@ -105,4 +105,6 @@ in {
     fg = colors.background;
     bg = colors.color8;
   };
+
+  "Visual" = { bg = colors.color8; };
 }
