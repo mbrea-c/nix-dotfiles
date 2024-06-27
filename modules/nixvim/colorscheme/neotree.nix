@@ -4,6 +4,6 @@ let
   colors = u.fromBase16 colorscheme;
   inherit (u) lighten darken saturate;
 in {
-  "NeoTreeFileIcon" = { fg = colors.blue; };
-  "NeoTreeFileName" = { fg = colors.foreground; };
+  "NeoTreeDirectoryIcon" = { fg = colors.blue; };
+  "NeoTreeDirectoryName" = { fg = colors.blue; };
 }
