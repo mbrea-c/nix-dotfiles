@@ -56,6 +56,7 @@ in {
   "@string" = { fg = colors.color1; };
   "@string.regex" = { fg = colors.color7; };
   "@string.escape" = { fg = colors.color6; };
+  "@string.special.path" = { fg = colors.yellow; };
   "@boolean" = { fg = saturate 0.1 (darken 0.1 colors.color1); };
 
   "@operator" = {
