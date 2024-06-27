@@ -41,7 +41,10 @@ let
 
   mapColors = lib.attrsets.mapAttrs (_: hl:
     lib.attrsets.mapAttrs
-    (key: value: if key == "fg" || key == "bg" then "#${value}" else value) hl);
+    (key: value: if key == "fg" || key == "bg" || key == "sp" then 
+        "#${value}" 
+        else 
+        value) hl);
 
   # converts default nix-colors color (hex string such as "23F1AA") to the form
   # { r = 12; g = 255; b = 58 }.
