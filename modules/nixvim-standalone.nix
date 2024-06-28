@@ -96,8 +96,10 @@ in {
     lsp = {
       enable = true;
       servers = {
-        nixd.enable = true;
+        nil-ls.enable = true;
+        # nixd.enable = true;
         rust-analyzer.enable = true;
+        taplo.enable = true;
       };
     };
     cmp = {
