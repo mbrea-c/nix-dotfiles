@@ -205,7 +205,7 @@ in {
             fg = out colors.color7;
           };
           c = {
-            bg = out (darken 0.2 colors.backround);
+            bg = out (darken 0.2 colors.background);
             fg = out colors.foreground;
           };
         };
