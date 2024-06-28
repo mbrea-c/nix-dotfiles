@@ -5,8 +5,6 @@ let
     targetPkgs = pkgs: with pkgs; [ zed-editor ];
     runScript = "zed";
   };
-  zeddit =
-    pkgs.writeShellScriptBin "zeddit" (builtins.readFile ../scripts/zeddit);
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 in {
   imports =

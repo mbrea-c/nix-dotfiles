@@ -1,0 +1,29 @@
+# Prints available terminal colors
+for i in $(seq 0 7); do
+	printf " %2d " $i
+done
+printf "\n"
+
+
+for i in $(seq 0 7); do
+	printf "\e[4$(printf $i)m    \e[0m"
+done
+printf "\n"
+for i in $(seq 0 7); do
+	printf "\e[4$(printf $i)m    \e[0m"
+done
+printf "  ANSI: 3(f) 4(b)\n"
+
+for i in $(seq 0 7); do
+	printf "\e[10$(printf $i)m    \e[0m"
+done
+printf "\n"
+for i in $(seq 0 7); do
+	printf "\e[10$(printf $i)m    \e[0m"
+done
+printf "  ANSI: 9(f) 10(b)\n"
+
+for i in $(seq 8 15); do
+	printf " %2d " $i
+done
+printf "\n"
