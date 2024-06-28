@@ -35,6 +35,7 @@ in {
     fastfetch
     lf
     trash-cli
+    helix # For trying it out!
   ]) ++ scripts;
 
   home.sessionVariables = {
