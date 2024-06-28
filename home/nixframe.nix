@@ -5,6 +5,7 @@ let
     targetPkgs = pkgs: with pkgs; [ zed-editor ];
     runScript = "zed";
   };
+  scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 in {
   imports =
@@ -14,7 +15,7 @@ in {
 
   home.username = "manuel";
   home.homeDirectory = "/home/manuel";
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     firefox
     thunderbird
     alacritty
@@ -35,7 +36,7 @@ in {
     zeddit
     lf
     trash-cli
-  ];
+  ]) ++ scripts;
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
