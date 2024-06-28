@@ -24,13 +24,23 @@ in {
   "@constructor" = { fg = colors.color6; };
   "@conditional" = { fg = colors.color2; };
   "@constant" = {
-    fg = darken 0.1 colors.color6;
+    fg = darken 0.1 colors.cyan;
     bold = true;
+  };
+  "@constant.builtin" = {
+    fg = colors.cyan;
+    bold = true;
+    italic = true;
   };
   "@field" = { fg = darken 0.1 colors.color6; };
   "@function" = {
     fg = darken 0.2 colors.blue;
     bold = true;
+  };
+  "@function.builtin" = {
+    fg = colors.blue;
+    bold = true;
+    italic = true;
   };
   "@keyword" = {
     fg = colors.green;
