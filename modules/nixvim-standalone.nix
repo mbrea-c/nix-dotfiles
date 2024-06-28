@@ -162,7 +162,10 @@ in {
     lualine = {
       enable = true;
       iconsEnabled = true;
-      componentSeparators = "│";
+      componentSeparators = {
+        left = "│";
+        right = "│";
+      };
       sectionSeparators = {
         left = "▙";
         right = "▜";
