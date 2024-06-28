@@ -188,7 +188,7 @@ in {
         lualine_z = [ "location" ];
       };
       tabline = { };
-      extensions = { };
+      extensions = [ ];
       theme = let
         u = inputs.nix-color-utils.lib;
         colors = u.fromBase16 colorscheme;
