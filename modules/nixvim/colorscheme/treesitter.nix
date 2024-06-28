@@ -30,7 +30,6 @@ in {
   "@constant.builtin" = {
     fg = colors.cyan;
     bold = true;
-    italic = true;
   };
   "@field" = { fg = darken 0.1 colors.color6; };
   "@function" = {
@@ -40,7 +39,6 @@ in {
   "@function.builtin" = {
     fg = colors.blue;
     bold = true;
-    italic = true;
   };
   "@keyword" = {
     fg = colors.green;

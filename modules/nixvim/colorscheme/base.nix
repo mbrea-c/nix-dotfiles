@@ -111,4 +111,6 @@ in {
     bg = colors.color8;
     fg = colors.red;
   };
+
+  "IblScope" = { fg = darken 0.35 colors.blue; };
 }
