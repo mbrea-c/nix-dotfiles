@@ -54,7 +54,11 @@ in {
     bold = true;
   };
   "@namespace" = {
-    fg = colors.cyan;
+    fg = darken 0.1 (desaturate 0.2 colors.cyan);
+    bold = true;
+  };
+  "@module" = {
+    fg = darken 0.1 (desaturate 0.2 colors.cyan);
     bold = true;
   };
 
