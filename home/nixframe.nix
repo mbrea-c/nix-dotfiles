@@ -33,7 +33,6 @@ in {
     rustup
     xorg.xrandr
     fastfetch
-    zeddit
     lf
     trash-cli
   ]) ++ scripts;
