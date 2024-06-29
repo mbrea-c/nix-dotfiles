@@ -81,4 +81,12 @@ in [
     action = lua "vim.diagnostic.open_float";
     options = desc "Open diagnostics float";
   }
+
+  # Aerial (outline)
+  {
+    mode = [ "n" ];
+    key = "<leader>a";
+    action = "<cmd>AerialToggle!<CR>";
+    options = desc "Toggle Aerial overview";
+  }
 ]

@@ -268,4 +268,11 @@ in {
       };
     };
   };
+  extraPlugins = with pkgs.vimPackages; [{
+    plugin = aerial-nvim;
+    config = # VimScript
+      ''
+        lua require("aerial").setup({})
+      '';
+  }];
 }
