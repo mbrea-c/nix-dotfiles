@@ -9,21 +9,29 @@ let
   hint = saturate 0.3 (lighten 0.3 colors.blue);
 in {
   "ScrollbarHandle" = { bg = colors.color8; };
-  "ScrollbarCursorHandle" = { link = "ScrollbarHandle"; };
-  "ScrollbarError" = {
+  "ScrollbarCursorHandle" = {
+    fg = colors.foreground;
+    bg = colors.color8;
+  };
+  "ScrollbarErrorHandle" = {
     fg = error;
     bg = colors.color8;
   };
-  "ScrollbarWarn" = {
+  "ScrollbarWarnHandle" = {
     fg = warning;
     bg = colors.color8;
   };
-  "ScrollbarInfo" = {
+  "ScrollbarInfoHandle" = {
     fg = info;
     bg = colors.color8;
   };
-  "ScrollbarHint" = {
+  "ScrollbarHintHandle" = {
     fg = hint;
     bg = colors.color8;
   };
+  "ScrollbarCursor" = { fg = colors.foreground; };
+  "ScrollbarError" = { fg = error; };
+  "ScrollbarWarn" = { fg = warning; };
+  "ScrollbarInfo" = { fg = info; };
+  "ScrollbarHint" = { fg = hint; };
 }
