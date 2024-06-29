@@ -1,4 +1,4 @@
-{ pkgs, inputs, colorscheme, ... }:
+{ pkgs, inputs, colorscheme, lib, ... }:
 let
   zed-fhs = pkgs.buildFHSUserEnv {
     name = "zed";
@@ -30,7 +30,7 @@ in {
 
   home.username = "manuel";
   home.homeDirectory = "/home/manuel";
-  home.packages = (with pkgs; [
+  home.packages = lib.lists.unique ((with pkgs; [
     firefox
     thunderbird
     alacritty
@@ -49,7 +49,7 @@ in {
     lf
     trash-cli
     helix # For trying it out!
-  ]) ++ scripts ++ bevy_deps;
+  ]) ++ scripts ++ bevy_deps);
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
