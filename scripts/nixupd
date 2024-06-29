@@ -40,4 +40,5 @@ read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
     sudo nix-env --profile /nix/var/nix/profiles/system --set ./result
     sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+    echo "test"
 fi
