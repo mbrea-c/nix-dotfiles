@@ -20,7 +20,6 @@ let
     libxkbcommon.dev
     wayland.dev
     openssl.dev
-    systemd.dev
   ];
 
 in {
