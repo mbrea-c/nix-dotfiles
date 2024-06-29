@@ -59,10 +59,10 @@ colored blue "Rebuilding..."
 nixos-rebuild build --flake .#default
 handle_error "Rebuild successful!" "Failed to rebuild system"
 
-colored blue "nix store diff-closures output"
+colored blue "nix store diff-closures output:"
 nix store diff-closures /run/current-system ./result
 
-colored blue "nvd diff output"
+colored blue "nvd diff output:"
 nvd diff /run/current-system ./result
 
 read -r -p "Switch systems? [Y/n]: " switch_systems
