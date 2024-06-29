@@ -22,21 +22,21 @@ if [ "$flakedir" = "" ]; then
 fi
 cd "$flakedir" || exit 1
 
-read -p "Update flake? [Y/n]: " update_flake
+read -r -p "Update flake? [Y/n]: " update_flake
 if [ "$update_flake" = "Y" ]; then
     colored green "Updating flake..."
     nix flake update
 fi
-read -p "Commit everything? [Y/n]: " commit_everything
+read -r -p "Commit everything? [Y/n]: " commit_everything
 if [ "$commit_everything" = "Y" ]; then
-    read -p "Commit message: " commit_message
+    read -r -p "Commit message: " commit_message
     git add .
     git commit -m "$commit_message"
 fi
 colored green "Rebuilding..."
 nixos-rebuild build --flake .#default
 nvd diff /run/current-system result
-read -p "Switch systems? [Y/n]: " switch_systems
+read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
     sudo nix-env --profile /nix/var/nix/profiles/system --set ./result
     sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
