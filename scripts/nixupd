@@ -1,3 +1,5 @@
+set +o errexit
+
 colored() {
     color="$1"
     value="$2"
@@ -23,7 +25,7 @@ handle_error() {
     error_code="$?"
     msg_if_success="$1"
     msg_if_failure="$2"
-    echo "where we at boooisss, error code is $error_code"
+    echo "Error code is $error_code"
     if [ "$error_code" = "0" ]; then 
         colored green "$msg_if_success"
     else
