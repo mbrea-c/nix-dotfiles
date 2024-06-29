@@ -24,9 +24,9 @@ handle_error() {
     msg_if_success="$1"
     msg_if_failure="$2"
     if [ "$error_code" = "0" ]; then 
-        colored green "$1"
+        colored green "$msg_if_success"
     else
-        colored red "$2" 
+        colored red "$msg_if_failure" 
         exit 1
     fi
 }
