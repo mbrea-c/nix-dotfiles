@@ -7,6 +7,22 @@ let
   };
   scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+  bevy_deps = with pkgs; [
+    pkg-config
+    udev.dev
+    alsa-lib.dev
+    vulkan-loader.dev
+    xorg.libX11
+    xorg.libXrandr
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXtst
+    libxkbcommon.dev
+    wayland.dev
+    openssl.dev
+    systemd.dev
+  ];
+
 in {
   imports =
     [ inputs.nix-colors.homeManagerModules.default ../modules/sway-home.nix ];
@@ -27,8 +43,6 @@ in {
     amdgpu_top
     gnome.gnome-system-monitor
     gnome.seahorse
-    alsa-lib # build dependency for my rust stuff
-    pkg-config
     gcc
     rustup
     xorg.xrandr
@@ -36,7 +50,7 @@ in {
     lf
     trash-cli
     helix # For trying it out!
-  ]) ++ scripts;
+  ]) ++ scripts ++ bevy_deps;
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
