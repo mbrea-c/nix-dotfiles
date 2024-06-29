@@ -23,7 +23,7 @@ handle_error() {
     error_code="$?"
     msg_if_success="$1"
     msg_if_failure="$2"
-    echo "where we at boooisss"
+    echo "where we at boooisss, error code is $error_code"
     if [ "$error_code" = "0" ]; then 
         colored green "$msg_if_success"
     else
@@ -38,7 +38,7 @@ if [ "$flakedir" = "" ]; then
     flakedir="$HOME/src/nix-dotfiles"
 fi
 cd "$flakedir"
-handle_error "" "Failed to cd to flake dir: $flakedir"
+handle_error "Switched to $flakedir" "Failed to cd to flake dir: $flakedir"
 
 read -r -p "Update flake? [Y/n]: " update_flake
 if [ "$update_flake" = "Y" ]; then
