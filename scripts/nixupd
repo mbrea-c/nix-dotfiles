@@ -39,7 +39,7 @@ if [ "$flakedir" = "" ]; then
     flakedir="$HOME/src/nix-dotfiles"
 fi
 cd "$flakedir"
-handle_error "Switched to $flakedir" "Failed to cd to flake dir: $flakedir"
+handle_error "Went to directory: $flakedir" "Failed to cd to flake dir: $flakedir"
 
 read -r -p "Update flake? [Y/n]: " update_flake
 if [ "$update_flake" = "Y" ]; then
@@ -58,7 +58,11 @@ colored blue "Rebuilding..."
 nixos-rebuild build --flake .#default
 handle_error "Rebuild successful!" "Failed to rebuild system"
 
+colored blue "nix store diff-closures output"
 nix store diff-closures /run/current-system result
+
+colored blue "nvd diff output"
+nvd diff /run/current-system result
 
 read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
