@@ -98,7 +98,12 @@ in {
       servers = {
         nil-ls.enable = true;
         # nixd.enable = true;
-        rust-analyzer.enable = true;
+        rust-analyzer = {
+          enable = true;
+          # For now, let nixvim manage its own versions of cargo and rustc
+          installCargo = true;
+          installRustc = true;
+        };
         taplo.enable = true;
         bashls.enable = true;
       };
