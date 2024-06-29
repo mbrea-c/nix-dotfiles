@@ -16,7 +16,7 @@ colored() {
 }
 
 # Go to flake directory
-flakedir="$1"
+flakedir="${1-}"
 if [ "$flakedir" = "" ]; then
     flakedir="$HOME/src/nix-dotfiles"
 fi
