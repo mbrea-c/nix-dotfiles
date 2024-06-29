@@ -58,7 +58,7 @@ colored blue "Rebuilding..."
 nixos-rebuild build --flake .#default
 handle_error "Rebuild successful!" "Failed to rebuild system"
 
-nvd diff /run/current-system result
+nix store diff-closures /run/current-system result
 
 read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
