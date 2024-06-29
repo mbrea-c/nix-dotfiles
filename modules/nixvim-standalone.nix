@@ -268,7 +268,7 @@ in {
       };
     };
   };
-  extraPlugins = with pkgs.vimPackages; [{
+  extraPlugins = with pkgs.vimPlugins; [{
     plugin = aerial-nvim;
     config = # VimScript
       ''
