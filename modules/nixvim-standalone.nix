@@ -100,6 +100,7 @@ in {
         # nixd.enable = true;
         rust-analyzer.enable = true;
         taplo.enable = true;
+        bashls.enable = true;
       };
     };
     cmp = {
