@@ -10,6 +10,9 @@ colored() {
         green)
             color_code="32"
             ;;
+        blue)
+            color_code="34"
+            ;;
     esac
 
     echo -e "\e[${color_code};1m$value\e[0m"
@@ -20,12 +23,12 @@ flakedir="${1-}"
 if [ "$flakedir" = "" ]; then
     flakedir="$HOME/src/nix-dotfiles"
 fi
-cd "$flakedir" || exit 1
+cd "$flakedir" || (colored red "Failed to cd to flake dir: $flakedir" && exit 1)
 
 read -r -p "Update flake? [Y/n]: " update_flake
 if [ "$update_flake" = "Y" ]; then
-    colored green "Updating flake..."
-    nix flake update
+    colored blue "Updating flake..."
+    nix flake update && colored green "Flake updated!" || (colored red "Failed to update flake" && exit 1)
 fi
 read -r -p "Commit everything? [Y/n]: " commit_everything
 if [ "$commit_everything" = "Y" ]; then
@@ -33,12 +36,13 @@ if [ "$commit_everything" = "Y" ]; then
     git add .
     git commit -m "$commit_message"
 fi
-colored green "Rebuilding..."
-nixos-rebuild build --flake .#default
+colored blue "Rebuilding..."
+nixos-rebuild build --flake .#default && colored green "Rebuild successful!" || (colored red "Failed to rebuild system" && exit 1)
 nvd diff /run/current-system result
 read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
-    sudo nix-env --profile /nix/var/nix/profiles/system --set ./result
-    sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
-    echo "test"
+    colored blue "Switching systems..."
+    sudo nix-env --profile /nix/var/nix/profiles/system --set ./result && \
+    sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch && \
+    colored green "System switch successful!" || (colored red "Failed to switch systems" && exit 1)
 fi
