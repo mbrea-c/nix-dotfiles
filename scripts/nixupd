@@ -1,3 +1,4 @@
+# vim: filetype=bash
 set +o errexit
 
 colored() {
@@ -59,10 +60,10 @@ nixos-rebuild build --flake .#default
 handle_error "Rebuild successful!" "Failed to rebuild system"
 
 colored blue "nix store diff-closures output"
-nix store diff-closures /run/current-system result
+nix store diff-closures /run/current-system ./result
 
 colored blue "nvd diff output"
-nvd diff /run/current-system result
+nvd diff /run/current-system ./result
 
 read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
