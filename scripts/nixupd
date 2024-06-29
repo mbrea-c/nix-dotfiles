@@ -23,6 +23,7 @@ handle_error() {
     error_code="$?"
     msg_if_success="$1"
     msg_if_failure="$2"
+    echo "where we at boooisss"
     if [ "$error_code" = "0" ]; then 
         colored green "$msg_if_success"
     else
