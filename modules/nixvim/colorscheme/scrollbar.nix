@@ -9,7 +9,7 @@ let
   hint = saturate 0.3 (lighten 0.3 colors.blue);
 in {
   "ScrollbarHandle" = { bg = colors.color8; };
-  "ScrollbarCursorHandle" = { link = "ScrollbarHandle" };
+  "ScrollbarCursorHandle" = { link = "ScrollbarHandle"; };
   "ScrollbarError" = {
     fg = error;
     bg = colors.color8;
