@@ -268,11 +268,18 @@ in {
       };
     };
   };
-  extraPlugins = with pkgs.vimPlugins; [{
-    plugin = aerial-nvim;
-    config = # VimScript
-      ''
+  extraPlugins = with pkgs.vimPlugins; [
+    {
+      plugin = aerial-nvim;
+      config = ''
         lua require("aerial").setup({})
       '';
-  }];
+    }
+    {
+      plugin = nvim-scrollbar;
+      config = ''
+        lua require("scrollbar").setup()
+      '';
+    }
+  ];
 }
