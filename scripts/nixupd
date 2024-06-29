@@ -19,7 +19,7 @@ colored() {
 }
 
 handle_error() {
-    # shellcheck disable=code
+    # shellcheck disable=SC2181
     error_code="$?"
     msg_if_success="$1"
     msg_if_failure="$2"
