@@ -18,17 +18,30 @@ colored() {
     echo -e "\e[${color_code};1m$value\e[0m"
 }
 
+handle_error() {
+    msg_if_success="$1"
+    msg_if_failure="$2"
+    if [ "$?" = "0" ]; then 
+        colored green "$1"
+    else
+        colored red "$2" 
+        exit 1
+    fi
+}
+
 # Go to flake directory
 flakedir="${1-}"
 if [ "$flakedir" = "" ]; then
     flakedir="$HOME/src/nix-dotfiles"
 fi
-cd "$flakedir" || (colored red "Failed to cd to flake dir: $flakedir" && exit 1)
+cd "$flakedir"
+handle_error "" "Failed to cd to flake dir: $flakedir"
 
 read -r -p "Update flake? [Y/n]: " update_flake
 if [ "$update_flake" = "Y" ]; then
     colored blue "Updating flake..."
-    nix flake update && colored green "Flake updated!" || (colored red "Failed to update flake" && exit 1)
+    nix flake update 
+    handle_error "Flake updated!" "Failed to update flake"
 fi
 read -r -p "Commit everything? [Y/n]: " commit_everything
 if [ "$commit_everything" = "Y" ]; then
@@ -37,12 +50,18 @@ if [ "$commit_everything" = "Y" ]; then
     git commit -m "$commit_message"
 fi
 colored blue "Rebuilding..."
-nixos-rebuild build --flake .#default && colored green "Rebuild successful!" || (colored red "Failed to rebuild system" && exit 1)
+
+nixos-rebuild build --flake .#default
+handle_error "Rebuild successful!" "Failed to rebuild system"
+
 nvd diff /run/current-system result
+
 read -r -p "Switch systems? [Y/n]: " switch_systems
 if [ "$switch_systems" = "Y" ]; then
     colored blue "Switching systems..."
+    
     sudo nix-env --profile /nix/var/nix/profiles/system --set ./result && \
-    sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch && \
-    colored green "System switch successful!" || (colored red "Failed to switch systems" && exit 1)
+    sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+
+    handle_error "System switch successful!" "Failed to switch systems"
 fi
