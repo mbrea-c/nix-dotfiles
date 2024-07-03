@@ -82,6 +82,7 @@ in {
     filetypes = {
       nix = true;
       rust = true;
+      toml = true;
     };
     augroupEnabler = formattingEnablerAugroup;
     augroupFormatter = formattingFormatterAugroup;
