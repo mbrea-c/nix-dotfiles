@@ -2,4 +2,4 @@
 
 shell_name="$1"
 
-nix develop "${NIX_CONFIG_PATH}#${shell_name}"
+nix develop "${NIX_CONFIG_PATH}#${shell_name}" --command "${SHELL}"
