@@ -96,11 +96,11 @@ in {
         __raw = # lua
           ''
             function() 
-              local clients = vim.lsp.get_clients({ bufnr = vim.fn.bufnr("%") })
+              local clients = vim.lsp.get_clients()
               local can_highlight = false
 
               for _, client in ipairs(clients) do
-                if client.supports_method("textDocument/formatting") then
+                if client.supports_method("textDocument/documentHighlight") then
                   can_highlight = true
                 end
               end
@@ -120,11 +120,11 @@ in {
         __raw = # lua
           ''
             function() 
-              local clients = vim.lsp.get_clients({ bufnr = vim.fn.bufnr("%") })
+              local clients = vim.lsp.get_clients()
               local can_highlight = false
 
               for _, client in ipairs(clients) do
-                if client.supports_method("textDocument/formatting") then
+                if client.supports_method("textDocument/documentHighlight") then
                   can_highlight = true
                 end
               end
