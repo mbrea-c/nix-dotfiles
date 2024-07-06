@@ -84,6 +84,8 @@ in {
   "@punctuation.special" = { fg = colors.color3; };
   "@repeat" = { fg = colors.color2; };
   "@symbol" = { fg = darken 0.2 colors.foreground; };
+  "@attribute" = { fg = colors.color5; };
+  "@attribute.builtin" = { fg = darken 0.1 colors.color5; };
   "@type" = { fg = colors.color2; };
   "@type.qualifier" = { fg = lighten 0.1 colors.color2; };
   "@type.builtin" = { fg = darken 0.1 colors.color2; };
