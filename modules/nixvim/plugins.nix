@@ -192,7 +192,11 @@
     {
       plugin = nvim-scrollbar;
       config = ''
-        lua require("scrollbar").setup()
+        lua require("scrollbar").setup({
+          excluded_filetypes = {
+            "neo-tree"
+          }
+        })
       '';
     }
   ];
