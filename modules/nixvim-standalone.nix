@@ -95,8 +95,8 @@ in {
       callback = {
         __raw = # lua
           ''
-            function() 
-              local clients = vim.lsp.get_clients()
+            function(ev) 
+              local clients = vim.lsp.get_clients({ bufnr = ev.buf })
               local can_highlight = false
 
               for _, client in ipairs(clients) do
@@ -119,8 +119,8 @@ in {
       callback = {
         __raw = # lua
           ''
-            function() 
-              local clients = vim.lsp.get_clients()
+            function(ev) 
+              local clients = vim.lsp.get_clients({ bufnr = ev.buf })
               local can_highlight = false
 
               for _, client in ipairs(clients) do
