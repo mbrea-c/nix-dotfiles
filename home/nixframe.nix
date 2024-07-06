@@ -40,8 +40,8 @@ in {
     nil # Nix language server
     pavucontrol
     amdgpu_top
-    gnome.gnome-system-monitor
-    gnome.seahorse
+    gnome-system-monitor
+    seahorse
     gcc
     rustup
     xorg.xrandr
