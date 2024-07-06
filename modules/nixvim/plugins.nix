@@ -7,9 +7,9 @@
         # nixd.enable = true;
         rust-analyzer = {
           enable = true;
-          # For now, let nixvim manage its own versions of cargo and rustc
-          installCargo = true;
-          installRustc = true;
+          # We manage our own cargo versions with rustup
+          installCargo = false;
+          installRustc = false;
         };
         taplo.enable = true;
         bashls.enable = true;
