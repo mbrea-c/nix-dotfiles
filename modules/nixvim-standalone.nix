@@ -93,11 +93,23 @@ in {
       group = highlightUnderCursorAugroup;
       event = [ "CursorHold" "CursorHoldI" ];
       callback = {
-        __raw = ''
-          function() 
-            vim.lsp.buf.document_highlight()
-          end
-        '';
+        __raw = # lua
+          ''
+            function() 
+              local clients = vim.lsp.get_clients()
+              local can_highlight = false
+
+              for _, client in ipairs(clients) do
+                if client.supports_method("textDocument/formatting") then
+                  can_highlight = true
+                end
+              end
+
+              if can_highlight then
+                vim.lsp.buf.document_highlight()
+              end
+            end
+          '';
       };
     }
     {
@@ -105,11 +117,23 @@ in {
       group = highlightUnderCursorAugroup;
       event = [ "CursorMoved" ];
       callback = {
-        __raw = ''
-          function() 
-            vim.lsp.buf.clear_references()
-          end
-        '';
+        __raw = # lua
+          ''
+            function() 
+              local clients = vim.lsp.get_clients()
+              local can_highlight = false
+
+              for _, client in ipairs(clients) do
+                if client.supports_method("textDocument/formatting") then
+                  can_highlight = true
+                end
+              end
+
+              if can_highlight then
+                vim.lsp.buf.clear_references()
+              end
+            end
+          '';
       };
     }
   ];
