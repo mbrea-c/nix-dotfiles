@@ -96,7 +96,7 @@ in {
         __raw = # lua
           ''
             function() 
-              local clients = vim.lsp.get_clients()
+              local clients = vim.lsp.get_clients({ bufnr = vim.fn.bufnr("%") })
               local can_highlight = false
 
               for _, client in ipairs(clients) do
@@ -120,7 +120,7 @@ in {
         __raw = # lua
           ''
             function() 
-              local clients = vim.lsp.get_clients()
+              local clients = vim.lsp.get_clients({ bufnr = vim.fn.bufnr("%") })
               local can_highlight = false
 
               for _, client in ipairs(clients) do
