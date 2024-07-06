@@ -4,6 +4,7 @@ let
   tabstopsAugroup = "TabstopForFiletypes";
   formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
+  highlightUnderCursorAugroup = "HighlightSymbolUnderCursor";
   highlights =
     (import ./nixvim/colorscheme.nix) { inherit lib colorscheme inputs; };
   plugins = (import ./nixvim/plugins.nix) { inherit pkgs inputs colorscheme; };
@@ -86,12 +87,38 @@ in {
     };
     augroupEnabler = formattingEnablerAugroup;
     augroupFormatter = formattingFormatterAugroup;
-  };
+  } ++ [
+    {
+      # TODO: should this be per-buffer?
+      group = highlightUnderCursorAugroup;
+      event = [ "CursorHold" "CursorHoldI" ];
+      callback = {
+        __raw = ''
+          function() 
+            vim.lsp.buf.document_highlight()
+          end
+        '';
+      };
+    }
+    {
+      # TODO: should this be per-buffer?
+      group = highlightUnderCursorAugroup;
+      event = [ "CursorMoved" ];
+      callback = {
+        __raw = ''
+          function() 
+            vim.lsp.buf.clear_references()
+          end
+        '';
+      };
+    }
+  ];
 
   autoGroups = {
     "${tabstopsAugroup}" = { clear = true; };
     "${formattingEnablerAugroup}" = { clear = true; };
     "${formattingFormatterAugroup}" = { clear = true; };
+    "${highlightUnderCursorAugroup}" = { clear = true; };
   };
 
   plugins = plugins.plugins;
