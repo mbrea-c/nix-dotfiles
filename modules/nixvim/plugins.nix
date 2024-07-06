@@ -194,7 +194,7 @@
       config = ''
         lua require("scrollbar").setup({
           excluded_filetypes = {
-            "neo-tree"
+            "neo-tree",
           }
         })
       '';
