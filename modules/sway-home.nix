@@ -20,6 +20,8 @@
       "${pkgs.gammastep}/bin/gammastep";
     nmapplet-srv = make-srv "Network manager applet service"
       "${pkgs.networkmanagerapplet}/bin/nm-applet";
+    blueman-srv = make-srv "Blueman bluetooth manager service"
+      "${pkgs.blueman}/bin/blueman-applet";
   };
 
   xdg.configFile = {

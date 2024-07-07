@@ -10,6 +10,7 @@
     gammastep
     geoclue2
     networkmanagerapplet
+    blueman
   ];
 
   programs.sway = {
