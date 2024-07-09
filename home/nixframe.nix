@@ -34,6 +34,7 @@ in {
     firefox
     thunderbird
     alacritty
+    mpv
     obs-studio
     tree
     zed-editor
