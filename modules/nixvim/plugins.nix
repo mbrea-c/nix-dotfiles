@@ -54,7 +54,10 @@
       enable = true;
       sources = { formatting = { nixfmt.enable = true; }; };
     };
-    gitsigns.enable = true;
+    gitsigns = {
+      enable = true;
+      settings = { curent_line_blame = true; };
+    };
     treesitter.enable = true;
     neo-tree.enable = true;
     dressing = { enable = true; };
