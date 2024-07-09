@@ -49,6 +49,7 @@ in {
     lf
     trash-cli
     helix # For trying it out!
+    vulkan-tools
   ]) ++ scripts ++ bevy_deps);
 
   home.sessionVariables = {
