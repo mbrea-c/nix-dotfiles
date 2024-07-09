@@ -34,6 +34,7 @@ in {
     firefox
     thunderbird
     alacritty
+    obs-studio
     tree
     zed-editor
     # zed-fhs
