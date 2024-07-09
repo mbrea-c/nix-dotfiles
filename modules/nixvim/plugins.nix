@@ -64,7 +64,10 @@
         };
       };
     };
-    treesitter.enable = true;
+    treesitter = {
+      enable = true;
+      settings = { highlight.enable = true; };
+    };
     neo-tree.enable = true;
     dressing = { enable = true; };
     telescope = { enable = true; };
