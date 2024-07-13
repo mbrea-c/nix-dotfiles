@@ -32,6 +32,7 @@ in {
   home.homeDirectory = "/home/manuel";
   home.packages = lib.lists.unique ((with pkgs; [
     firefox
+    chromium
     thunderbird
     alacritty
     mpv
