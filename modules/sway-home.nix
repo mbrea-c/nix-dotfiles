@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, colorscheme, ... }: {
   systemd.user.targets.sway-session = {
     Unit = { Description = "Indicating that sway is running"; };
   };
@@ -32,6 +32,9 @@
     "waybar" = {
       source = ../dotfiles/waybar;
       recursive = true;
+    };
+    "waybar/colors.css" = {
+      text = inputs.nix-color-utils.lib.toGtkCss colorscheme;
     };
     "gammastep" = {
       source = ../dotfiles/gammastep;
