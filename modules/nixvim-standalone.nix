@@ -28,6 +28,9 @@ in {
     softtabstop = 0;
     expandtab = true;
 
+    # folds
+    foldenable = false;
+
     # update time, used for CursorHold events
     updatetime = 250;
 
