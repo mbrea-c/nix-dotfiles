@@ -17,15 +17,17 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
+
 /*
 window#waybar.empty {
     background-color: transparent;
-} */
+}
 window#waybar.solo {
     background-color: alpha(@background, 0.5);
     border-bottom: 3px solid alpha(@color8, 0.5);
     color: @foreground;
 }
+*/
 
 window#waybar.termite {
     background-color: #3f3f3f;
