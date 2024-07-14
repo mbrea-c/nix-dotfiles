@@ -160,7 +160,7 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: @red;
-    background-image: url('1F4AA.svg');
+    background-image: url('1F3CB.svg');
 }
 
 #power-profiles-daemon.balanced {
