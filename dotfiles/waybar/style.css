@@ -149,15 +149,16 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    padding-right: 10px;
     color: @background;
+    min-width: 3rem;
+    max-width: 3rem;
 }
 
 #power-profiles-daemon.performance {
-    width: 3rem;
     background-color: @red;
     color: transparent;
     background-image: url('Bolt.svg');
+    background-size: cover;
 }
 
 #power-profiles-daemon.balanced {
