@@ -126,7 +126,7 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-    background-color: @green;
+    background-color: darken(@green, 0.5);
 }
 
 @keyframes blink {
@@ -151,18 +151,15 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
-    background-color: #f53c3c;
-    color: #ffffff;
+    background-color: @red;
 }
 
 #power-profiles-daemon.balanced {
-    background-color: #2980b9;
-    color: #ffffff;
+    background-color: @blue;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: #2ecc71;
-    color: #000000;
+    background-color: @green;
 }
 
 label:focus {
