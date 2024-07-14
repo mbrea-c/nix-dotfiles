@@ -63,7 +63,7 @@
         @define-color green #${colors.green};
         @define-color yellow #${colors.yellow};
         @define-color blue #${colors.blue};
-        @define-color purple #${colors.purple};
+        @define-color magenta #${colors.magenta};
         @define-color cyan #${colors.cyan};
       '';
     };
