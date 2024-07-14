@@ -121,12 +121,11 @@ button:hover {
 }
 
 #battery {
-    color: #000000;
+    color: @foreground;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: #ffffff;
     background-color: #26a65b;
 }
 
@@ -169,10 +168,6 @@ button:hover {
 
 label:focus {
     background-color: #000000;
-}
-
-#cpu {
-    color: #000000;
 }
 
 #memory {

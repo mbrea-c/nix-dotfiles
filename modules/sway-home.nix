@@ -58,6 +58,13 @@
         @define-color color13 #${colors.color13};
         @define-color color14 #${colors.color14};
         @define-color color15 #${colors.color15};
+
+        @define-color red #${colors.red};
+        @define-color green #${colors.green};
+        @define-color yellow #${colors.yellow};
+        @define-color blue #${colors.blue};
+        @define-color purple #${colors.purple};
+        @define-color cyan #${colors.cyan};
       '';
     };
     "gammastep" = {
