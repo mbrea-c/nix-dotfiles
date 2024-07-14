@@ -149,7 +149,8 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    color: @background;
+    /* We're using an image */
+    color: transparent;
 
     min-width: 1.5rem;
     background-size: auto 80%;
@@ -159,16 +160,17 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: @red;
-    color: transparent;
     background-image: url('1F4AA.svg');
 }
 
 #power-profiles-daemon.balanced {
     background-color: @blue;
+    background-image: url('2696.svg');
 }
 
 #power-profiles-daemon.power-saver {
     background-color: @green;
+    background-image: url('1F33F.svg');
 }
 
 label:focus {
