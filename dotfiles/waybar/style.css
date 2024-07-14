@@ -154,14 +154,14 @@ button:hover {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
 }
 
 #power-profiles-daemon.performance {
     background-color: @red;
     color: transparent;
-    background-image: url('Bolt.svg');
+    background-image: url('1F4AA.svg');
 }
 
 #power-profiles-daemon.balanced {
