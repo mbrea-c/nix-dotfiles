@@ -126,7 +126,8 @@ button:hover {
 
 #battery.charging,
 #battery.plugged {
-    background-color: darken(@green, 0.5);
+    background-color: @green;
+    color: @background;
 }
 
 @keyframes blink {
@@ -139,6 +140,7 @@ button:hover {
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: @red;
+    color: @background;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -148,6 +150,7 @@ button:hover {
 
 #power-profiles-daemon {
     padding-right: 15px;
+    color: @foreground;
 }
 
 #power-profiles-daemon.performance {
