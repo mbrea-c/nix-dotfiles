@@ -7,9 +7,9 @@
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: #ffffff;
+    background-color: alpha(@background, 0.5);
+    border-bottom: 3px solid alpha(@color8, 0.5);
+    color: @foreground;
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -96,7 +96,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd {
     padding: 0 10px;
-    color: #ffffff;
+    color: @foreground;
     background-color: @color8;
 }
 
