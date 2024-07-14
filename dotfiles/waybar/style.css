@@ -17,12 +17,14 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
+/*
 window#waybar.empty {
     background-color: transparent;
-}
+} */
 window#waybar.solo {
-    background-color: #FFFFFF;
+    background-color: alpha(@background, 0.5);
+    border-bottom: 3px solid alpha(@color8, 0.5);
+    color: @foreground;
 }
 
 window#waybar.termite {
@@ -186,19 +188,8 @@ label:focus {
 #network.disconnected {
 }
 
-#pulseaudio {
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    color: #2a5c45;
-}
-
-#wireplumber {
-    color: #000000;
-}
-
-#wireplumber.muted {
+#pulseaudio.muted, #wireplumber.muted {
+    color: alpha(@foreground, 0.5);
 }
 
 #custom-media {

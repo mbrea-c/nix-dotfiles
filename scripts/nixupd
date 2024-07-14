@@ -34,6 +34,32 @@ handle_error() {
     fi
 }
 
+# ----------------------------------------------------------------
+# --- Get input options if not provided as flags
+read -r -p "Update flake? [Y/n]: " update_flake_ui
+if [ "$update_flake_ui" = "Y" ]; then
+    update_flake="true"
+else
+    update_flake="false"
+fi
+
+read -r -p "Commit everything? [Y/n]: " commit_everything_ui
+if [ "$commit_everything_ui" = "Y" ]; then
+    commit_everything="true"
+    read -r -p "Commit message: " commit_message
+else
+    commit_everything="false"
+fi
+
+read -r -p "Switch systems? [Y/n]: " switch_systems_ui
+if [ "$switch_systems_ui" = "Y" ]; then
+    switch_systems="true"
+else
+    switch_systems="false"
+fi
+# ----------------------------------------------------------------
+
+
 # Go to flake directory
 flakedir="${1-}"
 if [ "$flakedir" = "" ]; then
@@ -42,18 +68,17 @@ fi
 cd "$flakedir"
 handle_error "Went to directory: $flakedir" "Failed to cd to flake dir: $flakedir"
 
-read -r -p "Update flake? [Y/n]: " update_flake
-if [ "$update_flake" = "Y" ]; then
+if [ "$update_flake" = "true" ]; then
     colored blue "Updating flake..."
     nix flake update 
     handle_error "Flake updated!" "Failed to update flake"
 fi
-read -r -p "Commit everything? [Y/n]: " commit_everything
-if [ "$commit_everything" = "Y" ]; then
-    read -r -p "Commit message: " commit_message
+
+if [ "$commit_everything" = "true" ]; then
     git add .
     git commit -m "$commit_message"
 fi
+
 colored blue "Rebuilding..."
 
 nixos-rebuild build --flake .#default
@@ -65,8 +90,7 @@ nix store diff-closures /run/current-system ./result
 colored blue "nvd diff output:"
 nvd diff /run/current-system ./result
 
-read -r -p "Switch systems? [Y/n]: " switch_systems
-if [ "$switch_systems" = "Y" ]; then
+if [ "$switch_systems" = "true" ]; then
     colored blue "Switching systems..."
     
     sudo nix-env --profile /nix/var/nix/profiles/system --set ./result && \
