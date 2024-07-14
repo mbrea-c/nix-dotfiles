@@ -154,8 +154,9 @@ button:hover {
 }
 
 #power-profiles-daemon.performance {
+    width: 3rem;
     background-color: @red;
-    font-size: 0;
+    color: transparent;
     background-image: url('Bolt.svg');
 }
 
