@@ -154,8 +154,9 @@ button:hover {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
+    background-clip: content-box;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
 }
 
 #power-profiles-daemon.performance {
