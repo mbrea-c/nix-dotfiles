@@ -150,10 +150,12 @@ button:hover {
 
 #power-profiles-daemon {
     color: @background;
-    min-width: 2rem;
+    min-width: 1.5rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
 }
 
 #power-profiles-daemon.performance {
