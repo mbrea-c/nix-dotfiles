@@ -152,7 +152,7 @@ button:hover {
     color: @background;
 
     min-width: 1.5rem;
-    background-size: 80%;
+    background-size: auto 80%;
     background-repeat: no-repeat;
     background-position: center center;
 }
