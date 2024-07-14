@@ -152,8 +152,8 @@ button:hover {
     /* We're using an image */
     color: transparent;
 
-    min-width: 1.5rem;
-    background-size: auto 80%;
+    min-width: 1.2rem;
+    background-size: auto 92%;
     background-repeat: no-repeat;
     background-position: center center;
 }
