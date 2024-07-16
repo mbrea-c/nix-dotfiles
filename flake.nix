@@ -33,7 +33,7 @@
       colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
     in {
       nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs colorscheme; };
+        specialArgs = { inherit self inputs colorscheme; };
         modules = [
           {
             nix.settings = {
@@ -55,5 +55,13 @@
       };
       devShells."${system}".rust-bevy-fhs =
         (import ./devenv/rust-bevy.nix) { inherit pkgs; };
+      packages."${system}" = {
+        manuvim =
+          inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
+            inherit pkgs;
+            extraSpecialArgs = { inherit inputs colorscheme; };
+            module = import ../modules/nixvim-standalone.nix;
+          };
+      };
     };
 }
