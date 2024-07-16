@@ -27,7 +27,7 @@
   # ----------------------------------------------------------------------------
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let forSystems = (import ./utils/for-systems.nix) nixpkgs.lib;
+    let forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
     in forSystems [ "x86_64-linux" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
