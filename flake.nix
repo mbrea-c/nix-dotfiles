@@ -60,7 +60,7 @@
           inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
             inherit pkgs;
             extraSpecialArgs = { inherit inputs colorscheme; };
-            module = import ../modules/nixvim-standalone.nix;
+            module = import ./modules/nixvim-standalone.nix;
           };
       };
     };
