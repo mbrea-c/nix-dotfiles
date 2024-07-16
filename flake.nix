@@ -32,8 +32,9 @@
       let
         pkgs = import nixpkgs { inherit system; };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
-      in {
-        nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+      in rec {
+        nixosConfigurations.default = nixosConfigurations.nixframe;
+        nixosConfigurations.nixframe = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit self inputs colorscheme; };
           modules = [
             {
