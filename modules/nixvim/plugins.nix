@@ -13,6 +13,7 @@
         };
         taplo.enable = true;
         bashls.enable = true;
+        jsonls.enable = true;
       };
     };
     cmp = {
