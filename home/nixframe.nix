@@ -1,4 +1,4 @@
-{ pkgs, inputs, colorscheme, lib, ... }:
+{ self, pkgs, inputs, colorscheme, lib, ... }:
 let
   zed-fhs = pkgs.buildFHSUserEnv {
     name = "zed";
@@ -7,24 +7,12 @@ let
   };
   scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
-  bevy_deps = with pkgs; [
-    pkg-config
-    udev.dev
-    alsa-lib.dev
-    vulkan-loader.dev
-    xorg.libX11
-    xorg.libXrandr
-    xorg.libXcursor
-    xorg.libXi
-    xorg.libXtst
-    libxkbcommon.dev
-    wayland.dev
-    openssl.dev
-  ];
-
 in {
-  imports =
-    [ inputs.nix-colors.homeManagerModules.default ../modules/sway-home.nix ];
+  imports = [
+    inputs.nix-colors.homeManagerModules.default
+    ../modules/sway-home.nix
+    self.outputs.homeManagerModules.zsh
+  ];
 
   colorScheme = inputs.nix-colors.colorSchemes.dracula;
 
@@ -53,7 +41,7 @@ in {
     trash-cli
     helix # For trying it out!
     vulkan-tools
-  ]) ++ scripts ++ bevy_deps);
+  ]) ++ scripts);
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
@@ -140,23 +128,6 @@ in {
         };
       };
     };
-  };
-
-  programs.zsh = {
-    enable = true;
-    dotDir = ".config/zsh";
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    shellAliases = {
-      ls = "ls --group-directories-first --color=auto";
-      ll = "ls -l";
-      la = "ls -a";
-      lla = "ls -la";
-      gst = "git status";
-      vim = "nvim";
-    };
-    initExtra = (builtins.readFile ../dotfiles/zshrc);
   };
 
   # DO NOT CHANGE:

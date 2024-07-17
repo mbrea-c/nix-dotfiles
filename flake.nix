@@ -49,7 +49,9 @@
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
-              home-manager.extraSpecialArgs = { inherit inputs colorscheme; };
+              home-manager.extraSpecialArgs = {
+                inherit inputs colorscheme self;
+              };
               home-manager.useUserPackages = true;
               home-manager.users.manuel = {
                 imports = [ ./home/nixframe.nix ];
@@ -67,5 +69,6 @@
               module = import ./modules/nixvim-standalone.nix;
             };
         };
+        homeManagerModules = { zsh = import ./modules/home-manager/zsh.nix; };
       });
 }
