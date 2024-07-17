@@ -162,17 +162,17 @@ button:hover {
 
 #power-profiles-daemon.performance {
     background-color: @red;
-    background-image: url('1F3CB.svg');
+    background-image: url('icons/1F3CB.svg');
 }
 
 #power-profiles-daemon.balanced {
     background-color: @blue;
-    background-image: url('2696.svg');
+    background-image: url('icons/2696.svg');
 }
 
 #power-profiles-daemon.power-saver {
     background-color: @green;
-    background-image: url('1F33F.svg');
+    background-image: url('icons/1F33F.svg');
 }
 
 label:focus {
