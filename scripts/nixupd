@@ -54,6 +54,8 @@ fi
 read -r -p "Switch systems? [Y/n]: " switch_systems_ui
 if [ "$switch_systems_ui" = "Y" ]; then
     switch_systems="true"
+    colored blue "Priming sudo command..."
+    sudo true
 else
     switch_systems="false"
 fi
