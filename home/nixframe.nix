@@ -69,7 +69,12 @@ in {
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      sansSerif = [ "Ubuntu" "Font Awesome 7 Free" "Noto Color Emoji" ];
+      sansSerif = [
+        "Ubuntu"
+        "NotoSans Nerd Font"
+        "Font Awesome 7 Free"
+        "Noto Color Emoji"
+      ];
       monospace = [
         "Cascadia Mono PL"
         "Font Awesome 7 Free"
