@@ -4,7 +4,7 @@ let
   colors = u.fromBase16 colorscheme;
 in {
   "Directory" = {
-    fg = u.saturate 0.2 colors.blue;
+    fg = u.hsv.saturate 0.2 colors.blue;
     bold = true;
   };
   "NeoTreeDirectoryIcon" = { link = "Directory"; };
