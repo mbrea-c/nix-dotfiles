@@ -76,6 +76,10 @@
         enable = true;
         showOnDirs = true;
       };
+      git = {
+        enable = true;
+        showOnDirs = true;
+      };
     };
     # neo-tree.enable = true;
     dressing = { enable = true; };
