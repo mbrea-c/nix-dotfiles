@@ -72,6 +72,10 @@
     nvim-tree = {
       enable = true;
       renderer = { groupEmpty = true; };
+      diagnostics = {
+        enable = true;
+        showOnDirs = true;
+      };
     };
     # neo-tree.enable = true;
     dressing = { enable = true; };
