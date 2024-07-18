@@ -69,7 +69,11 @@
       enable = true;
       settings = { highlight.enable = true; };
     };
-    neo-tree.enable = true;
+    nvim-tree = {
+      enable = true;
+      renderer = { groupEmpty = true; };
+    };
+    # neo-tree.enable = true;
     dressing = { enable = true; };
     telescope = { enable = true; };
     toggleterm = {
@@ -206,7 +210,7 @@
     {
       plugin = nvim-scrollbar;
       config = ''
-        lua require("scrollbar").setup({ excluded_filetypes = { "neo-tree" } })
+        lua require("scrollbar").setup({ excluded_filetypes = { "neo-tree", "nvim-tree" } })
       '';
     }
   ];

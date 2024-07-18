@@ -4,7 +4,7 @@ let
 in [
   {
     key = "<C-n>";
-    action = ":Neotree toggle<CR>";
+    action = "<cmd>NvimTreeToggle<CR>";
   }
   {
     key = "<C-h>";

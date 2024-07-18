@@ -31,6 +31,7 @@ in {
     nil # Nix language server
     pavucontrol
     amdgpu_top
+    mission-center
     gnome-system-monitor
     seahorse
     gcc
