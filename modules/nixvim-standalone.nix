@@ -117,7 +117,7 @@ in {
     }
     {
       event = [ "ColorScheme" ];
-      command = "<cmd>IBLEnable<CR>";
+      command = "IBLEnable";
     }
     {
       # TODO: should this be per-buffer?
