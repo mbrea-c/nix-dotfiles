@@ -92,15 +92,14 @@
       enable = true;
       settings = {
         indent = {
+          enable = false;
           char = "┃";
-          highlight = "IblIndent";
         };
         scope = {
           enabled = true;
           char = "┃";
           show_start = false;
           show_end = false;
-          highlight = "IblScope";
         };
       };
     };
