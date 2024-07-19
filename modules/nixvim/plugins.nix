@@ -91,10 +91,7 @@
     indent-blankline = {
       enable = true;
       settings = {
-        indent = {
-          enable = false;
-          char = "┃";
-        };
+        indent = { char = " "; };
         scope = {
           enabled = true;
           char = "┃";
