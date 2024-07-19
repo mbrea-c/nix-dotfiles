@@ -116,6 +116,10 @@ in {
       };
     }
     {
+      event = [ "ColorScheme" ];
+      command = "<cmd>IBLEnable<CR>";
+    }
+    {
       # TODO: should this be per-buffer?
       group = highlightUnderCursorAugroup;
       event = [ "CursorMoved" ];
