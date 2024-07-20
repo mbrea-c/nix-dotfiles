@@ -10,6 +10,7 @@ let
   plugins = (import ./nixvim/plugins.nix) { inherit pkgs inputs colorscheme; };
 in {
   imports = [ ./nixvim/modules/plugins.nix ];
+
   keymaps = import ./nixvim/keymap.nix;
 
   highlightOverride = highlights;
