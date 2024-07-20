@@ -34,6 +34,26 @@
       enable = true;
       autoEnableSources = true;
       settings = {
+        window = {
+          completion = {
+            col_offset = -3;
+            side_padding = 0;
+          };
+        };
+        formatting = {
+          fields = [ "kind" "abbr" "menu" ];
+          format = # lua
+            ''
+              function(entry, vim_item)
+                local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+                local strings = vim.split(kind.kind, "%s", { trimempty = true })
+                kind.kind = " " .. (strings[1] or "") .. " "
+                kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+                return kind
+              end
+            '';
+        };
         sources =
           [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
         mapping = {
