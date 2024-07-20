@@ -75,10 +75,12 @@
       diagnostics = {
         enable = true;
         showOnDirs = true;
+        showOnOpenDirs = false;
       };
       git = {
         enable = true;
         showOnDirs = true;
+        showOnOpenDirs = false;
       };
     };
     # neo-tree.enable = true;
