@@ -1,1 +1,3 @@
-{ ... }: { imports = [ ./plugins/cmp.nix ]; }
+{ ... }: {
+  imports = builtins.trace "Loading a modules works" [ ./plugins/cmp.nix ];
+}
