@@ -9,6 +9,8 @@ let
     (import ./nixvim/colorscheme.nix) { inherit lib colorscheme inputs; };
   plugins = (import ./nixvim/plugins.nix) { inherit pkgs inputs colorscheme; };
 in {
+  imports = [ ./nixvim/plugins.nix ];
+
   keymaps = import ./nixvim/keymap.nix;
 
   highlightOverride = highlights;
