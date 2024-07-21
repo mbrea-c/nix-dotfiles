@@ -99,7 +99,7 @@ in {
   ];
 
   networking.firewall = {
-    enable = false;
+    enable = true;
     allowedTCPPorts = [ 7943 ];
     allowedUDPPorts = [ 1337 ];
   };
