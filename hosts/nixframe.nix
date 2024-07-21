@@ -98,6 +98,12 @@ in {
     nerdfonts
   ];
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 7943 ];
+    allowedUDPPorts = [ 1337 ];
+  };
+
   # DO NOT CHANGE:
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
