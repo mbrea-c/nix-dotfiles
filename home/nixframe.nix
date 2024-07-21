@@ -37,6 +37,7 @@ in {
     gcc
     rustup
     xorg.xrandr
+    python3
     fastfetch
     lf
     trash-cli

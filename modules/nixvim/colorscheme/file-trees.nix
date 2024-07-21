@@ -9,4 +9,8 @@ in {
   };
   "NeoTreeDirectoryIcon" = { link = "Directory"; };
   "NeoTreeDirectoryName" = { link = "Directory"; };
+  "NvimTreeExecFile" = {
+    fg = colors.green;
+    bold = true;
+  };
 }
