@@ -101,7 +101,7 @@ in {
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 7943 ];
-    allowedUDPPorts = [ 8881 ];
+    allowedUDPPorts = [ 1337 ];
   };
 
   # DO NOT CHANGE:
