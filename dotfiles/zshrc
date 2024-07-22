@@ -28,6 +28,8 @@ compinit
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+bindkey "''${key[Up]}" up-line-or-search
+
 # Functions
 parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
