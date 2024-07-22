@@ -14,11 +14,17 @@
         taplo.enable = true;
         bashls.enable = true;
         jsonls.enable = true;
+        pyright.enable = true;
       };
     };
     none-ls = {
       enable = true;
-      sources = { formatting = { nixfmt.enable = true; }; };
+      sources = {
+        formatting = {
+          nixfmt.enable = true;
+          black.enable = true;
+        };
+      };
     };
     gitsigns = {
       enable = true;
