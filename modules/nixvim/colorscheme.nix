@@ -1,10 +1,7 @@
-{ config, lib, inputs, ... }:
+{ lib, colorscheme, inputs, ... }:
 let
   u = inputs.nix-color-utils.lib;
-  args = {
-    colorscheme = config.base16Colorscheme;
-    inherit lib inputs;
-  };
+  args = { inherit lib inputs colorscheme; };
 in u.mapColors ((import ./colorscheme/base.nix args)
   // (import ./colorscheme/treesitter.nix args)
   // (import ./colorscheme/lsp-semantic-highlight.nix args)

@@ -11,8 +11,6 @@ let
 in {
   imports = [ ./nixvim/modules/plugins.nix ];
 
-  base16Colorscheme = colorscheme;
-
   keymaps = import ./nixvim/keymap.nix;
 
   highlightOverride = highlights;
