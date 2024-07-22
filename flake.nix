@@ -28,7 +28,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
-    in forSystems [ "x86_64-linux" ] (system:
+    in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
