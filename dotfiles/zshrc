@@ -28,7 +28,8 @@ compinit
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-bindkey "''${key[Up]}" up-line-or-search
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
 
 # Functions
 parse_git_branch() {
