@@ -6,7 +6,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      ls = "ls --group-directories-first --color=auto";
+      ls = "ls --color=auto";
       ll = "ls -l";
       la = "ls -a";
       lla = "ls -la";
