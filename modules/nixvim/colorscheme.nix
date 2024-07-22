@@ -2,7 +2,7 @@
 let
   u = inputs.nix-color-utils.lib;
   args = {
-    colorscheme = config.colorscheme;
+    colorscheme = config.base16Colorscheme;
     inherit lib inputs;
   };
 in u.mapColors ((import ./colorscheme/base.nix args)
