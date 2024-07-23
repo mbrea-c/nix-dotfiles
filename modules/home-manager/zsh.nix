@@ -1,5 +1,4 @@
-{ pkgs, ... }: {
-  # home.packages = with pkgs; [ zsh-history-substring-search ];
+{ ... }: {
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
