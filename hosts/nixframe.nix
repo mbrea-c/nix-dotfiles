@@ -26,7 +26,7 @@ in {
   services.power-profiles-daemon.enable = true;
 
   # Kernel package version
-  boot.kernelPackages = pkgs.linuxPackages_6_8;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "nixframe"; # Define your hostname.
   networking.networkmanager.enable =
