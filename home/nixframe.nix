@@ -43,6 +43,7 @@ in {
     trash-cli
     helix # For trying it out!
     vulkan-tools
+    blender
   ]) ++ scripts);
 
   home.sessionVariables = {
