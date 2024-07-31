@@ -116,8 +116,12 @@ in {
   "@text.danger" = { };
 
   "@markup.link" = { fg = colors.blue; };
-  "@markup.link.label" = { underline = true; };
+  "@markup.link.label" = {
+    fg = lighten 5.0e-2 (saturate 0.1 colors.blue);
+    underline = true;
+  };
   "@markup.link.url" = { fg = darken 0.2 colors.blue; };
+
   "@markup.heading" = {
     fg = lighten 0.15 colors.foreground;
     bold = true;
