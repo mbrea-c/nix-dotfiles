@@ -16,6 +16,7 @@
         jsonls.enable = true;
         pyright.enable = true;
         marksman.enable = true;
+        tsserver.enable = true;
       };
     };
     none-ls = {
