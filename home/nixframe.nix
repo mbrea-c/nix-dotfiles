@@ -44,6 +44,7 @@ in {
     helix # For trying it out!
     vulkan-tools
     blender
+    sshfs # For backing up framevoid to nixframe
   ]) ++ scripts);
 
   home.sessionVariables = {
