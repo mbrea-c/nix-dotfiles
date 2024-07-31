@@ -12,6 +12,7 @@
       lla = "ls -la";
       gst = "git status";
       vim = "nvim";
+      glog = "git log --oneline";
     };
     initExtra = (builtins.readFile ../../dotfiles/zshrc);
   };

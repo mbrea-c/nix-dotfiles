@@ -15,6 +15,7 @@
         bashls.enable = true;
         jsonls.enable = true;
         pyright.enable = true;
+        marksmap.enable = true;
       };
     };
     none-ls = {
@@ -26,6 +27,7 @@
         };
       };
     };
+    markdown-preview = { enable = true; };
     gitsigns = {
       enable = true;
       settings = {

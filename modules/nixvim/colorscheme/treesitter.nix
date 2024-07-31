@@ -114,4 +114,15 @@ in {
   "@text.note" = { };
   "@text.warning" = { };
   "@text.danger" = { };
+
+  "@markup.link" = { fg = colors.blue; };
+  "@markup.link.label" = { underline = true; };
+  "@markup.link.url" = { fg = darken 0.2 colors.blue; };
+  "@markup.heading" = {
+    fg = lighten 0.15 colors.foreground;
+    bold = true;
+    underline = true;
+    italic = true;
+  };
+  "@markup.list" = { fg = desaturate 0.2 colors.color3; };
 }
