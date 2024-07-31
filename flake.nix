@@ -69,6 +69,12 @@
               module = import ./modules/nixvim-standalone.nix;
             };
         };
+
         homeManagerModules = { zsh = import ./modules/home-manager/zsh.nix; };
+        nixvimModules = { manuvim = import ./modules/nixvim-standalone.nix; };
+
+        lib = {
+          combineNixvimModules = import ./modules/nixvim/helper-mod.nix;
+        };
       });
 }
