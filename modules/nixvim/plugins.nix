@@ -15,7 +15,7 @@
         bashls.enable = true;
         jsonls.enable = true;
         pyright.enable = true;
-        marksmap.enable = true;
+        marksman.enable = true;
       };
     };
     none-ls = {
