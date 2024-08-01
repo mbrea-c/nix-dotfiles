@@ -3,7 +3,7 @@ let
   desc = d: { desc = d; };
   lua = l: { __raw = l; };
 in {
-  keymap = [
+  keymaps = [
     {
       key = "<C-n>";
       action = "<cmd>NvimTreeToggle<CR>";
