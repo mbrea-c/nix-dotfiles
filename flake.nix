@@ -46,19 +46,21 @@
           host = import ./hosts/minikit.nix;
           home = import ./home/minikit.nix;
         };
+
         devShells."${system}".rust-bevy-fhs =
           (import ./devenv/rust-bevy.nix) { inherit pkgs; };
+
         packages."${system}" = {
           manuvim =
             inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
               inherit pkgs;
               extraSpecialArgs = { inherit inputs colorscheme; };
-              module = import ./modules/nixvim-standalone.nix;
+              module = import ./modules/nixvim/manuvim.nix;
             };
         };
 
         homeManagerModules = { zsh = import ./modules/home-manager/zsh.nix; };
-        nixvimModules = { manuvim = import ./modules/nixvim-standalone.nix; };
+        nixvimModules = { manuvim = import ./modules/nixvim/manuvim.nix; };
 
         lib = {
           combineNixvimModules = import ./modules/nixvim/helper-mod.nix;

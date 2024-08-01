@@ -1,17 +1,16 @@
 { lib, pkgs, inputs, colorscheme, ... }:
 let
-  utils = (import ./nixvim/utils.nix) { inherit lib; };
+  utils = (import ./utils.nix) { inherit lib; };
   tabstopsAugroup = "TabstopForFiletypes";
   formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
   highlightUnderCursorAugroup = "HighlightSymbolUnderCursor";
-  highlights =
-    (import ./nixvim/colorscheme.nix) { inherit lib colorscheme inputs; };
-  plugins = (import ./nixvim/plugins.nix) { inherit pkgs inputs colorscheme; };
+  highlights = (import ./colorscheme.nix) { inherit lib colorscheme inputs; };
+  plugins = (import ./plugins.nix) { inherit pkgs inputs colorscheme; };
 in {
-  imports = [ ./nixvim/modules/plugins.nix ];
+  imports = [ ./modules/plugins.nix ];
 
-  keymaps = import ./nixvim/keymap.nix;
+  keymaps = import ./keymap.nix;
 
   highlightOverride = highlights;
 
