@@ -44,7 +44,7 @@
         nixosConfigurations.minikit = makeSystem {
           inherit inputs system;
           host = import ./hosts/minikit.nix;
-          home = import ./home/nixframe.nix;
+          home = import ./home/minikit.nix;
         };
         devShells."${system}".rust-bevy-fhs =
           (import ./devenv/rust-bevy.nix) { inherit pkgs; };
