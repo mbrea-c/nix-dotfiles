@@ -10,6 +10,19 @@
 
   networking.hostName = "nixframe"; # Define your hostname.
   environment.sessionVariables = { NIXOS_CONFIG_NAME = "nixframe"; };
+  # services.openssh = {
+  #   enable = true;
+  #   ports = [ 22 ];
+  #   settings = {
+  #     PasswordAuthentication = true;
+  #     AllowUsers =
+  #       null; # Allows all users by default. Can be [ "user1" "user2" ]
+  #     UseDns = true;
+  #     X11Forwarding = false;
+  #     PermitRootLogin =
+  #       "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+  #   };
+  # };
 
   # DO NOT CHANGE:
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
