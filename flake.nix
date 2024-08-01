@@ -27,62 +27,24 @@
   # ----------------------------------------------------------------------------
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
+    let
+      forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
+      makeSystem = import ./utils/make-system.nix;
     in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       in rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
-        nixosConfigurations.nixframe = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit self inputs colorscheme; };
-          modules = [
-            {
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org" ];
-                trusted-public-keys = [
-                  "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                ];
-              };
-            }
-            ./hosts/nixframe.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.extraSpecialArgs = {
-                inherit inputs colorscheme self;
-              };
-              home-manager.useUserPackages = true;
-              home-manager.users.manuel = {
-                imports = [ ./home/nixframe.nix ];
-              };
-            }
-          ];
+        nixosConfigurations.nixframe = makeSystem {
+          inherit inputs system;
+          host = import ./hosts/nixframe.nix;
+          home = import ./home/nixframe.nix;
         };
-        nixosConfigurations.minikit = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit self inputs colorscheme; };
-          modules = [
-            {
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org" ];
-                trusted-public-keys = [
-                  "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-                ];
-              };
-            }
-            ./hosts/minikit.nix
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.extraSpecialArgs = {
-                inherit inputs colorscheme self;
-              };
-              home-manager.useUserPackages = true;
-              home-manager.users.manuel = {
-                imports = [ ./home/nixframe.nix ];
-              };
-            }
-          ];
+        nixosConfigurations.minikit = makeSystem {
+          inherit inputs system;
+          host = import ./hosts/minikit.nix;
+          home = import ./home/nixframe.nix;
         };
         devShells."${system}".rust-bevy-fhs =
           (import ./devenv/rust-bevy.nix) { inherit pkgs; };
