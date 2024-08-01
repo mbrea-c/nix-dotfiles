@@ -10,6 +10,7 @@
 
   networking.hostName = "nixframe"; # Define your hostname.
   environment.sessionVariables = { NIXOS_CONFIG_NAME = "nixframe"; };
+
   # services.openssh = {
   #   enable = true;
   #   ports = [ 22 ];
