@@ -1,8 +1,5 @@
 # vim: filetype=swayconfig
 
-# AUTOSTART
-# ------------------------
-exec sleep 5 && systemctl start --user sway-session.target
 
 # Polkit agent
 # exec /usr/bin/lxpolkit # Hard dependency on elogind?

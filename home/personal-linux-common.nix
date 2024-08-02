@@ -10,7 +10,7 @@ let
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../modules/sway-home.nix
+    ../modules/home-manager/swayx.nix
     self.outputs.homeManagerModules.zsh
   ];
 
@@ -55,6 +55,8 @@ in {
   };
 
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/scripts" ];
+
+  swayx = { enable = true; };
 
   xdg = {
     enable = true;
