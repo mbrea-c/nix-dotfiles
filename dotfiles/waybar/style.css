@@ -96,11 +96,11 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    margin: 1px;
+    margin: 0 2.5px;
     padding: 0 4px;
     color: @foreground;
     background-color: @color8;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 #window,
