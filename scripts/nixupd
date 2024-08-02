@@ -36,6 +36,12 @@ handle_error() {
 
 # ----------------------------------------------------------------
 # --- Get input options if not provided as flags
+
+config_name="${NIXOS_CONFIG_NAME-}"
+if [ "$config_name" = "" ]; then
+    read -r -p "Config name: " config_name
+fi
+
 read -r -p "Update flake? [Y/n]: " update_flake_ui
 if [ "$update_flake_ui" = "Y" ]; then
     update_flake="true"
@@ -61,7 +67,6 @@ else
 fi
 # ----------------------------------------------------------------
 
-
 # Go to flake directory
 flakedir="${1-}"
 if [ "$flakedir" = "" ]; then
@@ -83,7 +88,7 @@ fi
 
 colored blue "Rebuilding..."
 
-nixos-rebuild build --flake .#default
+nixos-rebuild build --flake ".#$config_name"
 handle_error "Rebuild successful!" "Failed to rebuild system"
 
 colored blue "nix store diff-closures output:"
