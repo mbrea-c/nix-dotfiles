@@ -2,13 +2,13 @@
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl'
-    (acc: { name, scale }: acc ++ "\n" ++ "output '${name}' scale ${scale}") ""
+    (acc: { name, scale }: acc + "\n" + "output '${name}' scale ${scale}") ""
     outputs;
   workspaceConfig = workspaces:
     builtins.foldl' (acc:
       { name, outputList }:
-      acc ++ "\n" ++ "workspace ${name} output ${
-        builtins.foldl' (acc: outputName: acc ++ " " ++ "'${outputName}'") ""
+      acc + "\n" + "workspace ${name} output ${
+        builtins.foldl' (acc: outputName: acc + " " + "'${outputName}'") ""
         outputList
       }") "" workspaces;
 
@@ -22,7 +22,7 @@ in ''
 
   ### Output configuration
 
-  # TODO: Default wallpaper could be handled by bgmanager
+  # TODO: Default wallpaper could be handled by bgmanager:
   # exec_always bgmanager set_background
   output * {
      bg /home/manuel/Pictures/wallpapers/montana.jpg fill
@@ -49,17 +49,7 @@ in ''
   input type:keyboard {
       xkb_layout us
   }
-  #
-  # You can get the names of your inputs by running: swaymsg -t get_inputs
-  # Read `man 5 sway-input` for more information about this section.
 
-  include ./keybinds
-  include ./autostart
-  # include ./gsettings
-
-  #
-  # Appearance
-  #
   font sans-serif Regular 11
 
   # Cursor
@@ -74,27 +64,9 @@ in ''
   for_window [title="Firefox — Sharing Indicator"] floating enable
   for_window [title="Firefox — Sharing Indicator"] nofocus
 
-  #
-  # Status Bar:
-  #
-  # Read `man 5 sway-bar` for more information about this section.
   bar {
      swaybar_command waybar
   }
-  # bar {
-  #     position top
-  #
-  #
-  #     ## When the status_command prints a new line to stdout, swaybar updates.
-  #     ## The default just shows the current date and time.
-  #     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-  #
-  #     colors {
-  # 	statusline #ffffff
-  # 	background #323232
-  # 	inactive_workspace #32323200 #32323200 #5c5c5c
-  #     }
-  # }
 
   # -------------------------------------------------------
   # --- AUTOSTART

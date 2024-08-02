@@ -8,7 +8,7 @@ in {
     swayx = {
       enable = lib.mkEnableOption "Enable Module";
       settings = mkOption {
-        type = attrsOf anything;
+        type = with types; attrsOf anything;
         description =
           "Configuration that will be used to generate the sway config file";
         default = {
@@ -28,6 +28,7 @@ in {
   config = lib.mkIf cfg.enable {
     systemd.user.targets.sway-session = {
       Unit = { Description = "Indicating that sway is running"; };
+      Install = { WantedBy = lib.mkForce [ ]; };
     };
     systemd.user.services = let
       make-srv = desc: exec: {
@@ -47,17 +48,17 @@ in {
         "${pkgs.gammastep}/bin/gammastep";
       nmapplet-srv = make-srv "Network manager applet service"
         "${pkgs.networkmanagerapplet}/bin/nm-applet";
-      blueman-srv = make-srv "Blueman bluetooth manager service"
+      blueman-srv = make-srv "Blueman bluetooth manager  service"
         "${pkgs.blueman}/bin/blueman-applet";
     };
 
     xdg.configFile = {
       "sway/config" = {
-        text = (import ../utils/swayconfig.nix) cfg.settings;
+        text = (import ../../../utils/swayconfig.nix) cfg.settings;
         recursive = true;
       };
       "waybar" = {
-        source = ../dotfiles/waybar;
+        source = ../../../dotfiles/waybar;
         recursive = true;
       };
       "waybar/colors.css" = {
@@ -95,7 +96,7 @@ in {
         '';
       };
       "gammastep" = {
-        source = ../dotfiles/gammastep;
+        source = ../../../dotfiles/gammastep;
         recursive = true;
       };
     };

@@ -10,7 +10,7 @@ let
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../modules/home-manager/swayx.nix
+    ../modules/home-manager/sway/swayx.nix
     self.outputs.homeManagerModules.zsh
   ];
 
