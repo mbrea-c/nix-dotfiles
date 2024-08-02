@@ -17,6 +17,7 @@
         pyright.enable = true;
         marksman.enable = true;
         tsserver.enable = true;
+        cssls.enable = true;
       };
     };
     none-ls = {
