@@ -45,6 +45,7 @@ in {
     vulkan-tools
     blender
     sshfs # For backing up framevoid to nixframe
+    brightnessctl
   ]) ++ scripts);
 
   home.sessionVariables = {
