@@ -235,6 +235,8 @@ in ''
       bindsym XF86AudioLowerVolume exec volume-control.py --volume -0.05
       bindsym XF86AudioMute exec volume-control.py --toggle-mute
       bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
+      bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+      bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 
   #
   # Resizing containers:
