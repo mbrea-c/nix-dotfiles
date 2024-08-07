@@ -8,6 +8,7 @@
     ./personal-linux-common.nix
   ];
 
+  networking.hostName = "nixframe"; # Define your hostname.
   environment.sessionVariables = { NIXOS_CONFIG_NAME = "nixframe"; };
 
   # DO NOT CHANGE:

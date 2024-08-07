@@ -8,6 +8,7 @@
     ./personal-linux-common.nix
   ];
 
+  networking.hostName = "minikit"; # Define your hostname.
   environment.sessionVariables = { NIXOS_CONFIG_NAME = "minikit"; };
 
   # DO NOT CHANGE:

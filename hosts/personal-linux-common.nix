@@ -23,7 +23,6 @@ in {
   # Kernel package version
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixframe"; # Define your hostname.
   networking.networkmanager.enable =
     true; # Easiest to use and most distros use this by default.
 
