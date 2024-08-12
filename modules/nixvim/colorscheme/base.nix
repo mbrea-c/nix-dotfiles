@@ -44,7 +44,8 @@ in {
     bold = true;
   };
   "LspInlayHint" = {
-    fg = darken 0.5 (u.hsv.mix 0.5 colors.color8 colors.blue);
+    fg = colors.background;
+    bg = lighten 0.3 colors.background;
     italic = true;
 
   };
