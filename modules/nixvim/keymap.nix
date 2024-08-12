@@ -83,6 +83,19 @@ in {
       action = lua "vim.diagnostic.open_float";
       options = desc "Open diagnostics float";
     }
+    {
+      mode = [ "n" ];
+      key = "<leader>i";
+      action = lua # lua
+        ''
+          function() 
+            vim.lsp.inlay_hint.enable(
+              not vim.lsp.inlay_hint.is_enabled()
+            ) 
+          end
+        '';
+      options = desc "Toggle inlay hints";
+    }
 
     # Aerial (outline)
     {
