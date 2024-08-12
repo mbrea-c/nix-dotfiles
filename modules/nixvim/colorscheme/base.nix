@@ -46,8 +46,6 @@ in {
   "LspInlayHint" = {
     fg = colors.background;
     bg = lighten 0.3 colors.background;
-    italic = true;
-
   };
 
   # Spelling
