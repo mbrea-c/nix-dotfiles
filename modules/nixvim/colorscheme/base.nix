@@ -43,10 +43,7 @@ in {
     bg = lighten 0.2 colors.background;
     bold = true;
   };
-  "LspInlayHint" = {
-    fg = colors.background;
-    bg = lighten 0.3 colors.background;
-  };
+  "LspInlayHint" = { fg = lighten 0.2 colors.background; };
 
   # Spelling
   "SpellBad" = {
