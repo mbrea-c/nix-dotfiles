@@ -35,6 +35,7 @@ in ''
 
   # Example configuration:
 
+
   input type:touchpad {
       # Disable while typing
       dwt ${if dwt then "enabled" else "disable"}
@@ -110,6 +111,10 @@ in ''
 
       # Start your launcher
       bindsym $mod+d exec $menu_launcher
+
+      # Enable/disable dwt
+      bindsym $mod+` input type:touchpad dwt enabled
+      bindsym $mod+Shift+` input type:touchpad dwt disabled
 
       # bindsym $mod+Shift+d exec dmenu-colored -g
       # bindsym $mod+e exec dmenu-colored -b
