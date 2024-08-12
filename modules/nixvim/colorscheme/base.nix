@@ -43,6 +43,11 @@ in {
     bg = lighten 0.2 colors.background;
     bold = true;
   };
+  "LspInlayHint" = {
+    fg = u.hsv.mix 0.1 (darken 8.0e-2 colors.color8) (colors.blue);
+    italic = true;
+
+  };
 
   # Spelling
   "SpellBad" = {
