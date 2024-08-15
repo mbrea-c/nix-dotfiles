@@ -16,8 +16,8 @@
       wayland.dev
       openssl.dev
       systemd.dev
-      fontconfig
-      freetype
+      fontconfig.dev
+      freetype.dev
     ];
   # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
 }).env
