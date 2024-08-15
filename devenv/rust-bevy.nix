@@ -17,6 +17,7 @@
       openssl.dev
       systemd.dev
       fontconfig
+      freetype
     ];
   # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
 }).env
