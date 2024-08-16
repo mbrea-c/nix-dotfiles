@@ -46,6 +46,7 @@ in {
     blender
     sshfs # For backing up framevoid to nixframe
     brightnessctl
+    gimp
   ]) ++ scripts);
 
   home.sessionVariables = {
