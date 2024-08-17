@@ -47,6 +47,7 @@ in {
     sshfs # For backing up framevoid to nixframe
     brightnessctl
     gimp
+    ripgrep
   ]) ++ scripts);
 
   home.sessionVariables = {
