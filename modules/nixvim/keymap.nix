@@ -104,5 +104,13 @@ in {
       action = "<cmd>AerialToggle!<CR>";
       options = desc "Toggle Aerial overview";
     }
+
+    # Telescope
+    {
+      mode = [ "n" ];
+      key = "<leader>f";
+      action = "<cmd>Telescope live_grep<CR>";
+      options = desc "Find in workspace";
+    }
   ];
 }
