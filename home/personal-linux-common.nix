@@ -48,6 +48,8 @@ in {
     brightnessctl
     gimp
     ripgrep
+    zathura
+    graphviz
   ]) ++ scripts);
 
   home.sessionVariables = {
