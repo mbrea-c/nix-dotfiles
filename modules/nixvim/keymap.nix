@@ -108,7 +108,7 @@ in {
     # Telescope
     {
       mode = [ "n" ];
-      key = "<leader>f";
+      key = "<leader>t";
       action = "<cmd>Telescope live_grep<CR>";
       options = desc "Find in workspace";
     }
