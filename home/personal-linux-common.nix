@@ -7,6 +7,7 @@ let
   };
   scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+  pkgs-art = with pkgs; [ blender gimp libresprite ];
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -43,14 +44,12 @@ in {
     trash-cli
     helix # For trying it out!
     vulkan-tools
-    blender
     sshfs # For backing up framevoid to nixframe
     brightnessctl
-    gimp
     ripgrep
     zathura
     graphviz
-  ]) ++ scripts);
+  ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
