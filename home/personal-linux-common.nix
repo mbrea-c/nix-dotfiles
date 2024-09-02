@@ -7,6 +7,7 @@ let
   };
   scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
+
   pkgs-art = with pkgs; [ blender gimp libresprite ];
 in {
   imports = [
