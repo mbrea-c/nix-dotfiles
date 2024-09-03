@@ -20,8 +20,10 @@ in {
 
     # LSP stuff
     {
+      mode = [ "n" ];
       key = "<leader>f";
       action = lua "vim.lsp.buf.format";
+      options = desc "Format buffer";
     }
     {
       mode = [ "n" ];
