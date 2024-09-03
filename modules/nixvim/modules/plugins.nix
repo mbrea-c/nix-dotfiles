@@ -1,1 +1,1 @@
-{ ... }: { imports = [ ./plugins/cmp.nix ]; }
+{ ... }: { imports = [ ./plugins/cmp.nix ./plugins/diffview.nix ]; }
