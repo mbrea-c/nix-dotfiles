@@ -146,6 +146,13 @@ in {
     };
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Manuel Brea Carreras";
+    userEmail = "m.brea.carreras@gmail.com";
+    extraConfig = { pull = { rebase = true; }; };
+  };
+
   # DO NOT CHANGE:
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   home.stateVersion = "24.05"; # Did you read the comment?
