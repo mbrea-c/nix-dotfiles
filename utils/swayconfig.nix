@@ -236,12 +236,12 @@ in ''
   # Media keys:
   #
       # Volume control
-      bindsym XF86AudioRaiseVolume exec volume-control.py --volume +0.05
-      bindsym XF86AudioLowerVolume exec volume-control.py --volume -0.05
-      bindsym XF86AudioMute exec volume-control.py --toggle-mute
-      bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
-      bindsym XF86MonBrightnessUp exec brightnessctl set +10%
-      bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+      bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+      bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+      bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
   #
   # Resizing containers:
