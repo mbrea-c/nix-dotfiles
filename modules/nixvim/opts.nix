@@ -38,7 +38,7 @@
     mouse = "a";
     mousemodel = "extend";
     textwidth = 80;
-    #formatoptions = # somehow remove "t"?
+    formatoptions = "cqj"; # somehow remove "t"?
     signcolumn = "yes:1";
     cursorline = true;
     #undofile = true;
