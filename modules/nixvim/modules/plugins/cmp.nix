@@ -4,8 +4,12 @@
       enable = true;
       autoEnableSources = true;
       settings = {
-        sources =
-          [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+        sources = [
+          { name = "copilot-cmp"; }
+          { name = "nvim_lsp"; }
+          { name = "path"; }
+          { name = "buffer"; }
+        ];
         window = {
           completion = {
             col_offset = -3;
