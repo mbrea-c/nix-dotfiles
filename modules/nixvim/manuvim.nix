@@ -8,7 +8,7 @@ let
   highlights = (import ./colorscheme.nix) { inherit lib colorscheme inputs; };
   plugins = (import ./plugins.nix) { inherit pkgs inputs colorscheme; };
 in {
-  imports = [ ./modules/plugins.nix ./keymap.nix ./opts.nix ];
+  imports = [ ./modules/plugins.nix ./keymap.nix ./opts.nix ./packages.nix ];
 
   highlightOverride = highlights;
 
