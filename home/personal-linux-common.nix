@@ -50,6 +50,8 @@ in {
     ripgrep
     zathura
     graphviz
+    libheif
+    imv # image viewer
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
