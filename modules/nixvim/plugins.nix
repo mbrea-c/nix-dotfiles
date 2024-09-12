@@ -26,6 +26,7 @@
         formatting = {
           nixfmt.enable = true;
           black.enable = true;
+          mdformat.enable = true;
         };
       };
     };
