@@ -4,5 +4,6 @@
     ./plugins/diffview.nix
     ./plugins/which-key.nix
     ./plugins/copilot-lua.nix
+    ./plugins/lsp.nix
   ];
 }
