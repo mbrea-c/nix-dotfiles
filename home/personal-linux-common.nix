@@ -53,6 +53,7 @@ in {
     libheif
     imv # image viewer
     typst
+    d-spy
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
