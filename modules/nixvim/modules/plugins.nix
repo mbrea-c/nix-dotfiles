@@ -5,5 +5,6 @@
     ./plugins/which-key.nix
     ./plugins/copilot-lua.nix
     ./plugins/lsp.nix
+    ./plugins/lualine.nix
   ];
 }
