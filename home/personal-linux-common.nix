@@ -52,6 +52,7 @@ in {
     graphviz
     libheif
     imv # image viewer
+    typst
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
