@@ -18,7 +18,7 @@
         marksman.enable = true;
         tsserver.enable = true;
         cssls.enable = true;
-        typst-ls.enable = true;
+        typst-lsp.enable = true;
       };
     };
     none-ls = {
