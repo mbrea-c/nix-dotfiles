@@ -76,7 +76,7 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>gr";
-      action = lua "vim.lsp.buf.references";
+      action = "<cmd>Telescope lsp_references<CR>";
       options = desc "References";
     }
     {
