@@ -51,6 +51,7 @@
                   Event = "",
                   Operator = "󰆕",
                   TypeParameter = "󰅲",
+                  Copilot = "",
                 }
                 local source_map = {
                   buffer = "[Buffer]",
