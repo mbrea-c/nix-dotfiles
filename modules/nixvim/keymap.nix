@@ -110,9 +110,15 @@ in {
     # Telescope
     {
       mode = [ "n" ];
-      key = "<leader>t";
+      key = "<leader>tg";
       action = "<cmd>Telescope live_grep<CR>";
-      options = desc "Find in workspace";
+      options = desc "Live grep in workspace";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>tf";
+      action = "<cmd>Telescope live_grep<CR>";
+      options = desc "Find files in workspace";
     }
   ];
 }
