@@ -5,7 +5,7 @@
       autoEnableSources = true;
       settings = {
         sources = [
-          { name = "cmp-ai"; }
+          { name = "cmp_ai"; }
           { name = "nvim_lsp"; }
           { name = "path"; }
           { name = "buffer"; }
