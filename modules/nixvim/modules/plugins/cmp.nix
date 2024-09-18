@@ -58,7 +58,7 @@
                 }
 
                 vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-                if containsKey(source_map, vim_item.menu) then
+                if source_map[vim_item.menu] ~= nil then
                   vim_item.menu = source_map[vim_item.menu]
                 end
 
