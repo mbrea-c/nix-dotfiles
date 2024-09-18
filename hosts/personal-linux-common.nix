@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, colorscheme, self, ... }:
+{ pkgs, self, ... }:
 let nixvim = self.packages."${pkgs.system}".manuvim;
 in {
   imports = [ # Include the results of the hardware scan.
@@ -49,6 +49,8 @@ in {
     enable = true;
     pulse.enable = true;
   };
+
+  services.ollama = { enable = true; };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;

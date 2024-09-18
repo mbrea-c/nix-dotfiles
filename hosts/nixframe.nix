@@ -11,6 +11,11 @@
   networking.hostName = "nixframe"; # Define your hostname.
   environment.sessionVariables = { NIXOS_CONFIG_NAME = "nixframe"; };
 
+  services.ollama = {
+    acceleration = "rocm";
+    environmentVariables = { HCC_AMDGPU_TARGET = "gfx1102"; };
+    rocmOverrideGfx = "11.0.2";
+  };
   # services.openssh = {
   #   enable = true;
   #   ports = [ 22 ];

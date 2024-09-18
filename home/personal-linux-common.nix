@@ -54,7 +54,6 @@ in {
     imv # image viewer
     typst
     d-spy
-    ollama # local LLMs
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
