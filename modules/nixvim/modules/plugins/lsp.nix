@@ -16,7 +16,7 @@
         jsonls.enable = true;
         basedpyright.enable = true;
         marksman.enable = true;
-        tsserver.enable = true;
+        ts-ls.enable = true;
         cssls.enable = true;
         typst-lsp.enable = true;
         lua-ls.enable = true;
