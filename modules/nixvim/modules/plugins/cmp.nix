@@ -18,7 +18,7 @@
           };
         };
         formatting = {
-          # fields = [ "kind" "abbr" "menu" ];
+          fields = [ "kind" "abbr" "menu" ];
           format = # lua
             ''
               function(entry, vim_item)
