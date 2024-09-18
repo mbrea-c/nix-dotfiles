@@ -5,7 +5,10 @@
       autoEnableSources = true;
       settings = {
         sources = [
-          { name = "cmp_ai"; }
+          {
+            name = "copilot";
+          }
+          #{ name = "cmp_ai"; }
           { name = "nvim_lsp"; }
           { name = "path"; }
           { name = "buffer"; }
