@@ -19,6 +19,7 @@
         tsserver.enable = true;
         cssls.enable = true;
         typst-lsp.enable = true;
+        lua-ls.enable = true;
       };
     };
     none-ls = {
