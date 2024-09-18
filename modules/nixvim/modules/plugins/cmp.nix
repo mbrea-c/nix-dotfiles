@@ -18,18 +18,53 @@
           };
         };
         formatting = {
-          fields = [ "kind" "abbr" "menu" ];
-          # format = # lua
-          #   ''
-          #     function(entry, vim_item)
-          #       local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-          #       local strings = vim.split(kind.kind, "%s", { trimempty = true })
-          #       kind.kind = " " .. (strings[1] or "") .. " "
-          #       kind.menu = "    (" .. (strings[2] or "") .. ")"
+          # fields = [ "kind" "abbr" "menu" ];
+          format = # lua
+            ''
+              function(entry, vim_item)
+                local kind_icons = {
+                  Text = "",
+                  Method = "󰆧",
+                  Function = "󰊕",
+                  Constructor = "",
+                  Field = "󰇽",
+                  Variable = "󰂡",
+                  Class = "󰠱",
+                  Interface = "",
+                  Module = "",
+                  Property = "󰜢",
+                  Unit = "",
+                  Value = "󰎠",
+                  Enum = "",
+                  Keyword = "󰌋",
+                  Snippet = "",
+                  Color = "󰏘",
+                  File = "󰈙",
+                  Reference = "",
+                  Folder = "󰉋",
+                  EnumMember = "",
+                  Constant = "󰏿",
+                  Struct = "",
+                  Event = "",
+                  Operator = "󰆕",
+                  TypeParameter = "󰅲",
+                }
+                local source_map = {
+                  buffer = "[Buffer]",
+                  nvim_lsp = "[LSP]",
+                  luasnip = "[LuaSnip]",
+                  nvim_lua = "[Lua]",
+                  latex_symbols = "[LaTeX]",
+                }
 
-          #       return kind
-          #     end
-          #   '';
+                vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+                if containsKey(source_map, vim_item.menu) then
+                  vim_item.menu = source_map[vim_item.menu]
+                end
+
+                return vim_item
+              end
+            '';
         };
         mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
