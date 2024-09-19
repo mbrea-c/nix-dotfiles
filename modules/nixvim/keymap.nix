@@ -117,7 +117,7 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>tf";
-      action = "<cmd>Telescope live_grep<CR>";
+      action = "<cmd>Telescope find_files<CR>";
       options = desc "Find files in workspace";
     }
   ];
