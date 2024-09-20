@@ -51,8 +51,7 @@ in {
     zathura
     graphviz
     libheif
-    # imv 
-    swayimg # image viewer
+    imv # image viewer
     typst
     d-spy
   ]) ++ scripts ++ pkgs-art);
@@ -81,8 +80,12 @@ in {
     };
     mimeApps = {
       enable = true;
-      defaultApplications = {
-        # "image/png" = 
+      defaultApplications = { "image/png" = "imv.desktop"; };
+    };
+    desktopEntries = {
+      imv = {
+        name = "imv";
+        exec = "${pkgs.imv}/bin/imv";
       };
     };
   };
