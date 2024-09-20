@@ -51,7 +51,8 @@ in {
     zathura
     graphviz
     libheif
-    imv # image viewer
+    # imv 
+    swayimg # image viewer
     typst
     d-spy
   ]) ++ scripts ++ pkgs-art);
@@ -77,6 +78,12 @@ in {
       music = "/home/manuel/Music";
       pictures = "/home/manuel/Pictures";
       videos = "/home/manuel/Videos";
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        # "image/png" = 
+      };
     };
   };
 
