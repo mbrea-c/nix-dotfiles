@@ -19,5 +19,6 @@
       fontconfig.dev
       freetype.dev
     ];
+  runScript = "${pkgs.zsh}/bin/zsh";
   # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
 }).env
