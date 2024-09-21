@@ -85,7 +85,7 @@ in {
         # Check mime-types using `xdg-mime query filetype filename.extension`
         "image/png" = "imv.desktop";
         "text/html" = "firefox.desktop";
-        "application/pdf" = "zathura.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop";
       };
     };
     desktopEntries = {
