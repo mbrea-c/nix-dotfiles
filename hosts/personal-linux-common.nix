@@ -16,10 +16,6 @@ in {
   # Flakes and nix-command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.flatpak.enable = true;
-  services.fwupd.enable = true;
-  services.power-profiles-daemon.enable = true;
-
   # Kernel package version
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -37,23 +33,44 @@ in {
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Cosmic greeter and DE
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  services = {
+    # locate command
+    locate = {
+      enable = true;
+      package = pkgs.plocate;
+      localuser = null;
+      # To disable auto updating of db, set to "never"
+      interval = "02:15";
+    };
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+    # Cosmic greeter and DE
+    desktopManager.cosmic.enable = true;
+    displayManager.cosmic-greeter.enable = true;
 
-  # Enable sound.
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
+    # Enable sound.
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+
+    ollama = { enable = false; };
+    flatpak.enable = true;
+    fwupd.enable = true;
+    power-profiles-daemon.enable = true;
+    upower = {
+      enable = true;
+      percentageLow = 15;
+      percentageCritical = 5;
+      percentageAction = 3;
+      criticalPowerAction = "HybridSleep";
+    };
+
+    # Enable touchpad support (enabled default in most desktopManager).
+    # libinput.enable = true;
+
+    # Enable CUPS to print documents.
+    # printing.enable = true;
   };
-
-  services.ollama = { enable = true; };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.manuel = {
@@ -101,11 +118,4 @@ in {
     allowedUDPPorts = [ 1337 ];
   };
 
-  services.upower = {
-    enable = true;
-    percentageLow = 15;
-    percentageCritical = 5;
-    percentageAction = 3;
-    criticalPowerAction = "HybridSleep";
-  };
 }

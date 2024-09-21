@@ -80,7 +80,11 @@ in {
     };
     mimeApps = {
       enable = true;
-      defaultApplications = { "image/png" = "imv.desktop"; };
+      defaultApplications = {
+        # Check mime-types using `xdg-mime query filetype filename.extension`
+        "image/png" = "imv.desktop";
+        "text/html" = "firefox.desktop";
+      };
     };
     desktopEntries = {
       imv = {
