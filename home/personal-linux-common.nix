@@ -54,6 +54,7 @@ in {
     imv # image viewer
     typst
     d-spy
+    zotero
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
