@@ -28,7 +28,7 @@
         showOnDirs = true;
         showOnOpenDirs = false;
       };
-      update_focused_file = { enable = true; };
+      updateFocusedFile = { enable = true; };
     };
     # neo-tree.enable = true;
     dressing = { enable = true; };
