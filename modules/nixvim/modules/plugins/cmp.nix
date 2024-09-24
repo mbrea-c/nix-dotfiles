@@ -75,7 +75,7 @@
             ''
               function(fallback)
                 if cmp.visible() then
-                  cmp.mapping.confirm({ select = true })
+                  cmp.mapping.confirm({ select = false })
                 else
                   fallback()
                 end
