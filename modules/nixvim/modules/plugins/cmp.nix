@@ -73,13 +73,13 @@
         mapping = {
           "<CR>" = # lua
             ''
-              cmp.mapping(function(fallback)
+              function(fallback)
                 if cmp.visible() then
                   cmp.mapping.confirm({ select = true })
                 else
                   fallback()
                 end
-              end, {"i", "s"})
+              end
             '';
           "<C-n>" = # lua
             ''
