@@ -71,16 +71,7 @@
             '';
         };
         mapping = {
-          "<CR>" = # lua
-            ''
-              function(fallback)
-                if cmp.visible() then
-                  cmp.mapping.confirm({ select = false })
-                else
-                  fallback()
-                end
-              end
-            '';
+          "<CR>" = "cmp.mapping.confirm({ select = false })";
           "<C-n>" = # lua
             ''
               cmp.mapping(function(fallback)
