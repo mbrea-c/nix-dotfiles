@@ -72,7 +72,7 @@ in {
           exec =
             [ "${pkgs.mako}/bin/mako" "sleep 5 && ${pkgs.wayvnc}/bin/wayvnc" ];
           swaybarCommand = "${pkgs.waybar}/bin/waybar";
-          term = "${pkgs.term}/bin/foot";
+          term = "${pkgs.foot}/bin/foot";
         };
       };
       "waybar" = {
