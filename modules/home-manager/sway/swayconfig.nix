@@ -1,4 +1,4 @@
-{ pkgs, outputs, workspaces, dwt ? true, exec ? [ ], ... }:
+{ outputs, workspaces, dwt ? true, exec ? [ ], ... }:
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl'
