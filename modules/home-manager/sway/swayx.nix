@@ -54,7 +54,10 @@ in {
 
     xdg.configFile = {
       "sway/config" = {
-        text = (import ./swayconfig.nix) cfg.settings;
+        text = (import ./swayconfig.nix) {
+          inherit (cfg.settings) outputs workspaces dwt;
+          exec = [ "sleep 5 && systemctl start --user sway-session.target" ];
+        };
         recursive = true;
       };
       "waybar" = {

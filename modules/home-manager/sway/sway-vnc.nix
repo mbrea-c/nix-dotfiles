@@ -70,6 +70,7 @@ in {
           dwt = true;
           exec =
             [ "${pkgs.mako}/bin/mako" "sleep 5 && ${pkgs.wayvnc}/bin/wayvnc" ];
+          swaybarCommand = "${pkgs.waybar}/bin/waybar";
         };
       };
       "waybar" = {

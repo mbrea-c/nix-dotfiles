@@ -1,4 +1,4 @@
-{ outputs, workspaces, dwt ? true, exec ? [ ], ... }:
+{ outputs, workspaces, dwt ? true, exec ? [ ], swaybarCommand ? "waybar", ... }:
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl'
@@ -67,13 +67,12 @@ in ''
   for_window [title="Firefox — Sharing Indicator"] nofocus
 
   bar {
-     swaybar_command waybar
+     swaybar_command ${swaybarCommand}
   }
 
   # -------------------------------------------------------
   # --- AUTOSTART
   # -------------------------------------------------------
-  exec sleep 5 && systemctl start --user sway-session.target
   ${execConfig exec}
 
   # -------------------------------------------------------
