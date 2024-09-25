@@ -3,7 +3,7 @@ let
   cfg = config.sway-vnc;
   configurator = import ./swayconfig.nix;
   primary = "HDMI-A-1";
-  scale = 1;
+  scale = "1.0";
   outputs = [{
     name = primary;
     scale = scale;
