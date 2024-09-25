@@ -105,12 +105,6 @@ in {
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  fonts.packages = with pkgs; [
-    font-awesome
-    ubuntu_font_family
-    cascadia-code
-    nerdfonts
-  ];
 
   networking.firewall = {
     enable = true;

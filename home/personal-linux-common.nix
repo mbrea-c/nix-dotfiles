@@ -14,6 +14,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     ../modules/home-manager/sway/swayx.nix
     self.outputs.homeManagerModules.zsh
+    self.outputs.homeManagerModules.fonts
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.dracula;
@@ -93,27 +94,6 @@ in {
         name = "imv";
         exec = "${pkgs.imv}/bin/imv";
       };
-    };
-  };
-
-  # Fontconfig font fallbacks
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      sansSerif = [
-        "Ubuntu"
-        "NotoSans Nerd Font"
-        "Font Awesome 7 Free"
-        "Noto Color Emoji"
-      ];
-      monospace = [
-        "Cascadia Mono PL"
-        "Font Awesome 7 Free"
-        "Noto Color Emoji"
-        "FiraCode Nerd Font"
-      ];
-      serif =
-        [ "NotoSerif Nerd Font" "Font Awesome 7 Free" "Noto Color Emoji" ];
     };
   };
 

@@ -62,6 +62,7 @@
         homeManagerModules = {
           zsh = import ./modules/home-manager/zsh.nix;
           sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
+          fonts = import ./modules/home-manager/fonts.nix;
         };
         nixvimModules = { manuvim = import ./modules/nixvim/manuvim.nix; };
 
