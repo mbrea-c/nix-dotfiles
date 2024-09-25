@@ -54,7 +54,7 @@ in {
 
     xdg.configFile = {
       "sway/config" = {
-        text = (import ../../../utils/swayconfig.nix) cfg.settings;
+        text = (import ./swayconfig.nix) cfg.settings;
         recursive = true;
       };
       "waybar" = {

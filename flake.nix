@@ -59,7 +59,10 @@
             };
         };
 
-        homeManagerModules = { zsh = import ./modules/home-manager/zsh.nix; };
+        homeManagerModules = {
+          zsh = import ./modules/home-manager/zsh.nix;
+          sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
+        };
         nixvimModules = { manuvim = import ./modules/nixvim/manuvim.nix; };
 
         lib = {

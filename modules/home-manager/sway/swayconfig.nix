@@ -1,4 +1,4 @@
-{ outputs, workspaces, dwt, ... }:
+{ pkgs, outputs, workspaces, dwt ? true, exec ? [ ], ... }:
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl'
@@ -11,7 +11,8 @@ let
         builtins.foldl' (acc: outputName: acc + " " + "'${outputName}'") ""
         outputList
       }") "" workspaces;
-
+  execConfig = exec:
+    builtins.foldl' (acc: stmt: acc + "\n" + "exec ${stmt}") "" exec;
   # swayconfig
 in ''
   # -------------------------------------------------------
@@ -73,6 +74,7 @@ in ''
   # --- AUTOSTART
   # -------------------------------------------------------
   exec sleep 5 && systemctl start --user sway-session.target
+  ${execConfig exec}
 
   # -------------------------------------------------------
   # --- KEYBINDS
