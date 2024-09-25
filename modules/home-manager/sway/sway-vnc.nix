@@ -7,6 +7,7 @@ let
   outputs = [{
     name = primary;
     scale = scale;
+    resolution = "2560x1440";
   }];
   workspaces = [
     {

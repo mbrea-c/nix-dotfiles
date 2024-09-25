@@ -2,9 +2,14 @@
 , term ? "alacritty", ... }:
 let
   outputsConfig = outputs: # swayconfig
-    builtins.foldl'
-    (acc: { name, scale }: acc + "\n" + "output '${name}' scale ${scale}") ""
-    outputs;
+    builtins.foldl' (acc:
+      { name, scale, resolution ? "" }:
+      acc + "\n" + "output '${name}' ${
+        if builtins.stringLength resolution > 0 then
+          "resolution ${resolution}"
+        else
+          ""
+      } scale ${scale}") "" outputs;
   workspaceConfig = workspaces:
     builtins.foldl' (acc:
       { name, outputList }:
