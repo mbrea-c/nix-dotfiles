@@ -1,7 +1,7 @@
 { lib, config, pkgs, inputs, colorscheme, ... }:
 let
   cfg = config.sway-vnc;
-  configurator = import ./swayconfig.nix;
+  configurator = import ./utils/swayconfig.nix;
   primary = "HDMI-A-1";
   scale = "1.0";
   outputs = [{
@@ -61,6 +61,7 @@ in {
         export WLR_LIBINPUT_NO_DEVICES=1
         exec ${pkgs.sway}/bin/sway -c $HOME/.config/sway/config-vnc
       '')
+      pkgs.rofi-wayland
     ];
     xdg.configFile = {
       "sway/config-vnc" = {
@@ -71,6 +72,7 @@ in {
           exec =
             [ "${pkgs.mako}/bin/mako" "sleep 5 && ${pkgs.wayvnc}/bin/wayvnc" ];
           swaybarCommand = "${pkgs.waybar}/bin/waybar";
+          term = "${pkgs.term}/bin/foot";
         };
       };
       "waybar" = {

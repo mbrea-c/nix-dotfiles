@@ -1,4 +1,5 @@
-{ outputs, workspaces, dwt ? true, exec ? [ ], swaybarCommand ? "waybar", ... }:
+{ outputs, workspaces, dwt ? true, exec ? [ ], swaybarCommand ? "waybar"
+, term ? "alacritty", ... }:
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl'
@@ -90,7 +91,7 @@ in ''
   set $up k
   set $right l
   # Your preferred terminal emulator
-  set $term alacritty
+  set $term ${term}
   # Your preferred application launcher
   # Note: pass the final command to swaymsg so that the resulting window can be opened
   # on the original workspace that the command was run on.
