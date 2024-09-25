@@ -59,7 +59,7 @@ in {
       (pkgs.writeShellScriptBin "sway-vnc" ''
         export WLR_BACKENDS=headless
         export WLR_LIBINPUT_NO_DEVICES=1
-        export TERM=foot
+        export TERM=xterm-256color
         exec ${pkgs.sway}/bin/sway -c $HOME/.config/sway/config-vnc
       '')
       pkgs.rofi-wayland
