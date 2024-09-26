@@ -2,7 +2,10 @@
   programs.foot = {
     enable = true;
     settings = {
-      main = { term = "xterm-256color"; };
+      main = {
+        term = "xterm-256color";
+        font = "monospace:size=11";
+      };
       colors = let col = inputs.nix-color-utils.lib.fromBase16 colorscheme;
       in {
         foreground = "${col.foreground}";
