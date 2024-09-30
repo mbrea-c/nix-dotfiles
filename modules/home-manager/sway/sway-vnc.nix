@@ -76,7 +76,7 @@ in {
             "sleep 5 && ${pkgs.wayvnc}/bin/wayvnc"
             "dbus-update-activation-environment --systemd SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
           ];
-          swaybarCommand = "${pkgs.waybar}/bin/waybar";
+          swaybarCommand = "${pkgs.sway}/bin/swaybar";
           term = "${pkgs.foot}/bin/foot";
         };
       };
