@@ -1,5 +1,7 @@
-{ outputs, workspaces, dwt ? true, exec ? [ ], swaybarCommand ? "waybar"
-, term ? "alacritty", bg ? [{
+{ outputs, workspaces, dwt ? true, exec ? [ ], bar ? {
+  swaybarCommand = "waybar";
+  position = "top";
+}, term ? "alacritty", bg ? [{
   output = "*";
   path = "/home/manuel/Pictures/wallpapers/montana.jpg";
   mode = "fill";
@@ -32,6 +34,12 @@ let
   bgConfig = bg:
     builtins.foldl' (acc: bgConfig: acc + "\n" + (outputBgConfig bgConfig)) ""
     bg;
+  barConfig = { swaybarCommand, position }: ''
+    bar {
+      swaybar_command ${swaybarCommand}
+      position ${position}
+    }
+  '';
 in ''
   # -------------------------------------------------------
   # --- BASE CONFIG
@@ -81,9 +89,7 @@ in ''
   for_window [title="Firefox — Sharing Indicator"] floating enable
   for_window [title="Firefox — Sharing Indicator"] nofocus
 
-  bar {
-     swaybar_command ${swaybarCommand}
-  }
+  ${barConfig bar}
 
   # -------------------------------------------------------
   # --- AUTOSTART
