@@ -3,11 +3,11 @@ let
   cfg = config.sway-vnc;
   configurator = import ./utils/swayconfig.nix;
   primary = "HEADLESS-1";
-  scale = "1.0";
+  scale = "1.25";
   outputs = [{
     name = primary;
     scale = scale;
-    resolution = "2560x1440";
+    resolution = "3840x2160";
   }];
   workspaces = [
     {
