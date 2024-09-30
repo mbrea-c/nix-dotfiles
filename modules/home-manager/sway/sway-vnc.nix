@@ -78,6 +78,7 @@ in {
           ];
           swaybarCommand = "${pkgs.sway}/bin/swaybar";
           term = "${pkgs.foot}/bin/foot";
+          bg = [ ];
         };
       };
       "waybar" = {

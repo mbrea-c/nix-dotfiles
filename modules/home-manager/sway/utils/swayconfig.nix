@@ -1,5 +1,9 @@
 { outputs, workspaces, dwt ? true, exec ? [ ], swaybarCommand ? "waybar"
-, term ? "alacritty", ... }:
+, term ? "alacritty", bg ? [{
+  output = "*";
+  path = "/home/manuel/Pictures/wallpapers/montana.jpg";
+  mode = "fill";
+}], ... }:
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl' (acc:
@@ -20,6 +24,14 @@ let
   execConfig = exec:
     builtins.foldl' (acc: stmt: acc + "\n" + "exec ${stmt}") "" exec;
   # swayconfig
+  outputBgConfig = { output, path, mode }: ''
+    output ${output} {
+      bg ${path} ${mode}
+    }
+  '';
+  bgConfig = bg:
+    builtins.foldl' (acc: bgConfig: acc + "\n" + (outputBgConfig bgConfig)) ""
+    bg;
 in ''
   # -------------------------------------------------------
   # --- BASE CONFIG
@@ -31,10 +43,7 @@ in ''
 
   # TODO: Default wallpaper could be handled by bgmanager:
   # exec_always bgmanager set_background
-  output * {
-     bg /home/manuel/Pictures/wallpapers/montana.jpg fill
-  }
-
+  ${bgConfig bg}
   ${outputsConfig outputs}
   ${workspaceConfig workspaces}
 
