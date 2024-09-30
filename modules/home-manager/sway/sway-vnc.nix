@@ -71,8 +71,11 @@ in {
           outputs = outputs;
           workspaces = workspaces;
           dwt = true;
-          exec =
-            [ "${pkgs.mako}/bin/mako" "sleep 5 && ${pkgs.wayvnc}/bin/wayvnc" ];
+          exec = [
+            "${pkgs.mako}/bin/mako"
+            "sleep 5 && ${pkgs.wayvnc}/bin/wayvnc"
+            "dbus-update-activation-environment --systemd SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE"
+          ];
           swaybarCommand = "${pkgs.waybar}/bin/waybar";
           term = "${pkgs.foot}/bin/foot";
         };
