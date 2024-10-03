@@ -23,7 +23,6 @@ in {
   home.homeDirectory = "/home/manuel";
   home.packages = lib.lists.unique ((with pkgs; [
     firefox
-    chromium
     thunderbird
     alacritty
     mpv
@@ -63,7 +62,7 @@ in {
     XDG_DATA_DIRS =
       "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     NIX_CONFIG_PATH = "$HOME/src/nix-dotfiles";
-    NIXOS_OZONO_WL = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/scripts" ];
@@ -94,6 +93,12 @@ in {
       imv = {
         name = "imv";
         exec = "${pkgs.imv}/bin/imv";
+      };
+      discord = {
+        name = "Discord";
+        type = "Application";
+        terminal = false;
+        exec = ''${pkgs.chromium}/bin/chromium --app="https://discord.com"'';
       };
     };
   };
