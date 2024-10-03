@@ -63,6 +63,7 @@ in {
     XDG_DATA_DIRS =
       "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     NIX_CONFIG_PATH = "$HOME/src/nix-dotfiles";
+    NIXOS_OZONO_WL = "1";
   };
 
   home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/scripts" ];
