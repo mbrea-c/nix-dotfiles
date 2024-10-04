@@ -14,7 +14,7 @@
         taplo.enable = true;
         bashls.enable = true;
         jsonls.enable = true;
-        basedpyright.enable = true;
+        pyright.enable = true; # basedpyright is too strict
         marksman.enable = true;
         ts-ls.enable = true;
         cssls.enable = true;
