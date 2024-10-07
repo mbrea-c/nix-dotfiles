@@ -33,7 +33,6 @@
     };
     # neo-tree.enable = true;
     dressing = { enable = true; };
-    telescope = { enable = true; };
     toggleterm = {
       enable = true;
       settings = { shade_terminals = false; };

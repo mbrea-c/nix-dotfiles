@@ -7,5 +7,6 @@
     ./plugins/copilot-lua.nix
     ./plugins/lsp.nix
     ./plugins/lualine.nix
+    ./plugins/telescope.nix
   ];
 }
