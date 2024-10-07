@@ -111,7 +111,7 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>tg";
-      action = "<cmd>Telescope live_grep<CR>";
+      action = "<cmd>Telescope live_grep_args<CR>";
       options = desc "Live grep in workspace";
     }
     {
