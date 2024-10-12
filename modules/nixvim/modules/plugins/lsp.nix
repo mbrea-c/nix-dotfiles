@@ -3,9 +3,9 @@
     lsp = {
       enable = true;
       servers = {
-        nil-ls.enable = true;
+        nil_ls.enable = true;
         # nixd.enable = true;
-        rust-analyzer = {
+        rust_analyzer = {
           enable = true;
           # We manage our own cargo versions with rustup
           installCargo = false;
@@ -16,10 +16,10 @@
         jsonls.enable = true;
         pyright.enable = true; # basedpyright is too strict
         marksman.enable = true;
-        ts-ls.enable = true;
+        ts_ls.enable = true;
         cssls.enable = true;
-        typst-lsp.enable = true;
-        lua-ls.enable = true;
+        typst_lsp.enable = true;
+        lua_ls.enable = true;
       };
     };
     none-ls = {
