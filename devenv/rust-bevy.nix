@@ -7,7 +7,7 @@
       udev.dev
       alsa-lib.dev
       vulkan-loader.dev
-      vulkan-headers.dev
+      vulkan-headers
       vulkan-tools
       glfw
       shaderc
