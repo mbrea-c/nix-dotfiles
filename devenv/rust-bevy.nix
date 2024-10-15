@@ -7,7 +7,11 @@
       udev.dev
       alsa-lib.dev
       vulkan-loader.dev
+      vulkan-headers.dev
+      vulkan-tools
       glfw
+      shaderc
+      libGL.dev
       xorg.libX11.dev
       xorg.libXrandr.dev
       xorg.libxcb.dev
