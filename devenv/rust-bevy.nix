@@ -10,11 +10,10 @@
       glfw
       xorg.libX11.dev
       xorg.libXrandr.dev
-      xorg.libxcb
-      xorg.libXcursor
-      xorg.libXi
-      xorg.libXtst
-      libxkbcommon
+      xorg.libxcb.dev
+      xorg.libXcursor.dev
+      xorg.libXi.dev
+      xorg.libXtst.dev
       libxkbcommon.dev
       wayland.dev
       openssl.dev
