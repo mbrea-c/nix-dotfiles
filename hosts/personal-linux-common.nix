@@ -3,7 +3,7 @@ let nixvim = self.packages."${pkgs.system}".manuvim;
 in {
   imports = [ # Include the results of the hardware scan.
     ../modules/sway-host.nix
-    ../modules/cosmic.nix
+    # ../modules/cosmic.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -43,9 +43,14 @@ in {
       interval = "02:15";
     };
 
+    xserver = {
+      enable = true;
+      displayManager.gdm.enable = true;
+    };
+
     # Cosmic greeter and DE
-    desktopManager.cosmic.enable = true;
-    displayManager.cosmic-greeter.enable = true;
+    # desktopManager.cosmic.enable = true;
+    # displayManager.cosmic-greeter.enable = true;
 
     # Enable sound.
     pipewire = {

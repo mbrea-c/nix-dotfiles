@@ -5,14 +5,14 @@ let
 in nixpkgs.lib.nixosSystem {
   specialArgs = { inherit self inputs colorscheme; };
   modules = [
-    {
-      nix.settings = {
-        substituters = [ "https://cosmic.cachix.org" ];
-        trusted-public-keys = [
-          "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
-        ];
-      };
-    }
+    # {
+    #   nix.settings = {
+    #     substituters = [ "https://cosmic.cachix.org" ];
+    #     trusted-public-keys = [
+    #       "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+    #     ];
+    #   };
+    # }
     host
     inputs.home-manager.nixosModules.home-manager
     {
