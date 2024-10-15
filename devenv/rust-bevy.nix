@@ -13,7 +13,7 @@
       xorg.libxcb.dev
       xorg.libXcursor.dev
       xorg.libXi.dev
-      xorg.libXtst.dev
+      xorg.libXtst
       libxkbcommon.dev
       wayland.dev
       openssl.dev
