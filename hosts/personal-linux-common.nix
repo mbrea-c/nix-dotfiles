@@ -12,6 +12,13 @@ in {
 
   # Issues with dynamically linked libraries
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    xorg.libX11
+    xorg.libXcursor
+    xorg.libxcb
+    xorg.libXi
+    libxkbcommon
+  ];
 
   # Flakes and nix-command
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
