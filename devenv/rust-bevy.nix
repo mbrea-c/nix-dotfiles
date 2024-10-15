@@ -7,7 +7,7 @@
       udev.dev
       alsa-lib.dev
       vulkan-loader.dev
-      glfw.dev
+      glfw
       xorg.libX11.dev
       xorg.libXrandr.dev
       xorg.libxcb
