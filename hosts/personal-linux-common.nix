@@ -3,6 +3,7 @@ let nixvim = self.packages."${pkgs.system}".manuvim;
 in {
   imports = [ # Include the results of the hardware scan.
     ../modules/sway-host.nix
+    ../modules/nixos/gaming.nix
     # ../modules/cosmic.nix
   ];
 

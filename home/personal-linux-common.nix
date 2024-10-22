@@ -15,7 +15,6 @@ in {
     ../modules/home-manager/sway/swayx.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
-    ../modules/home-manager/gaming.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.dracula;
