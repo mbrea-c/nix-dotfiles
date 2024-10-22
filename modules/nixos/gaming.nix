@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs;
+  environment.systemPackages = with pkgs;
     [
       (lutris.override {
         extraLibraries = pkgs: [ ];
