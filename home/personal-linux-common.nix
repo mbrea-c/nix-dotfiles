@@ -55,6 +55,10 @@ in {
     typst
     d-spy
     zotero
+    (lutris.override {
+      extraLibraries = pkgs: [ ];
+      extraPkgs = pkgs: [ ];
+    })
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
