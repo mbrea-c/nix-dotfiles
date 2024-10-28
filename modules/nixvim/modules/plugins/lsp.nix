@@ -46,7 +46,7 @@
   }];
 
   extraConfigLuaPre = ''
-    local function expand_macro()
+    function expand_macro()
       local params = vim.lsp.util.make_position_params()
       vim.lsp.buf_request_all(0, "rust-analyzer.expandMacroRecursively", params, function(err, result)
         if err then
