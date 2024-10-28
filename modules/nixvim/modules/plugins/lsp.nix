@@ -54,12 +54,11 @@
             local err = result.error
             vim.notify("Error expanding macro" .. err.message, vim.log.levels.ERROR)
           end
-          if result.result then
+          if result.result and result.result.expansion then
             local result = result.result
             local buf = vim.api.nvim_create_buf(false, true)  -- Create a new buffer, non-listed and scratch
             -- Set the lines (text) in the buffer
-            print(vim.inspect(result))
-            vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(result, '\n'))
+            vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(result.expansion, '\n'))
             vim.api.nvim_buf_set_option("filetype", "rust", {buf = buf})
             -- Define window options (position, size, etc.)
             local width = 80
