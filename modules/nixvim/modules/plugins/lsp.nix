@@ -48,9 +48,9 @@
   extraConfigLuaPre = ''
     function expand_macro_rust()
       local params = vim.lsp.util.make_position_params()
-      vim.lsp.buf_request_all(0, "rust-analyzer.expandMacroRecursively", params, function(err, result)
+      vim.lsp.buf_request_all(0, "rust-analyzer/expandMacro", params, function(err, result)
         if err then
-          vim.notify("Error expanding macro", vim.log.levels.ERROR)
+          vim.notify("Error expanding macro" .. err.message, vim.log.levels.ERROR)
           return
         end
         if result then
