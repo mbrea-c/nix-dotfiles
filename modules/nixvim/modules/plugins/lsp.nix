@@ -53,7 +53,6 @@
           if result.error then
             local err = result.error
             vim.notify("Error expanding macro" .. err.message, vim.log.levels.ERROR)
-            return
           end
           if result.result then
             local result = result.result
@@ -74,6 +73,7 @@
                 border = "rounded"    -- Rounded border for aesthetics
             }
             vim.api.nvim_open_win(buf, true, opts)
+            return
           end
         end
       end)
