@@ -41,16 +41,16 @@
   };
 
   keymaps = [{
-    action = "<cmd>lua expand_macro()<CR>";
+    action = "<cmd>lua expand_macro_rust()<CR>";
     key = "<leader>em";
   }];
 
   extraConfigLuaPre = ''
-    function expand_macro()
+    function expand_macro_rust()
       local params = vim.lsp.util.make_position_params()
       vim.lsp.buf_request_all(0, "rust-analyzer.expandMacroRecursively", params, function(err, result)
         if err then
-          vim.notify("Error expanding macro: " .. err.message, vim.log.levels.ERROR)
+          vim.notify("Error expanding macro", vim.log.levels.ERROR)
           return
         end
         if result then
