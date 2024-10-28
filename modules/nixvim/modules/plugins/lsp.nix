@@ -58,11 +58,12 @@
             local result = result.result
             local buf = vim.api.nvim_create_buf(false, true)  -- Create a new buffer, non-listed and scratch
             -- Set the lines (text) in the buffer
+            print(vim.inspect(result))
             vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(result, '\n'))
             vim.api.nvim_buf_set_option("filetype", "rust", {buf = buf})
             -- Define window options (position, size, etc.)
-            local width = 30
-            local height = 5
+            local width = 80
+            local height = 30 
             local opts = {
                 style = "minimal",    -- "minimal" style to avoid extra UI elements
                 relative = "editor",  -- Position relative to the editor
