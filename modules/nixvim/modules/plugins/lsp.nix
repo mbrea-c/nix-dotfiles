@@ -59,7 +59,7 @@
             local buf = vim.api.nvim_create_buf(false, true)  -- Create a new buffer, non-listed and scratch
             -- Set the lines (text) in the buffer
             vim.api.nvim_buf_set_lines(buf, 0, -1, false, vim.split(result, '\n'))
-            vim.api.nvim_buf_set_option(buf, "filetype", "rust")
+            vim.api.nvim_buf_set_option("filetype", "rust", {buf = buf})
             -- Define window options (position, size, etc.)
             local width = 30
             local height = 5
