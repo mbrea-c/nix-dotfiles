@@ -47,8 +47,12 @@
           home = import ./home/minikit.nix;
         };
 
-        devShells."${system}".rust-bevy-fhs =
-          (import ./devenv/rust-bevy.nix) { inherit pkgs; };
+        devShells."${system}" =
+          let shells = (import ./devenv/rust-bevy.nix) { inherit pkgs; };
+          in {
+            rust-bevy-fhs = shells.rust-bevy-fhs;
+            rust-bevy = shells.rust-bevy;
+          };
 
         packages."${system}" = {
           manuvim =
