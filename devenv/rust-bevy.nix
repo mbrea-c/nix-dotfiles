@@ -19,6 +19,7 @@
       xorg.libXi.dev
       xorg.libXtst
       libxkbcommon.dev
+      libxkbcommon
       wayland.dev
       openssl.dev
       systemd.dev
