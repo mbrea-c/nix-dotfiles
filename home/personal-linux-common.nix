@@ -8,7 +8,12 @@ let
   scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 
-  pkgs-art = with pkgs; [ blender gimp libresprite krita ];
+  pkgs-art = with pkgs; [
+    # blender # Commented out until build is fixed: https://github.com/NixOS/nixpkgs/issues/354482
+    gimp
+    libresprite
+    krita
+  ];
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
