@@ -2,6 +2,15 @@
 let
   desc = d: { desc = d; };
   lua = l: { __raw = l; };
+  formatWithOpts = { timeout_ms ? 1000 }:
+    lua # lua
+    ''
+      function()
+        vim.lsp.buf.format({
+          timeout_ms=${builtins.toString timeout_ms},
+        })
+      end
+    '';
 in {
   keymaps = [
     {
@@ -22,8 +31,8 @@ in {
     {
       mode = [ "n" "v" ];
       key = "<leader>f";
-      action = lua "vim.lsp.buf.format";
-      options = desc "Format buffer";
+      action = formatWithOpts { timeout_ms = 5000; };
+      options = desc "Format buffer (5s timeout)";
     }
     {
       mode = [ "n" ];
