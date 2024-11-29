@@ -14,12 +14,14 @@
         taplo.enable = true;
         bashls.enable = true;
         jsonls.enable = true;
-        pyright.enable = true; # basedpyright is too strict
+        # basedpyright is too strict TODO: Maybe figure out how to configure
+        pyright.enable = true;
         marksman.enable = true;
         ts_ls.enable = true;
         cssls.enable = true;
         typst_lsp.enable = true;
         lua_ls.enable = true;
+        kotlin_language_server.enable = true;
       };
     };
     none-ls = {
