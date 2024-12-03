@@ -2,9 +2,8 @@
 let
   desc = d: { desc = d; };
   lua = l: { __raw = l; };
-  u = (import ../../utils/nix-utils.nix) { };
   lu = (import ../../utils/lua-utils.nix) { };
-  formatWithFilter = u.compose [ lua lu.fns.lspFormatFiltered ];
+  formatWithFilter = lst: lua (lu.fns.lspFormatFiltered lst);
 in {
   keymaps = [
     {
