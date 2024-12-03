@@ -3,7 +3,8 @@
     font-awesome
     ubuntu_font_family
     cascadia-code
-    nerdfonts
+    nerd-fonts.noto
+    nerd-fonts.fira-code
   ];
 
   # Fontconfig font fallbacks
