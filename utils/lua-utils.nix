@@ -30,7 +30,7 @@
       '';
     lspFormatFiltered = ignoredServers: # lua
       ''
-        local function lsp_formatting(bufnr)
+        function(bufnr)
           local ignore_formatting = ${nixToLua ignoredServers}
           vim.lsp.buf.format({
             filter = function(clients)
