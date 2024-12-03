@@ -2,15 +2,8 @@
 let
   desc = d: { desc = d; };
   lua = l: { __raw = l; };
-  formatWithOpts = { timeout_ms ? 1000 }:
-    lua # lua
-    ''
-      function()
-        vim.lsp.buf.format({
-          timeout_ms=${builtins.toString timeout_ms},
-        })
-      end
-    '';
+  lu = (import ../../utils/lua-utils.nix) { };
+  formatWithFilter = filterList: lua (lu.fns.lspFormatFiltered filterList);
 in {
   keymaps = [
     {
@@ -31,7 +24,7 @@ in {
     {
       mode = [ "n" "v" ];
       key = "<leader>f";
-      action = formatWithOpts { timeout_ms = 5000; };
+      action = formatWithFilter [ "kotlin_language_server" "jdtls" ];
       options = desc "Format buffer (5s timeout)";
     }
     {

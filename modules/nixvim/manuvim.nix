@@ -105,8 +105,11 @@ in {
   extraPlugins = plugins.extraPlugins;
   extraConfigLuaPre = let
     border = "rounded";
+    lu = (import ../../utils/lua-utils.nix) { };
     # lua
   in ''
+    local is_in = ${lu.fns.is_in}
+
     vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "${border}"})
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "${border}"})
   '';

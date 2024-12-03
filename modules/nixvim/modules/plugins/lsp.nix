@@ -30,6 +30,7 @@
         formatting = {
           nixfmt.enable = true;
           black.enable = true;
+          ktlint.enable = true;
           mdformat = {
             enable = true;
             settings = { extra_args = [ "--wrap" "80" ]; };
