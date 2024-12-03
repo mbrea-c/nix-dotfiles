@@ -8,7 +8,7 @@
     else if isBool x then
       (if x then "true" else "false")
     else if isList x then
-      "{${foldl' (acc: elem: "${acc}, ${elem}") "" (map nixToLua) x}}"
+      "{${foldl' (acc: elem: "${acc}, ${elem}") "" (map nixToLua x)}}"
     else
       trace "Unrecognized type in transpilation to Lua: ${toString x}" "";
 
