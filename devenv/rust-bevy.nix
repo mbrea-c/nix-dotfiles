@@ -34,9 +34,9 @@
     nativeBuildInputs = with pkgs; [
       pkg-config
       ldtk
-      (pkgs.rust-bin.stable.latest.default.override {
-        extensions = [ "rust-src" ];
-      })
+      # (pkgs.rust-bin.stable.latest.default.override {
+      #   extensions = [ "rust-src" ];
+      # })
     ];
 
     buildInputs = with pkgs; [
