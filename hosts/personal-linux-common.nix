@@ -41,6 +41,13 @@ in {
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+  };
+
   services = {
     # locate command
     locate = {
