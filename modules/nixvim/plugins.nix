@@ -30,6 +30,7 @@
       };
       updateFocusedFile = { enable = true; };
       view = { width = 50; };
+      actions = { changeDir = { global = true; }; };
     };
     # neo-tree.enable = true;
     dressing = { enable = true; };
