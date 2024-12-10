@@ -99,7 +99,10 @@ in {
   "CursorLine" = { bg = lighten 0.1 colors.background; };
   "CursorColumn" = { bg = colors.background; };
   #"ColorColumn" = { bg = colors.background; }; what is this?
-  "FloatBorder" = { fg = darken 0.3 colors.foreground; };
+  "FloatBorder" = {
+    fg = darken 0.3 colors.foreground;
+    bg = darken 0.15 colors.background;
+  };
   "NormalFloat" = { bg = darken 0.15 colors.background; };
 
   "WinSeparator" = {
