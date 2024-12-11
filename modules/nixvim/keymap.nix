@@ -122,5 +122,13 @@ in {
       action = "<cmd>Telescope find_files<CR>";
       options = desc "Find files in workspace";
     }
+
+    # Paste in macos
+    {
+      mode = [ "n" "i" "v" ];
+      key = "<D-v>";
+      action = ''"+p'';
+      options = desc "Paste from system clipboard";
+    }
   ];
 }
