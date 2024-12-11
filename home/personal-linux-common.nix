@@ -60,6 +60,7 @@ in {
     typst
     d-spy
     zotero
+    neovide
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
