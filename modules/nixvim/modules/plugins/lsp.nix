@@ -19,7 +19,7 @@
         marksman.enable = true;
         ts_ls.enable = true;
         cssls.enable = true;
-        typst_lsp.enable = true;
+        tinymist.enable = true;
         lua_ls.enable = true;
         kotlin_language_server.enable = true;
       };
