@@ -9,5 +9,6 @@
     ./plugins/lualine.nix
     ./plugins/telescope.nix
     ./plugins/mini.nix
+    ./plugins/direnv.nix
   ];
 }
