@@ -61,6 +61,7 @@ in {
     d-spy
     zotero
     neovide
+    transmission_4-gtk
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
