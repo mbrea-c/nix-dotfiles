@@ -114,5 +114,7 @@ in {
     vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "${border}"})
 
     vim.o.guifont = "monospace:h10"
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
   '';
 }
