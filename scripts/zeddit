@@ -1,3 +1,4 @@
+# vim: filetype=bash
 DOTFILES_PATH="${HOME}/src/nix-dotfiles"
 
 shell_name="$1"
