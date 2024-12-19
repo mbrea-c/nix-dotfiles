@@ -12,6 +12,7 @@ in {
             (lua "require('mini.map').gen_integration.builtin_search()")
             (lua "require('mini.map').gen_integration.diagnostic()")
           ];
+          symbols = { scroll_view = "┊"; };
         };
       };
     };
