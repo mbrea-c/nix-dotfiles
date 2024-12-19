@@ -8,10 +8,10 @@ in {
       modules = {
         icons = { style = "glyph"; };
         map = {
-          "__unkeyed-1.builtin_search" =
-            (lua "require('mini.map').gen_integration.builtin_search()");
-          "__unkeyed-2.diagnostic" =
-            (lua "require('mini.map').gen_integration.diagnostic()");
+          integrations = [
+            (lua "require('mini.map').gen_integration.builtin_search()")
+            (lua "require('mini.map').gen_integration.diagnostic()")
+          ];
         };
       };
     };
