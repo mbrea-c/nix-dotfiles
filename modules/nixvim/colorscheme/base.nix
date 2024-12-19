@@ -102,11 +102,11 @@ in {
   "FloatBorder" = {
     fg = darken 0.3 colors.foreground;
     bg = darken 0.15 colors.background;
-    blend = 20;
+    blend = 12;
   };
   "NormalFloat" = {
     bg = darken 0.15 colors.background;
-    blend = 20;
+    blend = 12;
   };
 
   "WinSeparator" = {
