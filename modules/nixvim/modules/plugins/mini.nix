@@ -16,4 +16,8 @@ in {
       };
     };
   };
+  keymaps = [{
+    action = lua "MiniMap.toggle";
+    key = "<leader>mm";
+  }];
 }
