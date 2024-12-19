@@ -6,20 +6,20 @@ done
 printf "\n"
 
 for i in $(seq 0 7); do
-	printf '%s' "\e[4${i}m    \e[0m"
+	printf '\e[4%sm    \e[0m' "$i"
 done
 printf "\n"
 for i in $(seq 0 7); do
-	printf '%s' "\e[4${i}m    \e[0m"
+	printf '\e[4%sm    \e[0m' "$i"
 done
 printf "  ANSI: 3(f) 4(b)\n"
 
 for i in $(seq 0 7); do
-	printf '%s' "\e[10${i}m    \e[0m"
+	printf '\e[10%sm    \e[0m' "$i"
 done
 printf "\n"
 for i in $(seq 0 7); do
-	printf '%s' "\e[10${i}m    \e[0m"
+	printf '\e[10%sm    \e[0m' "$i"
 done
 printf "  ANSI: 9(f) 10(b)\n"
 
