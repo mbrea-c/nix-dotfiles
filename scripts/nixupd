@@ -7,15 +7,15 @@ colored() {
 
     color_code="30"
     case "$color" in
-        red)
-            color_code="31"
-            ;;
-        green)
-            color_code="32"
-            ;;
-        blue)
-            color_code="34"
-            ;;
+    red)
+        color_code="31"
+        ;;
+    green)
+        color_code="32"
+        ;;
+    blue)
+        color_code="34"
+        ;;
     esac
 
     echo -e "\e[${color_code};1m$value\e[0m"
@@ -26,10 +26,10 @@ handle_error() {
     error_code="$?"
     msg_if_success="$1"
     msg_if_failure="$2"
-    if [ "$error_code" = "0" ]; then 
+    if [ "$error_code" = "0" ]; then
         colored green "$msg_if_success"
     else
-        colored red "$msg_if_failure" 
+        colored red "$msg_if_failure"
         exit 1
     fi
 }
@@ -77,7 +77,7 @@ handle_error "Went to directory: $flakedir" "Failed to cd to flake dir: $flakedi
 
 if [ "$update_flake" = "true" ]; then
     colored blue "Updating flake..."
-    nix flake update 
+    nix flake update
     handle_error "Flake updated!" "Failed to update flake"
 fi
 
@@ -99,9 +99,9 @@ nvd diff /run/current-system ./result
 
 if [ "$switch_systems" = "true" ]; then
     colored blue "Switching systems..."
-    
-    sudo nix-env --profile /nix/var/nix/profiles/system --set ./result && \
-    sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
+
+    sudo nix-env --profile /nix/var/nix/profiles/system --set ./result &&
+        sudo /nix/var/nix/profiles/system/bin/switch-to-configuration switch
 
     handle_error "System switch successful!" "Failed to switch systems"
 fi
