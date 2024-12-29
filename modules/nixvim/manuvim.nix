@@ -127,8 +127,12 @@ in {
     in ''
       local is_in = ${lu.fns.is_in}
 
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "${border}"})
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "${border}"})
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = "${
+        lu.nixToLua border
+      }"})
+      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {border = "${
+        lu.nixToLua border
+      }"})
 
       vim.o.guifont = "monospace:h10"
       vim.g.neovide_floating_blur_amount_x = 5.0
