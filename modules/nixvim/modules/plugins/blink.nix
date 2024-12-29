@@ -1,13 +1,21 @@
-{ ... }: {
+{ config, ... }: {
   plugins = {
     blink-cmp = {
       enable = true;
       settings = {
         completion = {
-          menu = { auto_show = true; };
+          menu = {
+            auto_show = true;
+            border = config.custom.border;
+          };
           documentation = {
             auto_show = true;
             auto_show_delay_ms = 500;
+            window = { border = config.custom.border; };
+          };
+          signature = {
+            enabled = true;
+            window = { border = config.custom.border; };
           };
           ghost_text = { enabled = true; };
         };

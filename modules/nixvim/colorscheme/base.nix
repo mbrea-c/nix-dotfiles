@@ -67,6 +67,8 @@ in {
     fg = colors.foreground;
     bg = colors.background;
   };
+
+  "BlinkCmpMenuBorder" = { link = "FloatBorder"; };
   "Pmenu" = {
     fg = colors.foreground;
     bg = colors.background;
