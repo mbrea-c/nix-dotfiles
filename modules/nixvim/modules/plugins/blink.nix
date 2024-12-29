@@ -13,11 +13,11 @@
             auto_show_delay_ms = 500;
             window = { border = config.custom.border; };
           };
-          signature = {
-            enabled = true;
-            window = { border = config.custom.border; };
-          };
           ghost_text = { enabled = true; };
+        };
+        signature = {
+          enabled = true;
+          window = { border = config.custom.border; };
         };
         keymap = {
           "<C-space>" = [ "show" "show_documentation" "hide_documentation" ];
