@@ -20,7 +20,10 @@ in {
                 })
               '')
           ];
-          symbols = { scroll_view = "┊"; };
+          symbols = {
+            scroll_view = "┊";
+            encode = lua "require('mini.map').gen_encode_symbols.dot('4x2')";
+          };
         };
       };
     };
