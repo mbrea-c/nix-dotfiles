@@ -30,6 +30,11 @@ in {
   };
   keymaps = [{
     action = lua "MiniMap.toggle";
-    key = "<leader>mm";
+    key = "<leader>m";
+  }];
+  autoCmd = [{
+    # TODO: add aucmd group
+    event = [ "VimEnter" ];
+    callback = lua "MiniMap.open";
   }];
 }
