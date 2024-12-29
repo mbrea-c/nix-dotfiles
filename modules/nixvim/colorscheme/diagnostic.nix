@@ -45,4 +45,22 @@ in {
   "DiagnosticSignWarn" = { fg = warning; };
   "DiagnosticSignInfo" = { fg = info; };
   "DiagnosticSignHint" = { fg = hint; };
+
+  # For mini.map plugin highlights
+  "DiagnosticMiniError" = {
+    fg = colors.background;
+    bg = error;
+  };
+  "DiagnosticMiniWarn" = {
+    fg = colors.background;
+    bg = warning;
+  };
+  "DiagnosticMiniInfo" = {
+    fg = colors.background;
+    bg = info;
+  };
+  "DiagnosticMiniHint" = {
+    fg = colors.background;
+    bg = hint;
+  };
 }

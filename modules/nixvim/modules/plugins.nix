@@ -1,6 +1,7 @@
+# This module just imports all of the active plugin modules
 { ... }: {
   imports = [
-    # ./plugins/cmp.nix
+    # ./plugins/cmp.nix (currently replaced by blink)
     ./plugins/aerial.nix
     ./plugins/blink.nix
     ./plugins/cmp-ai.nix
