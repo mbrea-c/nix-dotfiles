@@ -13,16 +13,17 @@ in {
     custom.border = with lib;
       mkOption {
         type = types.either types.str (types.listOf types.str);
-        default = [
-          "▄"
-          "▄"
-          "▄"
-          "█"
-          "▀"
-          "▀"
-          "▀"
-          "█"
-        ]; # You can also use a default list if preferred
+        default = "rounded";
+        # default = [
+        #   "▄"
+        #   "▄"
+        #   "▄"
+        #   "█"
+        #   "▀"
+        #   "▀"
+        #   "▀"
+        #   "█"
+        # ];
         description =
           "Border used for nvim_open_win throughout my config (for consistency)";
       };
