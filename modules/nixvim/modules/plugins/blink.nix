@@ -3,7 +3,14 @@
     blink-cmp = {
       enable = true;
       settings = {
-        completion = { menu = { auto_show = true; }; };
+        completion = {
+          menu = { auto_show = true; };
+          documentation = {
+            auto_show = true;
+            auto_show_delay_ms = 500;
+          };
+          ghost_text = { enabled = true; };
+        };
         keymap = {
           "<C-space>" = [ "show" "show_documentation" "hide_documentation" ];
           "<C-e>" = [ "hide" ];
