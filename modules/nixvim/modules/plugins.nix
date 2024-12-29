@@ -11,5 +11,6 @@
     ./plugins/telescope.nix
     ./plugins/mini.nix
     ./plugins/direnv.nix
+    ./plugins/aerial.nix
   ];
 }

@@ -43,7 +43,7 @@
 
   keymaps = [{
     action = "<cmd>lua expand_macro_rust()<CR>";
-    key = "<leader>me";
+    key = "<leader>rme";
   }];
 
   extraConfigLuaPre = ''

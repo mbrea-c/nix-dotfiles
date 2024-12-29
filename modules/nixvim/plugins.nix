@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   plugins = {
     markdown-preview = { enable = true; };
     gitsigns = {
@@ -51,18 +51,4 @@
       };
     };
   };
-
-  extraPlugins = with pkgs.vimPlugins; [{
-    plugin = aerial-nvim;
-    config = ''
-      lua require("aerial").setup({})
-    '';
-  }
-  # {
-  #   plugin = nvim-scrollbar;
-  #   config = ''
-  #     lua require("scrollbar").setup({ excluded_filetypes = { "neo-tree", "nvim-tree" } })
-  #   '';
-  # }
-    ];
 }

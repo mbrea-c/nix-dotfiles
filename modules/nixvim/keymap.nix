@@ -105,7 +105,7 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>a";
-      action = "<cmd>AerialToggle!<CR>";
+      action = "<cmd>AerialNavToggle<CR>";
       options = desc "Toggle Aerial overview";
     }
 
