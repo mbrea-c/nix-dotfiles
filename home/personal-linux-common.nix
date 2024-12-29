@@ -62,6 +62,7 @@ in {
     zotero
     neovide
     transmission_4-gtk
+    xfce.thunar
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
