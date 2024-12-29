@@ -1,4 +1,4 @@
-{ lib, pkgs, inputs, colorscheme, ... }:
+{ lib, inputs, colorscheme, ... }:
 let
   utils = (import ./utils.nix) { inherit lib; };
   tabstopsAugroup = "TabstopForFiletypes";
@@ -6,7 +6,6 @@ let
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
   highlightUnderCursorAugroup = "HighlightSymbolUnderCursor";
   highlights = (import ./colorscheme.nix) { inherit lib colorscheme inputs; };
-  plugins = (import ./plugins.nix) { inherit pkgs inputs colorscheme; };
 in {
   imports = [ ./modules/plugins.nix ./keymap.nix ./opts.nix ./packages.nix ];
 
@@ -101,7 +100,6 @@ in {
     "${highlightUnderCursorAugroup}" = { clear = true; };
   };
 
-  plugins = plugins.plugins;
   extraConfigLuaPre = let
     border = "rounded";
     lu = (import ../../utils/lua-utils.nix) { };
