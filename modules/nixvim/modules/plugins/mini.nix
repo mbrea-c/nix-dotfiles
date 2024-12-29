@@ -13,12 +13,11 @@ in {
             (lua # lua
               ''
                 require('mini.map').gen_integration.diagnostic({
-                    error = 'DiagnosticFloatingError',
-                    warn  = 'DiagnosticFloatingWarn',
-                    info  = 'DiagnosticFloatingInfo',
-                    hint  = 'DiagnosticFloatingHint',
-                  })
-                )
+                  error = 'DiagnosticFloatingError',
+                  warn  = 'DiagnosticFloatingWarn',
+                  info  = 'DiagnosticFloatingInfo',
+                  hint  = 'DiagnosticFloatingHint',
+                })
               '')
           ];
           symbols = { scroll_view = "┊"; };
