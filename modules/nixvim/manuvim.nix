@@ -102,7 +102,6 @@ in {
   };
 
   plugins = plugins.plugins;
-  extraPlugins = plugins.extraPlugins;
   extraConfigLuaPre = let
     border = "rounded";
     lu = (import ../../utils/lua-utils.nix) { };
