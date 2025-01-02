@@ -5,6 +5,7 @@
       settings = {
         nav = { preview = true; };
         autojump = true;
+        highlight_on_jump = 600;
         layout = {
           max_width = [ 50 0.3 ];
           min_width = 50;
