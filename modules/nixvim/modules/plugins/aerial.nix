@@ -4,7 +4,8 @@
       enable = true;
       settings = {
         nav = { preview = true; };
-        autojump = true;
+        autojump = false;
+        keymaps = { "<leader>j" = "actions.jump"; };
         layout = {
           max_width = [ 50 0.3 ];
           min_width = 50;
