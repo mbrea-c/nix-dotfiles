@@ -13,6 +13,7 @@ let
     gimp
     libresprite
     krita
+    inkscape
   ];
 in {
   imports = [
