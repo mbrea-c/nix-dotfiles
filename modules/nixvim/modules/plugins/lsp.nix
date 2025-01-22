@@ -23,7 +23,8 @@
         lua_ls.enable = true;
         kotlin_language_server.enable = true;
         metals.enable = true;
-        groovyls.enable = true;
+        # Groovy LSP does not work
+        # groovyls.enable = true;
       };
     };
     none-ls = {
