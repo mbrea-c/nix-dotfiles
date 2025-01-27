@@ -89,6 +89,18 @@ in {
     }
     {
       mode = [ "n" ];
+      key = "<leader>[";
+      action = lua "vim.diagnostic.goto_prev";
+      options = desc "Go to previous diagnostic";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>]";
+      action = lua "vim.diagnostic.goto_next";
+      options = desc "Go to next diagnostic";
+    }
+    {
+      mode = [ "n" ];
       key = "<leader>i";
       action = lua # lua
         ''
