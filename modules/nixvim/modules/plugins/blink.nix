@@ -31,7 +31,7 @@
           "<S-Tab>" = [ "snippet_backward" "fallback" ];
         };
         sources = {
-          default = [ "copilot" "lsp" "path" "luasnip" "buffer" ];
+          default = [ "copilot" "lsp" "path" "snippets" "buffer" ];
           providers = {
             copilot = {
               async = true;
