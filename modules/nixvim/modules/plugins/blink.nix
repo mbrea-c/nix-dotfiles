@@ -41,6 +41,7 @@
             };
           };
         };
+        appearance = { kind_icons = { Copilot = ""; }; };
       };
     };
   };
