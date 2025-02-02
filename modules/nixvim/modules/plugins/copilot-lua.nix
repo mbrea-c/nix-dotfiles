@@ -2,8 +2,10 @@
   plugins = {
     copilot-lua = {
       enable = true;
-      panel = { enabled = false; };
-      suggestion = { enabled = false; };
+      settings = {
+        panel = { enabled = false; };
+        suggestion = { enabled = false; };
+      };
     };
   };
 }

@@ -30,6 +30,17 @@
           "<Tab>" = [ "snippet_forward" "fallback" ];
           "<S-Tab>" = [ "snippet_backward" "fallback" ];
         };
+        sources = {
+          default = [ "copilot" "lsp" "path" "luasnip" "buffer" ];
+          providers = {
+            copilot = {
+              async = true;
+              module = "blink-cmp-copilot";
+              name = "copilot";
+              score_offset = 100;
+            };
+          };
+        };
       };
     };
   };
