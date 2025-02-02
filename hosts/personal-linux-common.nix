@@ -53,7 +53,6 @@ in {
     locate = {
       enable = true;
       package = pkgs.plocate;
-      localuser = null;
       # To disable auto updating of db, set to "never"
       interval = "02:15";
     };
