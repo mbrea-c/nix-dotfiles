@@ -59,6 +59,7 @@ in {
     neovide
     transmission_4-gtk
     xfce.thunar
+    (pkgs.callPackage ../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
