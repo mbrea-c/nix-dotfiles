@@ -14,6 +14,11 @@
       vim = "nvim";
       glog = "git log --oneline";
     };
+    historySubstringSearch = {
+      enable = true;
+      searchDownKey = "^[[B";
+      searchUpKey = "^[[A";
+    };
     initExtra = (builtins.readFile ../../dotfiles/zshrc);
   };
 }
