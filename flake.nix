@@ -27,7 +27,7 @@
 
     blender-autorender = {
       url = "github:mbrea-c/blender-autorender";
-      inputs.nixpkgs.follow = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
