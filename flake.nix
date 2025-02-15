@@ -24,6 +24,11 @@
       url = "github:mbrea-c/nix-color-utils";
       inputs.nix-colors.follows = "nix-colors";
     };
+
+    blender-autorender = {
+      url = "github:mbrea-c/blender-autorender";
+      inputs.nixpkgs.follow = "nixpkgs";
+    };
   };
 
   # ----------------------------------------------------------------------------

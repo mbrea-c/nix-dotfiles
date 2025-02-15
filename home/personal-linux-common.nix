@@ -8,7 +8,8 @@ let
   scripts = (import ./scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 
-  pkgs-art = with pkgs; [ blender gimp libresprite krita inkscape ];
+  pkgs-art = (with pkgs; [ blender gimp libresprite krita inkscape ])
+    ++ [ inputs.blender-autorender.packages."${pkgs.system}".default ];
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
