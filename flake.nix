@@ -26,7 +26,7 @@
     };
 
     blender-autorender = {
-      url = "git+ssh://git@github.com:mbrea-c/blender-autorender.git";
+      url = "git+ssh://git@github.com/mbrea-c/blender-autorender.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
