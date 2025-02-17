@@ -1,5 +1,5 @@
 { ... }:
-let inherit (import ../../../../utils/lua-utils.nix) lua;
+let inherit ((import ../../../../utils/lua-utils.nix) { }) lua;
 in {
   plugins = {
     dap = {
