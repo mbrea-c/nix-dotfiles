@@ -27,7 +27,7 @@ in {
                   local fname = vim.api.nvim_buf_get_name(0)
                   -- src/main/kotlin/websearch/Main.kt -> websearch.MainKt
                   return fname:gsub(root, ""):gsub("main/kotlin/", ""):gsub(".kt", "Kt"):gsub("/", "."):sub(2, -1)
-              end,
+              end
             '';
           projectRoot = "\${workspaceFolder}";
           jsonLogFile = "";
