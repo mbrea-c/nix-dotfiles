@@ -8,7 +8,10 @@ in {
         executables = {
           kotlin = {
             command = "kotlin-debug-adapter";
-            options = { auto_continue_if_many_stopped = false; };
+            options = {
+              # TODO: open a nixvim ticket as this option shoulf be supported
+              #auto_continue_if_many_stopped = false;
+            };
           };
         };
       };
