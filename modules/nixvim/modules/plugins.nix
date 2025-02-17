@@ -7,7 +7,7 @@
     ./plugins/blink.nix
     ./plugins/cmp-ai.nix
     ./plugins/copilot-lua.nix
-    ./plugins/dap.nix
+    # ./plugins/dap.nix
     ./plugins/diffview.nix
     ./plugins/direnv.nix
     ./plugins/dressing.nix
