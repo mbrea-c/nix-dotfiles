@@ -1,4 +1,5 @@
 { ... }: rec {
+  lua = l: { __raw = l; };
   nixToLua = with builtins;
     x:
     if isString x then
