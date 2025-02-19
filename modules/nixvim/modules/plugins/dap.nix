@@ -1,34 +1,74 @@
 { pkgs, lib, ... }:
-let inherit ((import ../../../../utils/lua-utils.nix) { }) lua;
+let
+  inherit ((import ../../../../utils/lua-utils.nix) { }) lua;
+
+  lldb-config = {
+    name = "Launch (LLDB)";
+    type = "lldb";
+    request = "launch";
+    program.__raw = ''
+      function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
+      end'';
+    cwd = "\${workspaceFolder}";
+    stopOnEntry = false;
+  };
+
+  codelldb-config = {
+    name = "Launch (CodeLLDB)";
+    type = "codelldb";
+    request = "launch";
+    program.__raw = ''
+      function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
+      end'';
+    cwd = "\${workspaceFolder}";
+    stopOnEntry = false;
+  };
+
+  sh-config = {
+    type = "bashdb";
+    request = "launch";
+    name = "Launch (BashDB)";
+    showDebugOutput = true;
+    pathBashdb = "${lib.getExe pkgs.bashdb}";
+    pathBashdbLib = "${pkgs.bashdb}/share/basdhb/lib/";
+    trace = true;
+    file = "\${file}";
+    program = "\${file}";
+    cwd = "\${workspaceFolder}";
+    pathCat = "cat";
+    pathBash = "${lib.getExe pkgs.bash}";
+    pathMkfifo = "mkfifo";
+    pathPkill = "pkill";
+    args = { };
+    env = { };
+    terminalKind = "integrated";
+  };
 in {
   extraPackages = with pkgs; [ bashdb ];
-
   plugins = {
     dap = {
       enable = true;
       adapters = {
-        executables = { bashdb = { command = "${lib.getExe pkgs.bashdb}"; }; };
+        executables = {
+          bashdb = { command = "${lib.getExe pkgs.bashdb}"; };
+          lldb = { command = "${pkgs.lldb}/bin/lldb-vscode"; };
+        };
+        servers = {
+          codelldb = lib.mkIf pkgs.stdenv.isLinux {
+            port = 13000;
+            executable = {
+              command =
+                "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+              args = [ "--port" "13000" ];
+            };
+          };
+        };
       };
       configurations = {
-        sh = [{
-          type = "bashdb";
-          request = "launch";
-          name = "Launch (BashDB)";
-          showDebugOutput = true;
-          pathBashdb = "${lib.getExe pkgs.bashdb}";
-          pathBashdbLib = "${pkgs.bashdb}/share/basdhb/lib/";
-          trace = true;
-          file = "\${file}";
-          program = "\${file}";
-          cwd = "\${workspaceFolder}";
-          pathCat = "cat";
-          pathBash = "${lib.getExe pkgs.bash}";
-          pathMkfifo = "mkfifo";
-          pathPkill = "pkill";
-          args = { };
-          env = { };
-          terminalKind = "integrated";
-        }];
+        sh = [ sh-config ];
+        rust = [ lldb-config codelldb-config ];
 
         # kotlin = [{
         #   type = "kotlin";
