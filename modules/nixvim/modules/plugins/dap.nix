@@ -1,7 +1,5 @@
 { pkgs, lib, ... }:
 let
-  inherit ((import ../../../../utils/lua-utils.nix) { }) lua;
-
   lldb-config = {
     name = "Launch (LLDB)";
     type = "lldb";

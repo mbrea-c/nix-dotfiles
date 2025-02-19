@@ -111,10 +111,7 @@ in {
     blend = 12;
   };
 
-  "WinSeparator" = {
-    fg = colors.background;
-    bg = colors.color8;
-  };
+  "WinSeparator" = { fg = lighten 0.15 colors.color8; };
 
   "Visual" = { bg = colors.color8; };
   "VisualNOS" = {
