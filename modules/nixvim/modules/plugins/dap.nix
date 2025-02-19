@@ -29,10 +29,6 @@ in {
           env = { };
           terminalKind = "integrated";
         }];
-        extensions = {
-          dap-ui = { enable = true; };
-          dap-virtual-text = { enable = true; };
-        };
 
         # kotlin = [{
         #   type = "kotlin";
@@ -53,6 +49,8 @@ in {
         # }];
       };
     };
+    dap-ui = { enable = true; };
+    dap-virtual-text = { enable = true; };
   };
   keymaps = [
     {
