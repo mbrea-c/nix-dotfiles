@@ -52,8 +52,8 @@ in {
       enable = true;
       adapters = {
         executables = {
-          bashdb = { command = "${lib.getExe pkgs.bashdb}"; };
-          lldb = { command = "${pkgs.lldb}/bin/lldb-vscode"; };
+          bashdb = { command = lib.getExe pkgs.bashdb; };
+          lldb = { command = lib.getExe' pkgs.lldb "lldb-dap"; };
         };
         servers = {
           codelldb = lib.mkIf pkgs.stdenv.isLinux {
