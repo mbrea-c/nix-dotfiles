@@ -60,6 +60,7 @@ in {
     neovide
     transmission_4-gtk
     xfce.thunar
+    bottom
     (pkgs.callPackage ../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
 
