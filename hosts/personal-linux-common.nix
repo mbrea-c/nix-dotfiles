@@ -127,7 +127,11 @@ in {
       enable = true;
       mandoc.enable = false;
       man-db.enable = true;
+      generateCaches = true;
     };
+    info.enable = true;
+    doc.enable = true;
+    nixos.enable = true;
   };
 
   # environment.variables = {
