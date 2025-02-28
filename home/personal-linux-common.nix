@@ -14,6 +14,7 @@ in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ../modules/home-manager/sway/swayx.nix
+    ../modules/home-manager/virtual-machines.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
   ];

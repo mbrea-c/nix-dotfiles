@@ -4,6 +4,7 @@ in {
   imports = [ # Include the results of the hardware scan.
     ../modules/sway-host.nix
     ../modules/nixos/gaming.nix
+    ../modules/nixos/virtual-machines.nix
     # ../modules/cosmic.nix
   ];
 
@@ -100,6 +101,7 @@ in {
       "video"
       "input"
       "audio"
+      "libirtd"
     ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     packages = [ ];
