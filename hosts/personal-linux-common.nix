@@ -125,8 +125,8 @@ in {
     dev.enable = true;
     man = {
       enable = true;
-      mandoc.enable = true;
-      man-db.enable = false;
+      mandoc.enable = false;
+      man-db.enable = true;
     };
   };
 
