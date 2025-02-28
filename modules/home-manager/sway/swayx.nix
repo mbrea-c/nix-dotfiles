@@ -29,6 +29,9 @@ in {
     systemd.user.targets.sway-session = {
       Unit = { Description = "Indicating that sway is running"; };
       Install = { WantedBy = lib.mkForce [ ]; };
+      BindsTo = [ "graphical-session.target" ];
+      Wants = [ "graphical-session.target" ];
+      Before = [ "graphical-session.target" ];
     };
     systemd.user.services = let
       make-srv = desc: exec: {

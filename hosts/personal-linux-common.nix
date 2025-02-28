@@ -109,9 +109,26 @@ in {
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ nixvim wget git nix-index ];
+  environment.systemPackages = with pkgs; [
+    nixvim
+    wget
+    git
+    nix-index
+    man-pages
+    man-pages-posix
+  ];
 
   environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
+
+  documentation = {
+    enable = true;
+    dev.enable = true;
+    man = {
+      enable = true;
+      mandoc.enable = true;
+      man-db.enable = false;
+    };
+  };
 
   # environment.variables = {
   #   XDG_RUNTIME_DIR = "/run/user/$UID";
