@@ -14,7 +14,6 @@
   environment.sessionVariables = { NIXOS_CONFIG_NAME = "pivot"; };
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Flakes and nix-command
