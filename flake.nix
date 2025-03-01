@@ -40,8 +40,8 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
-      makeSystem = import ./utils/make-system.nix;
+      forSystems = self.outputs.lib.forSystems;
+      makeSystem = self.outputs.lib.makeSystem;
     in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
@@ -57,14 +57,6 @@
           inherit inputs system;
           host = [ (import ./hosts/minikit.nix) ];
           home = [ (import ./home/minikit.nix) ];
-        };
-        nixosConfiguration.pivot = makeSystem {
-          inherit inputs system;
-          host = [
-            (import ./hosts/pivot.nix)
-            inputs.disko.nixosModules.disko
-            (import ./disko/pivot.nix)
-          ];
         };
 
         devShells."${system}" =
@@ -83,6 +75,14 @@
             };
         };
 
+        templates = {
+          pivot = {
+            path = ./templates/pivot;
+            description = "Basic setup for the pivot system";
+          };
+        };
+
+        nixosModules = { pivot = import hosts/pivot.nix; };
         homeManagerModules = {
           zsh = import ./modules/home-manager/zsh.nix;
           sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
@@ -93,6 +93,8 @@
 
         lib = {
           combineNixvimModules = import ./modules/nixvim/helper-mod.nix;
+          forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
+          makeSystem = import ./utils/make-system.nix;
         };
       });
 }

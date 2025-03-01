@@ -12,7 +12,6 @@ in nixpkgs.lib.nixosSystem {
       home-manager.useUserPackages = true;
       home-manager.users.manuel = { imports = home; };
     }
-
   ] else
     [ ]);
 }
