@@ -24,7 +24,11 @@
       nixosConfigurations.default = nixosConfigurations.pivot;
       nixosConfigurations.pivot = ndlib.makeSystem {
         inherit inputs system;
-        host = [ nix-dotfiles.nixosModules.pivot ./configuration.nix ];
+        host = [
+          nix-dotfiles.nixosModules.pivot
+          ./hardware-configuration.nix
+          { system.stateVersion = "24.11"; }
+        ];
       };
     });
 }
