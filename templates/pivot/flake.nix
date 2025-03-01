@@ -19,11 +19,7 @@
       nixosConfigurations.default = nixosConfigurations.pivot;
       nixosConfiguration.pivot = ndlib.makeSystem {
         inherit inputs system;
-        host = [
-          nix-dotfiles.nixosModules.pivot
-          inputs.disko.nixosModules.disko
-          ./configuration.nix
-        ];
+        host = [ nix-dotfiles.nixosModules.pivot ./configuration.nix ];
       };
     });
 }

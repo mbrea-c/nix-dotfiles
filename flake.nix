@@ -39,21 +39,18 @@
   # ----------------------------------------------------------------------------
 
   outputs = { self, nixpkgs, ... }@inputs:
-    let
-      forSystems = self.outputs.lib.forSystems;
-      makeSystem = self.outputs.lib.makeSystem;
-    in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
+    self.outputs.lib.forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       in rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
-        nixosConfigurations.nixframe = makeSystem {
+        nixosConfigurations.nixframe = self.outputs.lib.makeSystem {
           inherit inputs system;
           host = [ (import ./hosts/nixframe.nix) ];
           home = [ (import ./home/nixframe.nix) ];
         };
-        nixosConfigurations.minikit = makeSystem {
+        nixosConfigurations.minikit = self.outputs.lib.makeSystem {
           inherit inputs system;
           host = [ (import ./hosts/minikit.nix) ];
           home = [ (import ./home/minikit.nix) ];
@@ -82,7 +79,7 @@
           };
         };
 
-        nixosModules = { pivot = import hosts/pivot.nix; };
+        nixosModules = { pivot = import ./hosts/pivot.nix; };
         homeManagerModules = {
           zsh = import ./modules/home-manager/zsh.nix;
           sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
