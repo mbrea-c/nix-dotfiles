@@ -10,4 +10,4 @@ mv ./etc/nixos/{configuration,hardware-configuration}.nix ./
 # mount stuff
 sudo nix --experimental-features "nix-command flakes" run "github:nix-community/disko/latest" -- --flake .#pivot --arg diskMappings "{ \"${DISK_NAME}\" = \"${DISK_DEVICE}\"; }" --mode destroy,format,mount
 
-nixos-install --flake .#pivot
+sudo nixos-install --flake .#pivot
