@@ -39,18 +39,21 @@
   # ----------------------------------------------------------------------------
 
   outputs = { self, nixpkgs, ... }@inputs:
-    self.outputs.lib.forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
+    let
+      forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
+      makeSystem = import ./utils/make-system.nix;
+    in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
         pkgs = import nixpkgs { inherit system; };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       in rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
-        nixosConfigurations.nixframe = self.outputs.lib.makeSystem {
+        nixosConfigurations.nixframe = makeSystem {
           inherit inputs system;
           host = [ (import ./hosts/nixframe.nix) ];
           home = [ (import ./home/nixframe.nix) ];
         };
-        nixosConfigurations.minikit = self.outputs.lib.makeSystem {
+        nixosConfigurations.minikit = makeSystem {
           inherit inputs system;
           host = [ (import ./hosts/minikit.nix) ];
           home = [ (import ./home/minikit.nix) ];
@@ -90,8 +93,8 @@
 
         lib = {
           combineNixvimModules = import ./modules/nixvim/helper-mod.nix;
-          forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
-          makeSystem = import ./utils/make-system.nix;
+          forSystems = forSystems;
+          makeSystem = makeSystem;
         };
       });
 }
