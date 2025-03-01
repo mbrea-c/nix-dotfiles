@@ -116,6 +116,7 @@ in {
     nix-index
     man-pages
     man-pages-posix
+    man-db
   ];
 
   environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
