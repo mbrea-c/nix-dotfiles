@@ -26,15 +26,36 @@
       "locked": {
         "lastModified": 1739708846,
         "narHash": "sha256-g5rIukI9ntPqHoQK6+MrVWZvh8ggH9/11omzvRL00Vc=",
-        "ref": "refs/heads/master",
+        "owner": "mbrea-c",
+        "repo": "blender-autorender",
         "rev": "614d5c3ee1c25ba722d86818a24797d29a2a8b97",
-        "revCount": 11,
-        "type": "git",
-        "url": "ssh://git@github.com/mbrea-c/blender-autorender.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/mbrea-c/blender-autorender.git"
+        "owner": "mbrea-c",
+        "repo": "blender-autorender",
+        "type": "github"
+      }
+    },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1736864502,
+        "narHash": "sha256-ItkIZyebGvNH2dK9jVGzJHGPtb6BSWLN8Gmef16NeY0=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "0141aabed359f063de7413f80d906e1d98c0c123",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "latest",
+        "repo": "disko",
+        "type": "github"
       }
     },
     "flake-parts": {
@@ -350,6 +371,7 @@
     "root": {
       "inputs": {
         "blender-autorender": "blender-autorender",
+        "disko": "disko",
         "home-manager": "home-manager",
         "nix-color-utils": "nix-color-utils",
         "nix-colors": "nix-colors",

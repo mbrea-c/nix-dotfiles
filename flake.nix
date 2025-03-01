@@ -50,13 +50,13 @@
         nixosConfigurations.default = nixosConfigurations.nixframe;
         nixosConfigurations.nixframe = makeSystem {
           inherit inputs system;
-          host = [ import ./hosts/nixframe.nix ];
-          home = [ import ./home/nixframe.nix ];
+          host = [ (import ./hosts/nixframe.nix) ];
+          home = [ (import ./home/nixframe.nix) ];
         };
         nixosConfigurations.minikit = makeSystem {
           inherit inputs system;
-          host = [ import ./hosts/minikit.nix ];
-          home = [ import ./home/minikit.nix ];
+          host = [ (import ./hosts/minikit.nix) ];
+          home = [ (import ./home/minikit.nix) ];
         };
         nixosConfiguration.pivot = makeSystem {
           inherit inputs system;
