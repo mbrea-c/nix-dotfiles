@@ -2,6 +2,18 @@
 let
   cfg = config.swayx;
   outputMaker = import ../../../utils/swayoutputmaker.nix;
+  make-srv = { desc, exec, ... }: {
+    Unit = {
+      Description = desc;
+      BindsTo = [ "sway-session.target" ];
+      After = [ "sway-session.target" ];
+    };
+    Install = { WantedBy = [ "sway-session.target" ]; };
+    Service = {
+      Type = "simple";
+      ExecStart = exec;
+    };
+  };
 in {
 
   options = with lib; {
@@ -26,30 +38,38 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+
     systemd.user.targets.sway-session = {
-      Unit = { Description = "Indicating that sway is running"; };
-      Install = { WantedBy = lib.mkForce [ ]; };
-    };
-    systemd.user.services = let
-      make-srv = desc: exec: {
-        Unit = {
-          Description = desc;
-          Requisite = [ "sway-session.target" ];
-        };
-        Install = { WantedBy = [ "sway-session.target" ]; };
-        Service = {
-          Type = "simple";
-          ExecStart = exec;
-        };
+      Unit = {
+        Description = "Indicating that sway is running";
+        BindsTo = [ "graphical-session.target" ];
+        Wants = [ "graphical-session.target" ];
+        Before = [ "graphical-session.target" ];
       };
-    in {
-      mako-srv = make-srv "Notification daemon" "${pkgs.mako}/bin/mako";
-      gammastep-srv = make-srv "Night light for wayland sessions"
-        "${pkgs.gammastep}/bin/gammastep";
-      nmapplet-srv = make-srv "Network manager applet service"
-        "${pkgs.networkmanagerapplet}/bin/nm-applet";
-      blueman-srv = make-srv "Blueman bluetooth manager  service"
-        "${pkgs.blueman}/bin/blueman-applet";
+    };
+
+    systemd.user.services = {
+      mako-srv = make-srv {
+        desc = "Notification daemon";
+        exec = "${pkgs.mako}/bin/mako";
+      };
+      gammastep-srv = make-srv {
+        desc = "Night light for wayland sessions";
+        exec = "${pkgs.gammastep}/bin/gammastep";
+      };
+      nmapplet-srv = make-srv {
+        desc = "Network manager applet service";
+        exec = "${pkgs.networkmanagerapplet}/bin/nm-applet";
+      };
+      blueman-srv = make-srv {
+        desc = "Blueman bluetooth manager  service";
+        exec = "${pkgs.blueman}/bin/blueman-applet";
+      };
+      polkit-gnome-authentication-agent-1 = make-srv {
+        desc = "Polkit GNOME authentication agent";
+        exec =
+          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      };
     };
 
     xdg.configFile = {
