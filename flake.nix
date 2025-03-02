@@ -50,12 +50,12 @@
         nixosConfigurations.default = nixosConfigurations.nixframe;
         nixosConfigurations.nixframe = makeSystem {
           inherit inputs system;
-          host = [ (import ./hosts/nixframe.nix) ];
+          host = [ (import ./modules/nixos/hosts/nixframe.nix) ];
           home = [ (import ./home/nixframe.nix) ];
         };
         nixosConfigurations.minikit = makeSystem {
           inherit inputs system;
-          host = [ (import ./hosts/minikit.nix) ];
+          host = [ (import ./modules/nixos/hosts/minikit.nix) ];
           home = [ (import ./home/minikit.nix) ];
         };
 
@@ -82,7 +82,7 @@
           };
         };
 
-        nixosModules = { pivot = import ./hosts/pivot.nix; };
+        nixosModules = { pivot = import ./modules/nixos/hosts/pivot.nix; };
         homeManagerModules = {
           zsh = import ./modules/home-manager/zsh.nix;
           sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
