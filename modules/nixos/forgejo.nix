@@ -37,18 +37,18 @@ in {
       # You can send a test email from the web UI at:
       # Profile Picture > Site Administration > Configuration >  Mailer Configuration 
       mailer = {
-        ENABLED = true;
+        ENABLED = false;
         SMTP_ADDR = "mail.example.com";
         FROM = "noreply@${srv.DOMAIN}";
         USER = "noreply@${srv.DOMAIN}";
       };
     };
-    mailerPasswordFile = config.age.secrets.forgejo-mailer-password.path;
+    # mailerPasswordFile = config.age.secrets.forgejo-mailer-password.path;
   };
 
-  age.secrets.forgejo-mailer-password = {
-    file = ../secrets/forgejo-mailer-password.age;
-    mode = "400";
-    owner = "forgejo";
-  };
+  # age.secrets.forgejo-mailer-password = {
+  #   file = ../secrets/forgejo-mailer-password.age;
+  #   mode = "400";
+  #   owner = "forgejo";
+  # };
 }
