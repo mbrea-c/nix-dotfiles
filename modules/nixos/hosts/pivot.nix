@@ -39,15 +39,6 @@
       interval = "02:15";
     };
 
-    xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
-    };
-
-    # Cosmic greeter and DE
-    # desktopManager.cosmic.enable = true;
-    # displayManager.cosmic-greeter.enable = true;
-
     # Enable sound.
     pipewire = {
       enable = true;
