@@ -13,8 +13,8 @@ let
 in {
   imports = [
     inputs.nix-colors.homeManagerModules.default
-    ../modules/home-manager/sway/swayx.nix
-    ../modules/home-manager/virtual-machines.nix
+    ../sway/swayx.nix
+    ../virtual-machines.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
   ];
@@ -62,7 +62,7 @@ in {
     transmission_4-gtk
     xfce.thunar
     bottom
-    (pkgs.callPackage ../pkgs/tracy { })
+    (pkgs.callPackage ../../../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
 
   home.sessionVariables = {
