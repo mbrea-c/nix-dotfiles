@@ -51,12 +51,12 @@
         nixosConfigurations.nixframe = makeSystem {
           inherit inputs system;
           host = [ (import ./modules/nixos/hosts/nixframe.nix) ];
-          home = [ (import ./home/nixframe.nix) ];
+          home = [ (import ./modules/home-manager/config-roots/nixframe.nix) ];
         };
         nixosConfigurations.minikit = makeSystem {
           inherit inputs system;
           host = [ (import ./modules/nixos/hosts/minikit.nix) ];
-          home = [ (import ./home/minikit.nix) ];
+          home = [ (import ./modules/home-manager/config-roots/minikit.nix) ];
         };
 
         devShells."${system}" =

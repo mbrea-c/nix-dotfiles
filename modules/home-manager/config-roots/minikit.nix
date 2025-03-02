@@ -1,5 +1,5 @@
 { ... }:
-let outputMaker = import ../utils/swayoutputmaker.nix;
+let outputMaker = import ../../../utils/swayoutputmaker.nix;
 in {
   imports = [ ./personal-linux-common.nix ];
   swayx = {
