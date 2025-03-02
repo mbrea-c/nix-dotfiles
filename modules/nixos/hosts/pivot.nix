@@ -8,6 +8,7 @@
     ../disko/pivot.nix
     # ../hardware/nixframe.nix
     # ./personal-linux-common.nix
+    ../forgejo.nix
   ];
 
   networking.hostName = "pivot"; # Define your hostname.
