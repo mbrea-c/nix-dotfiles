@@ -155,4 +155,5 @@ in {
     allowedUDPPorts = [ 1337 34197 ];
   };
 
+  programs.dconf.enable = true;
 }
