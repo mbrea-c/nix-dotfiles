@@ -5,8 +5,8 @@ let
 in {
   services.nginx = {
     virtualHosts."_default_" = {
-      forceSSL = true;
-      enableACME = true;
+      forceSSL = false;
+      enableACME = false;
       extraConfig = ''
         client_max_body_size 512M;
       '';
@@ -22,7 +22,7 @@ in {
     settings = {
       server = {
         DOMAIN = "localhost";
-        PROTOCOL = "https";
+        PROTOCOL = "http";
         # You need to specify this to remove the port from URLs in the web UI.
         # ROOT_URL = "https://${srv.DOMAIN}/";
         HTTP_PORT = 3000;
