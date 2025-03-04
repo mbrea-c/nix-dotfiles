@@ -3,7 +3,10 @@
     indent-blankline = {
       enable = true;
       settings = {
-        indent = { char = " "; };
+        indent = {
+          char = " ";
+          highlight = [ "IblIndent" ];
+        };
         scope = {
           enabled = true;
           char = "┃";
