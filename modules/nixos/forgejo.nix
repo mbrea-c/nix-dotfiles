@@ -20,6 +20,10 @@ in {
     # Enable support for Git Large File Storage
     lfs.enable = true;
     settings = {
+      DEFAULT = {
+        APP_NAME = "Brihme Pivot";
+        APP_SLOGAN = "Testing the waters...";
+      };
       server = {
         DOMAIN = "localhost";
         PROTOCOL = "http";
