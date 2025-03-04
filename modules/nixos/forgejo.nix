@@ -1,10 +1,10 @@
-{ lib, pkgs, config, ... }:
+{ config, ... }:
 let
   cfg = config.services.forgejo;
   srv = cfg.settings.server;
 in {
   services.nginx = {
-    virtualHosts.${cfg.settings.server.DOMAIN} = {
+    virtualHosts."_default_" = {
       forceSSL = true;
       enableACME = true;
       extraConfig = ''
@@ -21,9 +21,10 @@ in {
     lfs.enable = true;
     settings = {
       server = {
-        DOMAIN = "git.example.com";
+        DOMAIN = "localhost";
+        PROTOCOL = "https";
         # You need to specify this to remove the port from URLs in the web UI.
-        ROOT_URL = "https://${srv.DOMAIN}/";
+        # ROOT_URL = "https://${srv.DOMAIN}/";
         HTTP_PORT = 3000;
       };
       # You can temporarily allow registration to create an admin user.
