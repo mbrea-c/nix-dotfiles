@@ -1,12 +1,6 @@
-{ lib, stdenv, fetchFromGitHub,
-
-cmake, ninja, pkg-config, wayland-scanner,
-
-capstone, darwin, dbus, freetype, glfw, tbb,
-
-withGtkFileSelector ? false, gtk3,
-
-withWayland ? stdenv.hostPlatform.isLinux, libglvnd, libxkbcommon, wayland
+{ lib, stdenv, fetchFromGitHub, cmake, ninja, pkg-config, wayland-scanner
+, capstone, darwin, dbus, freetype, glfw, tbb, withGtkFileSelector ? false, gtk3
+, withWayland ? stdenv.hostPlatform.isLinux, libglvnd, libxkbcommon, wayland
 , wayland-protocols, }:
 
 assert withGtkFileSelector -> stdenv.isLinux;

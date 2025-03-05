@@ -102,7 +102,7 @@ in {
   "CursorColumn" = { bg = colors.background; };
   #"ColorColumn" = { bg = colors.background; }; what is this?
   "FloatBorder" = {
-    fg = darken 0.3 colors.foreground;
+    fg = darken 0.15 colors.blue;
     bg = darken 0.15 colors.background;
     blend = 12;
   };
