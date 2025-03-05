@@ -69,6 +69,9 @@ in {
   };
 
   "BlinkCmpMenuBorder" = { link = "FloatBorder"; };
+  "BlinkCmpSignatureHelpBorder" = { link = "FloatBorder"; };
+  "BlinkCmpDocBorder" = { link = "FloatBorder"; };
+
   "Pmenu" = {
     fg = colors.foreground;
     bg = colors.background;
@@ -102,7 +105,7 @@ in {
   "CursorColumn" = { bg = colors.background; };
   #"ColorColumn" = { bg = colors.background; }; what is this?
   "FloatBorder" = {
-    fg = darken 0.15 colors.blue;
+    fg = darken 0.25 colors.blue;
     bg = darken 0.15 colors.background;
     blend = 12;
   };
