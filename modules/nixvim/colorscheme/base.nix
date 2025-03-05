@@ -2,7 +2,7 @@
 let
   u = inputs.nix-color-utils.lib;
   colors = u.fromBase16 colorscheme;
-  inherit (u.hsv) lighten darken;
+  inherit (u.hsv) lighten darken matchValue;
 in {
   "Normal" = {
     fg = colors.foreground;
@@ -110,7 +110,8 @@ in {
     blend = 12;
   };
   "NormalFloat" = {
-    bg = darken 0.15 colors.background;
+    # bg = darken 0.15 colors.background;
+    bg = matchValue (darken 0.15 colors.background) colors.blue;
     blend = 12;
   };
 
