@@ -77,7 +77,7 @@ in {
     }
     {
       mode = [ "n" ];
-      key = "<leader>gr";
+      key = "gr";
       action = "<cmd>Telescope lsp_references<CR>";
       options = desc "References";
     }
@@ -111,6 +111,29 @@ in {
           end
         '';
       options = desc "Toggle inlay hints";
+    }
+
+    # Git stuff
+    {
+      mode = [ "n" ];
+      key = "<leader>gb";
+      action = "<cmd>Gitsigns blame<CR>";
+      options = desc "Open git blame sidebar";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>gdc";
+      action = lua # lua
+        ''
+          function()
+            vim.ui.input({prompt = "Commit hash:"}, function(input)
+              vim.cmd("DiffviewOpen " + input + "^!")
+            end)
+          end
+        ''
+
+      ;
+      options = desc "Open the provided commit hash in Diffview";
     }
 
     # Aerial (outline)
