@@ -127,7 +127,7 @@ in {
         ''
           function()
             vim.ui.input({prompt = "Commit hash:"}, function(input)
-              vim.cmd("DiffviewOpen " + input + "^!")
+              vim.cmd("DiffviewOpen " .. input .. "^!")
             end)
           end
         ''
