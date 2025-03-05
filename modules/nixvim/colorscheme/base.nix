@@ -106,12 +106,13 @@ in {
   #"ColorColumn" = { bg = colors.background; }; what is this?
   "FloatBorder" = {
     fg = darken 0.25 colors.blue;
-    bg = darken 0.15 colors.background;
+    # bg = darken 0.15 colors.background;
+    bg = matchValue (colors.background) colors.blue;
     blend = 12;
   };
   "NormalFloat" = {
     # bg = darken 0.15 colors.background;
-    bg = matchValue (darken 0.15 colors.background) colors.blue;
+    bg = matchValue (colors.background) colors.blue;
     blend = 12;
   };
 
