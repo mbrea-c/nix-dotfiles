@@ -17,11 +17,12 @@
     ./plugins/lualine.nix
     ./plugins/markdown-preview.nix
     ./plugins/mini.nix
+    ./plugins/notify.nix
     ./plugins/nvim-tree.nix
+    ./plugins/tabby.nix
     ./plugins/telescope.nix
     ./plugins/toggleterm.nix
     ./plugins/treesitter.nix
     ./plugins/which-key.nix
-    ./plugins/notify.nix
   ];
 }
