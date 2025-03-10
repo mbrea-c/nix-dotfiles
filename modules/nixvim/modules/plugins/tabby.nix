@@ -1,7 +1,5 @@
 { pkgs, ... }: {
+  opts = { showtabline = 2; };
   extraPlugins = [{ plugin = pkgs.vimPlugins.tabby-nvim; }];
-  extraConfigLua = # lua
-    ''
-      require('tabby').setup({})
-    '';
+  extraConfigLua = import ./tabby.lua;
 }
