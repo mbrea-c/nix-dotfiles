@@ -1,9 +1,7 @@
 { pkgs, ... }: {
-  extraPlugins = [{
-    config.__raw = # lua
-      ''
-        require('tabby').setup({})
-      '';
-    plugin = pkgs.vimPlugins.tabby-nvim;
-  }];
+  extraPlugins = [{ plugin = pkgs.vimPlugins.tabby-nvim; }];
+  extraConfigLua = # lua
+    ''
+      require('tabby').setup({})
+    '';
 }
