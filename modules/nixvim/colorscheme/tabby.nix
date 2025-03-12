@@ -31,5 +31,8 @@ in {
     bg = lighten 0.3 colors.background;
   };
   # "TabLine" = { };
-  # "TabbyTail" = { };
+  "TabbyTail" = {
+    fg = colors.background;
+    bg = colors.color8;
+  };
 }
