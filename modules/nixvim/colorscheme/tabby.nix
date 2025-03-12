@@ -17,6 +17,6 @@ in {
   "TabLineSel" = {
     fg = colors.foreground;
     bg = colors.background;
-    bold = true;
+    # bold = true;
   };
 }
