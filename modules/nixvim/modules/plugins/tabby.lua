@@ -1,16 +1,16 @@
 require('tabby').setup({
   line = function(line)
     local theme = {
-      fill = 'TabLineFill',
-      head = 'TabLine',
-      current_tab = 'TabLineSel',
-      tab = 'TabLine',
-      win = 'TabLine',
-      tail = 'TabLine',
+      fill = 'TabbyFill',
+      head = 'TabbyHead',
+      current_tab = 'TabbyCurrentTab',
+      tab = 'TabbyTab',
+      win = 'TabbyWin',
+      tail = 'TabbyTail',
     }
     return {
       {
-        { '𝕄 ', hl = theme.head },
+        { '  ', hl = theme.head },
         line.sep('', theme.head, theme.fill),
       },
       line.tabs().foreach(function(tab)
