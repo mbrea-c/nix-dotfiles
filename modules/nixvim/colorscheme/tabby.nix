@@ -9,7 +9,7 @@ let
   hint = saturate 0.3 (lighten 0.3 colors.blue);
 
 in {
-  "TabbyFill" = { bg = lighten 0.3 colors.background; };
+  "TabbyFill" = { bg = lighten 0.15 colors.background; };
   "TabbyHead" = {
     fg = colors.background;
     bg = colors.color8;
@@ -17,18 +17,11 @@ in {
   "TabbyCurrentTab" = {
     fg = colors.foreground;
     bg = colors.background;
-  };
-  "TabbyCurrentTabSep" = {
-    fg = colors.background;
-    bg = lighten 0.3 colors.background;
+    bold = true;
   };
   "TabbyTab" = {
     fg = colors.background;
     bg = colors.color8;
-  };
-  "TabbyTabSep" = {
-    fg = colors.color8;
-    bg = lighten 0.3 colors.background;
   };
   # "TabLine" = { };
   "TabbyTail" = {

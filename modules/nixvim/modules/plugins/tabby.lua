@@ -4,9 +4,7 @@ require('tabby').setup({
       fill = 'TabbyFill',
       head = 'TabbyHead',
       current_tab = 'TabbyCurrentTab',
-      current_tab_sep = 'TabbyCurrentTabSep',
       tab = 'TabbyTab',
-      tab_sep = 'TabbyTabSep',
       win = 'TabLine',
       tail = 'TabbyTail',
     }
@@ -17,14 +15,13 @@ require('tabby').setup({
       },
       line.tabs().foreach(function(tab)
         local hl = tab.is_current() and theme.current_tab or theme.tab
-        local hl_sep = tab.is_current() and theme.current_tab_sep or theme.tab_sep
         return {
-          line.sep('', hl_sep, theme.fill),
+          line.sep('', hl, theme.fill),
           tab.is_current() and '' or '󰆣',
           tab.number(),
           tab.name(),
           tab.close_btn(''),
-          line.sep('', hl_sep, theme.fill),
+          line.sep('', hl, theme.fill),
           hl = hl,
           margin = ' ',
         }
