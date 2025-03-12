@@ -1,12 +1,12 @@
 require('tabby').setup({
   line = function(line)
     local theme = {
-      fill = 'TabbyFill',
-      head = 'TabbyHead',
-      current_tab = 'TabbyCurrentTab',
-      tab = 'TabbyTab',
+      fill = 'TabLineFill',
+      head = 'TabLine',
+      current_tab = 'TabLineSel',
+      tab = 'TabLine',
       win = 'TabLine',
-      tail = 'TabbyTail',
+      tail = 'TabLine',
     }
     return {
       {
