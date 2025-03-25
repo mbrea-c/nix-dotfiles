@@ -2,7 +2,11 @@
   plugins = {
     nvim-tree = {
       enable = true;
-      renderer = { groupEmpty = true; };
+      renderer = {
+        groupEmpty = true;
+        highlightOpenedFiles = "all";
+        indentMarkers = { enable = true; };
+      };
       diagnostics = {
         enable = true;
         showOnDirs = true;
