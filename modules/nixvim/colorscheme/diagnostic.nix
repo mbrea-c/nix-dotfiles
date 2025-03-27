@@ -8,23 +8,14 @@ let
   info = lighten 0.5 colors.foreground;
   hint = saturate 0.3 (lighten 0.3 colors.blue);
 in {
-  "DiagnosticError" = {
-    bg = darken 0.1 colors.background;
-    fg = error;
-  };
-  "DiagnosticWarn" = {
-    bg = darken 0.1 colors.background;
-    fg = warning;
-  };
-  "DiagnosticInfo" = {
-    bg = darken 0.1 colors.background;
-    fg = info;
-  };
-  "DiagnosticHint" = {
-    bg = darken 0.1 colors.background;
-    fg = hint;
-  };
+  # Error highlights in text
+  "DiagnosticError" = { fg = error; };
+  "DiagnosticWarn" = { fg = warning; };
+  "DiagnosticInfo" = { fg = info; };
+  "DiagnosticHint" = { fg = hint; };
   "DiagnosticUnnecessary" = { link = "DiagnosticHint"; };
+
+  # Underlines
   "DiagnosticUnderlineError" = {
     undercurl = true;
     sp = error;
@@ -41,6 +32,8 @@ in {
     undercurl = true;
     sp = hint;
   };
+
+  # Sign column
   "DiagnosticSignError" = { fg = error; };
   "DiagnosticSignWarn" = { fg = warning; };
   "DiagnosticSignInfo" = { fg = info; };
