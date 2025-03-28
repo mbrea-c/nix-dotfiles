@@ -3,6 +3,5 @@
     lib.lists.foldr (fn: acc: (target: builtins.trace fn (fn (acc target))))
     (x: x);
   attrsToList = attrs:
-    builtins.attrValues
-    (builtins.mapAttrs (key: value: { inherit key value; }) attrs);
+    lib.mapAttrsToList (key: value: { inherit key value; }) attrs;
 }
