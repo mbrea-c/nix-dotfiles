@@ -1,5 +1,5 @@
 { config, ... }:
-let lu = (import ../../../../utils/lua-utils.nix) { };
+let lu = (import ../../../utils/lua-utils.nix) { };
 in {
   plugins = {
     aerial = {
