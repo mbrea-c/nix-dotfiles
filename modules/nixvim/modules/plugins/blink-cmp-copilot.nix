@@ -1,3 +1,1 @@
-{ ... }: {
-  plugins.blink-cmp-copilot.enable = true;
-}
+{ ... }: { plugins.blink-cmp-copilot.enable = false; }
