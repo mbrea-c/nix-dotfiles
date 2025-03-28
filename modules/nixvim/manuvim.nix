@@ -7,7 +7,7 @@ let
   highlightUnderCursorAugroup = "HighlightSymbolUnderCursor";
   highlights = (import ./colorscheme.nix) { inherit lib colorscheme inputs; };
 in {
-  imports = [ ./modules/plugins.nix ./keymap.nix ./opts.nix ./packages.nix ];
+  imports = [ ./plugins.nix ./keymap.nix ./opts.nix ./packages.nix ];
 
   options = {
     custom.border = with lib;
