@@ -31,15 +31,21 @@
           "<S-Tab>" = [ "snippet_backward" "fallback" ];
         };
         sources = {
-          default = [ "copilot" "lsp" "path" "snippets" "buffer" ];
-          providers = {
-            copilot = {
-              async = true;
-              module = "blink-cmp-copilot";
-              name = "copilot";
-              score_offset = 100;
-            };
-          };
+          default = [
+            #"copilot" 
+            "lsp"
+            "path"
+            "snippets"
+            "buffer"
+          ];
+          #providers = {
+          #  copilot = {
+          #    async = true;
+          #    module = "blink-cmp-copilot";
+          #    name = "copilot";
+          #    score_offset = 100;
+          #  };
+          #};
         };
         appearance = { kind_icons = { Copilot = ""; }; };
       };
