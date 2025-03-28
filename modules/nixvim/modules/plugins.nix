@@ -1,13 +1,12 @@
 # This module just imports all of the active plugin modules
 { lib, ... }:
 let
-  nu = ../../../utils/nix-utils.nix;
+  nu = (import ../../../utils/nix-utils.nix) { };
   directory = ./plugins;
   files = (nu.compose [
     (builtins.map ({ key, ... }: directory + "/${key}"))
     (builtins.filter ({ key, ... }: lib.strings.hasSuffix ".nix" key))
     (builtins.filter ({ value, ... }: value == "regular"))
-    builtins.attrValues
-    (builtins.mapAttrs (key: value: { inherit key value; }))
+    nu.attrsToList
   ]) (builtins.readDir directory);
 in { imports = files; }

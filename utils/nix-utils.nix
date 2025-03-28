@@ -1,4 +1,6 @@
-{ lib, ... }: {
-  compose = fns:
-    lib.lists.foldr (fn: acc: builtins.trace fn (x: fn (acc x))) (x: x);
+{ ... }: {
+  compose = fns: builtins.foldl' (acc: fn: acc fn) (x: x);
+  attrsToList = attrs:
+    builtins.attrNames
+    (builtins.mapAttrs (key: value: { inherit key value; }) attrs);
 }
