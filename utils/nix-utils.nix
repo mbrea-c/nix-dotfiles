@@ -1,3 +1,4 @@
 { lib, ... }: {
-  compose = fns: lib.lists.foldr (fn: acc: (x: fn (acc x))) (x: x);
+  compose = fns:
+    lib.lists.foldr (fn: acc: builtins.trace fn (x: fn (acc x))) (x: x);
 }
