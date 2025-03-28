@@ -1,1 +1,1 @@
-{ ... }: { compose = fns: builtins.foldl' (acc: fn: acc fn) (x: x); }
+{ ... }: { compose = fns: builtins.foldl' (acc: fn: (x: acc (fn x))) (x: x); }
