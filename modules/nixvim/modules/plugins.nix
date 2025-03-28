@@ -2,7 +2,7 @@
 { ... }:
 let
   files = builtins.map ({ key, ... }: key)
-    (builtins.filter ({ value, ... }: value == "regular")
+    (builtins.filter ({ value, ... }: value == "regular") (builtins.attrValues
       (builtins.mapAttrs (key: value: { inherit key value; })
-        (builtins.readDir ./plugins)));
+        (builtins.readDir ./plugins))));
 in { imports = files; }
