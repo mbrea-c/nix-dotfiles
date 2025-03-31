@@ -84,7 +84,19 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>e";
-      action = lua "vim.diagnostic.open_float";
+      action = lua # lua
+        ''
+          function()
+            local current_config = vim.diagnostic.config()
+            local new_lines = nil
+            if current_config.virtual_lines == nil or current_config.virtual_lines == false then
+              new_lines = true
+            else
+              new_lines = false
+            end
+            vim.diagnostic.config({virtual_lines = new_lines})
+          end
+        '';
       options = desc "Open diagnostics float";
     }
     {
