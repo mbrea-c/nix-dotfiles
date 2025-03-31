@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 let
   desc = d: { desc = d; };
   lua = l: { __raw = l; };
@@ -48,7 +48,14 @@ in {
     {
       mode = [ "n" ];
       key = "K";
-      action = lua "vim.lsp.buf.hover";
+      action = lua # lua
+        ''
+          function()
+            vim.lsp.buf.hover({
+              border = ${lu.nixToLua config.custom.border}
+            })
+          end
+        '';
       options = desc "Hover";
     }
     {
