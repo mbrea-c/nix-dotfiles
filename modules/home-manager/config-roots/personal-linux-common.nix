@@ -112,6 +112,11 @@ in {
         exec = ''${pkgs.chromium}/bin/chromium --app="https://discord.com"'';
       };
     };
+    configFile = {
+      "neovide/config.toml" = {
+        text = builtins.readFile ../../../dotfiles/neovide/config.toml;
+      };
+    };
   };
 
   gtk = {
