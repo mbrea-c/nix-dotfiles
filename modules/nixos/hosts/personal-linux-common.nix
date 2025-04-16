@@ -63,6 +63,11 @@ in {
       displayManager.gdm.enable = true;
     };
 
+    gvfs = {
+      # Mount, trash, and other functionality for file managers
+      enable = true;
+    };
+
     # Cosmic greeter and DE
     # desktopManager.cosmic.enable = true;
     # displayManager.cosmic-greeter.enable = true;
