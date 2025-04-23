@@ -27,7 +27,7 @@
 
     blender-autorender = {
       url = "github:mbrea-c/blender-autorender";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # This package is pretty fragile so we shouldn't follow nixpkgs on it
     };
 
     disko = {
