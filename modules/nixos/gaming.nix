@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   nixpkgs.config.allowUnfree = true;
+  hardware.graphics.enable32Bit = true;
 
   programs.gamescope = {
     enable = true;
