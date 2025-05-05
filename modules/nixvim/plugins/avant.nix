@@ -1,8 +1,8 @@
-{ lib, avantSettings ? { }, ... }: {
+{ lib, avanteSettings ? { }, ... }: {
   plugins = {
-    avant = {
+    avante = {
       enable = true;
-      settings = lib.attrsets.recursiveUpdate { } avantSettings;
+      settings = lib.attrsets.recursiveUpdate { } avanteSettings;
     };
   };
 }
