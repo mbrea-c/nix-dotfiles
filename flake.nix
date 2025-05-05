@@ -70,7 +70,10 @@
           manuvim =
             inputs.nixvim.legacyPackages."${pkgs.system}".makeNixvimWithModule {
               inherit pkgs;
-              extraSpecialArgs = { inherit inputs colorscheme; };
+              extraSpecialArgs = {
+                inherit inputs colorscheme;
+                avanteSettings = { };
+              };
               module = import ./modules/nixvim/manuvim.nix;
             };
         };
