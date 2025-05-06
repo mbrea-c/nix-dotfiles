@@ -26,6 +26,10 @@
           };
         };
       } avanteSettings;
+
+      luaConfig.pre = ''
+        ${builtins.readFile ./avante_bedrock_keys.lua}
+      '';
     };
   };
 }
