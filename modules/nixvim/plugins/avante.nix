@@ -4,6 +4,9 @@
       enable = true;
       settings = lib.attrsets.recursiveUpdate {
         mappings = {
+          ask = "<leader><leader>a";
+          edit = "<leader><leader>e";
+          refresh = "<leader><leader>r";
           diff = {
             next = "<leader><leader>>";
             prev = "<leader><leader><";
