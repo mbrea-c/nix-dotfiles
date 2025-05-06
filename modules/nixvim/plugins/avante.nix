@@ -7,13 +7,22 @@
           ask = "<leader><leader>a";
           edit = "<leader><leader>e";
           refresh = "<leader><leader>r";
+          focus = "<leader><leader>f";
+          stop = "<leader><leader>S";
+          toggle = {
+            default = "<leader><leader>t";
+            debug = "<leader><leader>d";
+            hint = "<leader><leader>h";
+            suggestion = "<leader><leader>s";
+            repomap = "<leader><leader>R";
+          };
           diff = {
-            next = "<leader><leader>>";
-            prev = "<leader><leader><";
-            none = "<leader><leader>c0";
-            ours = "<leader><leader>co";
-            theirs = "<leader><leader>ct";
-            both = "<leader><leader>cb";
+            next = "g>";
+            prev = "g<";
+            none = "c0";
+            ours = "co";
+            theirs = "ct";
+            both = "cb";
           };
         };
       } avanteSettings;
