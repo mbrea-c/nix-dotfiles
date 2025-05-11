@@ -72,7 +72,7 @@
               inherit pkgs;
               extraSpecialArgs = {
                 inherit inputs colorscheme;
-                avanteSettings = { };
+                avanteSettings = { enable = false; };
               };
               module = import ./modules/nixvim/manuvim.nix;
             };
