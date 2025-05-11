@@ -19,6 +19,6 @@
       searchDownKey = "^[[B";
       searchUpKey = "^[[A";
     };
-    initExtra = (builtins.readFile ../../dotfiles/zshrc);
+    initContent = (builtins.readFile ../../dotfiles/zshrc);
   };
 }
