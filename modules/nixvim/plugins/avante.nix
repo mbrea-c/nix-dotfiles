@@ -1,7 +1,7 @@
-{ lib, avanteSettings ? { }, ... }: {
+{ ... }: {
   plugins = {
-    avante = lib.attrsets.recursiveUpdate {
-      enable = true;
+    avante = {
+      enable = false;
       settings = {
         mappings = {
           ask = "<leader><leader>a";
@@ -37,6 +37,6 @@
       luaConfig.pre = ''
         ${builtins.readFile ./avante_bedrock_keys.lua}
       '';
-    } avanteSettings;
+    };
   };
 }
