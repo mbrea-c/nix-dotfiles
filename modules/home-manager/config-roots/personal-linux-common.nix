@@ -94,6 +94,7 @@ in {
       defaultApplications = {
         # Check mime-types using `xdg-mime query filetype filename.extension`
         "image/png" = "imv.desktop";
+        "image/jpeg" = "imv.desktop";
         "text/html" = "firefox.desktop";
         "application/pdf" = "org.pwmt.zathura.desktop";
         "x-scheme-handler/http" = "firefox.desktop";
