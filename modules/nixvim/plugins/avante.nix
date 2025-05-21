@@ -37,6 +37,11 @@
       luaConfig.pre = ''
         ${builtins.readFile ./avante_bedrock_keys.lua}
       '';
+
+      lazyLoad = {
+        enable = true;
+        settings = { cmd = "AvanteLoad"; };
+      };
     };
   };
 }
