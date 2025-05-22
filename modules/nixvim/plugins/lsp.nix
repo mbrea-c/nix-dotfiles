@@ -20,7 +20,10 @@
         cssls.enable = true;
         tinymist.enable = true;
         lua_ls.enable = true;
-        kotlin_language_server.enable = true;
+        kotlin_language_server = {
+          enable = true;
+          settings = { kotlin.formatting.formatter = "none"; };
+        };
         metals.enable = true;
         nushell.enable = true;
         # Groovy LSP does not work
