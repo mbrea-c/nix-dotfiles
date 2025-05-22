@@ -36,7 +36,10 @@
         formatting = {
           nixfmt.enable = true;
           black.enable = true;
-          ktlint.enable = true;
+          ktlint = {
+            enable = true;
+            settings = { timeout = 50000; };
+          };
           shfmt.enable = true;
           mdformat = {
             enable = true;

@@ -40,7 +40,7 @@
               end, clients)
             end,
             bufnr = bufnr,
-            timeout_ms = 10000,
+            timeout_ms = 20000,
           })
         end
       '';
