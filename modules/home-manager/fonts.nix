@@ -3,6 +3,7 @@
     font-awesome
     ubuntu_font_family
     cascadia-code
+    iosevka
     nerd-fonts.noto
     nerd-fonts.fira-code
   ];
@@ -18,7 +19,7 @@
         "Noto Color Emoji"
       ];
       monospace = [
-        "Cascadia Mono PL"
+        "Iosevka"
         "Font Awesome 7 Free"
         "Noto Color Emoji"
         "FiraCode Nerd Font"
