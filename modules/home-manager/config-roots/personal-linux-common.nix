@@ -135,7 +135,7 @@ in {
   programs.alacritty = {
     enable = true;
     settings = {
-      font = { size = 10; };
+      font = { size = 11; };
       colors = let col = inputs.nix-color-utils.lib.fromBase16 colorscheme;
       in {
         primary = {
