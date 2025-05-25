@@ -24,13 +24,14 @@ in {
   "@lsp.type.number" = { link = "@number"; };
   "@lsp.type.regexp" = { link = "@string.regex"; };
   "@lsp.type.operator" = { link = "@operator"; };
-  "@lsp.type.decorator" = { link = "@type.function"; };
+  "@lsp.type.decorator" = { link = "@attribute"; };
 
   # Modifiers
   "@lsp.mod.deprecated" = { strikethrough = true; };
   "@lsp.mod.declaration" = { underdashed = true; };
   "@lsp.mod.readonly" = { italic = true; };
   "@lsp.mod.global" = { fg = u.hsv.mix 0.4 colors.red colors.yellow; };
+  "@lsp.mod.attribute" = { link = "@attribute"; };
 
   # Type/modifier combinations
   "@lsp.typemod.function.defaultLibrary" = { link = "@function.builtin"; };

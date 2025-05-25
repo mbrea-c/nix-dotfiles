@@ -131,4 +131,5 @@ in {
   "@markup.list" = { fg = desaturate 0.2 colors.color3; };
   "@markup.raw" = { fg = saturate 0.15 colors.blue; };
   "@markup.raw.block" = { fg = saturate 0.2 colors.blue; };
+  "@character.special" = { fg = colors.color5; };
 }
