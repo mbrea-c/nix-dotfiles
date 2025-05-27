@@ -123,6 +123,7 @@ in {
       lu = (import ../../utils/lua-utils.nix) { };
       # lua
     in ''
+      ${builtins.readFile ./configLuaPre.lua}
       local is_in = ${lu.fns.is_in}
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {border = ${
