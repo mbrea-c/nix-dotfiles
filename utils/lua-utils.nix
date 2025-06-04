@@ -35,7 +35,7 @@
           local ignore_formatting = ${nixToLua ignoredServers}
           vim.lsp.buf.format({
             filter = function(client)
-              return ~vim.tbl_contains(client.name, ignore_formatting)
+              return not vim.tbl_contains(client.name, ignore_formatting)
             end,
             bufnr = bufnr,
             timeout_ms = 20000,
