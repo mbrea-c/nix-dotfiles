@@ -45,6 +45,7 @@
             enable = true;
             settings = { extra_args = [ "--wrap" "80" ]; };
           };
+          google_java_format.enable = true;
         };
       };
     };
