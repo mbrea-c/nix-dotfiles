@@ -48,4 +48,11 @@
     timeoutlen = 500;
     guifont = "monospace:h11";
   };
+  extraConfigLuaPre = # lua
+    ''
+      vim.diagnostic.config({ 
+        virtual_text = false,
+        virtual_lines = false,
+      })
+    '';
 }

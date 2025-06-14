@@ -90,7 +90,7 @@ in {
     }
     {
       mode = [ "n" ];
-      key = "<leader>e";
+      key = "<leader>el";
       action = lua # lua
         ''
           function()
@@ -104,6 +104,12 @@ in {
             vim.diagnostic.config({virtual_lines = new_lines})
           end
         '';
+      options = desc "Open diagnostics virtual line displays";
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>ef";
+      action = lua "vim.diagnostic.open_float";
       options = desc "Open diagnostics float";
     }
     {
