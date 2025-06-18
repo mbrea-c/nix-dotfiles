@@ -58,10 +58,10 @@ in {
       interval = "02:15";
     };
 
-    xserver = {
-      enable = true;
-      displayManager.gdm.enable = true;
-    };
+    displayManager.gdm.enable = true;
+
+    # TODO: Do we still need this?
+    xserver.enable = true;
 
     gvfs = {
       # Mount, trash, and other functionality for file managers
