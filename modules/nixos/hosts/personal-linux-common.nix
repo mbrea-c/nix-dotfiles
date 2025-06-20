@@ -1,7 +1,8 @@
-{ pkgs, self, ... }:
+{ pkgs, self, lib, ... }:
 let nixvim = self.packages."${pkgs.system}".manuvim;
 in {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
+    # Include the results of the hardware scan.
     ../sway.nix
     ../gaming.nix
     ../virtual-machines.nix
@@ -123,6 +124,9 @@ in {
     man-pages-posix
     man-db
   ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "grayjay" ];
 
   environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
 

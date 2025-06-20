@@ -67,9 +67,6 @@ in {
     (pkgs.callPackage ../../../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "grayjay" ];
-
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
     XDG_DATA_DIRS =
