@@ -63,8 +63,12 @@ in {
     transmission_4-gtk
     xfce.thunar
     bottom
+    grayjay
     (pkgs.callPackage ../../../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "grayjay" ];
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
