@@ -19,6 +19,6 @@
     (pkgs.heroic.override {
       extraPkgs = pkgs: [ pkgs.gamescope pkgs.mangohud ];
     })
-    pkgs.nexusmods-app-unfree
+    pkgs.nexusmods-app
   ];
 }
