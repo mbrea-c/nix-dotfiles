@@ -47,6 +47,7 @@
           };
           google_java_format.enable = true;
         };
+        diagnostics = { checkstyle.enable = true; };
       };
     };
   };
