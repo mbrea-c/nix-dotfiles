@@ -8,7 +8,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     nixvim = {
       url = "github:nix-community/nixvim";
-      # Removed in order to the following: 
+      # Removed in order to the following:
       # https://nix-community.github.io/nixvim/user-guide/faq.html#how-do-i-solve-name-cannot-be-found-in-pkgs
       # inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -73,6 +73,8 @@
               extraSpecialArgs = { inherit inputs colorscheme; };
               module = import ./modules/nixvim/manuvim.nix;
             };
+          tracy = pkgs.callPackage ./pkgs/tracy { };
+          kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
         };
 
         templates = {
