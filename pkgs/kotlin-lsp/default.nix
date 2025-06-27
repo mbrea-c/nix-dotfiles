@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   installPhase = ''
     mkdir -p $out/lib
     mkdir -p $out/bin
-    cp -r lib $out/lib
+    cp -r lib/* $out/lib
     cat >$out/bin/kotlin-lsp <<EOF
     #!/usr/bin/env bash
 
