@@ -64,6 +64,7 @@ in {
     xfce.thunar
     bottom
     grayjay
+    shotman
     (pkgs.callPackage ../../../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
 

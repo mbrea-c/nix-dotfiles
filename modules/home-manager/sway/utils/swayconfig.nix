@@ -266,6 +266,8 @@ in ''
       bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
       bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
+      bindsym Print exec shotman --capture region
+
   #
   # Resizing containers:
   #
