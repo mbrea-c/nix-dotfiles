@@ -47,7 +47,12 @@
           };
           google_java_format.enable = true;
         };
-        diagnostics = { checkstyle.enable = true; };
+        diagnostics = {
+          checkstyle = {
+            enable = true;
+            settings = { extra_args = [ "-c" "/google_checks.xml" ]; };
+          };
+        };
       };
     };
   };
