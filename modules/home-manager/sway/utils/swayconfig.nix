@@ -9,7 +9,7 @@
 let
   outputsConfig = outputs: # swayconfig
     builtins.foldl' (acc:
-      { name, scale, resolution ? "" }:
+      { name, scale, resolution ? "", }:
       acc + "\n" + "output '${name}' ${
         if builtins.stringLength resolution > 0 then
           "resolution ${resolution}"
@@ -26,7 +26,7 @@ let
   execConfig = exec:
     builtins.foldl' (acc: stmt: acc + "\n" + "exec ${stmt}") "" exec;
   # swayconfig
-  outputBgConfig = { output, path, mode }: ''
+  outputBgConfig = { output, path, mode, }: ''
     output ${output} {
       bg ${path} ${mode}
     }
@@ -88,6 +88,7 @@ in ''
   # Firefox Microphone/webcam notifier should be floating and unfocused
   for_window [title="Firefox — Sharing Indicator"] floating enable
   for_window [title="Firefox — Sharing Indicator"] nofocus
+  for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position
 
   ${barConfig bar}
 
