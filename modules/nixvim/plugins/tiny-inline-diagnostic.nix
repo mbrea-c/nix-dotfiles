@@ -5,7 +5,7 @@
       settings = {
         options = {
           show_source = {
-            enabled = false;
+            enabled = true;
             if_many = true;
           };
           multilines = {
