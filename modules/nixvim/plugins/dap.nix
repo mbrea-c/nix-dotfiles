@@ -44,13 +44,15 @@ let
     terminalKind = "integrated";
   };
 in {
-  extraPackages = with pkgs; [ bashdb ];
+  extraPackages = [
+    # pkgs.bashdb
+  ];
   plugins = {
     dap = {
       enable = true;
       adapters = {
         executables = {
-          bashdb = { command = lib.getExe pkgs.bashdb; };
+          # bashdb = { command = lib.getExe pkgs.bashdb; };
           lldb = { command = lib.getExe' pkgs.lldb "lldb-dap"; };
         };
         servers = {
@@ -65,7 +67,9 @@ in {
         };
       };
       configurations = {
-        sh = [ sh-config ];
+        sh = [
+          # sh-config
+        ];
         rust = [ lldb-config codelldb-config ];
 
         # kotlin = [{
