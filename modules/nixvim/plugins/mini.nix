@@ -10,8 +10,9 @@ in {
         map = {
           integrations = [
             (lua "require('mini.map').gen_integration.builtin_search()")
-            (lua # lua
-              ''
+            (
+              # lua
+              lua ''
                 require('mini.map').gen_integration.diagnostic({
                   error = 'DiagnosticMiniError',
                   warn  = 'DiagnosticMiniWarn',
@@ -32,9 +33,15 @@ in {
     action = lua "MiniMap.toggle";
     key = "<leader>m";
   }];
-  autoCmd = [{
-    # TODO: add aucmd group
-    event = [ "VimEnter" ];
-    callback = lua "MiniMap.open";
-  }];
+  # TODO: add aucmd group
+  autoCmd = [
+    {
+      event = [ "VimEnter" ];
+      callback = lua "MiniMap.open";
+    }
+    {
+      event = [ "VimResized" ];
+      callback = lua "MiniMap.refresh";
+    }
+  ];
 }
