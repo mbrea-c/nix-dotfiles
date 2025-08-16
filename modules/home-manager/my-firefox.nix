@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -15,6 +15,12 @@
         "browser.compactmode.show" = locked true;
         "dom.webgpu.enabled" = locked true;
       };
+      FirefoxHome = {
+        "TopSites" = false;
+        "SponsoredTopSites" = false;
+        "Stories" = false;
+        "SponsoredStories" = false;
+      };
     };
     profiles.default = {
       id = 0;
@@ -26,6 +32,17 @@
         force = true;
         default = "DuckDuckGo";
         order = [ "DuckDuckGo" "Google" ];
+
+        extensions = {
+          packages = with inputs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            bitwarden
+            return-youtube-dislikes
+            zotero-connector
+            tree-style-tab
+          ];
+        };
+
         engines = {
           nix-packages = {
             name = "Nix Packages";
