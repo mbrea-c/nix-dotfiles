@@ -2,24 +2,24 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
+    policies = {
+      DisablePocket = true;
+      Preferences = let
+        locked = value: {
+          Value = value;
+          Status = "locked";
+        };
+      in {
+        "widget.use-xdg-desktop-portal.file-picker" = locked 1;
+        "browser.aboutConfig.showWarning" = locked false;
+        "browser.compactmode.show" = locked true;
+        "dom.webgpu.enabled" = locked true;
+      };
+    };
     profiles.default = {
       id = 0;
       name = "default";
       isDefault = true;
-      policies = {
-        DisablePocket = true;
-        Preferences = let
-          locked = value: {
-            Value = value;
-            Status = "locked";
-          };
-        in {
-          "widget.use-xdg-desktop-portal.file-picker" = locked 1;
-          "browser.aboutConfig.showWarning" = locked false;
-          "browser.compactmode.show" = locked true;
-          "dom.webgpu.enabled" = locked true;
-        };
-      };
       settings = { };
 
       search = {
