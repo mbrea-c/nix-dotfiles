@@ -4,23 +4,23 @@
       enable = true;
       settings = {
         renderer = {
-          groupEmpty = true;
-          highlightOpenedFiles = "all";
-          indentMarkers = { enable = true; };
+          group_empty = true;
+          highlight_opened_files = "all";
+          indent_markers = { enable = true; };
         };
         diagnostics = {
           enable = true;
-          showOnDirs = true;
-          showOnOpenDirs = false;
+          show_on_dirs = true;
+          show_on_open_dirs = false;
         };
         git = {
           enable = true;
-          showOnDirs = true;
-          showOnOpenDirs = false;
+          show_on_dirs = true;
+          show_on_open_dirs = false;
         };
-        updateFocusedFile = { enable = true; };
+        update_focused_file = { enable = true; };
         view = { width = 50; };
-        actions = { changeDir = { global = true; }; };
+        actions = { change_dir = { global = true; }; };
       };
     };
   };
