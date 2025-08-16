@@ -23,8 +23,8 @@ in {
 
   home.username = "manuel";
   home.homeDirectory = "/home/manuel";
+
   home.packages = lib.lists.unique ((with pkgs; [
-    firefox
     librewolf
     chromium
     thunderbird
@@ -132,6 +132,24 @@ in {
     #   name = "${colorscheme.slug}";
     #   package = gtkThemeFromScheme { scheme = colorscheme; };
     # };
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    profiles.default = {
+      id = 0;
+      name = "default";
+      isDefault = true;
+      settings = {
+        "browser.search.defaultenginename" = "DuckDuckGo";
+        "browser.search.order.1" = "DuckDuckGo";
+        "widget.use-xdg-desktop-portal.file-picker" = 1;
+        "browser.aboutConfig.showWarning" = false;
+        "browser.compactmode.show" = true;
+        "dom.webgpu.enabled" = true;
+      };
+    };
   };
 
   programs.alacritty = {
