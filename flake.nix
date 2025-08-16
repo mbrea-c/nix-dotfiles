@@ -49,7 +49,10 @@
       makeSystem = import ./utils/make-system.nix;
     in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ inputs.nur.overlays.default ];
+        };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       in rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;

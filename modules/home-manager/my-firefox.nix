@@ -34,7 +34,7 @@
         order = [ "DuckDuckGo" "Google" ];
 
         extensions = {
-          packages = with inputs.nur.repos.rycee.firefox-addons; [
+          packages = with pkgs.nur.repos.rycee.firefox-addons; [
             ublock-origin
             bitwarden
             return-youtube-dislikes
