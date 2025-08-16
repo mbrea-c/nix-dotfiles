@@ -28,20 +28,20 @@
       isDefault = true;
       settings = { };
 
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+          return-youtube-dislikes
+          zotero-connector
+          tree-style-tab
+        ];
+      };
+
       search = {
         force = true;
         default = "DuckDuckGo";
         order = [ "DuckDuckGo" "Google" ];
-
-        extensions = {
-          packages = with pkgs.nur.repos.rycee.firefox-addons; [
-            ublock-origin
-            bitwarden
-            return-youtube-dislikes
-            zotero-connector
-            tree-style-tab
-          ];
-        };
 
         engines = {
           nix-packages = {
