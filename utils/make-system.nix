@@ -4,7 +4,6 @@ let
   colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 in nixpkgs.lib.nixosSystem {
   specialArgs = { inherit self inputs colorscheme; };
-  pkgs = pkgs;
   modules = host ++ (if builtins.length home > 0 then [
     inputs.home-manager.nixosModules.home-manager
     {

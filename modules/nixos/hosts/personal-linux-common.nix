@@ -1,4 +1,4 @@
-{ pkgs, self, lib, ... }:
+{ pkgs, inputs, self, lib, ... }:
 let nixvim = self.packages."${pkgs.system}".manuvim;
 in {
   imports = [
@@ -127,6 +127,7 @@ in {
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [ "grayjay" ];
+  nixpkgs.config.overlays = [ inputs.nur.overlays.default ];
 
   environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
 
