@@ -1,4 +1,4 @@
-{ inputs, pkgs, host ? [ ], home ? [ ], ... }:
+{ inputs, host ? [ ], home ? [ ], ... }:
 let
   inherit (inputs) self nixpkgs;
   colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
