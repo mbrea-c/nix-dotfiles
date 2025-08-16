@@ -26,7 +26,7 @@
       id = 0;
       name = "default";
       isDefault = true;
-      settings = { };
+      settings = { "extensions.autoDisableScopes" = 0; };
 
       extensions = {
         force = true;
