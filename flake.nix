@@ -54,7 +54,7 @@
           overlays = [ inputs.nur.overlays.default ];
           # nixpkgs.config.allowUnfreePredicate = pkg:
           #   builtins.elem (lib.getName pkg) [ "grayjay" ];
-          allowUnfree = true;
+          config = { allowUnfree = true; };
         };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       in rec {
