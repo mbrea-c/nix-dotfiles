@@ -57,12 +57,12 @@
       in rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
         nixosConfigurations.nixframe = makeSystem {
-          inherit inputs system;
+          inherit inputs system pkgs;
           host = [ (import ./modules/nixos/hosts/nixframe.nix) ];
           home = [ (import ./modules/home-manager/config-roots/nixframe.nix) ];
         };
         nixosConfigurations.minikit = makeSystem {
-          inherit inputs system;
+          inherit inputs system pkgs;
           host = [ (import ./modules/nixos/hosts/minikit.nix) ];
           home = [ (import ./modules/home-manager/config-roots/minikit.nix) ];
         };
