@@ -125,10 +125,6 @@ in {
     man-db
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [ "grayjay" ];
-  nixpkgs.config.overlays = [ inputs.nur.overlays.default ];
-
   environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
 
   documentation = {

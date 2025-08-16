@@ -49,17 +49,23 @@
       makeSystem = import ./utils/make-system.nix;
     in forSystems [ "x86_64-linux" "aarch64-darwin" ] (system:
       let
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ inputs.nur.overlays.default ];
+          # nixpkgs.config.allowUnfreePredicate = pkg:
+          #   builtins.elem (lib.getName pkg) [ "grayjay" ];
+          allowUnfree = true;
+        };
         colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
       in rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
         nixosConfigurations.nixframe = makeSystem {
-          inherit inputs system;
+          inherit inputs system pkgs;
           host = [ (import ./modules/nixos/hosts/nixframe.nix) ];
           home = [ (import ./modules/home-manager/config-roots/nixframe.nix) ];
         };
         nixosConfigurations.minikit = makeSystem {
-          inherit inputs system;
+          inherit inputs system pkgs;
           host = [ (import ./modules/nixos/hosts/minikit.nix) ];
           home = [ (import ./modules/home-manager/config-roots/minikit.nix) ];
         };
