@@ -15,6 +15,7 @@ in {
     inputs.nix-colors.homeManagerModules.default
     ../sway/swayx.nix
     ../virtual-machines.nix
+    ../my-firefox.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
   ];
@@ -132,24 +133,6 @@ in {
     #   name = "${colorscheme.slug}";
     #   package = gtkThemeFromScheme { scheme = colorscheme; };
     # };
-  };
-
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox;
-    profiles.default = {
-      id = 0;
-      name = "default";
-      isDefault = true;
-      settings = {
-        "browser.search.defaultenginename" = "DuckDuckGo";
-        "browser.search.order.1" = "DuckDuckGo";
-        "widget.use-xdg-desktop-portal.file-picker" = 1;
-        "browser.aboutConfig.showWarning" = false;
-        "browser.compactmode.show" = true;
-        "dom.webgpu.enabled" = true;
-      };
-    };
   };
 
   programs.alacritty = {

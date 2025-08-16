@@ -90,6 +90,7 @@
           sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
           fonts = import ./modules/home-manager/fonts.nix;
           foot = import ./modules/home-manager/foot.nix;
+          my-firefox = import ./modules/home-manager/my-firefox.nix;
         };
         nixvimModules = { manuvim = import ./modules/nixvim/manuvim.nix; };
 
