@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ pkgs, ... }: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
@@ -13,6 +13,7 @@
         "widget.use-xdg-desktop-portal.file-picker" = locked 1;
         "browser.aboutConfig.showWarning" = locked false;
         "browser.compactmode.show" = locked true;
+        "browser.fullscreen.autohide" = locked false;
         "dom.webgpu.enabled" = locked true;
         "extensions.autoDisableScopes" = locked 0;
       };
