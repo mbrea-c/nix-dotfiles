@@ -14,6 +14,7 @@
         "browser.aboutConfig.showWarning" = locked false;
         "browser.compactmode.show" = locked true;
         "dom.webgpu.enabled" = locked true;
+        "extensions.autoDisableScopes" = locked 0;
       };
       FirefoxHome = {
         "TopSites" = false;
@@ -26,7 +27,7 @@
       id = 0;
       name = "default";
       isDefault = true;
-      settings = { "extensions.autoDisableScopes" = 0; };
+      settings = { };
 
       extensions = {
         force = true;
@@ -64,6 +65,22 @@
             icon =
               "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
             definedAliases = [ "@np" ];
+          };
+
+          home-manager-options = {
+            name = "Home Manager Options";
+            urls = [{
+              template =
+                "https://home-manager-options.extranix.com/?query={searchTerms}&release=master";
+              params = [{
+                name = "query";
+                value = "{searchTerms}";
+              }];
+            }];
+
+            icon =
+              "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = [ "@hmo" ];
           };
 
           nixos-wiki = {
