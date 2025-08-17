@@ -63,7 +63,13 @@ in {
     zotero
     neovide
     transmission_4-gtk
+
     xfce.thunar
+    xfce.thunar-archive-plugin
+    file-roller
+    zip
+    unzip
+
     bottom
     grayjay
     shotman
