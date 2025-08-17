@@ -26,6 +26,7 @@ in {
   home.homeDirectory = "/home/manuel";
 
   home.packages = lib.lists.unique ((with pkgs; [
+    strawberry
     librewolf
     chromium
     thunderbird
