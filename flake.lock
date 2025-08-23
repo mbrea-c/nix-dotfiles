@@ -22,11 +22,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1755950110,
-        "narHash": "sha256-Vuqk9nWkHXc4Ju1DcRd9j4Uw+qrn6xX+DYjH71awYv8=",
+        "lastModified": 1755955247,
+        "narHash": "sha256-PN9H1HGwJ2FOj1jFN0CPgdidlBpVcFGe7pUBgeHidjA=",
         "owner": "mbrea-c",
         "repo": "blender-autorender",
-        "rev": "2a0ba300911da5aaedadc2f027df6cf8a4930104",
+        "rev": "0b76f9de3e4cb7a3f97a77db8334b7d3672ad897",
         "type": "github"
       },
       "original": {
@@ -367,11 +367,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1755949401,
-        "narHash": "sha256-CNgdT65mgn/mHa/SUTtAuosDrmuBHU1LqYE0GaiXXEs=",
+        "lastModified": 1755954273,
+        "narHash": "sha256-h4eW3OcDBzOD3OfrxSkPdfj/qII+HI/UbDemjbWTZxk=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ffaf7fa085f6da161289e4223651872f57be9683",
+        "rev": "cd7b489898d6928e73bbf0a7e374d58f6ee7b4c6",
         "type": "github"
       },
       "original": {
