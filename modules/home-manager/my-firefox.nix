@@ -14,7 +14,7 @@
         "browser.aboutConfig.showWarning" = locked false;
         "browser.compactmode.show" = locked true;
         "browser.fullscreen.autohide" = locked false;
-        "dom.webgpu.enabled" = locked true;
+        # "dom.webgpu.enabled" = locked true;
         "extensions.autoDisableScopes" = locked 0;
       };
       FirefoxHome = {
