@@ -11,7 +11,7 @@
           installCargo = false;
           installRustc = false;
         };
-        wgsl_analyzer.enable = true;
+        # wgsl_analyzer.enable = true;
         taplo.enable = true;
         bashls.enable = true;
         jsonls.enable = true;
