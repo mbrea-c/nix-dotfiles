@@ -18,7 +18,7 @@
         basedpyright.enable = true;
         marksman.enable = true;
         ts_ls.enable = true;
-        sqls.enable = true;
+        # sqls.enable = true;
         cssls.enable = true;
         tinymist.enable = true;
         lua_ls.enable = true;
@@ -36,6 +36,7 @@
       enable = true;
       sources = {
         formatting = {
+          sqlfluff.enable = true;
           nixfmt.enable = true;
           black.enable = true;
           ktlint = {
