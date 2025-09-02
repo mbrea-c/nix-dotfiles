@@ -6,7 +6,7 @@ in {
       enable = true;
       settings = {
         nav = { preview = true; };
-        autojump = true;
+        autojump = false;
         highlight_on_jump = 600;
         layout = {
           max_width = [ 50 0.3 ];
