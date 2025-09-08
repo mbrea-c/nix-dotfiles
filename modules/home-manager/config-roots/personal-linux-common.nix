@@ -71,7 +71,7 @@ in {
     unzip
 
     bottom
-    grayjay
+    # grayjay
     shotman
     (pkgs.callPackage ../../../pkgs/tracy { })
   ]) ++ scripts ++ pkgs-art);
