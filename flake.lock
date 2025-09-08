@@ -22,11 +22,11 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1757357578,
-        "narHash": "sha256-1NSv6EO5giorpduxDN8sSxKjGElRBPwPlhvbRykj21s=",
+        "lastModified": 1757359105,
+        "narHash": "sha256-Puwz32NwVJ1HHGXOxPvX3QhtbXb8Evf9fHMuJV1E+f0=",
         "owner": "mbrea-c",
         "repo": "blender-autorender",
-        "rev": "333b62c03305964a381be229079c903b038bb856",
+        "rev": "3571047b699a40f1b4ea6c461822541c7fe54de3",
         "type": "github"
       },
       "original": {
