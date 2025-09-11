@@ -115,6 +115,10 @@ in {
   "@text.warning" = { };
   "@text.danger" = { };
 
+  "@markup.italic" = { italic = true; };
+  "@markup.strong" = { bold = true; };
+  "@markup.underline" = { underline = true; };
+  "@markup.strikethrough" = { strikethrough = true; };
   "@markup.link" = { fg = colors.blue; };
   "@markup.link.label" = {
     fg = lighten 5.0e-2 (saturate 0.1 colors.blue);
