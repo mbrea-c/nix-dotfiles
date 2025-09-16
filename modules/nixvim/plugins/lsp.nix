@@ -36,6 +36,7 @@
       enable = true;
       sources = {
         formatting = {
+          typstyle.enable = true;
           sqlfluff.enable = true;
           nixfmt.enable = true;
           black.enable = true;
