@@ -133,8 +133,8 @@ in {
   gtk = {
     enable = true;
     theme = {
-      name = "Materia-dark";
-      package = pkgs.materia-theme;
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyonight-gtk-theme;
     };
     # theme = {
     #   name = "${colorscheme.slug}";

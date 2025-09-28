@@ -4,7 +4,7 @@
     mako
     wofi
     wdisplays
-    rofi-wayland
+    rofi
     swaybg
     waybar
     gammastep
