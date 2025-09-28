@@ -64,8 +64,9 @@ in {
     neovide
     transmission_4-gtk
 
-    xfce.thunar
-    xfce.thunar-archive-plugin
+    # xfce.thunar
+    # xfce.thunar-archive-plugin
+    nemo
     file-roller
     zip
     unzip
