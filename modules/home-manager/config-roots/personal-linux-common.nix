@@ -31,6 +31,7 @@ in {
     chromium
     thunderbird
     alacritty
+    ghostty
     mpv
     obs-studio
     tree
