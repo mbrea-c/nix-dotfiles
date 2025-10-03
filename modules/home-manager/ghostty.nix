@@ -5,7 +5,7 @@
     settings = let col = inputs.nix-color-utils.lib.fromBase16 colorscheme;
     in {
       font-family = "monospace";
-      font-size = "11pt";
+      font-size = 11;
       background = "#${col.background}";
       foreground = "#${col.foreground}";
       palette = [
