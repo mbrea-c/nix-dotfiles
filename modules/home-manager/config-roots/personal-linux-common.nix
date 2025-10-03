@@ -16,6 +16,7 @@ in {
     ../sway/swayx.nix
     ../virtual-machines.nix
     ../my-firefox.nix
+    ../ghostty.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
   ];
@@ -31,7 +32,6 @@ in {
     chromium
     thunderbird
     alacritty
-    ghostty
     mpv
     obs-studio
     tree
