@@ -49,6 +49,7 @@ in {
     python3
     fastfetch
     lf
+    yazi
     trash-cli
     helix # For trying it out!
     vulkan-tools
