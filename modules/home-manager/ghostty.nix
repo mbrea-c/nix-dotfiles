@@ -26,35 +26,6 @@
         "14=${col.color14}"
         "15=${col.color15}"
       ];
-      ######################################################################
-      # colors =
-      # in {
-      #   primary = {  };
-      #   cursor = {
-      #     text = "#${col.background}";
-      #     background = "#${col.foreground}";
-      #   };
-      #   normal = {
-      #     black = "#${col.black}";
-      #     red = "#${col.red}";
-      #     green = "#${col.green}";
-      #     yellow = "#${col.yellow}";
-      #     blue = "#${col.blue}";
-      #     magenta = "#${col.magenta}";
-      #     cyan = "#${col.cyan}";
-      #     white = "#${col.white}";
-      #   };
-      #   bright = {
-      #     black = "#${col.color8}";
-      #     red = "#${col.color9}";
-      #     green = "#${col.color10}";
-      #     yellow = "#${col.color11}";
-      #     blue = "#${col.color12}";
-      #     magenta = "#${col.color13}";
-      #     cyan = "#${col.color14}";
-      #     white = "#${col.color15}";
-      #   };
-      # };
     };
   };
 }
