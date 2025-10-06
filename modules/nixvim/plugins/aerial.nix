@@ -18,6 +18,19 @@ in {
           max_height = 0.75;
           min_height = 0.75;
         };
+        filter_kind = [
+          "Class"
+          "Constructor"
+          "Enum"
+          "Function"
+          "Interface"
+          "Module"
+          "Method"
+          "Struct"
+          "Property"
+          "Constant"
+          "Field"
+        ];
       };
     };
   };
