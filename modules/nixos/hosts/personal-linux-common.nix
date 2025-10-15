@@ -1,6 +1,8 @@
 { pkgs, self, ... }:
-let nixvim = self.packages."${pkgs.system}".manuvim;
-in {
+let
+  nixvim = self.packages."${pkgs.system}".manuvim;
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ../sway.nix
@@ -24,13 +26,18 @@ in {
   # ];
 
   # Flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Kernel package version
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [ networkmanager-openvpn ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/London";
@@ -79,7 +86,9 @@ in {
       pulse.enable = true;
     };
 
-    ollama = { enable = false; };
+    ollama = {
+      enable = false;
+    };
     flatpak.enable = true;
     fwupd.enable = true;
     power-profiles-daemon.enable = true;
@@ -125,7 +134,9 @@ in {
     man-db
   ];
 
-  environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
+  environment.sessionVariables = {
+    EDITOR = "${nixvim}/bin/nvim";
+  };
 
   documentation = {
     enable = true;
@@ -158,7 +169,10 @@ in {
   networking.firewall = {
     enable = false;
     allowedTCPPorts = [ 7943 ];
-    allowedUDPPorts = [ 1337 34197 ];
+    allowedUDPPorts = [
+      1337
+      34197
+    ];
   };
 
   programs.dconf.enable = true;
