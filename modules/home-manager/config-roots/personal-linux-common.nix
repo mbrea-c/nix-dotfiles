@@ -36,8 +36,6 @@ in
     self.outputs.homeManagerModules.fonts
   ];
 
-  home-manager.backupFileExtension = "backup";
-
   colorScheme = inputs.nix-colors.colorSchemes.dracula;
 
   home.username = "manuel";
