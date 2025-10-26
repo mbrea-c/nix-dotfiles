@@ -131,10 +131,10 @@ in
         # Check mime-types using `xdg-mime query filetype filename.extension`
         "image/png" = "imv.desktop";
         "image/jpeg" = "imv.desktop";
-        "text/html" = "firefox.desktop";
+        "text/html" = "firefox-beta.desktop";
         "application/pdf" = "org.pwmt.zathura.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox-beta.desktop";
+        "x-scheme-handler/https" = "firefox-beta.desktop";
       };
     };
     desktopEntries = {
