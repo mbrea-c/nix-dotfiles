@@ -213,9 +213,11 @@ in
 
   programs.git = {
     enable = true;
-    userName = "Manuel Brea Carreras";
-    userEmail = "m.brea.carreras@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Manuel Brea Carreras";
+        email = "m.brea.carreras@gmail.com";
+      };
       pull = {
         rebase = true;
       };
