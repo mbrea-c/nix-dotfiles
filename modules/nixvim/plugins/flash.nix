@@ -1,6 +1,7 @@
 { ... }:
 let
   lua = l: { __raw = l; };
+  desc = d: { desc = d; };
 in
 {
   plugins = {
@@ -18,7 +19,7 @@ in
       ];
       key = "s";
       action = lua ''function() require("flash").jump() end'';
-      desc = "Flash";
+      options = desc "Flash";
     }
     {
       mode = [
@@ -28,7 +29,7 @@ in
       ];
       key = "S";
       action = lua ''function() require("flash").treesitter() end'';
-      desc = "Flash Treesitter";
+      options = desc "Flash Treesitter";
     }
     # { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" }
     # { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" }
