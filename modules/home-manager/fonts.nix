@@ -1,7 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     font-awesome
-    ubuntu_font_family
+    ubuntu-classic
     cascadia-code
     iosevka
     nerd-fonts.noto
@@ -24,8 +25,11 @@
         "Noto Color Emoji"
         "FiraCode Nerd Font"
       ];
-      serif =
-        [ "NotoSerif Nerd Font" "Font Awesome 7 Free" "Noto Color Emoji" ];
+      serif = [
+        "NotoSerif Nerd Font"
+        "Font Awesome 7 Free"
+        "Noto Color Emoji"
+      ];
     };
   };
 }
