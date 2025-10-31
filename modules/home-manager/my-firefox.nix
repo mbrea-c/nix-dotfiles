@@ -93,6 +93,24 @@
             definedAliases = [ "@hmo" ];
           };
 
+          nixvim-options = {
+            name = "Nixvim Options";
+            urls = [
+              {
+                template = "https://nix-community.github.io/nixvim/search/?query={searchTerms}";
+                params = [
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = [ "@nvo" ];
+          };
+
           nixos-wiki = {
             name = "NixOS Wiki";
             urls = [

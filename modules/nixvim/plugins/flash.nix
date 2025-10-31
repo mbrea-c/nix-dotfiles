@@ -7,32 +7,22 @@ in
   plugins = {
     flash = {
       enable = true;
+      settings = {
+        modes = {
+          search = {
+            enabled = true;
+          };
+        };
+      };
     };
   };
 
   keymaps = [
     {
-      mode = [
-        "n"
-        "x"
-        "o"
-      ];
-      key = "s";
-      action = lua ''function() require("flash").jump() end'';
-      options = desc "Flash";
+      mode = [ "c" ];
+      key = "<C-f>";
+      action = lua ''function() require("flash").toggle() end'';
+      options = desc "Toggle flash during search";
     }
-    {
-      mode = [
-        "n"
-        "x"
-        "o"
-      ];
-      key = "S";
-      action = lua ''function() require("flash").treesitter() end'';
-      options = desc "Flash Treesitter";
-    }
-    # { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" }
-    # { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" }
-    # { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" }
   ];
 }

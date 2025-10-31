@@ -4,7 +4,8 @@ let
   lua = l: { __raw = l; };
   lu = (import ../../utils/lua-utils.nix) { };
   formatWithFilter = lst: lua (lu.fns.lspFormatFiltered lst);
-in {
+in
+{
   keymaps = [
     {
       key = "<C-n>";
@@ -17,14 +18,23 @@ in {
     {
       key = "<C-t>";
       action = "<cmd>ToggleTerm<CR>";
-      mode = [ "n" "t" ];
+      mode = [
+        "n"
+        "t"
+      ];
     }
 
     # LSP stuff
     {
-      mode = [ "n" "v" ];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>f";
-      action = formatWithFilter [ "kotlin_language_server" "jdtls" ];
+      action = formatWithFilter [
+        "kotlin_language_server"
+        "jdtls"
+      ];
       options = desc "Format buffer (5s timeout)";
     }
     {
@@ -48,8 +58,9 @@ in {
     {
       mode = [ "n" ];
       key = "K";
-      action = lua # lua
-        ''
+      action =
+        # lua
+        lua ''
           function()
             vim.lsp.buf.hover({
               border = ${lu.nixToLua config.custom.border}
@@ -65,7 +76,10 @@ in {
       options = desc "Go to implementation";
     }
     {
-      mode = [ "n" "i" ];
+      mode = [
+        "n"
+        "i"
+      ];
       key = "<C-k>";
       action = lua "vim.lsp.buf.signature_help";
       options = desc "Signature help";
@@ -91,8 +105,9 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>el";
-      action = lua # lua
-        ''
+      action =
+        # lua
+        lua ''
           function()
             local current_config = vim.diagnostic.config()
             local new_lines = nil
@@ -127,8 +142,9 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>i";
-      action = lua # lua
-        ''
+      action =
+        # lua
+        lua ''
           function() 
             vim.lsp.inlay_hint.enable(
               not vim.lsp.inlay_hint.is_enabled()
@@ -148,8 +164,9 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>gdc";
-      action = lua # lua
-        ''
+      action =
+        # lua
+        lua ''
           function()
             vim.ui.input({prompt = "Commit hash:"}, function(input)
               vim.cmd("DiffviewOpen " .. input .. "^!")
@@ -185,7 +202,11 @@ in {
 
     # Paste in macos
     {
-      mode = [ "n" "i" "v" ];
+      mode = [
+        "n"
+        "i"
+        "v"
+      ];
       key = "<D-v>";
       action = ''"+p'';
       options = desc "Paste from system clipboard";
