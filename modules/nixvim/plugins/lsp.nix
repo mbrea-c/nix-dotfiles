@@ -37,6 +37,7 @@
       enable = true;
       sources = {
         formatting = {
+          prettier = { enable = true; };
           typstyle.enable = true;
           sqlfluff.enable = true;
           nixfmt.enable = true;
