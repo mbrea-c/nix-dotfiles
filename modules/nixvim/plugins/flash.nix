@@ -2,18 +2,11 @@
 let
   lua = l: { __raw = l; };
   desc = d: { desc = d; };
-in
-{
+in {
   plugins = {
     flash = {
       enable = true;
-      settings = {
-        modes = {
-          search = {
-            enabled = true;
-          };
-        };
-      };
+      settings = { modes = { search = { enabled = false; }; }; };
     };
   };
 
@@ -23,6 +16,12 @@ in
       key = "<C-f>";
       action = lua ''function() require("flash").toggle() end'';
       options = desc "Toggle flash during search";
+    }
+    {
+      mode = [ "v" "n" "x" "o" ];
+      key = "<C-/>";
+      action = lua ''function() require("flash").jump() end'';
+      desc = "Flash";
     }
   ];
 }
