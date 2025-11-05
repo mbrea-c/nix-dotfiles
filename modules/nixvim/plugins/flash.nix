@@ -18,10 +18,10 @@ in {
       options = desc "Toggle flash during search";
     }
     {
-      mode = [ "v" "n" "x" "o" ];
+      mode = [ "n" "x" "o" ];
       key = "<C-/>";
       action = lua ''function() require("flash").jump() end'';
-      desc = "Flash";
+      options = desc "Flash";
     }
   ];
 }
