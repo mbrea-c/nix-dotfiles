@@ -38,11 +38,6 @@ in
           "Constant"
           "Field"
         ];
-        icons = {
-          "Struct" = "";
-          "Class" = "";
-          "Function" = "󰊕";
-        };
       };
     };
   };
