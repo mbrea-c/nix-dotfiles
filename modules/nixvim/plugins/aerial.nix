@@ -39,11 +39,9 @@ in
           "Field"
         ];
         icons = {
-          rust = {
-            "Struct" = "";
-            "Class" = "";
-            "Function" = "󰊕";
-          };
+          "Struct" = "";
+          "Class" = "";
+          "Function" = "󰊕";
         };
       };
     };
