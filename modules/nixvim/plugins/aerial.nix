@@ -38,6 +38,13 @@ in
           "Constant"
           "Field"
         ];
+        icons = {
+          rust = {
+            "Struct" = "";
+            "Class" = "";
+            "Function" = "󰊕";
+          };
+        };
       };
     };
   };
