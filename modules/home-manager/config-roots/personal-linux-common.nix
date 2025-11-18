@@ -23,7 +23,9 @@ let
       krita
       inkscape
     ])
-    ++ [ inputs.blender-autorender.packages."${pkgs.system}".default ];
+    ++ [
+      inputs.blender-autorender.packages."${pkgs.stdenv.hostPlatform.system}".default
+    ];
 in
 {
   imports = [

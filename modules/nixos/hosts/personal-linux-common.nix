@@ -1,6 +1,6 @@
 { pkgs, self, ... }:
 let
-  nixvim = self.packages."${pkgs.system}".manuvim;
+  nixvim = self.packages."${pkgs.stdenv.hostPlatform.system}".manuvim;
 in
 {
   imports = [
