@@ -1,4 +1,6 @@
 { ... }: {
+  custom.lspFormatFilter =
+    [ "kotlin_language_server" "jdtls" "ts_ls" "nil_ls" ];
   plugins = {
     lsp = {
       enable = true;
@@ -54,10 +56,10 @@
           google_java_format.enable = true;
         };
         diagnostics = {
-          checkstyle = {
-            enable = true;
-            settings = { extra_args = [ "-c" "/google_checks.xml" ]; };
-          };
+          # checkstyle = {
+          #   enable = true;
+          #   settings = { extra_args = [ "-c" "/google_checks.xml" ]; };
+          # };
         };
       };
     };

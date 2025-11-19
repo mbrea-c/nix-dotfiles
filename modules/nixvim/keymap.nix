@@ -24,7 +24,7 @@ in {
     {
       mode = [ "n" "v" ];
       key = "<leader>f";
-      action = formatWithFilter [ "kotlin_language_server" "jdtls" "ts_ls" ];
+      action = formatWithFilter config.custom.lspFormatFilter;
       options = desc "Format buffer (5s timeout)";
     }
     {

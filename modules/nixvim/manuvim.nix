@@ -10,20 +10,30 @@ in {
   imports = [ ./plugins.nix ./keymap.nix ./opts.nix ./packages.nix ];
 
   options = {
-    custom.border = with lib;
-      mkOption {
-        type = types.either types.str (types.listOf types.str);
-        # default = "rounded";
+    custom = {
+      border = with lib;
+        mkOption {
+          type = types.either types.str (types.listOf types.str);
+          # default = "rounded";
 
-        # To look like this:
-        # 🬕🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬨
-        # ▌  Testing   ▐
-        # 🬲🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬷
-        #      vvv
-        default = [ "🬕" "🬂" "🬨" "▐" "🬷" "🬭" "🬲" "▌" ];
-        description =
-          "Border used for nvim_open_win throughout my config (for consistency)";
-      };
+          # To look like this:
+          # 🬕🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬨
+          # ▌  Testing   ▐
+          # 🬲🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬷
+          #      vvv
+          default = [ "🬕" "🬂" "🬨" "▐" "🬷" "🬭" "🬲" "▌" ];
+          description =
+            "Border used for nvim_open_win throughout my config (for consistency)";
+        };
+      lspFormatFilter = with lib;
+        mkOption {
+          type = types.listOf types.str;
+          default = [ ];
+          description =
+            "LSP servers to ignore when formatting. Usually used when LSPs provide subpar formatting capabilities and you prefer to use a custom formatting tool.";
+        };
+
+    };
   };
   config = {
 
