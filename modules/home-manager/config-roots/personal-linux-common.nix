@@ -175,6 +175,9 @@ in
     settings = {
       font = {
         size = 11;
+        bold.style = "Extrabold";
+        bold_italic.style = "Extrabold Italic";
+        italic.style = "Italic";
       };
       colors =
         let
