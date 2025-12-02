@@ -14,11 +14,6 @@ in {
       key = "<C-h>";
       action = "<cmd>Inspect<CR>";
     }
-    {
-      key = "<C-t>";
-      action = "<cmd>ToggleTerm<CR>";
-      mode = [ "n" "t" ];
-    }
 
     # LSP stuff
     {
@@ -171,20 +166,6 @@ in {
       key = "<leader>a";
       action = "<cmd>AerialToggle float<CR>";
       options = desc "Toggle Aerial overview";
-    }
-
-    # Telescope
-    {
-      mode = [ "n" ];
-      key = "<leader>tg";
-      action = "<cmd>Telescope live_grep_args<CR>";
-      options = desc "Live grep in workspace";
-    }
-    {
-      mode = [ "n" ];
-      key = "<leader>tf";
-      action = "<cmd>Telescope find_files<CR>";
-      options = desc "Find files in workspace";
     }
 
     # Paste in macos

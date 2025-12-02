@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         spec = [{
-          __unkeyed-1 = "<leader>t";
+          __unkeyed-1 = "<leader>s";
           desc = "Telescope";
         }];
       };
