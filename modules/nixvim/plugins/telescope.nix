@@ -18,7 +18,7 @@ in {
                     prompt_to_prefix = true,
                     sorter = false,
                   })
-                end,
+                end
               '';
             };
             n = {
@@ -31,7 +31,7 @@ in {
                     prompt_to_prefix = true,
                     sorter = false,
                   })
-                end,
+                end
               '';
             };
           };
