@@ -53,4 +53,8 @@ in {
       options = desc "Find files in workspace";
     }
   ];
+  custom.which-key.spec = [{
+    __unkeyed-1 = "<leader>s";
+    desc = "Telescope";
+  }];
 }
