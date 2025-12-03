@@ -35,6 +35,17 @@
       precedes = "⋯";
       extends = "⋯";
     };
+    laststatus = 3; # Global statusline
+    fillchars = {
+      vert = "│";
+      horiz = "─";
+      horizup = "┴";
+      horizdown = "┬";
+      vertleft = "┤";
+      vertright = "├";
+      verthoriz = "┼";
+    };
+
     mouse = "a";
     mousemodel = "extend";
     textwidth = 80;
