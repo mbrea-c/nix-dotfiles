@@ -10,18 +10,15 @@ in {
     };
   };
 
-  keymaps = [
-    {
-      mode = [ "c" ];
-      key = "<C-f>";
-      action = lua ''function() require("flash").toggle() end'';
-      options = desc "Toggle flash during search";
-    }
-    {
-      mode = [ "n" "x" "o" ];
-      key = "<C-/>";
-      action = lua ''function() require("flash").jump() end'';
-      options = desc "Flash";
-    }
-  ];
+  keymaps = [{
+    mode = [ "c" ];
+    key = "<C-f>";
+    action = lua ''function() require("flash").toggle() end'';
+    options = desc "Toggle flash during search";
+  }] ++ (map (key: {
+    mode = [ "n" "x" "o" ];
+    key = key;
+    action = lua ''function() require("flash").jump() end'';
+    options = desc "Flash";
+  }) [ "<C-/>" "<C-_>" ]);
 }
