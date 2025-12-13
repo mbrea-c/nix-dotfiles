@@ -2,18 +2,24 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ ... }: {
-  imports = [ # Include the results of the hardware scan.
+{ pkgs, ... }:
+{
+  imports = [
+    # Include the results of the hardware scan.
     ../hardware/nixframe.nix
     ./personal-linux-common.nix
   ];
 
   networking.hostName = "nixframe"; # Define your hostname.
-  environment.sessionVariables = { NIXOS_CONFIG_NAME = "nixframe"; };
+  environment.sessionVariables = {
+    NIXOS_CONFIG_NAME = "nixframe";
+  };
 
   services.ollama = {
-    acceleration = "rocm";
-    environmentVariables = { HCC_AMDGPU_TARGET = "gfx1102"; };
+    package = pkgs.ollama-rocm;
+    environmentVariables = {
+      HCC_AMDGPU_TARGET = "gfx1102";
+    };
     rocmOverrideGfx = "11.0.2";
   };
   # services.openssh = {
