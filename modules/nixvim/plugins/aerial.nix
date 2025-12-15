@@ -1,23 +1,16 @@
 { config, ... }:
-let
-  lu = (import ../../../utils/lua-utils.nix) { };
-in
-{
+let lu = (import ../../../utils/lua-utils.nix) { };
+in {
   plugins = {
     aerial = {
       enable = true;
       settings = {
-        nav = {
-          preview = true;
-        };
+        nav = { preview = true; };
         autojump = false;
         highlight_on_jump = 600;
         layout = {
-          max_width = [
-            50
-            0.3
-          ];
-          min_width = 50;
+          max_width = [ 70 0.4 ];
+          min_width = 70;
         };
         float = {
           border.__raw = lu.nixToLua config.custom.border;
