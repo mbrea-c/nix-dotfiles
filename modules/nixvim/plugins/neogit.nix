@@ -3,7 +3,7 @@
   keymaps = [{
     mode = [ "n" ];
     key = "<leader>gg";
-    action.__raw = "require('neogit').open()";
+    action.__raw = "require('neogit').open";
     options = { desc = "Open Neogit (default)"; };
   }];
   custom.which-key.spec = [{
