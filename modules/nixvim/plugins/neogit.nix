@@ -5,7 +5,7 @@
     key = "<leader>gg";
     action.__raw = ''
       function()
-        require('neogit').open({ cwd = vim.expand("%:p:h") })
+        require('neogit').open({ cwd = vim.fn.expand("%:p:h") })
       end
     '';
     options = { desc = "Open Neogit (default)"; };
