@@ -3,7 +3,11 @@
   keymaps = [{
     mode = [ "n" ];
     key = "<leader>gg";
-    action.__raw = "require('neogit').open";
+    action.__raw = ''
+      function()
+        require('neogit').open({ cwd = vim.expand("%:p:h") })
+      end
+    '';
     options = { desc = "Open Neogit (default)"; };
   }];
   custom.which-key.spec = [{
