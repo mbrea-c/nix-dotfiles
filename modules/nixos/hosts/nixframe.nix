@@ -2,7 +2,8 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     # Include the results of the hardware scan.
     ../hardware/nixframe.nix
@@ -10,7 +11,9 @@
   ];
 
   networking.hostName = "nixframe"; # Define your hostname.
-  environment.sessionVariables = { NIXOS_CONFIG_NAME = "nixframe"; };
+  environment.sessionVariables = {
+    NIXOS_CONFIG_NAME = "nixframe";
+  };
 
   # No sense running these on weak laptop, so they're nixframe-specific
   services = {
@@ -20,7 +23,7 @@
       # environmentVariables = { HCC_AMDGPU_TARGET = "gfx1102"; };
       # rocmOverrideGfx = "11.0.2";
     };
-    open-webui = { enable = true; };
+    # open-webui = { enable = true; };
   };
   # services.openssh = {
   #   enable = true;
