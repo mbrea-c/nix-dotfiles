@@ -51,7 +51,7 @@
             enable = true;
           };
           typstyle.enable = true;
-          sqlfluff.enable = true;
+          # sqlfluff.enable = true;
           nixfmt.enable = true;
           black.enable = true;
           ktlint = {
