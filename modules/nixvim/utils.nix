@@ -27,7 +27,7 @@
               group = augroup,
               buffer = ev.buf,
               callback = function()
-                require("lib").filtered_format()
+                require("manulib").filtered_format()
               end,
             })
           end
