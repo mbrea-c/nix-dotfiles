@@ -5,8 +5,11 @@ let
   directory = ./plugins;
   files = nu.allFilesInDir ".lua" directory;
 in {
-  extraFiles = builtins.listToAttrs (map (file: {
+  extraFiles = builtins.trace (builtins.listToAttrs (map (file: {
     name = "lua/" ++ (builtins.baseNameOf file);
     value = { source = file; };
-  }) files);
+  }) files)) (builtins.listToAttrs (map (file: {
+    name = "lua/" ++ (builtins.baseNameOf file);
+    value = { source = file; };
+  }) files));
 }
