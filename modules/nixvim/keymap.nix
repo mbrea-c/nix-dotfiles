@@ -3,7 +3,6 @@ let
   desc = d: { desc = d; };
   lua = l: { __raw = l; };
   lu = (import ../../utils/lua-utils.nix) { };
-  formatWithFilter = lst: lua (lu.fns.lspFormatFiltered lst);
 in {
   keymaps = [
     {
@@ -19,7 +18,7 @@ in {
     {
       mode = [ "n" "v" ];
       key = "<leader>f";
-      action = formatWithFilter config.custom.lspFormatFilter;
+      action = lua ''require("manuvim").filtered_format"'';
       options = desc "Format buffer (5s timeout)";
     }
     {
