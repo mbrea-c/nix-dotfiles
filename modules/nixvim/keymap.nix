@@ -18,7 +18,7 @@ in {
     {
       mode = [ "n" "v" ];
       key = "<leader>f";
-      action = lua ''require("manuvim").filtered_format"'';
+      action = lua ''require("manulib").filtered_format"'';
       options = desc "Format buffer (5s timeout)";
     }
     {
