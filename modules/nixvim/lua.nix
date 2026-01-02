@@ -2,14 +2,11 @@
 { lib, ... }:
 let
   nu = (import ../../utils/nix-utils.nix) { inherit lib; };
-  directory = ./plugins;
+  directory = ./lua;
   files = nu.allFilesInDir ".lua" directory;
 in {
-  extraFiles = builtins.trace (builtins.listToAttrs (map (file: {
+  extraFiles = builtins.listToAttrs (map (file: {
     name = "lua/" + (builtins.baseNameOf file);
     value = { source = file; };
-  }) files)) (builtins.listToAttrs (map (file: {
-    name = "lua/" + (builtins.baseNameOf file);
-    value = { source = file; };
-  }) files));
+  }) files);
 }
