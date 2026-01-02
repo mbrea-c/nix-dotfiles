@@ -1,7 +1,6 @@
 { config, ... }:
 let
   desc = d: { desc = d; };
-  lua = l: { __raw = l; };
   lu = (import ../../utils/lua-utils.nix) { };
 in {
   keymaps = [
@@ -18,63 +17,61 @@ in {
     {
       mode = [ "n" "v" ];
       key = "<leader>f";
-      action = lua ''require("manulib").filtered_format"'';
+      action.__raw = ''require("manulib").filtered_format'';
       options = desc "Format buffer (5s timeout)";
     }
     {
       mode = [ "n" ];
       key = "gD";
-      action = lua "vim.lsp.buf.declaration";
+      action.__raw = "vim.lsp.buf.declaration";
       options = desc "Go to declaration";
     }
     {
       mode = [ "n" ];
       key = "gd";
-      action = lua "vim.lsp.buf.definition";
+      action.__raw = "vim.lsp.buf.definition";
       options = desc "Go to definition";
     }
     {
       mode = [ "n" ];
       key = "gT";
-      action = lua "vim.lsp.buf.type_definition";
+      action.__raw = "vim.lsp.buf.type_definition";
       options = desc "Go to type definition";
     }
     {
       mode = [ "n" ];
       key = "K";
-      action =
-        # lua
-        lua ''
-          function()
-            vim.lsp.buf.hover({
-              border = ${lu.nixToLua config.custom.border}
-            })
-          end
-        '';
+      action.__raw = ''
+        function()
+          vim.lsp.buf.hover({
+            border = ${lu.nixToLua config.custom.border}
+          })
+        end
+      '';
       options = desc "Hover";
     }
     {
       mode = [ "n" ];
       key = "gi";
-      action = lua "vim.lsp.buf.implementation";
+      action.__raw = "vim.lsp.buf.implementation";
       options = desc "Go to implementation";
     }
     {
       mode = [ "n" "i" ];
       key = "<C-k>";
-      action = lua "vim.lsp.buf.signature_help";
+      action.__raw = "vim.lsp.buf.signature_help";
       options = desc "Signature help";
     }
     {
       mode = [ "n" ];
       key = "<leader>rn";
-      action = lua "vim.lsp.buf.rename";
+      action.__raw = "vim.lsp.buf.rename";
       options = desc "Rename";
     }
     {
       mode = [ "n" ];
       key = "<leader>ca";
-      action = lua "vim.lsp.buf.code_action";
+      action.__raw = "vim.lsp.buf.code_action";
       options = desc "Code actions";
     }
     {
@@ -86,52 +83,48 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>el";
-      action =
-        # lua
-        lua ''
-          function()
-            local current_config = vim.diagnostic.config()
-            local new_lines = nil
-            if current_config.virtual_lines == nil or current_config.virtual_lines == false then
-              new_lines = true
-            else
-              new_lines = false
-            end
-            vim.diagnostic.config({virtual_lines = new_lines})
+      action.__raw = ''
+        function()
+          local current_config = vim.diagnostic.config()
+          local new_lines = nil
+          if current_config.virtual_lines == nil or current_config.virtual_lines == false then
+            new_lines = true
+          else
+            new_lines = false
           end
-        '';
+          vim.diagnostic.config({virtual_lines = new_lines})
+        end
+      '';
       options = desc "Open diagnostics virtual line displays";
     }
     {
       mode = [ "n" ];
       key = "<leader>ef";
-      action = lua "vim.diagnostic.open_float";
+      action.__raw = "vim.diagnostic.open_float";
       options = desc "Open diagnostics float";
     }
     {
       mode = [ "n" ];
       key = "<leader>[";
-      action = lua "vim.diagnostic.goto_prev";
+      action.__raw = "vim.diagnostic.goto_prev";
       options = desc "Go to previous diagnostic";
     }
     {
       mode = [ "n" ];
       key = "<leader>]";
-      action = lua "vim.diagnostic.goto_next";
+      action.__raw = "vim.diagnostic.goto_next";
       options = desc "Go to next diagnostic";
     }
     {
       mode = [ "n" ];
       key = "<leader>i";
-      action =
-        # lua
-        lua ''
-          function() 
-            vim.lsp.inlay_hint.enable(
-              not vim.lsp.inlay_hint.is_enabled()
-            ) 
-          end
-        '';
+      action.__raw = ''
+        function() 
+          vim.lsp.inlay_hint.enable(
+            not vim.lsp.inlay_hint.is_enabled()
+          ) 
+        end
+      '';
       options = desc "Toggle inlay hints";
     }
 
@@ -145,15 +138,13 @@ in {
     {
       mode = [ "n" ];
       key = "<leader>gdc";
-      action =
-        # lua
-        lua ''
-          function()
-            vim.ui.input({prompt = "Commit hash:"}, function(input)
-              vim.cmd("DiffviewOpen " .. input .. "^!")
-            end)
-          end
-        ''
+      action.__raw = ''
+        function()
+          vim.ui.input({prompt = "Commit hash:"}, function(input)
+            vim.cmd("DiffviewOpen " .. input .. "^!")
+          end)
+        end
+      ''
 
       ;
       options = desc "Open the provided commit hash in Diffview";
