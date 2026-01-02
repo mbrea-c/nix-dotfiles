@@ -37,7 +37,9 @@
                 vim.api.nvim_create_autocmd("BufWritePre", {
                   group = augroup,
                   buffer = ev.buf,
-                  callback = ${formatFn},
+                  callback = function()
+                    ${formatFn}(),
+                  end,
                 })
               end
             ''
