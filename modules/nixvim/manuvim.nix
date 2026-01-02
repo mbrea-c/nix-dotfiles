@@ -8,7 +8,7 @@ let
   highlightUnderCursorAugroup = "HighlightSymbolUnderCursor";
   highlights = (import ./colorscheme.nix) { inherit lib colorscheme inputs; };
 in {
-  imports = [ ./plugins.nix ./keymap.nix ./opts.nix ./packages.nix ];
+  imports = [ ./plugins.nix ./keymap.nix ./opts.nix ./packages.nix ./lua.nix ];
 
   options = {
     custom = {
