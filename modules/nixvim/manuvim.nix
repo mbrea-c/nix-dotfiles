@@ -149,5 +149,14 @@ in {
       vim.g.neovide_floating_blur_amount_x = 5.0
       vim.g.neovide_floating_blur_amount_y = 5.0
     '';
+
+    extraFiles = {
+      "lua/nix-config.lua".text = # lua
+        ''
+          local M = {}
+          M.ignored_servers = ${lu.nixToLua config.custom.lspFormatFilter}
+          return M
+        '';
+    };
   };
 }

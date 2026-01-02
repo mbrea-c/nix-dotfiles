@@ -27,7 +27,7 @@
               group = augroup,
               buffer = ev.buf,
               callback = function()
-                (${formatFn})(),
+                require("lib").filtered_format()
               end,
             })
           end
