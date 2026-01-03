@@ -24,7 +24,8 @@ in {
   # ];
 
   # Flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features =
+    [ "nix-command" "flakes" "pipe-operator" ];
 
   # Kernel package version
   boot.kernelPackages = pkgs.linuxPackages_latest;
