@@ -1,4 +1,11 @@
-{ self, pkgs, inputs, colorscheme, lib, ... }:
+{
+  self,
+  pkgs,
+  inputs,
+  colorscheme,
+  lib,
+  ...
+}:
 let
   # zed-fhs = pkgs.buildFHSUserEnv {
   #   name = "zed";
@@ -8,10 +15,19 @@ let
   scripts = (import ../../../scripts/scripts.nix) { inherit pkgs; };
   inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
 
-  pkgs-art = (with pkgs; [ blender gimp libresprite krita inkscape ]) ++ [
-    inputs.blender-autorender.packages."${pkgs.stdenv.hostPlatform.system}".default
-  ];
-in {
+  pkgs-art =
+    (with pkgs; [
+      blender
+      gimp
+      libresprite
+      krita
+      inkscape
+    ])
+    ++ [
+      inputs.blender-autorender.packages."${pkgs.stdenv.hostPlatform.system}".default
+    ];
+in
+{
   imports = [
     inputs.nix-colors.homeManagerModules.default
     ../sway/swayx.nix
@@ -28,70 +44,78 @@ in {
   home.username = "manuel";
   home.homeDirectory = "/home/manuel";
 
-  home.packages = lib.lists.unique ((with pkgs; [
-    strawberry
-    librewolf
-    chromium
-    thunderbird
-    alacritty
-    mpv
-    obs-studio
-    tree
-    zed-editor
-    # zed-fhs
-    nil # Nix language server
-    pavucontrol
-    amdgpu_top
-    mission-center
-    gnome-system-monitor
-    seahorse
-    gcc
-    rustup
-    xorg.xrandr
-    python3
-    fastfetch
-    lf
-    yazi
-    trash-cli
-    helix # For trying it out!
-    vulkan-tools
-    sshfs # For backing up framevoid to nixframe
-    brightnessctl
-    ripgrep
-    zathura
-    graphviz
-    libheif
-    imv # image viewer
-    typst
-    d-spy
-    zotero
-    neovide
-    transmission_4-gtk
+  home.packages = lib.lists.unique (
+    (with pkgs; [
+      strawberry
+      librewolf
+      chromium
+      thunderbird
+      alacritty
+      mpv
+      obs-studio
+      tree
+      zed-editor
+      # zed-fhs
+      nil # Nix language server
+      pavucontrol
+      amdgpu_top
+      mission-center
+      gnome-system-monitor
+      seahorse
+      gcc
+      rustup
+      xorg.xrandr
+      python3
+      fastfetch
+      lf
+      yazi
+      trash-cli
+      helix # For trying it out!
+      vulkan-tools
+      sshfs # For backing up framevoid to nixframe
+      brightnessctl
+      ripgrep
+      zathura
+      graphviz
+      libheif
+      imv # image viewer
+      typst
+      d-spy
+      zotero
+      neovide
+      transmission_4-gtk
 
-    # xfce.thunar
-    # xfce.thunar-archive-plugin
-    nemo
-    file-roller
-    zip
-    unzip
+      # xfce.thunar
+      # xfce.thunar-archive-plugin
+      nemo
+      file-roller
+      zip
+      unzip
 
-    bottom
-    # grayjay
-    shotman
-    (pkgs.callPackage ../../../pkgs/tracy { })
-  ]) ++ scripts ++ pkgs-art);
+      bottom
+      # grayjay
+      shotman
+      (pkgs.callPackage ../../../pkgs/tracy { })
+    ])
+    ++ scripts
+    ++ pkgs-art
+  );
 
   home.sessionVariables = {
     # Flatpak XDG_DATA_DIRS
-    XDG_DATA_DIRS =
-      "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
+    XDG_DATA_DIRS = "$XDG_DATA_DIRS:/usr/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share";
     NIX_CONFIG_PATH = "$HOME/src/nix-dotfiles";
     NIXOS_OZONE_WL = "1";
   };
 
-  home.sessionPath = [ "$HOME/.cargo/bin" "$HOME/scripts" ];
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "$HOME/scripts"
+  ];
 
-  swayx = { enable = true; };
+  swayx = {
+    enable = true;
+  };
 
   xdg = {
     enable = true;
@@ -156,37 +180,40 @@ in {
         bold_italic.style = "Extrabold Italic";
         italic.style = "Italic";
       };
-      colors = let col = inputs.nix-color-utils.lib.fromBase16 colorscheme;
-      in {
-        primary = {
-          foreground = "#${col.foreground}";
-          background = "#${col.background}";
+      colors =
+        let
+          col = inputs.nix-color-utils.lib.fromBase16 colorscheme;
+        in
+        {
+          primary = {
+            foreground = "#${col.foreground}";
+            background = "#${col.background}";
+          };
+          cursor = {
+            text = "#${col.background}";
+            background = "#${col.foreground}";
+          };
+          normal = {
+            black = "#${col.black}";
+            red = "#${col.red}";
+            green = "#${col.green}";
+            yellow = "#${col.yellow}";
+            blue = "#${col.blue}";
+            magenta = "#${col.magenta}";
+            cyan = "#${col.cyan}";
+            white = "#${col.white}";
+          };
+          bright = {
+            black = "#${col.color8}";
+            red = "#${col.color9}";
+            green = "#${col.color10}";
+            yellow = "#${col.color11}";
+            blue = "#${col.color12}";
+            magenta = "#${col.color13}";
+            cyan = "#${col.color14}";
+            white = "#${col.color15}";
+          };
         };
-        cursor = {
-          text = "#${col.background}";
-          background = "#${col.foreground}";
-        };
-        normal = {
-          black = "#${col.black}";
-          red = "#${col.red}";
-          green = "#${col.green}";
-          yellow = "#${col.yellow}";
-          blue = "#${col.blue}";
-          magenta = "#${col.magenta}";
-          cyan = "#${col.cyan}";
-          white = "#${col.white}";
-        };
-        bright = {
-          black = "#${col.color8}";
-          red = "#${col.color9}";
-          green = "#${col.color10}";
-          yellow = "#${col.color11}";
-          blue = "#${col.color12}";
-          magenta = "#${col.color13}";
-          cyan = "#${col.color14}";
-          white = "#${col.color15}";
-        };
-      };
     };
   };
 
@@ -197,7 +224,9 @@ in {
         name = "Manuel Brea Carreras";
         email = "m.brea.carreras@gmail.com";
       };
-      pull = { rebase = true; };
+      pull = {
+        rebase = true;
+      };
     };
   };
 
