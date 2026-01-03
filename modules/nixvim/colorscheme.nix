@@ -22,7 +22,7 @@ in
         };
     };
   };
-  config = lib.mkIf (config.manuvim.palette != null) {
-    highlightOverride = u.mapColors config.custom.colorscheme;
+  config = {
+    highlightOverride = u.compileNeovimColors config.custom.colorscheme;
   };
 }

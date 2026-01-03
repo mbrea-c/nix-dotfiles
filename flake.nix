@@ -9,7 +9,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     nix-color-utils = {
-      url = "path:/home/manuel/src/nix-color-utils"; # "github:mbrea-c/nix-color-utils";
+      url = "github:mbrea-c/nix-color-utils";
       inputs.nix-colors.follows = "nix-colors";
     };
 

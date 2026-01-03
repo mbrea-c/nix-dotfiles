@@ -5,6 +5,8 @@ let
   darken = u.color.hsvDarken;
   desaturate = u.color.hsvDesaturate;
   saturate = u.color.hsvSaturate;
+  hsvMix = u.color.hsvMix;
+  rgbMix = u.color.rgbMix;
 in
 {
   custom.colorscheme = {
@@ -81,7 +83,7 @@ in
       fg = lighten 0.1 palette.color1;
     };
     "@number.float" = {
-      fg = u.rgb.mix 0.5 palette.color1 palette.color6;
+      fg = rgbMix 0.5 palette.color1 palette.color6;
     };
     "@string" = {
       fg = palette.color1;
@@ -140,7 +142,7 @@ in
       fg = darken 0.1 palette.color2;
     };
     "@variable" = {
-      fg = desaturate 0.1 (u.hsv.mix 0.5 palette.color4 palette.color6);
+      fg = desaturate 0.1 (hsvMix 0.5 palette.color4 palette.color6);
     };
     "@variable.builtin" = {
       fg = palette.color11;
