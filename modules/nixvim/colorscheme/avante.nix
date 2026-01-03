@@ -1,6 +1,11 @@
-{ ... }: {
+{ ... }:
+{
   custom.colorscheme = {
-    "AvanteSidebarNormal" = { link = "Normal"; };
-    "AvanteSidebarWinSeparator" = { link = "WinSeparator"; };
+    "AvanteSidebarNormal" = {
+      link = "Normal";
+    };
+    "AvanteSidebarWinSeparator" = {
+      link = "WinSeparator";
+    };
   };
 }

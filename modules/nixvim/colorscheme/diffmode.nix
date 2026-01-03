@@ -1,17 +1,22 @@
-{ inputs, colorscheme, ... }:
+{ inputs, palette, ... }:
 let
   u = inputs.nix-color-utils.lib;
-  colors = u.fromBase16 colorscheme;
-in {
+  mix = u.color.rgbMix;
+in
+{
   custom.colorscheme = {
-    "DiffAdd" = { bg = u.rgb.mix 0.3 colors.background colors.green; };
-    "DiffChange" = { bg = u.rgb.mix 0.3 colors.background colors.yellow; };
+    "DiffAdd" = {
+      bg = mix 0.3 palette.background palette.green;
+    };
+    "DiffChange" = {
+      bg = mix 0.3 palette.background palette.yellow;
+    };
     "DiffDelete" = {
-      bg = u.rgb.mix 0.3 colors.background colors.red;
-      fg = colors.background;
+      bg = mix 0.3 palette.background palette.red;
+      fg = palette.background;
     };
     "DiffText" = {
-      bg = u.rgb.mix 0.4 colors.background colors.yellow;
+      bg = mix 0.4 palette.background palette.yellow;
       bold = true;
       italic = true;
       undercurl = true;

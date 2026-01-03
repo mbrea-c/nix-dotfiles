@@ -1,12 +1,15 @@
-{ inputs, colorscheme, ... }:
+{ inputs, palette, ... }:
 let
   u = inputs.nix-color-utils.lib;
-  colors = u.fromBase16 colorscheme;
-in {
+  lighten = u.color.hsvLighten;
+in
+{
   custom.colorscheme = {
-    "IblIndent" = { fg = u.hsv.lighten 0.1 colors.background; };
+    "IblIndent" = {
+      fg = lighten 0.1 palette.background;
+    };
     "IblScope" = {
-      fg = u.hsv.lighten 0.25 colors.background;
+      fg = lighten 0.25 palette.background;
       bold = true;
     };
   };

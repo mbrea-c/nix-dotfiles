@@ -1,13 +1,20 @@
-{ lib, inputs, config, ... }:
+{
+  lib,
+  inputs,
+  config,
+  ...
+}:
 let
   u = inputs.nix-color-utils.lib;
   nu = (import ../../utils/nix-utils.nix) { inherit lib; };
   directory = ./colorscheme;
-in {
+in
+{
   imports = (nu.allFilesInDir ".nix" directory);
   options = {
     custom = {
-      colorscheme = with lib;
+      colorscheme =
+        with lib;
         mkOption {
           type = types.attrsOf types.anything;
           default = { };
@@ -15,5 +22,7 @@ in {
         };
     };
   };
-  config = { highlightOverride = u.mapColors config.custom.colorscheme; };
+  config = lib.mkIf (config.manuvim.palette != null) {
+    highlightOverride = u.mapColors config.custom.colorscheme;
+  };
 }

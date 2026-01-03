@@ -1,22 +1,44 @@
-{ inputs, colorscheme, config, ... }:
+{
+  inputs,
+  palette,
+  config,
+  ...
+}:
 let
   u = inputs.nix-color-utils.lib;
-  colors = u.fromBase16 colorscheme;
-in {
+  saturate = u.color.hsvSaturate;
+in
+{
   custom.colorscheme = {
     "Directory" = {
-      fg = u.hsv.saturate 0.2 colors.blue;
+      fg = saturate 0.2 palette.blue;
       bold = true;
     };
-    "NeoTreeDirectoryIcon" = { link = "Directory"; };
-    "NeoTreeDirectoryName" = { link = "Directory"; };
+    "NeoTreeDirectoryIcon" = {
+      link = "Directory";
+    };
+    "NeoTreeDirectoryName" = {
+      link = "Directory";
+    };
 
     # nvim-tree
-    "NvimTreeOpenedHL" = { underdotted = true; };
-    "NvimTreeIndentMarker" = { fg = config.custom.colorscheme.Directory.fg; };
-    "NvimTreeFolderIcon" = { fg = config.custom.colorscheme.Directory.fg; };
-    "NvimTreeSpecialFile" = { fg = colors.yellow; };
-    "NvimTreeExecFile" = { fg = colors.green; };
-    "NvimTreeImageFile" = { fg = colors.color5; };
+    "NvimTreeOpenedHL" = {
+      underdotted = true;
+    };
+    "NvimTreeIndentMarker" = {
+      fg = config.custom.colorscheme.Directory.fg;
+    };
+    "NvimTreeFolderIcon" = {
+      fg = config.custom.colorscheme.Directory.fg;
+    };
+    "NvimTreeSpecialFile" = {
+      fg = palette.yellow;
+    };
+    "NvimTreeExecFile" = {
+      fg = palette.green;
+    };
+    "NvimTreeImageFile" = {
+      fg = palette.color5;
+    };
   };
 }
