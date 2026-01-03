@@ -44,7 +44,7 @@ in
       key = "<leader><leader>c";
       action = "<cmd>CodeCompanionChat Toggle<CR>";
       options = {
-        desc = "Live grep in workspace";
+        desc = "Toggle chat";
       };
     }
   ];
