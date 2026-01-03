@@ -4,7 +4,6 @@
     mako
     wofi
     wdisplays
-    rofi
     swaybg
     waybar
     gammastep

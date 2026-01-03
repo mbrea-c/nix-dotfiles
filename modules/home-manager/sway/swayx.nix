@@ -38,7 +38,6 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
-
     systemd.user.targets.sway-session = {
       Unit = {
         Description = "Indicating that sway is running";

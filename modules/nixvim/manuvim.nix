@@ -1,4 +1,4 @@
-{ lib, config, inputs, colorscheme, ... }:
+{ lib, config, ... }:
 let
   utils = (import ./utils.nix) { inherit lib; };
   lu = (import ../../utils/lua-utils.nix) { };
@@ -6,9 +6,15 @@ let
   formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";
   highlightUnderCursorAugroup = "HighlightSymbolUnderCursor";
-  highlights = (import ./colorscheme.nix) { inherit lib colorscheme inputs; };
 in {
-  imports = [ ./plugins.nix ./keymap.nix ./opts.nix ./packages.nix ./lua.nix ];
+  imports = [
+    ./plugins.nix
+    ./keymap.nix
+    ./opts.nix
+    ./packages.nix
+    ./lua.nix
+    ./colorscheme.nix
+  ];
 
   options = {
     custom = {
@@ -37,9 +43,6 @@ in {
     };
   };
   config = {
-
-    highlightOverride = highlights;
-
     autoCmd = utils.setTabstopForFiletypes {
       filetypes = {
         java = 4;

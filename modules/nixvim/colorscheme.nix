@@ -1,17 +1,19 @@
-{ lib, colorscheme, inputs, ... }:
+{ lib, inputs, config, ... }:
 let
   u = inputs.nix-color-utils.lib;
-  args = { inherit lib inputs colorscheme; };
-in u.mapColors ((import ./colorscheme/base.nix args)
-  // (import ./colorscheme/treesitter.nix args)
-  // (import ./colorscheme/lsp-semantic-highlight.nix args)
-  // (import ./colorscheme/cmp.nix args)
-  // (import ./colorscheme/diagnostic.nix args)
-  // (import ./colorscheme/ibl.nix args)
-  // (import ./colorscheme/file-trees.nix args)
-  // (import ./colorscheme/diffmode.nix args)
-  // (import ./colorscheme/git.nix args)
-  // (import ./colorscheme/aerial.nix args)
-  // (import ./colorscheme/tabby.nix args)
-  // (import ./colorscheme/avante.nix args)
-  // (import ./colorscheme/scrollbar.nix args))
+  nu = (import ../../utils/nix-utils.nix) { inherit lib; };
+  directory = ./colorscheme;
+in {
+  imports = (nu.allFilesInDir ".nix" directory);
+  options = {
+    custom = {
+      colorscheme = with lib;
+        mkOption {
+          type = types.attrsOf types.anything;
+          default = { };
+          description = "Configure a custom colorscheme";
+        };
+    };
+  };
+  config = { highlightOverride = u.mapColors config.custom.colorscheme; };
+}
