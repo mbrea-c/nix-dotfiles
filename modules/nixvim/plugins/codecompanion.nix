@@ -26,4 +26,22 @@ in {
       };
     };
   };
+  keymaps = [
+    {
+      mode = [ "n" ];
+      key = "<leader>sg";
+      action = "<cmd>Telescope live_grep_args<CR>";
+      options = { desc = "Live grep in workspace"; };
+    }
+    {
+      mode = [ "n" ];
+      key = "<leader>sf";
+      action = "<cmd>Telescope find_files<CR>";
+      options = { desc = "Find files in workspace"; };
+    }
+  ];
+  custom.which-key.spec = [{
+    __unkeyed-1 = "<leader>s";
+    desc = "Telescope";
+  }];
 }
