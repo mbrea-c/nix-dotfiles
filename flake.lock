@@ -144,17 +144,14 @@
         "nixpkgs-lib": "nixpkgs-lib"
       },
       "locked": {
-        "lastModified": 1741204884,
-        "narHash": "sha256-Q7J0udzgHmNWtGfXnyClZIP1v4BhZKSAq1KAIEkMfxg=",
-        "owner": "mbrea-c",
-        "repo": "nix-color-utils",
-        "rev": "dbe2c518003392be129a3aa92d5fe95e20f4a368",
-        "type": "github"
+        "lastModified": 1767463489,
+        "narHash": "sha256-UwzYmpAZ5TIRJ66oiJoaCy6JUngLjXDtOBYGE5+pEhQ=",
+        "path": "/home/manuel/src/nix-color-utils",
+        "type": "path"
       },
       "original": {
-        "owner": "mbrea-c",
-        "repo": "nix-color-utils",
-        "type": "github"
+        "path": "/home/manuel/src/nix-color-utils",
+        "type": "path"
       }
     },
     "nix-colors": {
