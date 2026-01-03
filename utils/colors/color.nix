@@ -1,7 +1,9 @@
 args@{ lib, inputs, ... }:
 let util = (import ./util.nix) args;
+hsv = (import ./variants/hsv.nix) args;
 in rec {
   # Constructors
+
   makeHsv = value: {
     variant = "hsv";
     value = value;
@@ -11,8 +13,13 @@ in rec {
     value = value;
   };
 
+  # Destructors
+  extractValue = { value, ...} : value;
+
   # Other operations
+
   isDark = { palette, ... }: (ensureHsv palette.base00).value.v < 0.5;
+  hsvMix = ensureHsv |> extractValue |> hsv.mix |> makeHsv;
 
   # Conversion methods
 
