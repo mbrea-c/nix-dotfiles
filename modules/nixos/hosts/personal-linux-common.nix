@@ -1,6 +1,8 @@
 { pkgs, self, ... }:
-let nixvim = self.packages."${pkgs.stdenv.hostPlatform.system}".manuvim;
-in {
+let
+  nixvim = self.packages."${pkgs.stdenv.hostPlatform.system}".manuvim;
+in
+{
   imports = [
     # Include the results of the hardware scan.
     ../sway.nix
@@ -24,7 +26,11 @@ in {
   # ];
 
   # Flakes and nix-command
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+    "pipe-operators"
+  ];
 
   # Kernel package version
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -126,7 +132,9 @@ in {
     man-db
   ];
 
-  environment.sessionVariables = { EDITOR = "${nixvim}/bin/nvim"; };
+  environment.sessionVariables = {
+    EDITOR = "${nixvim}/bin/nvim";
+  };
 
   documentation = {
     enable = true;
@@ -159,7 +167,10 @@ in {
   networking.firewall = {
     enable = false;
     allowedTCPPorts = [ 7943 ];
-    allowedUDPPorts = [ 1337 34197 ];
+    allowedUDPPorts = [
+      1337
+      34197
+    ];
   };
 
   programs.dconf.enable = true;
