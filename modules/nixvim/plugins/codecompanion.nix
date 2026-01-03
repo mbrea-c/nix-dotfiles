@@ -13,14 +13,6 @@ in
         interactions = {
           chat = {
             adapter = quen3b-adapter;
-            icons = {
-              chat_context = "📎️";
-            };
-            fold_context = true;
-            window = {
-              layout = "vertical";
-              position = "right";
-            };
           };
           inline = {
             adapter = quen3b-adapter;
@@ -30,6 +22,17 @@ in
           };
           background = {
             adapter = quen3b-adapter;
+          };
+        };
+        display = {
+          chat = {
+            icons = {
+              chat_context = "📎️";
+            };
+            fold_context = true;
+            window = {
+              position = "right";
+            };
           };
         };
       };
