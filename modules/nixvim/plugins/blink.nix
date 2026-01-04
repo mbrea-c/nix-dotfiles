@@ -76,16 +76,17 @@
               name = "minuet";
               score_offset = 50;
               timeout_ms = 3000;
+              transform_items.__raw = ''
+                function(ctx, items)
+                  for _, item in ipairs(items) do
+                    item.kind_icon = ''
+                    item.kind_name = 'AI'
+                  end
+                  return items
+                end
+              '';
             };
           };
-          #providers = {
-          #  copilot = {
-          #    async = true;
-          #    module = "blink-cmp-copilot";
-          #    name = "copilot";
-          #    score_offset = 100;
-          #  };
-          #};
         };
         appearance = {
           kind_icons = {
