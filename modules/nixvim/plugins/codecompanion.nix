@@ -47,6 +47,14 @@ in
         desc = "Toggle chat";
       };
     }
+    {
+      mode = [ "n" ];
+      key = "<leader><leader><leader>";
+      action = "<cmd>CodeCompanionActions<CR>";
+      options = {
+        desc = "Action menu";
+      };
+    }
   ];
   custom.which-key.spec = [
     {
