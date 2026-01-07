@@ -1,6 +1,11 @@
-{ pkgs, ... }: {
-  custom.lspFormatFilter =
-    [ "kotlin_language_server" "jdtls" "ts_ls" "nil_ls" ];
+{ pkgs, ... }:
+{
+  custom.lspFormatFilter = [
+    "kotlin_language_server"
+    "jdtls"
+    "ts_ls"
+    "nil_ls"
+  ];
   plugins = {
     lsp = {
       enable = true;
@@ -27,7 +32,9 @@
         lua_ls.enable = true;
         kotlin_language_server = {
           enable = true;
-          settings = { kotlin.formatting.formatter = "none"; };
+          settings = {
+            kotlin.formatting.formatter = "none";
+          };
         };
         metals.enable = true;
         nushell.enable = true;
@@ -40,7 +47,11 @@
       enable = true;
       sources = {
         formatting = {
-          prettier = { enable = true; };
+          prettier = {
+            enable = true;
+            # I have my own mechanism for disabling this
+            disableTsServerFormatter = false;
+          };
           typstyle.enable = true;
           # sqlfluff.enable = true;
           nixfmt = {
@@ -50,12 +61,19 @@
           black.enable = true;
           ktlint = {
             enable = true;
-            settings = { timeout = 50000; };
+            settings = {
+              timeout = 50000;
+            };
           };
           shfmt.enable = true;
           mdformat = {
             enable = true;
-            settings = { extra_args = [ "--wrap" "80" ]; };
+            settings = {
+              extra_args = [
+                "--wrap"
+                "80"
+              ];
+            };
           };
           google_java_format.enable = true;
         };
@@ -69,10 +87,12 @@
     };
   };
 
-  keymaps = [{
-    action = "<cmd>lua expand_macro_rust()<CR>";
-    key = "<leader>rme";
-  }];
+  keymaps = [
+    {
+      action = "<cmd>lua expand_macro_rust()<CR>";
+      key = "<leader>rme";
+    }
+  ];
 
   extraConfigLuaPre = ''
     function expand_macro_rust()

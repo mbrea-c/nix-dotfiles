@@ -31,10 +31,14 @@ in
     "RenderMarkdownH6Bg" = headingBg { };
 
     "RenderMarkdownCode" = {
-      bg = palette.blue |> u.color.hsvDesaturate 0.35 |> u.color.hsvDarken 0.35;
+      bg = palette.blue |> u.color.hsvDesaturate 0.1 |> u.color.hsvDarken 0.65;
     };
     "RenderMarkdownCodeBorder" = {
-      bg = palette.blue |> u.color.hsvDesaturate 0.1;
+      bg = palette.blue;
+    };
+
+    "RenderMarkdownQuote" = {
+      bg = palette.blue;
     };
   };
 }
