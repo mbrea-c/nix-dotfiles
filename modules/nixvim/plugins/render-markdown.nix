@@ -13,7 +13,7 @@
           "c"
           "t"
         ];
-        anti-conceal = {
+        anti_conceal = {
           enable = false;
         };
         heading = {
@@ -25,6 +25,19 @@
             "block"
           ];
           min_width = 30;
+        };
+        code = {
+          sign = false;
+          border = "thin";
+          position = "right";
+          width = "block";
+          above = "▁";
+          below = "▔";
+          language_left = "█";
+          language_right = "█";
+          language_border = "▁";
+          left_pad = 1;
+          right_pad = 1;
         };
       };
     };
