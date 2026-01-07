@@ -17,7 +17,11 @@
           enable = false;
         };
         heading = {
-          border = true;
+          border = [
+            true
+            true
+            false
+          ];
           border_virtual = true;
           width = [
             "full"
