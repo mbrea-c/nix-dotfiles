@@ -31,6 +31,7 @@
             "block"
           ];
           min_width = 30;
+          position = "inline";
         };
         code = {
           sign = false;
