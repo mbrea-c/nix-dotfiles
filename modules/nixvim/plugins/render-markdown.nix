@@ -46,4 +46,20 @@
       };
     };
   };
+  keymaps = [
+    {
+      mode = [ "n" ];
+      key = "<leader>hm";
+      action = "<cmd>RenderMarkdown buf_toggle<CR>";
+      options = {
+        desc = "Toggle markdown rendering in current buffer";
+      };
+    }
+  ];
+  custom.which-key.spec = [
+    {
+      __unkeyed-1 = "<leader>h";
+      desc = "Highlight/rendering";
+    }
+  ];
 }

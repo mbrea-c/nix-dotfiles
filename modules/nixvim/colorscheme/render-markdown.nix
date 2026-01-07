@@ -1,30 +1,32 @@
 { palette, ... }:
+let
+  headingBg =
+    { ... }:
+    {
+      fg = palette.background;
+      bg = palette.color4;
+    };
+  heading =
+    { ... }:
+    {
+      italic = false;
+      underline = false;
+    };
+in
 {
   custom.colorscheme = {
+    "RenderMarkdownH1" = heading { };
+    "RenderMarkdownH2" = heading { };
+    "RenderMarkdownH3" = heading { };
+    "RenderMarkdownH4" = heading { };
+    "RenderMarkdownH5" = heading { };
+    "RenderMarkdownH6" = heading { };
     # The "Bg" highlights extend through the entire line. The regular highlights don't
-    "RenderMarkdownH1Bg" = {
-      fg = palette.background;
-      bg = palette.color4;
-    };
-    "RenderMarkdownH2Bg" = {
-      fg = palette.background;
-      bg = palette.color4;
-    };
-    "RenderMarkdownH3Bg" = {
-      fg = palette.background;
-      bg = palette.color4;
-    };
-    "RenderMarkdownH4Bg" = {
-      fg = palette.background;
-      bg = palette.color4;
-    };
-    "RenderMarkdownH5Bg" = {
-      fg = palette.background;
-      bg = palette.color4;
-    };
-    "RenderMarkdownH6Bg" = {
-      fg = palette.background;
-      bg = palette.color4;
-    };
+    "RenderMarkdownH1Bg" = headingBg { };
+    "RenderMarkdownH2Bg" = headingBg { };
+    "RenderMarkdownH3Bg" = headingBg { };
+    "RenderMarkdownH4Bg" = headingBg { };
+    "RenderMarkdownH5Bg" = headingBg { };
+    "RenderMarkdownH6Bg" = headingBg { };
   };
 }
