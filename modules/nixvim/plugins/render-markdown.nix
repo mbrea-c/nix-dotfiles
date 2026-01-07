@@ -10,6 +10,7 @@
         ];
         render_modes = [
           "n"
+          "no"
           "c"
           "t"
         ];

@@ -1,5 +1,6 @@
-{ palette, ... }:
+{ inputs, palette, ... }:
 let
+  u = inputs.nix-color-utils.lib;
   headingBg =
     { ... }:
     {
@@ -28,5 +29,12 @@ in
     "RenderMarkdownH4Bg" = headingBg { };
     "RenderMarkdownH5Bg" = headingBg { };
     "RenderMarkdownH6Bg" = headingBg { };
+
+    "RenderMarkdownCode" = {
+      bg = palette.blue |> u.color.hsvDesaturate 0.35 |> u.color.hsvDarken 0.35;
+    };
+    "RenderMarkdownCodeBorder" = {
+      bg = palette.blue |> u.color.hsvDesaturate 0.1;
+    };
   };
 }
