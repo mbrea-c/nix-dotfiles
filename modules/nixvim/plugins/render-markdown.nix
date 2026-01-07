@@ -14,7 +14,7 @@
           "t"
         ];
         anti_conceal = {
-          enable = false;
+          enabled = false;
         };
         heading = {
           border = [
