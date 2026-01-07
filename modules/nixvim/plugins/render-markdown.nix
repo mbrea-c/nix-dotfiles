@@ -8,6 +8,14 @@
           "Avante"
           "codecompanion"
         ];
+        render_modes = [
+          "n"
+          "c"
+          "t"
+        ];
+        anti-conceal = {
+          enable = false;
+        };
         heading = {
           border = true;
           border_virtual = true;
