@@ -21,7 +21,7 @@ fn main() {
 1. Ordered list
 
 - [ ] Checklist
-- [ ] Checklist
-- [ ] Checklist
+- [-] Checklist
+- [x] Checklist
 
 #### Heading 4

@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   plugins = {
     render-markdown = {
@@ -69,5 +69,8 @@
       __unkeyed-1 = "<leader>h";
       desc = "Highlight/rendering";
     }
+  ];
+  extraPackages = [
+    pkgs.python313Packages.pylatexenc
   ];
 }
