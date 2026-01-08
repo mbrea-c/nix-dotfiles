@@ -22,6 +22,7 @@
         taplo.enable = true;
         bashls.enable = true;
         jsonls.enable = true;
+        qmlls.enable = true;
         # basedpyright.enable = true;
         ty.enable = true;
         marksman.enable = true;

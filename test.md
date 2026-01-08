@@ -25,3 +25,5 @@ fn main() {
 - [x] Checklist
 
 #### Heading 4
+
+$\frac{(x + 2)}{y} = z$
