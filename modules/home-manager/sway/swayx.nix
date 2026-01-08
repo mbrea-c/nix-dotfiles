@@ -1,36 +1,44 @@
-{ lib, config, pkgs, inputs, colorscheme, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  inputs,
+  colorscheme,
+  ...
+}:
 let
   cfg = config.swayx;
   outputMaker = import ../../../utils/swayoutputmaker.nix;
-  make-srv = { desc, exec, ... }: {
-    Unit = {
-      Description = desc;
-      BindsTo = [ "sway-session.target" ];
-      After = [ "sway-session.target" ];
+  systemd-utils = (import ../../utils/systemd.nix) { };
+  make-srv =
+    { desc, exec, ... }:
+    systemd-utils.make-session-service {
+      target = "sway-session.target";
+      inherit desc exec;
     };
-    Install = { WantedBy = [ "sway-session.target" ]; };
-    Service = {
-      Type = "simple";
-      ExecStart = exec;
-    };
-  };
-in {
+in
+{
+  imports = [
+    ../quickshell.nix
+  ];
 
   options = with lib; {
     swayx = {
       enable = lib.mkEnableOption "Enable Module";
       settings = mkOption {
         type = with types; attrsOf anything;
-        description =
-          "Configuration that will be used to generate the sway config file";
+        description = "Configuration that will be used to generate the sway config file";
         default = {
-          inherit (outputMaker {
-            primary = "eDP-2";
-            secondary = "Dell Inc. DELL S2721DGF GV1KT83";
-            primaryScale = "1.5";
-            secondaryScale = "1.0";
-          })
-            outputs workspaces;
+          inherit
+            (outputMaker {
+              primary = "eDP-2";
+              secondary = "Dell Inc. DELL S2721DGF GV1KT83";
+              primaryScale = "1.5";
+              secondaryScale = "1.0";
+            })
+            outputs
+            workspaces
+            ;
           dwt = true;
         };
       };
@@ -66,8 +74,7 @@ in {
       };
       polkit-gnome-authentication-agent-1 = make-srv {
         desc = "Polkit GNOME authentication agent";
-        exec =
-          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       };
     };
 
@@ -84,38 +91,40 @@ in {
         recursive = true;
       };
       "waybar/colors.css" = {
-        text = let
-          u = inputs.nix-color-utils.lib;
-          colors = u.fromBase16 colorscheme;
-          # css
-        in ''
-          @define-color foreground #${colors.foreground};
-          @define-color background #${colors.background};
+        text =
+          let
+            u = inputs.nix-color-utils.lib;
+            colors = u.fromBase16 colorscheme;
+            # css
+          in
+          ''
+            @define-color foreground #${colors.foreground};
+            @define-color background #${colors.background};
 
-          @define-color color0  #${colors.color0};
-          @define-color color1  #${colors.color1};
-          @define-color color2  #${colors.color2};
-          @define-color color3  #${colors.color3};
-          @define-color color4  #${colors.color4};
-          @define-color color5  #${colors.color5};
-          @define-color color6  #${colors.color6};
-          @define-color color7  #${colors.color7};
-          @define-color color8  #${colors.color8};
-          @define-color color9  #${colors.color9};
-          @define-color color10 #${colors.color10};
-          @define-color color11 #${colors.color11};
-          @define-color color12 #${colors.color12};
-          @define-color color13 #${colors.color13};
-          @define-color color14 #${colors.color14};
-          @define-color color15 #${colors.color15};
+            @define-color color0  #${colors.color0};
+            @define-color color1  #${colors.color1};
+            @define-color color2  #${colors.color2};
+            @define-color color3  #${colors.color3};
+            @define-color color4  #${colors.color4};
+            @define-color color5  #${colors.color5};
+            @define-color color6  #${colors.color6};
+            @define-color color7  #${colors.color7};
+            @define-color color8  #${colors.color8};
+            @define-color color9  #${colors.color9};
+            @define-color color10 #${colors.color10};
+            @define-color color11 #${colors.color11};
+            @define-color color12 #${colors.color12};
+            @define-color color13 #${colors.color13};
+            @define-color color14 #${colors.color14};
+            @define-color color15 #${colors.color15};
 
-          @define-color red #${colors.red};
-          @define-color green #${colors.green};
-          @define-color yellow #${colors.yellow};
-          @define-color blue #${colors.blue};
-          @define-color magenta #${colors.magenta};
-          @define-color cyan #${colors.cyan};
-        '';
+            @define-color red #${colors.red};
+            @define-color green #${colors.green};
+            @define-color yellow #${colors.yellow};
+            @define-color blue #${colors.blue};
+            @define-color magenta #${colors.magenta};
+            @define-color cyan #${colors.cyan};
+          '';
       };
       "gammastep" = {
         source = ../../../dotfiles/gammastep;
