@@ -11,7 +11,7 @@ in
   };
 
   systemd.user.services = {
-    mako-srv = systemd-utils.make-session-service {
+    quickshell = systemd-utils.make-session-service {
       target = "sway-session.target";
       desc = "Quickshell";
       exec = "${pkgs.quickshell}/bin/quickshell";
