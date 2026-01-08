@@ -53,6 +53,7 @@
             disableTsServerFormatter = false;
           };
           typstyle.enable = true;
+          sqlfmt.enable = true;
           # sqlfluff.enable = true;
           nixfmt = {
             enable = true;
