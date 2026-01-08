@@ -53,7 +53,11 @@
             disableTsServerFormatter = false;
           };
           typstyle.enable = true;
-          sqlfmt.enable = true;
+          sql_formatter = {
+            enable = true;
+            package = pkgs.sql-formatter;
+          };
+          # sqlfmt.enable = true;
           # sqlfluff.enable = true;
           nixfmt = {
             enable = true;
