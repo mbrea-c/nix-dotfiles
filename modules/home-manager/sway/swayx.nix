@@ -9,7 +9,7 @@
 let
   cfg = config.swayx;
   outputMaker = import ../../../utils/swayoutputmaker.nix;
-  systemd-utils = (import ../../utils/systemd.nix) { };
+  systemd-utils = (import ../../../utils/systemd.nix) { };
   make-srv =
     { desc, exec, ... }:
     systemd-utils.make-session-service {

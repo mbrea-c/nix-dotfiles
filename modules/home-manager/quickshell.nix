@@ -5,7 +5,7 @@ in
 {
   xdg.configFile = {
     "quickshell" = {
-      source = ../../../dotfiles/quickshell;
+      source = ../../dotfiles/quickshell;
       recursive = true;
     };
   };
