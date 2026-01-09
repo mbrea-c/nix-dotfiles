@@ -22,6 +22,20 @@ in
           };
           background = {
             adapter = quen3b-adapter;
+            chat = {
+              callbacks = {
+                on_ready = {
+                  actions = [
+                    "interactions.background.builtin.chat_make_title"
+                  ];
+                  enabled = true;
+                };
+              };
+              opts = {
+                enabled = true;
+              };
+            };
+
           };
         };
         display = {
