@@ -43,8 +43,8 @@
           language_left = "█";
           language_right = "█";
           language_border = "▁";
-          left_pad = 1;
-          right_pad = 1;
+          left_pad = 0;
+          right_pad = 0;
         };
         overrides = {
           buftype = {
