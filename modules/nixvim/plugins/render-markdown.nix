@@ -34,7 +34,7 @@
           icons.__raw = ''
             function(context)
               local indices = table.concat(context.sections, ".")
-              return "󰫎 " .. indices .. " - "
+              return "󰫎 " .. indices .. ". "
             end
           '';
           min_width = 30;
