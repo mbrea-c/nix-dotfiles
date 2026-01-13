@@ -14,7 +14,7 @@ let
     { ... }:
     {
       italic = false;
-      underline = true;
+      underline = false;
       bold = true;
     };
 in
