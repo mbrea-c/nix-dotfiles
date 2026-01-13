@@ -4,7 +4,7 @@ let
   headingBg =
     { ... }:
     {
-      fg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvBrighten 0.1;
+      fg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvLighten 0.1;
       bold = true;
       italic = false;
       underline = true;
