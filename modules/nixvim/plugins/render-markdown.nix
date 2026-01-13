@@ -16,11 +16,12 @@
           "t"
         ];
         anti_conceal = {
-          enabled = false;
+          enabled = true;
+          above = 0;
+          below = 0;
         };
         heading = {
           border = [
-            true
             true
             false
           ];
@@ -30,6 +31,12 @@
             "full"
             "block"
           ];
+          icons.__raw = ''
+            function(context)
+              print(vim.inspect(context))
+              return "󰫎 "
+            end
+          '';
           min_width = 30;
           position = "inline";
         };
