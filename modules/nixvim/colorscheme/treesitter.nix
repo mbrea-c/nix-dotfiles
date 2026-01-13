@@ -225,6 +225,9 @@ in
     "@markup.raw.block" = {
       fg = saturate 0.2 palette.blue;
     };
+    "@markup.quote" = {
+      fg = palette.blue;
+    };
     "@character.special" = {
       fg = palette.color5;
     };

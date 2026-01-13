@@ -16,7 +16,7 @@ let
       underline = false;
       bold = true;
       fg = palette.background;
-      bg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvBrighten 0.1;
+      bg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvLighten 0.1;
     };
 in
 {
@@ -42,7 +42,6 @@ in
     "RenderMarkdownCodeBorder" = {
       bg = palette.blue;
     };
-
     "RenderMarkdownQuote" = {
       bg = palette.blue;
     };
