@@ -33,12 +33,13 @@
           ];
           icons.__raw = ''
             function(context)
-              print(vim.inspect(context))
-              return "󰫎 "
+              local indices = table.concat(context.sections, ".")
+              return "󰫎 " .. indices .. " - "
             end
           '';
           min_width = 30;
           position = "inline";
+          sign = false;
         };
         code = {
           sign = false;
