@@ -12,6 +12,8 @@ let
     {
       italic = false;
       underline = false;
+      fg = palette.green;
+      bg = palette.red;
     };
 in
 {
