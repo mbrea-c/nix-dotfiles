@@ -4,20 +4,24 @@ let
   headingBg =
     { ... }:
     {
-      fg = palette.background;
-      bg = palette.color4;
+      fg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvBrighten 0.1;
+      bold = true;
+      italic = false;
+      underline = true;
     };
   heading =
     { ... }:
     {
       italic = false;
       underline = false;
-      fg = palette.green;
-      bg = palette.red;
+      bold = true;
+      fg = palette.background;
+      bg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvBrighten 0.1;
     };
 in
 {
   custom.colorscheme = {
+    # These apply only to the icon
     "RenderMarkdownH1" = heading { };
     "RenderMarkdownH2" = heading { };
     "RenderMarkdownH3" = heading { };
