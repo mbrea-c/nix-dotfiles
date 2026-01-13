@@ -16,7 +16,7 @@
           "t"
         ];
         anti_conceal = {
-          enabled = true;
+          enabled = false;
           above = 0;
           below = 0;
         };
