@@ -84,6 +84,7 @@ in
       d-spy
       zotero
       neovide
+      teamtype
       transmission_4-gtk
 
       # xfce.thunar

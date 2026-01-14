@@ -1,0 +1,8 @@
+{ ... }:
+{
+  plugins = {
+    teamtype = {
+      enable = true;
+    };
+  };
+}
