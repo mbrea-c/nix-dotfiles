@@ -122,17 +122,16 @@ in
     "CursorColumn" = {
       bg = palette.background;
     };
-    #"ColorColumn" = { bg = colors.background; }; what is this?
+
+    # Floats
     "FloatBorder" = {
-      fg = darken 0.25 palette.blue;
-      # bg = darken 0.15 colors.background;
-      bg = matchValue (palette.background) palette.blue;
-      blend = 12;
+      fg = lighten 0.15 palette.color8;
+      bg = darken 0.10 palette.background;
+      blend = 10;
     };
     "NormalFloat" = {
-      # bg = darken 0.15 colors.background;
-      bg = matchValue (palette.background) palette.blue;
-      blend = 12;
+      bg = darken 0.10 palette.background;
+      blend = 10;
     };
 
     "WinSeparator" = {
