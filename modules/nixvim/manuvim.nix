@@ -10,6 +10,7 @@ in
 {
   imports = [
     ./plugins.nix
+    ./plugin-modules.nix
     ./keymap.nix
     ./opts.nix
     ./packages.nix

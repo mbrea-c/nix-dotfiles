@@ -1,12 +1,16 @@
 { ... }:
-let lua = str: { __raw = str; };
-in {
+let
+  lua = str: { __raw = str; };
+in
+{
   plugins = {
     mini = {
       enable = true;
       mockDevIcons = true;
       modules = {
-        icons = { style = "glyph"; };
+        icons = {
+          style = "glyph";
+        };
         map = {
           integrations = [
             (lua "require('mini.map').gen_integration.builtin_search()")
@@ -19,7 +23,8 @@ in {
                   info  = 'DiagnosticMiniInfo',
                   hint  = 'DiagnosticMiniHint',
                 })
-              '')
+              ''
+            )
           ];
           symbols = {
             scroll_view = "┊";
@@ -29,10 +34,12 @@ in {
       };
     };
   };
-  keymaps = [{
-    action = lua "MiniMap.toggle";
-    key = "<leader>m";
-  }];
+  keymaps = [
+    {
+      action = lua "MiniMap.toggle";
+      key = "<leader>m";
+    }
+  ];
   # TODO: add aucmd group
   autoCmd = [
     {
