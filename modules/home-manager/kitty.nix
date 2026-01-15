@@ -15,6 +15,7 @@ in
       text = ''
         font_family monospace
         confirm_os_window_close 2
+        placement_strategy top-left
 
         # Mappings
         clear_all_shortcuts yes
