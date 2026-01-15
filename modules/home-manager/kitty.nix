@@ -14,6 +14,7 @@ in
     "kitty/kitty.conf" = {
       text = ''
         font_family monospace
+        confirm_os_window_close 2
 
         # Mappings
         clear_all_shortcuts yes
@@ -21,6 +22,9 @@ in
         # Colors
         cursor ${cu.hexstring palette.foreground}
         cursor_text_color background
+
+        foreground ${cu.hexstring palette.foreground}
+        background ${cu.hexstring palette.background}
 
         color0 ${cu.hexstring palette.color0}
         color1 ${cu.hexstring palette.color1}
