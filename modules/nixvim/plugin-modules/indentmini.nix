@@ -14,4 +14,5 @@ lib.nixvim.plugins.mkNeovimPlugin {
       };
     })
   ];
+  package = null;
 }
