@@ -24,9 +24,12 @@ in
         with lib;
         mkOption {
           type = types.either types.str (types.listOf types.str);
-          default = "rounded";
+          default = "double";
+          # Other options:
+          # █▔▔▔▔▔▔▔▔▔▔▔▔█
+          # ▏  Testing   ▕
+          # █▁▁▁▁▁▁▁▁▁▁▁▁█
 
-          # To look like this:
           # 🬕🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬨
           # ▌  Testing   ▐
           # 🬲🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬷
