@@ -28,6 +28,9 @@
             scroll_view = "┃";
             encode.__raw = "require('mini.map').gen_encode_symbols.block('3x2')";
           };
+          window = {
+            show_integration_count = false;
+          };
         };
       };
     };
