@@ -11,7 +11,7 @@ lib.nixvim.plugins.mkNeovimPlugin {
         owner = "nvimdev";
         repo = "indentmini.nvim";
         rev = "38572ce5a7a064a5deb89d6d861b7c40fc929ab1";
-        hash = "sha256-bL33/S+caNmEYGcMLNCanFZyEYUOUmSsedCVBn4tV3g=";
+        hash = "sha256-XcoBNrvFMmEMcgrknDg/HnxRNssom6vLeOKiu1qJKBo=";
       };
     };
   };
