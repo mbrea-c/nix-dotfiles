@@ -1,46 +1,73 @@
-{ outputs, workspaces, dwt ? true, exec ? [ ], bar ? {
-  swaybarCommand = "waybar";
-  position = "top";
-}, term ? "alacritty", bg ? [{
-  output = "*";
-  path = "/home/manuel/Pictures/wallpapers/montana.jpg";
-  mode = "fill";
-}], ... }:
+{
+  outputs,
+  workspaces,
+  dwt ? true,
+  exec ? [ ],
+  bar ? {
+    swaybarCommand = "waybar";
+    position = "top";
+  },
+  term ? "kitty",
+  bg ? [
+    {
+      output = "*";
+      path = "/home/manuel/Pictures/wallpapers/montana.jpg";
+      mode = "fill";
+    }
+  ],
+  ...
+}:
 let
-  outputsConfig = outputs: # swayconfig
-    builtins.foldl' (acc:
-      { name, scale, resolution ? "", }:
-      acc + "\n" + "output '${name}' ${
-        if builtins.stringLength resolution > 0 then
-          "resolution ${resolution}"
-        else
-          ""
-      } scale ${scale}") "" outputs;
-  workspaceConfig = workspaces:
-    builtins.foldl' (acc:
+  outputsConfig =
+    outputs: # swayconfig
+    builtins.foldl' (
+      acc:
+      {
+        name,
+        scale,
+        resolution ? "",
+      }:
+      acc
+      + "\n"
+      + "output '${name}' ${
+        if builtins.stringLength resolution > 0 then "resolution ${resolution}" else ""
+      } scale ${scale}"
+    ) "" outputs;
+  workspaceConfig =
+    workspaces:
+    builtins.foldl' (
+      acc:
       { name, outputList }:
-      acc + "\n" + "workspace ${name} output ${
-        builtins.foldl' (acc: outputName: acc + " " + "'${outputName}'") ""
-        outputList
-      }") "" workspaces;
-  execConfig = exec:
-    builtins.foldl' (acc: stmt: acc + "\n" + "exec ${stmt}") "" exec;
+      acc
+      + "\n"
+      + "workspace ${name} output ${
+        builtins.foldl' (acc: outputName: acc + " " + "'${outputName}'") "" outputList
+      }"
+    ) "" workspaces;
+  execConfig = exec: builtins.foldl' (acc: stmt: acc + "\n" + "exec ${stmt}") "" exec;
   # swayconfig
-  outputBgConfig = { output, path, mode, }: ''
-    output ${output} {
-      bg ${path} ${mode}
-    }
-  '';
-  bgConfig = bg:
-    builtins.foldl' (acc: bgConfig: acc + "\n" + (outputBgConfig bgConfig)) ""
-    bg;
-  barConfig = { swaybarCommand, position }: ''
-    bar {
-      swaybar_command ${swaybarCommand}
-      position ${position}
-    }
-  '';
-in ''
+  outputBgConfig =
+    {
+      output,
+      path,
+      mode,
+    }:
+    ''
+      output ${output} {
+        bg ${path} ${mode}
+      }
+    '';
+  bgConfig = bg: builtins.foldl' (acc: bgConfig: acc + "\n" + (outputBgConfig bgConfig)) "" bg;
+  barConfig =
+    { swaybarCommand, position }:
+    ''
+      bar {
+        swaybar_command ${swaybarCommand}
+        position ${position}
+      }
+    '';
+in
+''
   # -------------------------------------------------------
   # --- BASE CONFIG
   # -------------------------------------------------------
