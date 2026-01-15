@@ -19,6 +19,8 @@ in
 
         # Mappings
         clear_all_shortcuts yes
+        map ctrl+shift+v paste_from_clipboard
+        map cmd+V paste_from_clipboard
 
         # Colors
         cursor ${cu.hexstring palette.foreground}

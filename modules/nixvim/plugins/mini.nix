@@ -25,8 +25,8 @@
             }
           ];
           symbols = {
-            scroll_view = "┊";
-            encode.__raw = "require('mini.map').gen_encode_symbols.dot('4x2')";
+            scroll_view = "┃";
+            encode.__raw = "require('mini.map').gen_encode_symbols.block('3x2')";
           };
         };
       };
