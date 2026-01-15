@@ -3,8 +3,9 @@ lib.nixvim.plugins.mkNeovimPlugin {
   name = "indentmini";
   url = "https://github.com/nvimdev/indentmini.nvim";
   maintainers = [ "mbrea-c" ];
-  extraPackages = [
-    (pkgs.vimUtils.buildVimPlugin {
+  package = lib.mkOption {
+    type = lib.types.package;
+    default = pkgs.vimUtils.buildVimPlugin {
       name = "indentmini";
       src = pkgs.fetchFromGitHub {
         owner = "nvimdev";
@@ -12,7 +13,6 @@ lib.nixvim.plugins.mkNeovimPlugin {
         rev = "38572ce5a7a064a5deb89d6d861b7c40fc929ab1";
         hash = "sha256-bL33/S+caNmEYGcMLNCanFZyEYUOUmSsedCVBn4tV3g=";
       };
-    })
-  ];
-  package = null;
+    };
+  };
 }
