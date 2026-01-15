@@ -24,23 +24,23 @@ in
         with lib;
         mkOption {
           type = types.either types.str (types.listOf types.str);
-          # default = "rounded";
+          default = "rounded";
 
           # To look like this:
           # 🬕🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬂🬨
           # ▌  Testing   ▐
           # 🬲🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬭🬷
           #      vvv
-          default = [
-            "🬕"
-            "🬂"
-            "🬨"
-            "▐"
-            "🬷"
-            "🬭"
-            "🬲"
-            "▌"
-          ];
+          # default = [
+          #   "🬕"
+          #   "🬂"
+          #   "🬨"
+          #   "▐"
+          #   "🬷"
+          #   "🬭"
+          #   "🬲"
+          #   "▌"
+          # ];
           description = "Border used for nvim_open_win throughout my config (for consistency)";
         };
       lspFormatFilter =
