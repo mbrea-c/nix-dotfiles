@@ -9,7 +9,7 @@ let
 in
 {
   custom.colorscheme = {
-    "MiniMapNormal" = config.custom.colorscheme.NormalFloat // {
+    MiniMapNormal = {
       fg = cu.hsvDarken 0.25 palette.foreground;
     };
   };
