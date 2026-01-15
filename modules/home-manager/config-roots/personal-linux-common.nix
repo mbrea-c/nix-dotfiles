@@ -35,6 +35,7 @@ in
     ../virtual-machines.nix
     ../my-firefox.nix
     ../ghostty.nix
+    ../kitty.nix
     ../qt.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
