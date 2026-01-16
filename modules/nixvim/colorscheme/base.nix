@@ -3,7 +3,6 @@ let
   u = inputs.nix-color-utils.lib;
   lighten = u.color.hsvLighten;
   darken = u.color.hsvDarken;
-  matchValue = u.color.hsvMatchValue;
 in
 {
   custom.colorscheme = {
