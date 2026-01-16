@@ -45,7 +45,7 @@
           sign = false;
           border = "thin";
           position = "right";
-          width = "block";
+          width = "full";
           above = "▁";
           below = "▔";
           language_left = "█";
