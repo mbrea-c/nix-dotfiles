@@ -44,7 +44,7 @@
         code = {
           sign = false;
           border = "thin";
-          position = "right";
+          position = "left";
           width = "full";
           above = "▁";
           below = "▔";
