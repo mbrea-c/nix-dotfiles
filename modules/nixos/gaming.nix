@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   hardware.graphics.enable32Bit = true;
 
   programs.gamescope = {
@@ -13,11 +14,16 @@
   environment.systemPackages = [
     (pkgs.lutris.override {
       extraLibraries = pkgs: [ ];
-      extraPkgs = pkgs: [ pkgs.gamescope pkgs.mangohud ];
+      extraPkgs = pkgs: [
+        pkgs.gamescope
+        pkgs.mangohud
+      ];
     })
     (pkgs.heroic.override {
-      extraPkgs = pkgs: [ pkgs.gamescope pkgs.mangohud ];
+      extraPkgs = pkgs: [
+        pkgs.gamescope
+        pkgs.mangohud
+      ];
     })
-    pkgs.nexusmods-app
   ];
 }
