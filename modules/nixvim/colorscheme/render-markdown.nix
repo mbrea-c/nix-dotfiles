@@ -5,7 +5,7 @@ let
     { ... }:
     {
       fg = palette.background;
-      bg = palette.color4 |> u.color.hsvSaturate 0.1 |> u.color.hsvLighten 0.1;
+      bg = palette.color3;
       bold = true;
       italic = false;
       underline = false;

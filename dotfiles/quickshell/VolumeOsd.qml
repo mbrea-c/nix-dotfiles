@@ -3,6 +3,7 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Services.Pipewire
 import Quickshell.Widgets
+import Quickshell.Wayland
 
 Scope {
     id: root
@@ -38,6 +39,7 @@ Scope {
         PanelWindow {
             // Since the panel's screen is unset, it will be picked by the compositor
             // when the window is created. Most compositors pick the current active monitor.
+            WlrLayershell.layer: WlrLayer.Overlay
 
             anchors.bottom: true
             margins.bottom: screen.height / 5

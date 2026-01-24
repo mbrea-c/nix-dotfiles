@@ -3,6 +3,7 @@ pragma ComponentBehavior: Bound
 import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
+import qs.components
 
 RowLayout {
     id: root
@@ -14,7 +15,7 @@ RowLayout {
         charging: UPower.displayDevice.state == UPowerDeviceState.Charging || UPower.displayDevice.state == UPowerDeviceState.FullyCharged
     }
 
-    Text {
+    StyledText {
         text: `${100 * UPower.displayDevice.percentage}%`
     }
 }

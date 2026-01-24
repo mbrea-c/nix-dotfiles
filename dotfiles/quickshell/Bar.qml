@@ -3,33 +3,43 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import "BarWidgets" as Widgets
+import qs.services
 
 Scope {
     id: root
 
+    required property ShellScreen screen
+
     property var spacing: 8
+    property var leftMargin: 8
+    property var rightMargin: 8
+
     property list<Component> leftWidgets: []
     property list<Component> centerWidgets: []
     property list<Component> rightWidgets: []
 
-    Variants {
-        model: Quickshell.screens
+    readonly property alias panelWindow: barPanel
 
-        PanelWindow {
-            required property var modelData
-            screen: modelData
+    PanelWindow {
+        id: barPanel
+        screen: root.screen
 
-            anchors {
-                top: true
-                left: true
-                right: true
-            }
+        anchors {
+            top: true
+            left: true
+            right: true
+        }
 
-            implicitHeight: 30
+        implicitHeight: 30
+
+        Rectangle {
+            anchors.fill: parent
+            color: Colours.palette.m3surface
 
             RowLayout {
                 anchors.fill: parent
+                anchors.leftMargin: root.leftMargin
+                anchors.rightMargin: root.rightMargin
                 spacing: root.spacing
 
                 // Left
@@ -53,7 +63,7 @@ Scope {
 
                 // Right
                 RowLayout {
-                    spacing: 8
+                    spacing: root.spacing
                     Layout.alignment: Qt.AlignRight
                     Layout.preferredWidth: implicitWidth
 

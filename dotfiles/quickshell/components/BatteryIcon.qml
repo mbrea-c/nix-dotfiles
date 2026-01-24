@@ -1,11 +1,12 @@
 import QtQuick
+import qs.services
 
 Item {
     id: battery
     property real level: 1.0         // 0.0 to 1.0
     property bool charging: false
-    property color primaryColor: "black"
-    property color fillColor: "lime"
+    property color primaryColor: Colours.palette.m3onSurface
+    property color fillColor: "green"
     property color emptyColor: "transparent"
     readonly property int terminalDepth: 4
     readonly property int borderWidth: 2
@@ -17,7 +18,7 @@ Item {
         anchors.top: battery.top
         anchors.bottom: battery.bottom
         width: battery.width - battery.terminalDepth
-        color: "transparent"
+        color: battery.emptyColor
         border.color: battery.primaryColor
         border.width: battery.borderWidth
         radius: 3
