@@ -43,7 +43,7 @@
         };
         code = {
           sign = false;
-          border = "thick";
+          border = "thin";
           position = "left";
           width = "full";
           above = "▁";
