@@ -4,7 +4,7 @@
   dwt ? true,
   exec ? [ ],
   bar ? {
-    swaybarCommand = "waybar";
+    swaybarCommand = "false";
     position = "top";
   },
   term ? "kitty",
