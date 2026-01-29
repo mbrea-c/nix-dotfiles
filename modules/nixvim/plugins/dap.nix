@@ -12,6 +12,19 @@ let
     stopOnEntry = false;
   };
 
+  lldb-config-animedit = {
+    name = "Debug bevy animation graph editor (LLDB)";
+    type = "lldb";
+    request = "launch";
+    program = "target/debug/bevy_animation_graph_editor";
+    cwd = "\${workspaceFolder}";
+    stopOnEntry = false;
+    args = [
+      "--asset-source"
+      "assets"
+    ];
+  };
+
   codelldb-config = {
     name = "Launch (CodeLLDB)";
     type = "codelldb";
@@ -43,7 +56,8 @@ let
     env = { };
     terminalKind = "integrated";
   };
-in {
+in
+{
   extraPackages = [
     # pkgs.bashdb
   ];
@@ -53,15 +67,19 @@ in {
       adapters = {
         executables = {
           # bashdb = { command = lib.getExe pkgs.bashdb; };
-          lldb = { command = lib.getExe' pkgs.lldb "lldb-dap"; };
+          lldb = {
+            command = lib.getExe' pkgs.lldb "lldb-dap";
+          };
         };
         servers = {
           codelldb = lib.mkIf pkgs.stdenv.isLinux {
             port = 13000;
             executable = {
-              command =
-                "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
-              args = [ "--port" "13000" ];
+              command = "${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb";
+              args = [
+                "--port"
+                "13000"
+              ];
             };
           };
         };
@@ -70,7 +88,11 @@ in {
         sh = [
           # sh-config
         ];
-        rust = [ lldb-config codelldb-config ];
+        rust = [
+          lldb-config
+          codelldb-config
+          lldb-config-animedit
+        ];
 
         # kotlin = [{
         #   type = "kotlin";
@@ -91,8 +113,12 @@ in {
         # }];
       };
     };
-    dap-ui = { enable = true; };
-    dap-virtual-text = { enable = true; };
+    dap-ui = {
+      enable = true;
+    };
+    dap-virtual-text = {
+      enable = true;
+    };
   };
   keymaps = [
     {
