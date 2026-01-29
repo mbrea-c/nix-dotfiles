@@ -63,7 +63,7 @@
         };
         sources = {
           default = [
-            "minuet"
+            # "minuet"
             "lsp"
             "path"
             "snippets"
