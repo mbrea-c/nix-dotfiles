@@ -13,6 +13,7 @@
             "encoding"
             "fileformat"
             "filetype"
+            "buftype"
           ];
           lualine_y = [ "progress" ];
           lualine_z = [ "location" ];
