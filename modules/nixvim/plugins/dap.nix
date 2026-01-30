@@ -113,13 +113,21 @@ in
         # }];
       };
     };
-    dap-ui = {
+    dap-view = {
       enable = true;
+      settings = {
+        winbar = {
+          controls = {
+            enable = true;
+          };
+        };
+      };
     };
     dap-virtual-text = {
       enable = true;
     };
   };
+
   keymaps = [
     {
       mode = "n";
@@ -148,10 +156,13 @@ in
       };
     }
     {
-      mode = "v";
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>de";
       action.__raw = ''
-        function() require("dapui").eval() end
+        function() require("dap-view").add_expr() end
       '';
       options = {
         desc = "Evaluate Input";
@@ -160,11 +171,11 @@ in
     }
     {
       mode = "n";
-      key = "<leader>de";
+      key = "<leader>dE";
       action.__raw = ''
         function()
           vim.ui.input({ prompt = "Expression: " }, function(expr)
-            if expr then require("dapui").eval(expr, { enter = true }) end
+            if expr then require("dap-view").add_expr(expr) end
           end)
         end
       '';
@@ -240,7 +251,7 @@ in
       action.__raw = ''
         function()
           require('dap.ext.vscode').load_launchjs(nil, {})
-          require("dapui").toggle()
+          require("dap-view").toggle()
         end
       '';
       options = {
