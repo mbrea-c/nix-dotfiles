@@ -118,7 +118,7 @@ in
       settings = {
         winbar = {
           controls = {
-            enable = true;
+            enabled = true;
           };
         };
       };
