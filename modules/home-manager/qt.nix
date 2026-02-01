@@ -1,13 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  home.packages = with pkgs; [
-    kdePackages.qt6ct
-    kdePackages.breeze
-    kdePackages.breeze-icons
-  ];
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+  };
 
   systemd.user.sessionVariables = {
     QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 }
