@@ -91,5 +91,9 @@ Scope {
                 }
             }
         }
+
+        // Popouts {
+        //     anchor.window: barPanel
+        // }
     }
 }
