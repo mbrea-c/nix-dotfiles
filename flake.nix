@@ -71,7 +71,7 @@
             system
             pkgs
             ;
-          host = [ (import ./modules/nixos/hosts/nixframe.nix) ];
+          host = [ (import ./modules/nixos/nixframe/root.nix) ];
           home = [ (import ./modules/home-manager/config-roots/nixframe.nix) ];
         };
         nixosConfigurations.minikit = makeSystem {
@@ -80,8 +80,16 @@
             system
             pkgs
             ;
-          host = [ (import ./modules/nixos/hosts/minikit.nix) ];
+          host = [ (import ./modules/nixos/minikit/root.nix) ];
           home = [ (import ./modules/home-manager/config-roots/minikit.nix) ];
+        };
+        nixosConfigurations.gitslayer = makeSystem {
+          inherit
+            inputs
+            system
+            pkgs
+            ;
+          host = [ (import ./modules/nixos/gitslayer/root.nix) ];
         };
       }
     )
@@ -125,7 +133,6 @@
         };
 
         nixosModules = {
-          pivot = import ./modules/nixos/hosts/pivot.nix;
         };
         homeManagerModules = {
           zsh = import ./modules/home-manager/zsh.nix;

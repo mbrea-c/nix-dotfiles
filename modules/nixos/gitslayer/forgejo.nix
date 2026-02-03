@@ -2,7 +2,8 @@
 let
   cfg = config.services.forgejo;
   srv = cfg.settings.server;
-in {
+in
+{
   services.nginx = {
     virtualHosts."_default_" = {
       forceSSL = false;
@@ -21,14 +22,14 @@ in {
     lfs.enable = true;
     settings = {
       DEFAULT = {
-        APP_NAME = "Brihme Pivot";
-        APP_SLOGAN = "Testing the waters...";
+        APP_NAME = "GitSlayer";
+        APP_SLOGAN = "mpv rip_and_tear.mp3";
       };
       server = {
         DOMAIN = "localhost";
         PROTOCOL = "http";
         # You need to specify this to remove the port from URLs in the web UI.
-        # ROOT_URL = "https://${srv.DOMAIN}/";
+        ROOT_URL = "https://${config.gitslayer.staticIpv4}/";
         HTTP_PORT = 3000;
       };
       # You can temporarily allow registration to create an admin user.
@@ -40,7 +41,7 @@ in {
       };
       # Sending emails is completely optional
       # You can send a test email from the web UI at:
-      # Profile Picture > Site Administration > Configuration >  Mailer Configuration 
+      # Profile Picture > Site Administration > Configuration >  Mailer Configuration
       mailer = {
         ENABLED = false;
         SMTP_ADDR = "mail.example.com";

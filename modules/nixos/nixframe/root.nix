@@ -6,8 +6,8 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ../hardware/nixframe.nix
-    ./personal-linux-common.nix
+    ./hardware.nix
+    ../shared/personal-linux-common.nix
   ];
 
   networking.hostName = "nixframe"; # Define your hostname.

@@ -2,14 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ ... }: {
-  imports = [ # Include the results of the hardware scan.
-    ../hardware/minikit.nix
-    ./personal-linux-common.nix
+{ ... }:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware.nix
+    ../shared/personal-linux-common.nix
   ];
 
   networking.hostName = "minikit"; # Define your hostname.
-  environment.sessionVariables = { NIXOS_CONFIG_NAME = "minikit"; };
+  environment.sessionVariables = {
+    NIXOS_CONFIG_NAME = "minikit";
+  };
 
   # DO NOT CHANGE:
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .

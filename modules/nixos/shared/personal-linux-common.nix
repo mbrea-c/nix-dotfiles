@@ -4,10 +4,9 @@ let
 in
 {
   imports = [
-    # Include the results of the hardware scan.
-    ../sway.nix
-    ../gaming.nix
-    ../virtual-machines.nix
+    ./sway.nix
+    ./gaming.nix
+    ./virtual-machines.nix
     # ../modules/cosmic.nix
   ];
 
