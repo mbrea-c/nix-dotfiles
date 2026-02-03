@@ -19,7 +19,7 @@ let
     };
 in
 {
-  custom.colorscheme = {
+  custom.colorscheme = rec {
     # These apply only to the icon
     "RenderMarkdownH1" = heading { };
     "RenderMarkdownH2" = heading { };
@@ -38,9 +38,7 @@ in
     "RenderMarkdownCode" = {
       bg = palette.blue |> u.color.hsvDesaturate 0.05 |> u.color.hsvDarken 0.75;
     };
-    "RenderMarkdownCodeBorder" = {
-      bg = palette.blue;
-    };
+    "RenderMarkdownCodeBorder" = RenderMarkdownCode;
     "RenderMarkdownQuote" = {
       bg = palette.blue;
     };
