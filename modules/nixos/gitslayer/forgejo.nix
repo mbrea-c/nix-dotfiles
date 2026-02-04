@@ -5,7 +5,14 @@ let
 in
 {
   services.nginx = {
+    enable = true;
     virtualHosts."_default_" = {
+      listen = [
+        {
+          addr = config.gitslayer.staticIpv4;
+          port = 80;
+        }
+      ];
       forceSSL = false;
       enableACME = false;
       extraConfig = ''
@@ -23,13 +30,12 @@ in
     settings = {
       DEFAULT = {
         APP_NAME = "GitSlayer";
-        APP_SLOGAN = "mpv rip_and_tear.mp3";
       };
       server = {
-        DOMAIN = "localhost";
+        DOMAIN = config.gitslayer.staticIpv4;
         PROTOCOL = "http";
         # You need to specify this to remove the port from URLs in the web UI.
-        ROOT_URL = "https://${config.gitslayer.staticIpv4}/";
+        ROOT_URL = "http://${config.gitslayer.staticIpv4}/";
         HTTP_PORT = 3000;
       };
       # You can temporarily allow registration to create an admin user.
@@ -48,9 +54,34 @@ in
         FROM = "noreply@${srv.DOMAIN}";
         USER = "noreply@${srv.DOMAIN}";
       };
+      ui = {
+        DEFAULT_THEME = "custom";
+        THEMES = "forgejo-auto,forgejo-light,forgejo-dark,custom";
+      };
     };
     # mailerPasswordFile = config.age.secrets.forgejo-mailer-password.path;
   };
+
+  systemd.tmpfiles.rules =
+    let
+      icon = ./doomgrin.png;
+      css = ./forgejo-theme.css;
+    in
+    [
+      # directory structure
+      "d '${cfg.customDir}/public' 0750 ${cfg.user} ${cfg.group} - -"
+      "d '${cfg.customDir}/public/assets' 0750 ${cfg.user} ${cfg.group} - -"
+      "d '${cfg.customDir}/public/assets/img' 0750 ${cfg.user} ${cfg.group} - -"
+      "d '${cfg.customDir}/public/assets/css' 0750 ${cfg.user} ${cfg.group} - -"
+
+      # reuse the same PNG everywhere
+      "L+ '${cfg.customDir}/public/assets/img/logo.png' - - - - ${icon}"
+      "L+ '${cfg.customDir}/public/assets/img/logo.svg' - - - - ${icon}"
+      "L+ '${cfg.customDir}/public/assets/img/favicon.png' - - - - ${icon}"
+      "L+ '${cfg.customDir}/public/assets/img/favicon.svg' - - - - ${icon}"
+      "L+ '${cfg.customDir}/public/assets/img/apple-touch-icon.png' - - - - ${icon}"
+      "L+ '${cfg.customDir}/public/assets/css/theme-custom.css' - - - - ${css}"
+    ];
 
   # age.secrets.forgejo-mailer-password = {
   #   file = ../secrets/forgejo-mailer-password.age;

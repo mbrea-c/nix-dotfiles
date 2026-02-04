@@ -1,0 +1,8 @@
+@import "./theme-forgejo-auto.css";
+
+img.logo,
+img.logo-small,
+img.favicon,
+img.apple-touch-icon {
+    image-rendering: pixelated;
+}

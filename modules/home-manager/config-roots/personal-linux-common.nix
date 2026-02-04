@@ -230,6 +230,7 @@ in
         rebase = true;
       };
     };
+    lfs.enable = true;
   };
 
   programs.direnv = {
