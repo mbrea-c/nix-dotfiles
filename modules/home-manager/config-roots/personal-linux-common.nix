@@ -7,14 +7,7 @@
   ...
 }:
 let
-  # zed-fhs = pkgs.buildFHSUserEnv {
-  #   name = "zed";
-  #   targetPkgs = pkgs: with pkgs; [ zed-editor ];
-  #   runScript = "zed";
-  # };
   scripts = (import ../../../scripts/scripts.nix) { inherit pkgs; };
-  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) gtkThemeFromScheme;
-
   pkgs-art =
     (with pkgs; [
       blender

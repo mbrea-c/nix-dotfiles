@@ -9,7 +9,7 @@ in
     virtualHosts."_default_" = {
       listen = [
         {
-          addr = config.gitslayer.staticIpv4;
+          addr = config.staticIp.staticIpv4;
           port = 80;
         }
       ];
@@ -32,10 +32,10 @@ in
         APP_NAME = "GitSlayer";
       };
       server = {
-        DOMAIN = config.gitslayer.staticIpv4;
+        DOMAIN = config.staticIp.staticIpv4;
         PROTOCOL = "http";
         # You need to specify this to remove the port from URLs in the web UI.
-        ROOT_URL = "http://${config.gitslayer.staticIpv4}/";
+        ROOT_URL = "http://${config.staticIp.staticIpv4}/";
         HTTP_PORT = 3000;
       };
       # You can temporarily allow registration to create an admin user.

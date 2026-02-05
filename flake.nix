@@ -62,6 +62,12 @@
       let
         system = "x86_64-linux";
         pkgs = makePkgs system;
+        staticIp = ip: {
+          staticIp = {
+            staticIpv4 = ip;
+            gatewayIpv4 = "192.168.1.254";
+          };
+        };
       in
       rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
@@ -89,7 +95,21 @@
             system
             pkgs
             ;
-          host = [ (import ./modules/nixos/gitslayer/root.nix) ];
+          host = [
+            (import ./modules/nixos/gitslayer/root.nix)
+            (staticIp "192.168.1.42")
+          ];
+        };
+        nixosConfigurations.panopticon = makeSystem {
+          inherit
+            inputs
+            system
+            pkgs
+            ;
+          host = [
+            (import ./modules/nixos/panopticon/root.nix)
+            (staticIp "192.168.1.43")
+          ];
         };
       }
     )
