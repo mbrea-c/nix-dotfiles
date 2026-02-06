@@ -7,6 +7,10 @@
         type = lib.types.attrsOf lib.types.anything;
         default = nix-color-utils.lib.paletteFromNixColorsColorscheme nix-colors.colorSchemes.gruvbox-dark-medium;
       };
+      colorscheme = lib.mkOption {
+        type = lib.types.attrsOf lib.types.anything;
+        default = nix-colors.colorSchemes.gruvbox-dark-medium;
+      };
     };
   };
 }

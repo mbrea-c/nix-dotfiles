@@ -7,7 +7,6 @@ params@{
   ...
 }:
 {
-  self,
   pkgs,
   lib,
   ...
@@ -36,8 +35,8 @@ in
     (import ./ghostty.factory.nix params)
     (import ./kitty.factory.nix params)
     ./qt.nix
-    self.outputs.homeManagerModules.zsh
-    self.outputs.homeManagerModules.fonts
+    ./zsh.nix
+    ./fonts.nix
   ];
 
   home.username = "manuel";
