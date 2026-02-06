@@ -74,79 +74,88 @@
           };
         };
     in
-    (
-      let
-        system = "x86_64-linux";
-        pkgs = makePkgs system;
-        staticIp = ip: {
-          staticIp = {
-            staticIpv4 = ip;
-            gatewayIpv4 = "192.168.1.254";
-          };
-        };
-      in
-      rec {
-        nixosConfigurations.default = nixosConfigurations.nixframe;
-        nixosConfigurations.nixframe = makeSystem pkgs {
-          host = [ (import ./modules/nixos/nixframe/root.factory.nix moduleFactoryParams) ];
-          home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
-        };
-        nixosConfigurations.minikit = makeSystem pkgs {
-          host = [ (import ./modules/nixos/minikit/root.factory.nix moduleFactoryParams) ];
-          home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
-        };
-        nixosConfigurations.gitslayer = makeSystem pkgs {
-          host = [
-            (import ./modules/nixos/gitslayer/root.nix)
-            (staticIp "192.168.1.42")
-          ];
-        };
-        nixosConfigurations.panopticon = makeSystem pkgs {
-          host = [
-            (import ./modules/nixos/panopticon/root.nix)
-            (staticIp "192.168.1.43")
-          ];
-        };
-      }
-    )
-    // forSystems [ "x86_64-linux" "aarch64-darwin" ] (
-      system:
-      let
-        pkgs = makePkgs system;
-      in
+    forSystems [
       {
-        devShells."${system}" =
+        systems = [ "x86_64-linux" ];
+        forSystem =
+          system:
           let
-            shells = (import ./devenv/rust-bevy.nix) { inherit pkgs; };
+            pkgs = makePkgs system;
+            staticIp = ip: {
+              staticIp = {
+                staticIpv4 = ip;
+                gatewayIpv4 = "192.168.1.254";
+              };
+            };
+          in
+          rec {
+            nixosConfigurations.default = nixosConfigurations.nixframe;
+            nixosConfigurations.nixframe = makeSystem pkgs {
+              host = [ (import ./modules/nixos/nixframe/root.factory.nix moduleFactoryParams) ];
+              home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
+            };
+            nixosConfigurations.minikit = makeSystem pkgs {
+              host = [ (import ./modules/nixos/minikit/root.factory.nix moduleFactoryParams) ];
+              home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
+            };
+            nixosConfigurations.gitslayer = makeSystem pkgs {
+              host = [
+                (import ./modules/nixos/gitslayer/root.nix)
+                (staticIp "192.168.1.42")
+              ];
+            };
+            nixosConfigurations.panopticon = makeSystem pkgs {
+              host = [
+                (import ./modules/nixos/panopticon/root.nix)
+                (staticIp "192.168.1.43")
+              ];
+            };
+          };
+      }
+      {
+        systems = [
+          "x86_64-linux"
+          "aarch64-darwin"
+        ];
+        forSystem =
+          system:
+          let
+            pkgs = makePkgs system;
           in
           {
-            rust-bevy-fhs = shells.rust-bevy-fhs;
-            rust-bevy = shells.rust-bevy;
+            devShells."${system}" =
+              let
+                shells = (import ./devenv/rust-bevy.nix) { inherit pkgs; };
+              in
+              {
+                rust-bevy-fhs = shells.rust-bevy-fhs;
+                rust-bevy = shells.rust-bevy;
+              };
+
+            packages."${system}" = {
+              tracy = pkgs.callPackage ./pkgs/tracy { };
+              kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
+            };
+
+            nixosModules = {
+            };
+            homeManagerModules = {
+              zsh = import ./modules/home-manager/shared/zsh.nix;
+              sway-vnc = import ./modules/home-manager/shared/sway/sway-vnc.nix moduleFactoryParams;
+              fonts = import ./modules/home-manager/shared/fonts.nix;
+              foot = import ./modules/home-manager/shared/foot.factory.nix moduleFactoryParams;
+              my-firefox = import ./modules/home-manager/shared/my-firefox.nix;
+            };
+            nixvimModules = {
+              manuvim = import ./modules/nixvim/manuvim.factory.nix moduleFactoryParams;
+            };
+
+            lib = {
+              combineNixvimModules = import ./modules/nixvim/helper-mod.nix;
+              forSystems = forSystems;
+              makeSystem = makeSystem;
+            };
           };
-
-        packages."${system}" = {
-          tracy = pkgs.callPackage ./pkgs/tracy { };
-          kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
-        };
-
-        nixosModules = {
-        };
-        homeManagerModules = {
-          zsh = import ./modules/home-manager/shared/zsh.nix;
-          sway-vnc = import ./modules/home-manager/shared/sway/sway-vnc.nix moduleFactoryParams;
-          fonts = import ./modules/home-manager/shared/fonts.nix;
-          foot = import ./modules/home-manager/shared/foot.factory.nix moduleFactoryParams;
-          my-firefox = import ./modules/home-manager/shared/my-firefox.nix;
-        };
-        nixvimModules = {
-          manuvim = import ./modules/nixvim/manuvim.factory.nix moduleFactoryParams;
-        };
-
-        lib = {
-          combineNixvimModules = import ./modules/nixvim/helper-mod.nix;
-          forSystems = forSystems;
-          makeSystem = makeSystem;
-        };
       }
-    );
+    ];
 }
