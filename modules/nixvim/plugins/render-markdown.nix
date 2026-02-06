@@ -22,7 +22,6 @@
         };
         heading = {
           border = [
-            true
             false
           ];
           border_virtual = true;
