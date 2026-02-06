@@ -1,11 +1,12 @@
 params@{ nixvim, ... }:
 { config, pkgs, ... }:
 let
-  nixvim = nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
+  flakeRoot = ../../../.;
+  manuvim = nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
     inherit pkgs;
     module = {
       imports = [
-        (import ./modules/nixvim/manuvim.factory.nix params)
+        (import (flakeRoot + /modules/nixvim/manuvim.factory.nix) params)
         # forward colorscheme configuration
         { dotcolors = config.dotcolors; }
       ];
@@ -132,7 +133,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    nixvim
+    manuvim
     wget
     git
     nix-index
@@ -142,7 +143,7 @@ in
   ];
 
   environment.sessionVariables = {
-    EDITOR = "${nixvim}/bin/nvim";
+    EDITOR = "${manuvim}/bin/nvim";
   };
 
   documentation = {
