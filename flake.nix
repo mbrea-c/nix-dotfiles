@@ -88,27 +88,29 @@
               };
             };
           in
-          rec {
-            nixosConfigurations.default = nixosConfigurations.nixframe;
-            nixosConfigurations.nixframe = makeSystem pkgs {
-              host = [ (import ./modules/nixos/nixframe/root.factory.nix moduleFactoryParams) ];
-              home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
-            };
-            nixosConfigurations.minikit = makeSystem pkgs {
-              host = [ (import ./modules/nixos/minikit/root.factory.nix moduleFactoryParams) ];
-              home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
-            };
-            nixosConfigurations.gitslayer = makeSystem pkgs {
-              host = [
-                (import ./modules/nixos/gitslayer/root.nix)
-                (staticIp "192.168.1.42")
-              ];
-            };
-            nixosConfigurations.panopticon = makeSystem pkgs {
-              host = [
-                (import ./modules/nixos/panopticon/root.nix)
-                (staticIp "192.168.1.43")
-              ];
+          {
+            nixosConfigurations = rec {
+              default = nixframe;
+              nixframe = makeSystem pkgs {
+                host = [ (import ./modules/nixos/nixframe/root.factory.nix moduleFactoryParams) ];
+                home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
+              };
+              minikit = makeSystem pkgs {
+                host = [ (import ./modules/nixos/minikit/root.factory.nix moduleFactoryParams) ];
+                home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
+              };
+              gitslayer = makeSystem pkgs {
+                host = [
+                  (import ./modules/nixos/gitslayer/root.nix)
+                  (staticIp "192.168.1.42")
+                ];
+              };
+              panopticon = makeSystem pkgs {
+                host = [
+                  (import ./modules/nixos/panopticon/root.nix)
+                  (staticIp "192.168.1.43")
+                ];
+              };
             };
           };
       }
