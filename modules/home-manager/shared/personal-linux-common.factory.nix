@@ -3,15 +3,16 @@ params@{
   blender-autorender,
   nix-colors,
   nix-color-utils,
-  colorscheme,
   ...
 }:
 {
   pkgs,
   lib,
+  config,
   ...
 }:
 let
+  flakeRoot = ../../../.;
   scripts = (import ../../../scripts/scripts.nix) { inherit pkgs; };
   pkgs-art =
     (with pkgs; [
@@ -37,6 +38,7 @@ in
     ./qt.nix
     ./zsh.nix
     ./fonts.nix
+    (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
   ];
 
   home.username = "manuel";
@@ -180,7 +182,7 @@ in
       };
       colors =
         let
-          col = nix-color-utils.lib.fromBase16 colorscheme;
+          col = nix-color-utils.lib.fromBase16 config.dotcolors.colorscheme;
         in
         {
           primary = {

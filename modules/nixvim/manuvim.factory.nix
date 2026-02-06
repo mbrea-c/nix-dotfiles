@@ -1,3 +1,4 @@
+params:
 { lib, config, ... }:
 let
   flakeRoot = ../../.;
@@ -16,7 +17,8 @@ in
     ./opts.nix
     ./packages.nix
     ./lua.nix
-    ./colorscheme.nix
+    (import ./colorscheme.nix params)
+    (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
   ];
 
   options = {

@@ -1,6 +1,8 @@
-{ palette, inputs, ... }:
+{ nix-color-utils, ... }:
+{ config, ... }:
 let
-  u = inputs.nix-color-utils.lib;
+  palette = config.dotcolors.palette;
+  u = nix-color-utils.lib;
   darken = u.color.hsvDarken;
   saturate = u.color.hsvSaturate;
 in

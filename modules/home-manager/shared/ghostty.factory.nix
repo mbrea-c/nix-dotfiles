@@ -1,11 +1,11 @@
-{ nix-color-utils, colorscheme, ... }:
-{ ... }:
+{ nix-color-utils, ... }:
+{ config, ... }:
 {
   programs.ghostty = {
     enable = true;
     settings =
       let
-        col = nix-color-utils.lib.fromBase16 colorscheme;
+        col = nix-color-utils.lib.fromBase16 config.dotcolors.colorscheme;
       in
       {
         font-family = "monospace";

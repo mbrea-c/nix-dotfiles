@@ -52,20 +52,16 @@
       ...
     }@inputs:
     let
-      colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
-      palette = inputs.nix-color-utils.lib.paletteFromNixColorsColorscheme colorscheme;
       moduleFactoryParams = {
         inherit
           blender-autorender
           nix-colors
           nix-color-utils
-          colorscheme
-          palette
           self
           ;
       };
       forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
-      makeSystem = import ./utils/make-system.nix;
+      makeSystem = pkgs: args: (import ./utils/make-system.nix) ({ inherit inputs pkgs; } // args);
       makePkgs =
         system:
         import nixpkgs {
@@ -90,41 +86,21 @@
       in
       rec {
         nixosConfigurations.default = nixosConfigurations.nixframe;
-        nixosConfigurations.nixframe = makeSystem {
-          inherit
-            inputs
-            system
-            pkgs
-            ;
+        nixosConfigurations.nixframe = makeSystem pkgs {
           host = [ (import ./modules/nixos/nixframe/root.factory.nix moduleFactoryParams) ];
           home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
         };
-        nixosConfigurations.minikit = makeSystem {
-          inherit
-            inputs
-            system
-            pkgs
-            ;
+        nixosConfigurations.minikit = makeSystem pkgs {
           host = [ (import ./modules/nixos/minikit/root.factory.nix moduleFactoryParams) ];
           home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
         };
-        nixosConfigurations.gitslayer = makeSystem {
-          inherit
-            inputs
-            system
-            pkgs
-            ;
+        nixosConfigurations.gitslayer = makeSystem pkgs {
           host = [
             (import ./modules/nixos/gitslayer/root.nix)
             (staticIp "192.168.1.42")
           ];
         };
-        nixosConfigurations.panopticon = makeSystem {
-          inherit
-            inputs
-            system
-            pkgs
-            ;
+        nixosConfigurations.panopticon = makeSystem pkgs {
           host = [
             (import ./modules/nixos/panopticon/root.nix)
             (staticIp "192.168.1.43")
@@ -136,8 +112,6 @@
       system:
       let
         pkgs = makePkgs system;
-        colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
-        palette = inputs.nix-color-utils.lib.paletteFromNixColorsColorscheme colorscheme;
       in
       {
         devShells."${system}" =
@@ -152,13 +126,7 @@
         packages."${system}" = {
           manuvim = inputs.nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
             inherit pkgs;
-            extraSpecialArgs = {
-              inherit
-                inputs
-                palette
-                ;
-            };
-            module = import ./modules/nixvim/manuvim.nix;
+            module = import ./modules/nixvim/manuvim.nix moduleFactoryParams;
           };
           tracy = pkgs.callPackage ./pkgs/tracy { };
           kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
@@ -174,7 +142,7 @@
           my-firefox = import ./modules/home-manager/shared/my-firefox.nix;
         };
         nixvimModules = {
-          manuvim = import ./modules/nixvim/manuvim.nix;
+          manuvim = import ./modules/nixvim/manuvim.nix moduleFactoryParams;
         };
 
         lib = {

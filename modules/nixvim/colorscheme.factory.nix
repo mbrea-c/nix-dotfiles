@@ -1,16 +1,18 @@
+params@{ nix-color-utils, ... }:
 {
   lib,
-  inputs,
   config,
   ...
 }:
 let
-  u = inputs.nix-color-utils.lib;
-  nu = (import ../../utils/nix-utils.nix) { inherit lib; };
+  flakeRoot = ../../.;
+  u = nix-color-utils.lib;
+  nu = (import (flakeRoot + /utils/nix-utils.nix)) { inherit lib; };
   directory = ./colorscheme;
 in
 {
-  imports = (nu.allFilesInDir ".nix" directory);
+  imports = (nu.allFactoriesInDir params directory);
+
   options = {
     custom = {
       colorscheme =
@@ -22,6 +24,7 @@ in
         };
     };
   };
+
   config = {
     highlightOverride = u.compileNeovimColors config.custom.colorscheme;
   };

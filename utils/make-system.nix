@@ -6,8 +6,7 @@
   ...
 }:
 let
-  inherit (inputs) self nixpkgs;
-  colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+  inherit (inputs) nixpkgs;
 in
 nixpkgs.lib.nixosSystem {
   pkgs = pkgs;
