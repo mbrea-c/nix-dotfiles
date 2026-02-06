@@ -33,14 +33,17 @@
           };
           open_file = {
             window_picker = {
-              filetype = [
-                "dap-repl"
-                "dapui_console"
-                "dapui_scopes"
-                "dapui_breakpoints"
-                "dapui_watches"
-                "dapui_stacks"
-              ];
+              exclude = {
+                filetype = [
+                  "dap-repl"
+                  "dap-view"
+                  "dapui_console"
+                  "dapui_scopes"
+                  "dapui_breakpoints"
+                  "dapui_watches"
+                  "dapui_stacks"
+                ];
+              };
             };
           };
         };
