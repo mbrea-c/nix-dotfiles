@@ -1,4 +1,5 @@
-{ pkgs, self, ... }:
+{ self, ... }:
+{ pkgs, ... }:
 let
   nixvim = self.packages."${pkgs.stdenv.hostPlatform.system}".manuvim;
 in

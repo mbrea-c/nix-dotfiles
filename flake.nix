@@ -61,6 +61,7 @@
           nix-color-utils
           colorscheme
           palette
+          self
           ;
       };
       forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
@@ -95,7 +96,7 @@
             system
             pkgs
             ;
-          host = [ (import ./modules/nixos/nixframe/root.nix) ];
+          host = [ (import ./modules/nixos/nixframe/root.factory.nix moduleFactoryParams) ];
           home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
         };
         nixosConfigurations.minikit = makeSystem {
@@ -104,7 +105,7 @@
             system
             pkgs
             ;
-          host = [ (import ./modules/nixos/minikit/root.nix) ];
+          host = [ (import ./modules/nixos/minikit/root.factory.nix moduleFactoryParams) ];
           home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
         };
         nixosConfigurations.gitslayer = makeSystem {
