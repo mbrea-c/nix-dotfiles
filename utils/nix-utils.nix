@@ -22,7 +22,7 @@ rec {
     ))
     |> (builtins.filter (
       { key, ... }:
-      if mustNotHaveSuffix != null then !(lib.strings.hasSuffix mustHaveSuffix key) else true
+      if mustNotHaveSuffix != null then !(lib.strings.hasSuffix mustNotHaveSuffix key) else true
     ))
     |> (builtins.map ({ key, ... }: directory + "/${key}"));
   allFilesInDir =
