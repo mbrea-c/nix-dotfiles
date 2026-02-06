@@ -17,7 +17,7 @@ in
     ./opts.nix
     ./packages.nix
     ./lua.nix
-    (import ./colorscheme.nix params)
+    (import ./colorscheme.factory.nix params)
     (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
   ];
 
