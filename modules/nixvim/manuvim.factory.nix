@@ -11,12 +11,12 @@ let
 in
 {
   imports = [
-    ./plugins.nix
-    ./plugin-modules.nix
     ./keymap.nix
     ./opts.nix
     ./packages.nix
     ./lua.nix
+    ./plugin-modules.nix
+    (import ./plugins.factory.nix params)
     (import ./colorscheme.factory.nix params)
     (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
   ];

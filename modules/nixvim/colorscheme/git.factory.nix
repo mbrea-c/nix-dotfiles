@@ -1,4 +1,8 @@
-{ palette, ... }:
+{ ... }:
+{ config, ... }:
+let
+  palette = config.dotcolors.palette;
+in
 {
   custom.colorscheme = {
     "Changed" = {

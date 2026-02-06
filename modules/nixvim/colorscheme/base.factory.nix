@@ -1,6 +1,8 @@
-{ inputs, palette, ... }:
+{ nix-color-utils, ... }:
+{ config, ... }:
 let
-  u = inputs.nix-color-utils.lib;
+  palette = config.dotcolors.palette;
+  u = nix-color-utils.lib;
   lighten = u.color.hsvLighten;
   darken = u.color.hsvDarken;
 in

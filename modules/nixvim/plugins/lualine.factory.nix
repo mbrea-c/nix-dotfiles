@@ -1,4 +1,8 @@
-{ inputs, palette, ... }:
+{ nix-color-utils, ... }:
+{ config, ... }:
+let
+  palette = config.dotcolors.palette;
+in
 {
   plugins = {
     lualine = {
@@ -40,7 +44,7 @@
           icons_enabled = true;
           theme =
             let
-              u = inputs.nix-color-utils.lib;
+              u = nix-color-utils.lib;
               colors = palette;
               out = u.compileNeovimColor;
               darken = u.color.hsvDarken;

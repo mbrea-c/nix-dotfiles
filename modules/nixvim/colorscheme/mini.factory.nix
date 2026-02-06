@@ -1,10 +1,11 @@
+{ nix-color-utils, ... }:
 {
-  inputs,
-  palette,
+  config,
   ...
 }:
 let
-  cu = inputs.nix-color-utils.lib.color;
+  palette = config.dotcolors.palette;
+  cu = nix-color-utils.lib.color;
 in
 {
   custom.colorscheme = {

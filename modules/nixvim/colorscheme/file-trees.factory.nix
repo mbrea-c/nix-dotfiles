@@ -1,11 +1,11 @@
+{ nix-color-utils, ... }:
 {
-  inputs,
-  palette,
   config,
   ...
 }:
 let
-  u = inputs.nix-color-utils.lib;
+  palette = config.dotcolors.palette;
+  u = nix-color-utils.lib;
   saturate = u.color.hsvSaturate;
 in
 {
