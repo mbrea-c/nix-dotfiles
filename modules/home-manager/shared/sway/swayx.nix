@@ -5,9 +5,10 @@
   ...
 }:
 let
+  flakeRoot = ../../../../.;
   cfg = config.swayx;
-  outputMaker = import ../../../utils/swayoutputmaker.nix;
-  systemd-utils = (import ../../../utils/systemd.nix) { };
+  outputMaker = import (flakeRoot + /utils/swayoutputmaker.nix);
+  systemd-utils = (import (flakeRoot + /utils/systemd.nix)) { };
   make-srv =
     { desc, exec, ... }:
     systemd-utils.make-session-service {
