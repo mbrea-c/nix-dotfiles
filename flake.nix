@@ -43,8 +43,26 @@
   # ----------------------------------------------------------------------------
 
   outputs =
-    { self, nixpkgs, ... }@inputs:
+    {
+      self,
+      nixpkgs,
+      blender-autorender,
+      nix-colors,
+      nix-color-utils,
+      ...
+    }@inputs:
     let
+      colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+      palette = inputs.nix-color-utils.lib.paletteFromNixColorsColorscheme colorscheme;
+      moduleFactoryParams = {
+        inherit
+          blender-autorender
+          nix-colors
+          nix-color-utils
+          colorscheme
+          palette
+          ;
+      };
       forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
       makeSystem = import ./utils/make-system.nix;
       makePkgs =
@@ -78,7 +96,7 @@
             pkgs
             ;
           host = [ (import ./modules/nixos/nixframe/root.nix) ];
-          home = [ (import ./modules/home-manager/config-roots/nixframe.nix) ];
+          home = [ (import ./modules/home-manager/manuel-nixframe/root.factory.nix moduleFactoryParams) ];
         };
         nixosConfigurations.minikit = makeSystem {
           inherit
@@ -87,7 +105,7 @@
             pkgs
             ;
           host = [ (import ./modules/nixos/minikit/root.nix) ];
-          home = [ (import ./modules/home-manager/config-roots/minikit.nix) ];
+          home = [ (import ./modules/home-manager/manuel-minikit/root.factory.nix moduleFactoryParams) ];
         };
         nixosConfigurations.gitslayer = makeSystem {
           inherit
@@ -145,21 +163,14 @@
           kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
         };
 
-        templates = {
-          pivot = {
-            path = ./templates/pivot;
-            description = "Basic setup for the pivot system";
-          };
-        };
-
         nixosModules = {
         };
         homeManagerModules = {
-          zsh = import ./modules/home-manager/zsh.nix;
-          sway-vnc = import ./modules/home-manager/sway/sway-vnc.nix;
-          fonts = import ./modules/home-manager/fonts.nix;
-          foot = import ./modules/home-manager/foot.nix;
-          my-firefox = import ./modules/home-manager/my-firefox.nix;
+          zsh = import ./modules/home-manager/shared/zsh.nix;
+          sway-vnc = import ./modules/home-manager/shared/sway/sway-vnc.nix moduleFactoryParams;
+          fonts = import ./modules/home-manager/shared/fonts.nix;
+          foot = import ./modules/home-manager/shared/foot.factory.nix moduleFactoryParams;
+          my-firefox = import ./modules/home-manager/shared/my-firefox.nix;
         };
         nixvimModules = {
           manuvim = import ./modules/nixvim/manuvim.nix;

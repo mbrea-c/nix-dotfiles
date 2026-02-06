@@ -1,4 +1,8 @@
-{ config, ... }: {
+{ config, ... }:
+let
+  flakeRoot = ../../../.;
+in
+{
   programs.zsh = {
     enable = true;
     dotDir = "${config.xdg.configHome}/zsh";
@@ -19,6 +23,6 @@
       searchDownKey = "^[[B";
       searchUpKey = "^[[A";
     };
-    initContent = (builtins.readFile ../../dotfiles/zshrc);
+    initContent = (builtins.readFile (flakeRoot + /dotfiles/zshrc));
   };
 }

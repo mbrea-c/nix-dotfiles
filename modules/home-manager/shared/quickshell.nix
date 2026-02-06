@@ -1,11 +1,12 @@
 { pkgs, ... }:
 let
-  systemd-utils = (import ../../utils/systemd.nix) { };
+  flakeRoot = ../../../.;
+  systemd-utils = (import (flakeRoot + /utils/systemd.nix)) { };
 in
 {
   xdg.configFile = {
     "quickshell" = {
-      source = ../../dotfiles/quickshell;
+      source = flakeRoot + /dotfiles/quickshell;
       recursive = true;
     };
   };

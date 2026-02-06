@@ -1,8 +1,14 @@
+# This is a module factory
+params@{
+  blender-autorender,
+  nix-colors,
+  nix-color-utils,
+  colorscheme,
+  ...
+}:
 {
   self,
   pkgs,
-  inputs,
-  colorscheme,
   lib,
   ...
 }:
@@ -17,24 +23,22 @@ let
       inkscape
     ])
     ++ [
-      inputs.blender-autorender.packages."${pkgs.stdenv.hostPlatform.system}".default
+      blender-autorender.packages."${pkgs.stdenv.hostPlatform.system}".default
     ];
 in
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
-    ../sway/swayx.nix
-    ../sway/sway-home-deps.nix
-    ../virtual-machines.nix
-    ../my-firefox.nix
-    ../ghostty.nix
-    ../kitty.nix
-    ../qt.nix
+    nix-colors.homeManagerModules.default
+    ./sway/swayx.nix
+    ./sway/sway-home-deps.nix
+    ./virtual-machines.nix
+    ./my-firefox.nix
+    (import ./ghostty.factory.nix params)
+    (import ./kitty.factory.nix params)
+    ./qt.nix
     self.outputs.homeManagerModules.zsh
     self.outputs.homeManagerModules.fonts
   ];
-
-  colorScheme = inputs.nix-colors.colorSchemes.dracula;
 
   home.username = "manuel";
   home.homeDirectory = "/home/manuel";
@@ -177,7 +181,7 @@ in
       };
       colors =
         let
-          col = inputs.nix-color-utils.lib.fromBase16 colorscheme;
+          col = nix-color-utils.lib.fromBase16 colorscheme;
         in
         {
           primary = {

@@ -10,7 +10,6 @@ let
   colorscheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 in
 nixpkgs.lib.nixosSystem {
-  specialArgs = { inherit self inputs colorscheme; };
   pkgs = pkgs;
   modules =
     host

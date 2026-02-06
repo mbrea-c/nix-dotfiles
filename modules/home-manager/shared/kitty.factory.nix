@@ -1,12 +1,16 @@
 {
-  inputs,
+  nix-colors,
+  nix-color-utils,
   colorscheme,
+  ...
+}:
+{
   pkgs,
   ...
 }:
 let
-  cu = inputs.nix-color-utils.lib.color;
-  palette = inputs.nix-color-utils.lib.paletteFromNixColorsColorscheme colorscheme;
+  cu = nix-color-utils.lib.color;
+  palette = nix-color-utils.lib.paletteFromNixColorsColorscheme colorscheme;
 in
 {
   home.packages = [ pkgs.kitty ];

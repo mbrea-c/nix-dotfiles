@@ -1,7 +1,8 @@
 { lib, config, ... }:
 let
+  flakeRoot = ../../.;
   utils = (import ./utils.nix) { inherit lib; };
-  lu = (import ../../utils/lua-utils.nix) { };
+  lu = (import (flakeRoot + /utils/lua-utils.nix)) { };
   tabstopsAugroup = "TabstopForFiletypes";
   formattingEnablerAugroup = "FormatOnSaveForFiletypesEnabler";
   formattingFormatterAugroup = "FormatOnSaveForFiletypesFormatter";

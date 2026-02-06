@@ -36,7 +36,7 @@ in
     "RenderMarkdownH6Bg" = headingBg { };
 
     "RenderMarkdownCode" = {
-      bg = palette.background |> u.color.hsvDarken 0.15;
+      bg = palette.background |> u.color.hsvDarken 0.3;
     };
     "RenderMarkdownCodeBorder" = RenderMarkdownCode;
     "RenderMarkdownQuote" = {

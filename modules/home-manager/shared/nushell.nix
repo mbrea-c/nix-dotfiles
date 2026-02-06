@@ -1,7 +1,8 @@
-{ ... }: {
+{ ... }:
+{
   nushell = {
     enable = true;
-    extraConfig = builtins.readFile ../../dotfiles/nushell/config.nu;
+    extraConfig = builtins.readFile ../../../dotfiles/nushell/config.nu;
 
     shellAliases = {
       gst = "git status";
