@@ -125,10 +125,6 @@
           };
 
         packages."${system}" = {
-          manuvim = inputs.nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
-            inherit pkgs;
-            module = import ./modules/nixvim/manuvim.factory.nix moduleFactoryParams;
-          };
           tracy = pkgs.callPackage ./pkgs/tracy { };
           kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
         };

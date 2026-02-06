@@ -4,7 +4,7 @@ params:
   imports = [
     # Include the results of the hardware scan.
     ./hardware.nix
-    (import ../shared/personal-linux-common.factory.nix params)
+    ../shared/personal-linux-common.nix
   ];
 
   networking.hostName = "minikit"; # Define your hostname.

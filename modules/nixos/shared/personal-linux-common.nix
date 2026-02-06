@@ -1,18 +1,4 @@
-params@{ nixvim, ... }:
-{ config, pkgs, ... }:
-let
-  flakeRoot = ../../../.;
-  manuvim = nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
-    inherit pkgs;
-    module = {
-      imports = [
-        (import (flakeRoot + /modules/nixvim/manuvim.factory.nix) params)
-        # forward colorscheme configuration
-        { dotcolors = config.dotcolors; }
-      ];
-    };
-  };
-in
+{ pkgs, ... }:
 {
   imports = [
     ./sway.nix
@@ -133,7 +119,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    manuvim
+    neovim
     wget
     git
     nix-index
@@ -143,7 +129,7 @@ in
   ];
 
   environment.sessionVariables = {
-    EDITOR = "${manuvim}/bin/nvim";
+    EDITOR = "nvim";
   };
 
   documentation = {

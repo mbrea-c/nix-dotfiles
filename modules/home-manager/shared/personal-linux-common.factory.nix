@@ -3,6 +3,7 @@ params@{
   blender-autorender,
   nix-colors,
   nix-color-utils,
+  nixvim,
   ...
 }:
 {
@@ -35,6 +36,7 @@ in
     ./my-firefox.nix
     (import ./ghostty.factory.nix params)
     (import ./kitty.factory.nix params)
+    (import ./vim.factory.nix params)
     ./qt.nix
     ./zsh.nix
     ./fonts.nix
