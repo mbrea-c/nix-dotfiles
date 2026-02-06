@@ -20,7 +20,6 @@ nixpkgs.lib.nixosSystem {
           {
             home-manager.backupFileExtension = "backup";
             home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = { inherit inputs colorscheme self; };
             home-manager.useUserPackages = true;
             home-manager.users.manuel = {
               imports = home;
