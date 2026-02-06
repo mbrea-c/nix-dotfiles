@@ -126,7 +126,7 @@ in
       #     '';
       # };
       "gammastep" = {
-        source = ../../../dotfiles/gammastep;
+        source = flakeRoot + /dotfiles/gammastep;
         recursive = true;
       };
     };
