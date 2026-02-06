@@ -1,7 +1,16 @@
-{ self, ... }:
-{ pkgs, ... }:
+params@{ nixvim, ... }:
+{ config, pkgs, ... }:
 let
-  nixvim = self.packages."${pkgs.stdenv.hostPlatform.system}".manuvim;
+  nixvim = nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
+    inherit pkgs;
+    module = {
+      imports = [
+        (import ./modules/nixvim/manuvim.factory.nix params)
+        # forward colorscheme configuration
+        { dotcolors = config.dotcolors; }
+      ];
+    };
+  };
 in
 {
   imports = [

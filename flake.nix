@@ -49,6 +49,7 @@
       blender-autorender,
       nix-colors,
       nix-color-utils,
+      nixvim,
       ...
     }@inputs:
     let
@@ -57,7 +58,7 @@
           blender-autorender
           nix-colors
           nix-color-utils
-          self
+          nixvim
           ;
       };
       forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };

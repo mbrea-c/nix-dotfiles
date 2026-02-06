@@ -6,5 +6,7 @@ let
   directory = ./plugins;
 in
 {
-  imports = (nu.factoriesOrModulesInDir params directory);
+  imports = builtins.trace (nu.factoriesOrModulesInDir params directory) (
+    nu.factoriesOrModulesInDir params directory
+  );
 }
