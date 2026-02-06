@@ -126,7 +126,7 @@
         packages."${system}" = {
           manuvim = inputs.nixvim.legacyPackages."${pkgs.stdenv.hostPlatform.system}".makeNixvimWithModule {
             inherit pkgs;
-            module = import ./modules/nixvim/manuvim.nix moduleFactoryParams;
+            module = import ./modules/nixvim/manuvim.factory.nix moduleFactoryParams;
           };
           tracy = pkgs.callPackage ./pkgs/tracy { };
           kotlin-lsp = pkgs.callPackage ./pkgs/kotlin-lsp { };
@@ -142,7 +142,7 @@
           my-firefox = import ./modules/home-manager/shared/my-firefox.nix;
         };
         nixvimModules = {
-          manuvim = import ./modules/nixvim/manuvim.nix moduleFactoryParams;
+          manuvim = import ./modules/nixvim/manuvim.factory.nix moduleFactoryParams;
         };
 
         lib = {
