@@ -15,7 +15,7 @@
 
     nixvim = {
       url = "github:nix-community/nixvim";
-      # Removed in order to the following:
+      # Removed due to the following:
       # https://nix-community.github.io/nixvim/user-guide/faq.html#how-do-i-solve-name-cannot-be-found-in-pkgs
       # inputs.nixpkgs.follows = "nixpkgs";
     };
