@@ -23,7 +23,7 @@ in
 
     # nvim-tree
     "NvimTreeOpenedHL" = {
-      underdotted = true;
+      underdashed = true;
     };
     "NvimTreeIndentMarker" = {
       fg = config.custom.colorscheme.Directory.fg;
