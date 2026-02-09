@@ -151,6 +151,9 @@
             nixvimModules = {
               manuvim = import ./modules/nixvim/manuvim.factory.nix moduleFactoryParams;
             };
+            sharedModules = {
+              dotcolors = import ./modules/shared/dotcolors.factory.nix moduleFactoryParams;
+            };
 
             lib = {
               combineNixvimModules = import ./modules/nixvim/helper-mod.nix;
