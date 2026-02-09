@@ -11,7 +11,7 @@
   bg ? [
     {
       output = "*";
-      path = "/home/manuel/Pictures/wallpapers/montana.jpg";
+      path = "/home/manuel/Pictures/wallpapers/dune/night.jpg";
       mode = "fill";
     }
   ],
