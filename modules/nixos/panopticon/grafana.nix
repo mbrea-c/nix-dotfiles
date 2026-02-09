@@ -1,23 +1,49 @@
 { config, ... }:
 {
+  services.nginx.virtualHosts.${config.services.grafana.domain} = {
+    locations."/" = {
+      proxyPass = "http://127.0.0.1:${toString config.services.grafana.http_port}";
+      proxyWebsockets = true;
+    };
+  };
+
   services.grafana = {
     enable = true;
     settings = {
       server = {
+        protocol = "http";
         http_addr = "127.0.0.1";
-        http_port = 3000;
-        enforce_domain = true;
-        enable_gzip = true;
-        domain = "grafana.your.domain";
-
-        # Alternatively, if you want to serve Grafana from a subpath:
-        # domain = "your.domain";
-        # root_url = "https://your.domain/grafana/";
-        # serve_from_sub_path = true;
+        http_port = 1337;
+        domain = config.staticIp.staticIpv4;
       };
-
-      # Prevents Grafana from phoning home
-      #analytics.reporting_enabled = false;
     };
+  };
+
+  services.prometheus = {
+    enable = true;
+    port = 9001;
+
+    # Export metrics for own node
+    exporters = {
+      node = {
+        enable = true;
+        enabledCollectors = [ "systemd" ];
+        port = 9002;
+      };
+    };
+
+    # Collect metrics
+    scrapeConfigs = [
+      # From this node
+      {
+        job_name = "panopticon";
+        static_configs = [
+          {
+            targets = [ "127.0.0.1:${toString config.services.prometheus.exporters.node.port}" ];
+          }
+        ];
+      }
+    ];
+
   };
 }
