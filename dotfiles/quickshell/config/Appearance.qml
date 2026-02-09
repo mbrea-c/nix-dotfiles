@@ -9,4 +9,5 @@ Singleton {
     readonly property AppearanceConfig.Padding padding: Config.appearance.padding
     readonly property AppearanceConfig.Spacing spacing: Config.appearance.spacing
     readonly property AppearanceConfig.Rounding rounding: Config.appearance.rounding
+    readonly property AppearanceConfig.Border border: Config.appearance.border
 }

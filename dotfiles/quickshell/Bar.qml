@@ -4,6 +4,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import qs.services
+import qs.config
 
 Scope {
     id: root
@@ -33,6 +34,8 @@ Scope {
         implicitHeight: 30
 
         Rectangle {
+            id: barRectangle
+
             anchors.fill: parent
             color: Colours.palette.m3surface
 
@@ -90,9 +93,29 @@ Scope {
                     }
                 }
             }
+
+            Canvas {
+                id: bolt
+                anchors.fill: barRectangle
+
+                onPaint: {
+                    let ctx = getContext("2d");
+                    ctx.clearRect(0, 0, width, height);
+                    ctx.fillStyle = Colours.palette.m3outline;
+
+                    let w = width;
+                    let h = height;
+
+                    let lineWidth = Appearance.border.thickness;
+
+                    // Draw plug body
+                    ctx.fillRect(0, h - lineWidth, w, h);
+                }
+            }
         }
 
         // Popouts {
+        //     id: barPopout
         //     anchor.window: barPanel
         // }
     }

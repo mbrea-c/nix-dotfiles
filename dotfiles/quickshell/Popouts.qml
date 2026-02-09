@@ -4,14 +4,14 @@ import qs.services
 
 PopupWindow {
     id: pop
-    property bool open: true
-    property real xOffset: 1250.0
 
-    anchor.rect.x: Math.min(Screen.width - width, Math.max(0, xOffset - width / 2))
+    anchor.rect.x: Math.min(Screen.width - width, Math.max(0, PopoutConfig.xOffset - width / 2))
     anchor.rect.y: parentWindow.height
 
     width: 500
     height: 500
+
+    readonly property real leftInner: Math.min(Screen.width - width, Math.max(0, PopoutConfig.xOffset - width / 2))
 
     visible: false
 
@@ -32,15 +32,6 @@ PopupWindow {
             bottomLeftRadius: 14
             bottomRightRadius: 14
             color: Colours.palette.m3surface
-        }
-    }
-
-    Timer {
-        interval: 2000
-        running: true
-        repeat: true
-        onTriggered: {
-            pop.open = !pop.open;
         }
     }
 }

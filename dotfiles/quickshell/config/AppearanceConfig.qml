@@ -8,6 +8,7 @@ JsonObject {
     property Spacing spacing: Spacing {}
     property Padding padding: Padding {}
     property Rounding rounding: Rounding {}
+    property Border border: Border {}
 
     component Rounding: JsonObject {
         property real scale: 1
@@ -73,5 +74,9 @@ JsonObject {
     component FontStuff: JsonObject {
         readonly property string family: "monospace"
         readonly property int pixelSize: 10
+    }
+
+    component Border: JsonObject {
+        readonly property real thickness: 1
     }
 }
