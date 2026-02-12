@@ -24,12 +24,13 @@
     gtk3 = {
       extraConfig.gtk-application-prefer-dark-theme = true;
     };
-    home.pointerCursor = {
-      gtk.enable = true;
-      name = "Catppuccin-Macchiato-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
-      size = 16;
-    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    name = "Catppuccin-Macchiato-Dark-Cursors";
+    package = pkgs.catppuccin-cursors.macchiatoDark;
+    size = 16;
   };
 
   dconf.settings = {
