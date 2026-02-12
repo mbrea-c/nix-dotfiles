@@ -3,7 +3,7 @@
   gtk = {
     enable = true;
     theme = {
-      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      name = "catppuccin-macchiato-blue-standard";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
         size = "standard";
@@ -18,7 +18,7 @@
       };
     };
     cursorTheme = {
-      name = "Catppuccin-Macchiato-Dark-Cursors";
+      name = "Catppuccin Macchiato Dark";
       package = pkgs.catppuccin-cursors.macchiatoDark;
     };
     gtk3 = {
@@ -28,20 +28,20 @@
 
   home.pointerCursor = {
     gtk.enable = true;
-    name = "Catppuccin-Macchiato-Dark-Cursors";
+    name = "Catppuccin Macchiato Dark";
     package = pkgs.catppuccin-cursors.macchiatoDark;
     size = 16;
   };
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      gtk-theme = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      gtk-theme = "catppuccin-macchiato-blue-standard";
       color-scheme = "prefer-dark";
     };
 
     # For Gnome shell
     "org/gnome/shell/extensions/user-theme" = {
-      name = "Catppuccin-Macchiato-Standard-Blue-Dark";
+      name = "catppuccin-macchiato-blue-standard";
     };
   };
 }

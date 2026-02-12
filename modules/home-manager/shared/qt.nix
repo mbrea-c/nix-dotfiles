@@ -9,7 +9,7 @@
   xdg.configFile."Kvantum/kvantum.kvconfig".source =
     (pkgs.formats.ini { }).generate "kvantum.kvconfig"
       {
-        General.theme = "Catppuccin-Macchiato-Blue";
+        General.theme = "catppuccin-macchiato-blue";
       };
 
   systemd.user.sessionVariables = {
