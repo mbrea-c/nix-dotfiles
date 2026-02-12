@@ -38,6 +38,7 @@ in
     (import ./kitty.factory.nix params)
     (import ./vim.factory.nix params)
     ./qt.nix
+    ./gtk.nix
     ./zsh.nix
     ./fonts.nix
     (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
@@ -159,18 +160,6 @@ in
         text = builtins.readFile ../../../dotfiles/neovide/config.toml;
       };
     };
-  };
-
-  gtk = {
-    enable = true;
-    theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme;
-    };
-    # theme = {
-    #   name = "${colorscheme.slug}";
-    #   package = gtkThemeFromScheme { scheme = colorscheme; };
-    # };
   };
 
   programs.alacritty = {
