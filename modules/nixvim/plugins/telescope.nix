@@ -58,6 +58,12 @@ in
     }
     {
       mode = [ "n" ];
+      key = "<leader>sb";
+      action = "<cmd>Telescope buffers<CR>";
+      options = desc "Find open buffers";
+    }
+    {
+      mode = [ "n" ];
       key = "<leader>ssw";
       action = "<cmd>Telescope lsp_workspace_symbols<CR>";
       options = desc "Find symbols in workspace";
