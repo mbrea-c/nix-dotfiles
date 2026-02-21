@@ -5,6 +5,7 @@
     ubuntu-classic
     cascadia-code
     iosevka
+    cozette
     nerd-fonts.noto
     nerd-fonts.fira-code
   ];
@@ -20,6 +21,7 @@
         "Noto Color Emoji"
       ];
       monospace = [
+        "Cozette"
         "Iosevka"
         "Font Awesome 7 Free"
         "Noto Color Emoji"
