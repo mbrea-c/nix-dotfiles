@@ -21,7 +21,7 @@
         "Noto Color Emoji"
       ];
       monospace = [
-        "Cozette"
+        "CozetteVector"
         "Iosevka"
         "Font Awesome 7 Free"
         "Noto Color Emoji"

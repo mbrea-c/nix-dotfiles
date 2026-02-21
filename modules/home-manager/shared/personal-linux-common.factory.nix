@@ -66,15 +66,13 @@ in
       seahorse
       gcc
       rustup
-      xorg.xrandr
+      xrandr
       python3
       fastfetch
       lf
       yazi
       trash-cli
-      helix # For trying it out!
       vulkan-tools
-      sshfs # For backing up framevoid to nixframe
       brightnessctl
       ripgrep
       zathura
@@ -96,7 +94,6 @@ in
       unzip
 
       bottom
-      # grayjay
       shotman
       (pkgs.callPackage ../../../pkgs/tracy { })
     ])

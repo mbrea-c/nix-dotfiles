@@ -13,7 +13,7 @@ StyledRect {
 
     width: 24
     height: 24
-    radius: (workspace.active ? width / 2 : 2)
+    radius: (workspace.active ? width / 4 : 2)
 
     color: "transparent"
 
