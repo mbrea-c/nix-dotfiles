@@ -33,5 +33,23 @@
         "Noto Color Emoji"
       ];
     };
+    configFile = {
+      cozette = {
+        enable = true;
+        text = ''
+          <?xml version="1.0"?>
+          <fontconfig>
+            <match target="font">
+              <test name="family">
+                <string>CozetteVector</string>
+              </test>
+              <edit name="antialias" mode="assign">
+                <bool>false</bool>
+              </edit>
+            </match>
+          </fontconfig>
+        '';
+      };
+    };
   };
 }
