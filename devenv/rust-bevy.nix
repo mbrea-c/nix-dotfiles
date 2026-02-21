@@ -1,34 +1,36 @@
-{ pkgs, ... }: {
-  rust-bevy-fhs = (pkgs.buildFHSUserEnv {
-    name = "rust-bevy-fhs";
-    targetPkgs = pkgs:
-      with pkgs; [
-        pkg-config
-        udev.dev
-        alsa-lib.dev
-        vulkan-loader.dev
-        vulkan-headers
-        vulkan-tools
-        glfw
-        shaderc
-        libGL.dev
-        xorg.libX11.dev
-        xorg.libXrandr.dev
-        xorg.libxcb.dev
-        xorg.libXcursor.dev
-        xorg.libXi.dev
-        xorg.libXtst
-        libxkbcommon.dev
-        libxkbcommon
-        wayland.dev
-        openssl.dev
-        systemd.dev
-        fontconfig.dev
-        freetype.dev
-      ];
-    runScript = "${pkgs.zsh}/bin/zsh";
-    # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
-  }).env;
+{ pkgs, ... }:
+{
+  rust-bevy-fhs =
+    (pkgs.buildFHSUserEnv {
+      name = "rust-bevy-fhs";
+      targetPkgs =
+        pkgs: with pkgs; [
+          pkg-config
+          udev.dev
+          alsa-lib.dev
+          vulkan-loader.dev
+          vulkan-headers
+          vulkan-tools
+          glfw
+          shaderc
+          libGL.dev
+          libx11.dev
+          libxrandr.dev
+          libxcb.dev
+          libxcursor.dev
+          libxi.dev
+          libxtst
+          libxkbcommon.dev
+          libxkbcommon
+          wayland.dev
+          openssl.dev
+          systemd.dev
+          fontconfig.dev
+          freetype.dev
+        ];
+      runScript = "${pkgs.zsh}/bin/zsh";
+      # LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath (buildInputs ++ buildInputs);
+    }).env;
 
   rust-bevy = pkgs.mkShell rec {
     nativeBuildInputs = with pkgs; [
@@ -44,10 +46,10 @@
       alsa-lib
       vulkan-loader
       # X11
-      xorg.libX11
-      xorg.libXcursor
-      xorg.libXi
-      xorg.libXrandr
+      libx11
+      libxcursor
+      libxi
+      libxrandr
       # Wayland
       libxkbcommon
       wayland
