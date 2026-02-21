@@ -5,6 +5,8 @@
     ubuntu-classic
     cascadia-code
     iosevka
+    monoid
+    nerd-fonts.monoid
     nerd-fonts.noto
     nerd-fonts.fira-code
   ];
@@ -20,7 +22,9 @@
         "Noto Color Emoji"
       ];
       monospace = [
-        "Iosevka"
+        # "Iosevka"
+        "Monoid"
+        "Monoid Nerd Font"
         "Font Awesome 7 Free"
         "Noto Color Emoji"
         "FiraCode Nerd Font"
