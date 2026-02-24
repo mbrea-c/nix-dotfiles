@@ -20,7 +20,7 @@ let
       blender
       gimp
       libresprite
-      krita
+      # krita # currently failing to build on unstable
       inkscape
     ])
     ++ [
