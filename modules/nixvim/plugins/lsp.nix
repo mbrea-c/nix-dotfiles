@@ -6,46 +6,59 @@
     "ts_ls"
     "nil_ls"
   ];
-  plugins = {
-    lsp = {
-      enable = true;
-      servers = {
-        nil_ls.enable = true;
-        # nixd.enable = true;
-        rust_analyzer = {
-          enable = true;
-          # We manage our own cargo versions with rustup
-          installCargo = false;
-          installRustc = false;
-          # We manage rust-analyzer with rustup, as the versions need to be
-          # aligned with cargo
-          # Only use nix-managed RA as last-resort
-          packageFallback = true;
+  lsp = {
+    enable = true;
+    servers = {
+      nil_ls.enable = true;
+      # nixd.enable = true;
+      rust_analyzer = {
+        enable = true;
+        # We manage our own cargo versions with rustup
+        installCargo = false;
+        installRustc = false;
+        # We manage rust-analyzer with rustup, as the versions need to be
+        # aligned with cargo
+        # Only use nix-managed RA as last-resort
+        packageFallback = true;
+      };
+      # wgsl_analyzer.enable = true;
+      taplo.enable = true;
+      bashls.enable = true;
+      jsonls.enable = true;
+      qmlls.enable = true;
+      # basedpyright.enable = true;
+      ty.enable = true;
+      marksman.enable = true;
+      ts_ls.enable = true;
+      # sqls.enable = true;
+      cssls.enable = true;
+      tinymist.enable = true;
+      lua_ls.enable = true;
+      kotlin_language_server = {
+        enable = true;
+        settings = {
+          kotlin.formatting.formatter = "none";
         };
-        # wgsl_analyzer.enable = true;
-        taplo.enable = true;
-        bashls.enable = true;
-        jsonls.enable = true;
-        qmlls.enable = true;
-        # basedpyright.enable = true;
-        ty.enable = true;
-        marksman.enable = true;
-        ts_ls.enable = true;
-        # sqls.enable = true;
-        cssls.enable = true;
-        tinymist.enable = true;
-        lua_ls.enable = true;
-        kotlin_language_server = {
-          enable = true;
-          settings = {
-            kotlin.formatting.formatter = "none";
-          };
+      };
+      metals.enable = true;
+      nushell.enable = true;
+      yamlls.enable = true;
+      # Groovy LSP does not work
+      # groovyls.enable = true;
+      ron_lsp = {
+        enable = true;
+        package = pkgs.ron-lsp;
+        config = {
+          cmd = [ "ron-lsp" ];
+          filetypes = [ "ron" ];
+          root_dir.__raw = ''
+            function(fname)
+              local util = require("lspconfig.util")
+              return util.root_pattern("Cargo.toml", ".git")(fname) or vim.loop.cwd()
+            end
+          '';
+          settings = { };
         };
-        metals.enable = true;
-        nushell.enable = true;
-        yamlls.enable = true;
-        # Groovy LSP does not work
-        # groovyls.enable = true;
       };
     };
     none-ls = {
