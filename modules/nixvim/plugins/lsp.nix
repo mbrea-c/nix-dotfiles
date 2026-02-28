@@ -45,13 +45,10 @@
         config = {
           cmd = [ "ron-lsp" ];
           filetypes = [ "ron" ];
-          root_dir.__raw = ''
-            function(fname)
-              local util = require("lspconfig.util")
-              return util.root_pattern("Cargo.toml", ".git")(fname) or vim.loop.cwd()
-            end
-          '';
-          settings = { };
+          root_markers = [
+            "Cargo.toml"
+            ".git"
+          ];
         };
       };
     };
