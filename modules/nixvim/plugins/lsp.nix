@@ -57,6 +57,7 @@
     };
   };
   plugins = {
+    lsp.enable = true;
     none-ls = {
       enable = true;
       sources = {
