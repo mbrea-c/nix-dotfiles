@@ -17,6 +17,10 @@
           # We manage our own cargo versions with rustup
           installCargo = false;
           installRustc = false;
+          # We manage rust-analyzer with rustup, as the versions need to be
+          # aligned with cargo
+          # Only use nix-managed RA as last-resort
+          packageFallback = true;
         };
         # wgsl_analyzer.enable = true;
         taplo.enable = true;
