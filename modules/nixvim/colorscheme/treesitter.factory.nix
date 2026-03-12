@@ -56,6 +56,10 @@ in
       fg = palette.blue;
       bold = true;
     };
+    "@function.method" = {
+      fg = palette.cyan;
+      bold = true;
+    };
     "@keyword" = {
       fg = palette.green;
       bold = true;
@@ -66,10 +70,6 @@ in
     };
     "@label" = {
       fg = palette.color7;
-    };
-    "@method" = {
-      fg = palette.cyan;
-      bold = true;
     };
     "@namespace" = {
       fg = darken 0.1 (desaturate 0.2 palette.cyan);
