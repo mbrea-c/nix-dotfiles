@@ -41,13 +41,13 @@ in
       link = "@constant";
     };
     "@lsp.type.event" = {
-      link = "@method";
+      link = "@function.method";
     };
     "@lsp.type.function" = {
       link = "@function";
     };
     "@lsp.type.method" = {
-      link = "@method";
+      link = "@function.method";
     };
     "@lsp.type.macro" = {
       link = "@macro";
