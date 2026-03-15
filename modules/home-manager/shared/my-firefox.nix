@@ -46,13 +46,31 @@
 
       search = {
         force = true;
-        default = "ddg";
+        default = "eco";
         order = [
+          "eco"
           "ddg"
           "google"
         ];
 
         engines = {
+          ecosia = {
+            name = "Ecosia";
+            urls = [
+              {
+                template = "https://www.ecosia.org/search?method=index&q={searchTerms}";
+                params = [
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            definedAliases = [ "@eco" ];
+          };
+
           nix-packages = {
             name = "Nix Packages";
             urls = [
