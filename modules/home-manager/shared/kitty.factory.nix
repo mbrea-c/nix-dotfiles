@@ -28,6 +28,17 @@ in
         map ctrl+shift+c copy_to_clipboard
         map cmd+c copy_to_clipboard
 
+        map ctrl+shift+equal change_font_size all +1.0
+        map ctrl+shift+plus change_font_size all +1.0
+        map cmd+equal change_font_size all +1.0
+        map cmd+plus change_font_size all +1.0
+
+        map ctrl+shift+minus change_font_size all -1.0
+        map cmd+minus change_font_size all -2.0
+
+        map ctrl+shift+0 change_font_size all 0
+        map cmd+0 change_font_size all 0
+
         # Colors
         cursor ${cu.hexstring palette.foreground}
         cursor_text_color background
