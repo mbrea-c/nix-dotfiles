@@ -30,7 +30,7 @@
       lua_ls.enable = true;
       kotlin_language_server = {
         enable = true;
-        settings = {
+        config = {
           kotlin.formatting.formatter = "none";
         };
       };
