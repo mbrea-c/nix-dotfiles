@@ -46,9 +46,9 @@
 
       search = {
         force = true;
-        default = "Ecosia";
+        default = "ecosia";
         order = [
-          "Ecosia"
+          "ecosia"
           "ddg"
           "google"
         ];
