@@ -86,6 +86,8 @@ in
       teamtype
       transmission_4-gtk
 
+      opencode
+
       # xfce.thunar
       # xfce.thunar-archive-plugin
       nemo
