@@ -61,6 +61,7 @@
         formatting = {
           prettier = {
             enable = true;
+            package = pkgs.prettier;
             # I have my own mechanism for disabling this
             disableTsServerFormatter = false;
           };
