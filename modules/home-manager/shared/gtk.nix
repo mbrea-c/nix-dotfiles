@@ -1,15 +1,22 @@
 { pkgs, ... }:
+let
+  catpuccin-gtk-theme = {
+    name = "catppuccin-macchiato-blue-standard";
+    package = pkgs.catppuccin-gtk.override {
+      accents = [ "blue" ];
+      size = "standard";
+      variant = "macchiato";
+    };
+  };
+in
 {
   gtk = {
     enable = true;
-    theme = {
-      name = "catppuccin-macchiato-blue-standard";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "blue" ];
-        size = "standard";
-        variant = "macchiato";
-      };
-    };
+
+    gtk2.theme = catpuccin-gtk-theme;
+    gtk3.theme = catpuccin-gtk-theme;
+    gtk4.theme = catpuccin-gtk-theme;
+
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {

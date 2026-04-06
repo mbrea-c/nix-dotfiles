@@ -219,6 +219,7 @@ in
       };
     };
     lfs.enable = true;
+    signing.format = "openpgp";
   };
 
   programs.direnv = {
