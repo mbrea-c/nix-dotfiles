@@ -20,6 +20,10 @@ in
 
     settings = {
       "$mod" = "SUPER";
+
+      "$menu" = "rofi -dmenu -matching fuzzy";
+      "$menu_launcher" = "rofi -show drun -matching fuzzy -show-icons";
+
       animation = [
         "windows, 1, 1, default"
       ];
@@ -37,10 +41,11 @@ in
 
         "$mod, Q, killactive"
         "$mod, F, fullscreen, 0, toggle"
-        "$mod, Return, exec, kitty"
         "$mod SHIFT, C, exec, hyprctl reload"
-
         "$mod, v, exec, hyprctl reload"
+
+        "$mod, Return, exec, kitty"
+        "$mod, D, exec, $menu_launcher"
       ]
       ++ builtins.concatLists (
         builtins.genList (
