@@ -1,3 +1,4 @@
+params@{ caelestia-shell, ... }:
 { pkgs, ... }:
 let
   flakeRoot = ../../../.;
@@ -10,6 +11,9 @@ let
     };
 in
 {
+  imports = [
+    (import ./caelestia.factory.nix params)
+  ];
   wayland.windowManager.hyprland = {
     enable = true;
 

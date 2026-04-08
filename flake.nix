@@ -38,6 +38,11 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   # ----------------------------------------------------------------------------
@@ -50,6 +55,7 @@
       nix-colors,
       nix-color-utils,
       nixvim,
+      caelestia-shell,
       ...
     }@inputs:
     let
@@ -59,6 +65,7 @@
           nix-colors
           nix-color-utils
           nixvim
+          caelestia-shell
           ;
       };
       forSystems = (import ./utils/for-systems.nix) { lib = nixpkgs.lib; };
