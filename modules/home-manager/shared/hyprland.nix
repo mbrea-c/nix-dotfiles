@@ -42,7 +42,7 @@ in
         "$mod, Q, killactive"
         "$mod, F, fullscreen, 0, toggle"
         "$mod SHIFT, C, exec, hyprctl reload"
-        "$mod, v, exec, hyprctl reload"
+        "$mod, v, layoutmsg, togglesplit"
 
         "$mod, Return, exec, kitty"
         "$mod, D, exec, $menu_launcher"
@@ -65,6 +65,10 @@ in
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizewindow"
       ];
+
+      dwindle = {
+        preserve_split = true;
+      };
     };
   };
 
