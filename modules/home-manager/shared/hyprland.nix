@@ -20,6 +20,9 @@ in
 
     settings = {
       "$mod" = "SUPER";
+      animation = [
+        "windows, 1, 1, default"
+      ];
       bind = [
         # Move focus with vim keys
         "$mod, h, movefocus, l"
@@ -36,6 +39,8 @@ in
         "$mod, F, fullscreen, 0, toggle"
         "$mod, Return, exec, kitty"
         "$mod SHIFT, C, exec, hyprctl reload"
+
+        "$mod, v, exec, hyprctl reload"
       ]
       ++ builtins.concatLists (
         builtins.genList (
