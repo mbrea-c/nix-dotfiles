@@ -33,6 +33,7 @@ in
         "$mod SHIFT, l, movewindow, r"
 
         "$mod, Q, killactive"
+        "$mod, F, fullscreen, 0, toggle"
         "$mod, Return, exec, kitty"
         "$mod SHIFT, C, exec, hyprctl reload"
       ]
