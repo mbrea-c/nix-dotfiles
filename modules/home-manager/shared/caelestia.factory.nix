@@ -3,10 +3,11 @@
 let
   flakeRoot = ../../../.;
   systemd-utils = (import (flakeRoot + /utils/systemd.nix)) { };
+  caelestia-shell-pkg = caelestia-shell.packages."${pkgs.system}".default;
 in
 {
   imports = [ caelestia-shell.homeManagerModules.default ];
-  home.packages = [ caelestia-shell.packages."${pkgs.system}".default ];
+  home.packages = [ caelestia-shell-pkg ];
 
   programs.caelestia = {
     enable = true;
@@ -25,10 +26,10 @@ in
   };
 
   systemd.user.services = {
-    quickshell = systemd-utils.make-session-service {
+    caelestia = systemd-utils.make-session-service {
       target = "hyprland-session.target";
       desc = "Caelestia shell";
-      exec = "${pkgs.quickshell}/bin/quickshell";
+      exec = "${caelestia-shell-pkg}/bin/caelestia-shell";
     };
   };
 
