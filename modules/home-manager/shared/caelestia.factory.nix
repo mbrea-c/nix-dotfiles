@@ -7,7 +7,6 @@ let
 in
 {
   imports = [ caelestia-shell.homeManagerModules.default ];
-  home.packages = [ caelestia-shell-pkg ];
 
   programs.caelestia = {
     enable = true;
