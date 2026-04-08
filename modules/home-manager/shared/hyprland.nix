@@ -27,6 +27,7 @@ in
         "$mod, k, movefocus, u"
         "$mod, l, movefocus, r"
 
+        "$mod, Q, killactive"
         "$mod, Return, exec, kitty"
         "$mod SHIFT, C, exec, hyprctl reload"
       ]
