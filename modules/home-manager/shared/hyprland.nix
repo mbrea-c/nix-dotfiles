@@ -21,18 +21,26 @@ in
     settings = {
       "$mod" = "SUPER";
       bind = [
+        # Move focus with vim keys
+        "$mod, h, movefocus, l"
+        "$mod, j, movefocus, d"
+        "$mod, k, movefocus, u"
+        "$mod, l, movefocus, r"
+
         "$mod, Return, exec, kitty"
-        "$mod SHIFT, C, reload"
+        "$mod SHIFT, C, exec, hyprctl reload"
       ]
       ++ builtins.concatLists (
         builtins.genList (
           i:
           let
             ws = i + 1;
+            mod = a: b: a - (builtins.div a b) * b;
+            key = mod ws 10;
           in
           [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            "$mod, code:1${toString key}, workspace, ${toString ws}"
+            "$mod SHIFT, code:1${toString key}, movetoworkspace, ${toString ws}"
           ]
         ) 9
       );
