@@ -19,7 +19,11 @@ in
     cli = {
       enable = true; # Also add caelestia-cli to path
       settings = {
-        theme.enableGtk = false;
+        theme = {
+          enableTerm = false;
+          enableGtk = true;
+          enableQt = true;
+        };
       };
     };
   };
@@ -31,5 +35,4 @@ in
       exec = "${caelestia-shell-pkg}/bin/caelestia-shell";
     };
   };
-
 }
