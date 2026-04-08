@@ -30,6 +30,7 @@ in
 {
   imports = [
     nix-colors.homeManagerModules.default
+    ./hyprland.nix
     ./sway/swayx.nix
     ./sway/sway-home-deps.nix
     ./virtual-machines.nix

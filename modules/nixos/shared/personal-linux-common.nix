@@ -2,6 +2,7 @@
 {
   imports = [
     ./sway.nix
+    ./hyprland.nix
     ./gaming.nix
     ./virtual-machines.nix
     # ../modules/cosmic.nix
