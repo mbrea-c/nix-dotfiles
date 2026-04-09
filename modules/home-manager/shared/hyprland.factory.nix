@@ -45,11 +45,14 @@ in
 
         "$mod, Q, killactive"
         "$mod, F, fullscreen, 0, toggle"
-        "$mod SHIFT, C, exec, hyprctl reload"
         "$mod, v, layoutmsg, togglesplit"
 
+        # Reload desktop configs
+        "$mod SHIFT, c, exec, hyprctl reload"
+        "$mod SHIFT, c, exec, systemctl --user restart caelestia.service"
+
         "$mod, Return, exec, kitty"
-        "$mod, D, exec, $menu_launcher"
+        "$mod, d, global, caelestia:launcher"
       ]
       ++ builtins.concatLists (
         builtins.genList (
@@ -70,6 +73,31 @@ in
         "$mod, mouse:273, resizewindow"
       ];
 
+      bindl = [
+        # Media
+        "$mod CTRL, Space, global, caelestia:mediaToggle"
+        ", XF86AudioPlay, global, caelestia:mediaToggle"
+        ", XF86AudioPause, global, caelestia:mediaToggle"
+        "$mod CTRL, Equal, global, caelestia:mediaNext"
+        ", XF86AudioNext, global, caelestia:mediaNext"
+        "$mod CTRL, Minus, global, caelestia:mediaPrev"
+        ", XF86AudioPrev, global, caelestia:mediaPrev"
+        ", XF86AudioStop, global, caelestia:mediaStop"
+
+        # Brightness
+        ", XF86MonBrightnessUp, global, caelestia:brightnessUp"
+        ", XF86MonBrightnessDown, global, caelestia:brightnessDown"
+
+        # Audio
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      ];
+
+      bindle = [
+        ", XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ];
+
       dwindle = {
         preserve_split = true;
       };
@@ -77,10 +105,6 @@ in
   };
 
   systemd.user.services = {
-    mako-srv = make-srv {
-      desc = "Notification daemon";
-      exec = "${pkgs.mako}/bin/mako";
-    };
     gammastep-srv = make-srv {
       desc = "Night light for wayland sessions";
       exec = "${pkgs.gammastep}/bin/gammastep";
@@ -96,6 +120,13 @@ in
     polkit-gnome-authentication-agent-1 = make-srv {
       desc = "Polkit GNOME authentication agent";
       exec = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+    };
+  };
+
+  xdg.configFile = {
+    "gammastep" = {
+      source = flakeRoot + /dotfiles/gammastep;
+      recursive = true;
     };
   };
 }

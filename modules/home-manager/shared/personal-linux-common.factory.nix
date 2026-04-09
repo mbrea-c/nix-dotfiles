@@ -31,8 +31,8 @@ in
   imports = [
     nix-colors.homeManagerModules.default
     (import ./hyprland.factory.nix params)
-    ./sway/swayx.nix
-    ./sway/sway-home-deps.nix
+    # ./sway/swayx.nix
+    # ./sway/sway-home-deps.nix
     ./virtual-machines.nix
     ./my-firefox.nix
     (import ./ghostty.factory.nix params)

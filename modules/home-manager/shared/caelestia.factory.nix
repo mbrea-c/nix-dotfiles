@@ -15,6 +15,15 @@ in
     };
     settings = {
       paths.wallpaperDir = "~/Pictures/wallpapers";
+      launcher = {
+        vimKeybinds = true;
+      };
+      session = {
+        vimKeybinds = true;
+      };
+      appearance = {
+        rounding.scale = 0.5;
+      };
     };
     cli = {
       enable = true; # Also add caelestia-cli to path
