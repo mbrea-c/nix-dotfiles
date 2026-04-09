@@ -44,4 +44,17 @@ in
       exec = "${caelestia-shell-pkg}/bin/caelestia-shell";
     };
   };
+
+  # Quickfix while this is sorted: https://github.com/caelestia-dots/shell/pull/1372
+  home.packages =
+    let
+      material-symbols-caelestia = pkgs.material-symbols.overrideAttrs (attrs: {
+        postInstall = ''
+          ln -s "$out/share/fonts/TTF/MaterialSymbolsRounded.ttf" "$out/share/fonts/TTF/MaterialSymbolsRounded[FILL,GRAD,opsz,wght].ttf"
+          ln -s "$out/share/fonts/TTF/MaterialSymbolsOutlined.ttf" "$out/share/fonts/TTF/MaterialSymbolsOutlined[FILL,GRAD,opsz,wght].ttf"
+          ln -s "$out/share/fonts/TTF/MaterialSymbolsSharp.ttf" "$out/share/fonts/TTF/MaterialSymbolsSharp[FILL,GRAD,opsz,wght].ttf"
+        '';
+      });
+    in
+    [ material-symbols-caelestia ];
 }
