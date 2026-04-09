@@ -116,10 +116,6 @@ in
     "$HOME/scripts"
   ];
 
-  swayx = {
-    enable = true;
-  };
-
   xdg = {
     enable = true;
     userDirs = {
