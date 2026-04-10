@@ -105,7 +105,8 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
       workspace =
-        workspacesInMonitor 0 4 "BOE 0x0BC9" ++ workspacesInMonitor 4 9 "Dell Inc. DELL S2721DGF GV1KT83";
+        (workspacesInMonitor 0 4 "BOE 0x0BC9")
+        ++ (workspacesInMonitor 4 9 "Dell Inc. DELL S2721DGF GV1KT83");
 
       dwindle = {
         preserve_split = true;
