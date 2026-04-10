@@ -63,12 +63,12 @@ in
         "$mod, Return, exec, kitty"
         "$mod, d, global, caelestia:launcher"
       ]
-      ++ flattenedGenLists 9 (
+      ++ flattenedGenLists 10 (
         i:
         let
-          ws = i + 1;
-          mod = a: b: a - (builtins.div a b) * b;
-          key = mod ws 10;
+          ws = i;
+          # mod = a: b: a - (builtins.div a b) * b;
+          key = i;
         in
         [
           (builtins.trace "$mod, code:1${toString key}, workspace, ${toString ws}" "$mod, code:1${toString key}, workspace, ${toString ws}")
@@ -106,7 +106,7 @@ in
       ];
       workspace =
         (workspacesInMonitor 0 4 "BOE 0x0BC9")
-        ++ (workspacesInMonitor 4 9 "Dell Inc. DELL S2721DGF GV1KT83");
+        ++ (workspacesInMonitor 4 10 "Dell Inc. DELL S2721DGF GV1KT83");
 
       dwindle = {
         preserve_split = true;
