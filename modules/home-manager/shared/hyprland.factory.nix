@@ -9,6 +9,15 @@ let
       target = "hyprland-session.target";
       inherit desc exec;
     };
+
+  flattenedGenLists = end: func: builtins.concatLists (builtins.genList func end);
+
+  workspacesInMonitor =
+    start: end: monitorDesc:
+    let
+      count = end - start;
+    in
+    flattenedGenLists count (i: "${start + i}, monitor:desc:${monitorDesc}");
 in
 {
   imports = [
@@ -54,19 +63,17 @@ in
         "$mod, Return, exec, kitty"
         "$mod, d, global, caelestia:launcher"
       ]
-      ++ builtins.concatLists (
-        builtins.genList (
-          i:
-          let
-            ws = i + 1;
-            mod = a: b: a - (builtins.div a b) * b;
-            key = mod ws 10;
-          in
-          [
-            "$mod, code:1${toString key}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString key}, movetoworkspace, ${toString ws}"
-          ]
-        ) 9
+      ++ flattenedGenLists 9 (
+        i:
+        let
+          ws = i + 1;
+          mod = a: b: a - (builtins.div a b) * b;
+          key = mod ws 10;
+        in
+        [
+          "$mod, code:1${toString key}, workspace, ${toString ws}"
+          "$mod SHIFT, code:1${toString key}, movetoworkspace, ${toString ws}"
+        ]
       );
       bindm = [
         "$mod, mouse:272, movewindow"
@@ -97,6 +104,8 @@ in
         ", XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
         ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
+      workspace =
+        workspacesInMonitor 0 4 "BOE 0x0BC9" ++ workspacesInMonitor 4 9 "Dell Inc. DELL S2721DGF GV1KT83";
 
       dwindle = {
         preserve_split = true;
