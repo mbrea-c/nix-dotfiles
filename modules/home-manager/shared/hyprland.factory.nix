@@ -108,6 +108,15 @@ in
         (workspacesInMonitor 0 4 "BOE 0x0BC9")
         ++ (workspacesInMonitor 4 10 "Dell Inc. DELL S2721DGF GV1KT83");
 
+      general = {
+        gaps_out = 5;
+        gaps_in = 5;
+      };
+
+      decoration = {
+        rounding = 5;
+      };
+
       dwindle = {
         preserve_split = true;
       };
