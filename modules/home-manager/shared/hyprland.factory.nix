@@ -71,8 +71,8 @@ in
           key = mod ws 10;
         in
         [
-          (builtins.trace "$mod, code:1${toString key}, workspace, ${toString ws}" "$mod, code:1${toString key}, workspace, ${toString ws}")
-          "$mod SHIFT, code:1${toString key}, movetoworkspace, ${toString ws}"
+          (builtins.trace "$mod, ${toString key}, workspace, ${toString ws}" "$mod, ${toString key}, workspace, ${toString ws}")
+          "$mod SHIFT, ${toString key}, movetoworkspace, ${toString ws}"
         ]
       );
       bindm = [
