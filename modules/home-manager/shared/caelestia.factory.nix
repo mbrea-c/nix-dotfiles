@@ -3,7 +3,7 @@
 let
   flakeRoot = ../../../.;
   systemd-utils = (import (flakeRoot + /utils/systemd.nix)) { };
-  caelestia-shell-pkg = caelestia-shell.packages."${pkgs.system}".default;
+  caelestia-shell-pkg = caelestia-shell.packages."${pkgs.stdenv.hostPlatform.system}".default;
 in
 {
   imports = [ caelestia-shell.homeManagerModules.default ];
