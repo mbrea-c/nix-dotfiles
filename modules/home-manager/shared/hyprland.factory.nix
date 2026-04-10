@@ -17,7 +17,7 @@ let
     let
       count = end - start;
     in
-    flattenedGenLists count (i: "${start + i}, monitor:desc:${monitorDesc}");
+    flattenedGenLists count (i: "${toString (start + i)}, monitor:desc:${monitorDesc}");
 in
 {
   imports = [
