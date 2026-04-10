@@ -63,22 +63,17 @@ in
         "$mod, Return, exec, kitty"
         "$mod, d, global, caelestia:launcher"
       ]
-      ++ (
+      ++ flattenedGenLists 9 (
+        i:
         let
-          val = flattenedGenLists 9 (
-            i:
-            let
-              ws = i + 1;
-              mod = a: b: a - (builtins.div a b) * b;
-              key = mod ws 10;
-            in
-            [
-              "$mod, code:1${toString key}, workspace, ${toString ws}"
-              "$mod SHIFT, code:1${toString key}, movetoworkspace, ${toString ws}"
-            ]
-          );
+          ws = i + 1;
+          mod = a: b: a - (builtins.div a b) * b;
+          key = mod ws 10;
         in
-        builtins.trace val val
+        [
+          (builtins.trace "$mod, code:1${toString key}, workspace, ${toString ws}" "$mod, code:1${toString key}, workspace, ${toString ws}")
+          "$mod SHIFT, code:1${toString key}, movetoworkspace, ${toString ws}"
+        ]
       );
       bindm = [
         "$mod, mouse:272, movewindow"
