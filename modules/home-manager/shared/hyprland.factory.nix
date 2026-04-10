@@ -109,8 +109,8 @@ in
         ++ (workspacesInMonitor 4 10 "Dell Inc. DELL S2721DGF GV1KT83");
 
       general = {
-        gaps_out = 5;
-        gaps_in = 5;
+        gaps_out = 8;
+        gaps_in = 4;
       };
 
       decoration = {
