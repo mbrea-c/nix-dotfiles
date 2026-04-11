@@ -31,9 +31,9 @@ in
       name = "Catppuccin Macchiato Dark";
       package = pkgs.catppuccin-cursors.macchiatoDark;
     };
-    gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
-    };
+    # gtk3 = {
+    #   extraConfig.gtk-application-prefer-dark-theme = true;
+    # };
   };
 
   home.pointerCursor = {
@@ -43,15 +43,15 @@ in
     size = 16;
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      gtk-theme = "catppuccin-macchiato-blue-standard";
-      color-scheme = "prefer-dark";
-    };
+  # dconf.settings = {
+  #   "org/gnome/desktop/interface" = {
+  #     gtk-theme = "catppuccin-macchiato-blue-standard";
+  #     color-scheme = "prefer-dark";
+  #   };
 
-    # For Gnome shell
-    "org/gnome/shell/extensions/user-theme" = {
-      name = "catppuccin-macchiato-blue-standard";
-    };
-  };
+  #   # For Gnome shell
+  #   "org/gnome/shell/extensions/user-theme" = {
+  #     name = "catppuccin-macchiato-blue-standard";
+  #   };
+  # };
 }
