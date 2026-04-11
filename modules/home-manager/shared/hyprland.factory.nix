@@ -62,8 +62,10 @@ in
         "$mod SHIFT, c, exec, systemctl --user restart caelestia.service"
 
         "$mod, Return, exec, kitty"
+
         "$mod, d, global, caelestia:launcher"
         "$mod, s, global, caelestia:sidebar"
+        "$mod SHIFT, e, global, caelestia:session"
       ]
       ++ flattenedGenLists 10 (
         i:
