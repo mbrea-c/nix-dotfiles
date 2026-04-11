@@ -54,7 +54,8 @@ in
 
         "$mod, Q, killactive"
         "$mod, F, fullscreen, 0, toggle"
-        "$mod, v, layoutmsg, togglesplit"
+        "$mod, b, layoutmsg, togglesplit"
+        "$mod SHIFT, Space, togglefloating"
 
         # Reload desktop configs
         "$mod SHIFT, c, exec, hyprctl reload"
