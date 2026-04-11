@@ -42,6 +42,7 @@ in
     ./gtk.nix
     ./zsh.nix
     ./fonts.nix
+    ./swayimg.nix
     (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
   ];
 
@@ -79,8 +80,6 @@ in
       zathura
       graphviz
       libheif
-      imv
-      swayimg # image viewer
       typst
       d-spy
       zotero
@@ -156,10 +155,6 @@ in
       };
     };
     desktopEntries = {
-      imv = {
-        name = "imv";
-        exec = "${pkgs.imv}/bin/imv";
-      };
       discord = {
         name = "Discord";
         type = "Application";
