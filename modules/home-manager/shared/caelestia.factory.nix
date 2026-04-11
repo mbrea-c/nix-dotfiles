@@ -8,6 +8,8 @@ in
 {
   imports = [ caelestia-shell.homeManagerModules.default ];
 
+  home.packages = with pkgs; [ adw-gtk3 ];
+
   programs.caelestia = {
     enable = true;
     systemd = {
