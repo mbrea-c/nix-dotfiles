@@ -8,7 +8,10 @@ in
 {
   imports = [ caelestia-shell.homeManagerModules.default ];
 
-  home.packages = with pkgs; [ adw-gtk3 ];
+  home.packages = with pkgs; [
+    adw-gtk3
+    rubik
+  ];
 
   programs.caelestia = {
     enable = true;
@@ -25,6 +28,14 @@ in
       };
       appearance = {
         rounding.scale = 0.5;
+        font = {
+          family = {
+            clock = "Rubik";
+            material = "Material Symbols Rounded";
+            mono = "monospace";
+            sans = "Rubik";
+          };
+        };
       };
       services = {
         useFahrenheit = false;
