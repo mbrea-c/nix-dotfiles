@@ -10,6 +10,7 @@
     nerd-fonts.monoid
     nerd-fonts.noto
     nerd-fonts.fira-code
+    rubrik
   ];
 
   # Fontconfig font fallbacks
@@ -17,7 +18,7 @@
     enable = true;
     defaultFonts = {
       sansSerif = [
-        "Ubuntu"
+        "Rubrik"
         "NotoSans Nerd Font"
         "Font Awesome 7 Free"
         "Noto Color Emoji"

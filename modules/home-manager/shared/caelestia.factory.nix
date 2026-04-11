@@ -30,10 +30,10 @@ in
         rounding.scale = 0.5;
         font = {
           family = {
-            clock = "Rubik";
+            clock = "sans-serif";
             material = "Material Symbols Rounded";
             mono = "monospace";
-            sans = "Rubik";
+            sans = "sans-serif";
           };
         };
       };
