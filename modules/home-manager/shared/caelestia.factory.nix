@@ -24,6 +24,11 @@ in
       appearance = {
         rounding.scale = 0.5;
       };
+      services = {
+        useFahrenheit = false;
+        useFahrenheitPerformance = false;
+        smartScheme = true;
+      };
     };
     cli = {
       enable = true; # Also add caelestia-cli to path
