@@ -79,7 +79,8 @@ in
       zathura
       graphviz
       libheif
-      imv # image viewer
+      imv
+      swayimg # image viewer
       typst
       d-spy
       zotero
@@ -131,8 +132,8 @@ in
       enable = true;
       defaultApplications = {
         # Check mime-types using `xdg-mime query filetype filename.extension`
-        "image/png" = "imv.desktop";
-        "image/jpeg" = "imv.desktop";
+        "image/png" = "swayimg.desktop";
+        "image/jpeg" = "swayimg.desktop";
         "text/html" = "firefox-beta.desktop";
         "application/pdf" = "org.pwmt.zathura.desktop";
         "x-scheme-handler/http" = "firefox-beta.desktop";
