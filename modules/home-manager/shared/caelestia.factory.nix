@@ -1,10 +1,5 @@
 { caelestia-shell, ... }:
 { pkgs, ... }:
-let
-  flakeRoot = ../../../.;
-  systemd-utils = (import (flakeRoot + /utils/systemd.nix)) { };
-  caelestia-shell-pkg = caelestia-shell.packages."${pkgs.stdenv.hostPlatform.system}".default;
-in
 {
   imports = [ caelestia-shell.homeManagerModules.default ];
 
@@ -15,7 +10,9 @@ in
   programs.caelestia = {
     enable = true;
     systemd = {
-      enable = false; # if you prefer starting from your compositor
+      enable = true; # if you prefer starting from your compositor
+      target = "hyprland-session.target";
+      environment = [ ];
     };
     settings = {
       paths.wallpaperDir = "~/Pictures/wallpapers";
@@ -51,14 +48,6 @@ in
           enableQt = true;
         };
       };
-    };
-  };
-
-  systemd.user.services = {
-    caelestia = systemd-utils.make-session-service {
-      target = "hyprland-session.target";
-      desc = "Caelestia shell";
-      exec = "${caelestia-shell-pkg}/bin/caelestia-shell";
     };
   };
 }
