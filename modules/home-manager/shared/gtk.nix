@@ -31,6 +31,7 @@ in
       name = "Catppuccin Macchiato Dark";
       package = pkgs.catppuccin-cursors.macchiatoDark;
     };
+    # Managed by caelestia
     # gtk3 = {
     #   extraConfig.gtk-application-prefer-dark-theme = true;
     # };
@@ -43,6 +44,7 @@ in
     size = 16;
   };
 
+  # Managed by caelestia
   # dconf.settings = {
   #   "org/gnome/desktop/interface" = {
   #     gtk-theme = "catppuccin-macchiato-blue-standard";
