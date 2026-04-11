@@ -31,9 +31,9 @@ in
       name = "Catppuccin Macchiato Dark";
       package = pkgs.catppuccin-cursors.macchiatoDark;
     };
-    gtk3 = {
-      extraConfig.gtk-application-prefer-dark-theme = true;
-    };
+    # gtk3 = {
+    #   extraConfig.gtk-application-prefer-dark-theme = true;
+    # };
   };
 
   home.pointerCursor = {
