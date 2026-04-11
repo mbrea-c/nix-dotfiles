@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  _catpuccin-gtk-theme = {
+  catpuccin-gtk-theme = {
     name = "catppuccin-macchiato-blue-standard";
     package = pkgs.catppuccin-gtk.override {
       accents = [ "blue" ];
@@ -13,9 +13,10 @@ in
   gtk = {
     enable = true;
 
-    # Caelestia will manage these for now
-    # gtk2.theme = catpuccin-gtk-theme;
-    # gtk3.theme = catpuccin-gtk-theme;
+    gtk2.theme = catpuccin-gtk-theme;
+    gtk3.theme = catpuccin-gtk-theme;
+    # Caelestia will manage this one for now
+    gtk4.theme = null;
     # gtk4.theme = catpuccin-gtk-theme;
 
     iconTheme = {
