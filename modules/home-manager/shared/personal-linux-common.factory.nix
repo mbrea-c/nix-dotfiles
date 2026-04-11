@@ -134,10 +134,25 @@ in
         # Check mime-types using `xdg-mime query filetype filename.extension`
         "image/png" = "swayimg.desktop";
         "image/jpeg" = "swayimg.desktop";
+        "image/jpg" = "swayimg.desktop";
+        "image/webp" = "swayimg.desktop";
+        "image/gif" = "swayimg.desktop";
+        "image/avif" = "swayimg.desktop";
+        "image/tiff" = "swayimg.desktop";
         "text/html" = "firefox-beta.desktop";
         "application/pdf" = "org.pwmt.zathura.desktop";
         "x-scheme-handler/http" = "firefox-beta.desktop";
         "x-scheme-handler/https" = "firefox-beta.desktop";
+      };
+
+      associations.added = {
+        "image/png" = [ "swayimg.desktop" ];
+        "image/jpeg" = [ "swayimg.desktop" ];
+        "image/jpg" = [ "swayimg.desktop" ];
+        "image/webp" = [ "swayimg.desktop" ];
+        "image/gif" = [ "swayimg.desktop" ];
+        "image/avif" = [ "swayimg.desktop" ];
+        "image/tiff" = [ "swayimg.desktop" ];
       };
     };
     desktopEntries = {
