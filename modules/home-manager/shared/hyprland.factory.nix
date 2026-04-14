@@ -11,13 +11,6 @@ let
     };
 
   flattenedGenLists = end: func: builtins.concatLists (builtins.genList func end);
-
-  workspacesInMonitor =
-    start: end: monitorDesc:
-    let
-      count = end - start;
-    in
-    builtins.genList (i: "${toString (start + i + 1)}, monitor:desc:${monitorDesc}") count;
 in
 {
   imports = [
@@ -109,8 +102,22 @@ in
         ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0; wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
       ];
       workspace =
-        (workspacesInMonitor 0 4 "BOE 0x0BC9")
-        ++ (workspacesInMonitor 4 10 "Dell Inc. DELL S2721DGF GV1KT83");
+        let
+          laptopMonitor = "BOE 0x0BC9";
+          externalMonitor = "Dell Inc. DELL S2721DGF GV1KT83";
+        in
+        [
+          "1,  monitor:desc:${laptopMonitor}, default:true"
+          "2,  monitor:desc:${laptopMonitor}"
+          "3,  monitor:desc:${laptopMonitor}"
+          "4,  monitor:desc:${laptopMonitor}"
+          "5,  monitor:desc:${laptopMonitor}"
+          "6,  monitor:desc:${externalMonitor}, default:true"
+          "7,  monitor:desc:${externalMonitor}"
+          "8,  monitor:desc:${externalMonitor}"
+          "9,  monitor:desc:${externalMonitor}"
+          "10, monitor:desc:${externalMonitor}"
+        ];
 
       general = {
         gaps_out = 8;
