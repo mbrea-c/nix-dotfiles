@@ -2,7 +2,8 @@
 let
   desc = d: { desc = d; };
   lu = (import ../../utils/lua-utils.nix) { };
-in {
+in
+{
   keymaps = [
     {
       key = "<C-n>";
@@ -15,7 +16,10 @@ in {
 
     # LSP stuff
     {
-      mode = [ "n" "v" ];
+      mode = [
+        "n"
+        "v"
+      ];
       key = "<leader>f";
       action.__raw = ''require("manulib").filtered_format'';
       options = desc "Format buffer (5s timeout)";
@@ -57,7 +61,10 @@ in {
       options = desc "Go to implementation";
     }
     {
-      mode = [ "n" "i" ];
+      mode = [
+        "n"
+        "i"
+      ];
       key = "<C-k>";
       action.__raw = "vim.lsp.buf.signature_help";
       options = desc "Signature help";
@@ -77,7 +84,7 @@ in {
     {
       mode = [ "n" ];
       key = "gr";
-      action = "<cmd>Telescope lsp_references<CR>";
+      action.__raw = "function() Snacks.picker.lsp_references() end";
       options = desc "References";
     }
     {
@@ -160,7 +167,11 @@ in {
 
     # Paste in macos
     {
-      mode = [ "n" "i" "v" ];
+      mode = [
+        "n"
+        "i"
+        "v"
+      ];
       key = "<D-v>";
       action = ''"+p'';
       options = desc "Paste from system clipboard";
