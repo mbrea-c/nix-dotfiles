@@ -46,18 +46,6 @@ in
   keymaps = [
     {
       mode = [ "n" ];
-      key = "<leader>sg";
-      action = "<cmd>Telescope live_grep_args<CR>";
-      options = desc "Live grep in workspace";
-    }
-    {
-      mode = [ "n" ];
-      key = "<leader>sf";
-      action = "<cmd>Telescope find_files<CR>";
-      options = desc "Find files in workspace";
-    }
-    {
-      mode = [ "n" ];
       key = "<leader>sb";
       action = "<cmd>Telescope buffers<CR>";
       options = desc "Find open buffers";
