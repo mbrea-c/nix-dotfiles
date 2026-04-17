@@ -69,7 +69,7 @@ in
         in
         [
           "$mod, ${toString key}, workspace, ${toString ws}"
-          "$mod SHIFT, ${toString key}, movetoworkspace, ${toString ws}"
+          "$mod SHIFT, ${toString key}, movetoworkspacesilent, ${toString ws}"
         ]
       );
       bindm = [
