@@ -35,7 +35,7 @@
         };
       };
       metals.enable = true;
-      nushell.enable = true;
+      # nushell.enable = true;
       yamlls.enable = true;
       # Groovy LSP does not work
       # groovyls.enable = true;
