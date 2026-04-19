@@ -33,6 +33,9 @@
           };
         };
       };
+      border = {
+        rounding = 10;
+      };
       services = {
         useFahrenheit = false;
         useFahrenheitPerformance = false;
