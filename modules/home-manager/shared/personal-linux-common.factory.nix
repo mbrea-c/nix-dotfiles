@@ -43,6 +43,7 @@ in
     ./zsh.nix
     ./fonts.nix
     ./swayimg.nix
+    ./opencode.nix
     (import (flakeRoot + /modules/shared/dotcolors.factory.nix) params)
   ];
 
@@ -86,8 +87,6 @@ in
       neovide
       teamtype
       transmission_4-gtk
-
-      opencode
 
       # xfce.thunar
       # xfce.thunar-archive-plugin
