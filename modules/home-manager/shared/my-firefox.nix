@@ -41,6 +41,8 @@
           return-youtube-dislikes
           zotero-connector
           tree-style-tab
+          improved-tube
+          tridactyl
         ];
       };
 
