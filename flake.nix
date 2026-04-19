@@ -4,7 +4,10 @@
   # ----------------------------------------------------------------------------
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Temporary swap to get this fix: https://nixpk.gs/pr-tracker.html?pr=506383
+    # TODO: Please remember to swap back later!!!!!!!
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     nix-colors.url = "github:misterio77/nix-colors";
 
