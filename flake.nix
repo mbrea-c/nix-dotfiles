@@ -4,10 +4,7 @@
   # ----------------------------------------------------------------------------
 
   inputs = {
-    # Temporary swap to get this fix: https://nixpk.gs/pr-tracker.html?pr=506383
-    # TODO: Please remember to swap back later!!!!!!!
-    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nix-colors.url = "github:misterio77/nix-colors";
 
@@ -43,7 +40,7 @@
     };
 
     caelestia-shell = {
-      url = "github:caelestia-dots/shell/v1.6.0";
+      url = "github:caelestia-dots/shell/v1.6.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
